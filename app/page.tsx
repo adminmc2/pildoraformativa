@@ -2,8 +2,8 @@ import { bookTitle, unitTitle, unitDescription } from "@/data/unidad2";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-sgel-light p-8 flex items-center justify-center">
-      <div className="max-w-4xl w-full space-y-12">
+    <div className="min-h-screen w-full bg-sgel-light p-4 md:p-8">
+      <div className="w-full space-y-12">
         {/* Prueba de Tipografías */}
         <div className="bg-white p-8 rounded-2xl shadow-lg space-y-8">
           <h1 className="text-5xl font-serif font-bold text-sgel-red">
