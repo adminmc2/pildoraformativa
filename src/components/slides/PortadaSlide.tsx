@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { bookTitle, unitTitle, unitDescription } from "@/data/unidad2";
+import { AnimatedButton } from "@/components/ui/AnimatedButton";
 
 export default function PortadaSlide() {
   return (
@@ -23,43 +24,29 @@ export default function PortadaSlide() {
       </div>
 
       {/* Layout principal: Grid de 2 columnas */}
-      <div className="min-h-screen w-full grid grid-cols-1 lg:grid-cols-[34%_66%]">
+      <div className="min-h-screen w-full grid grid-cols-1 lg:grid-cols-[30%_70%]">
 
         {/* Columna IZQUIERDA - Texto */}
-        <div className="relative z-10 flex items-center justify-center p-8 md:p-12 lg:p-16">
-          <div className="w-full max-w-2xl flex flex-col gap-6 lg:gap-8 text-left">
+        <div className="relative z-10 flex items-center justify-center p-4 md:p-6 lg:p-8">
+          <div className="w-full flex flex-col gap-6 lg:gap-8 text-left">
 
             {/* Título del libro */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-sgel-red leading-tight mt-16 lg:mt-0">
+            <h1 className="text-6xl md:text-7xl lg:text-8xl font-serif font-bold text-sgel-red leading-tight -mt-8 whitespace-nowrap">
               {bookTitle}
             </h1>
 
             {/* Título de la unidad */}
             <div className="space-y-4">
-              <div className="inline-block px-6 py-3 bg-sgel-blue/10 rounded-full">
-                <p className="text-sm md:text-base font-sans font-bold text-sgel-blue uppercase tracking-wide">
-                  Material Interactivo
-                </p>
-              </div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-normal text-sgel-dark leading-snug">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-normal text-sgel-dark leading-snug whitespace-nowrap">
                 {unitTitle}
               </h2>
             </div>
 
-            {/* Descripción */}
-            <p className="text-xl md:text-2xl font-sans text-sgel-dark/70">
-              {unitDescription}
-            </p>
-
             {/* Botón o indicador de continuar */}
-            <div className="flex items-start gap-4 mt-6">
-              <button className="flex items-center gap-3 px-8 py-4 bg-sgel-red text-white font-sans font-bold text-lg rounded-full shadow-xl hover:bg-sgel-red/90 hover:scale-105 transition-all duration-300 cursor-pointer">
-                <span>Comenzar</span>
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
+            <div className="flex items-center justify-end gap-4 mt-4 mr-[-3rem]">
+              <AnimatedButton />
             </div>
+
           </div>
         </div>
 
@@ -79,6 +66,13 @@ export default function PortadaSlide() {
           </div>
         </div>
 
+      </div>
+
+      {/* Texto debajo de la imagen */}
+      <div className="absolute bottom-20 right-0 w-[30%] z-10">
+        <p className="text-2xl md:text-3xl font-sans text-sgel-dark/70 text-center">
+          Material interactivo complementario
+        </p>
       </div>
     </div>
   );
