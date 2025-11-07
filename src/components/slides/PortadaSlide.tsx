@@ -1,26 +1,82 @@
 import Image from "next/image";
-import { bookTitle, unitTitle, unitDescription } from "@/data/unidad2";
+import { bookTitle, unitTitle } from "@/data/unidad2";
 import { AnimatedButton } from "@/components/ui/AnimatedButton";
 
 export default function PortadaSlide() {
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-sgel-light">
 
-      {/* Cuadrados de colores pequeños - UNA sola fila arriba a la derecha hasta el medio */}
-      <div className="absolute top-0 right-0 w-1/2 z-20 p-4 md:p-6">
-        <div className="grid grid-cols-8 md:grid-cols-12 gap-2 md:gap-3">
-          {/* Generamos UNA fila de cuadrados con los 4 colores SGEL */}
-          {Array.from({ length: 12 }).map((_, i) => {
-            const colors = ['bg-sgel-red', 'bg-sgel-blue', 'bg-sgel-yellow', 'bg-sgel-green'];
-            const colorClass = colors[i % 4];
-            return (
-              <div
-                key={i}
-                className={`aspect-square ${colorClass} rounded-sm md:rounded`}
-              ></div>
-            );
-          })}
-        </div>
+      {/* Cuadrados de colores estilo sketch - extendidos por la parte superior */}
+      <div className="absolute top-0 left-0 w-full z-20">
+        {/* Grupo desde el centro hacia la derecha */}
+
+        {/* Cuadrado 1 - Azul (centro-derecha) */}
+        <div className="absolute top-6 left-[52%] w-10 h-10 bg-sgel-blue border-[3px] border-sgel-dark rounded transform rotate-12"></div>
+
+        {/* Cuadrado 2 - Verde */}
+        <div className="absolute top-3 left-[58%] w-9 h-9 bg-sgel-green border-[3px] border-sgel-dark rounded transform -rotate-8"></div>
+
+        {/* Cuadrado 3 - Rojo */}
+        <div className="absolute top-8 left-[64%] w-12 h-12 bg-sgel-red border-[3px] border-sgel-dark rounded transform rotate-6"></div>
+
+        {/* Cuadrado 4 - Amarillo */}
+        <div className="absolute top-2 left-[70%] w-11 h-11 bg-sgel-yellow border-[3px] border-sgel-dark rounded transform -rotate-4"></div>
+
+        {/* Cuadrado 5 - Verde */}
+        <div className="absolute top-10 left-[76%] w-10 h-10 bg-sgel-green border-[3px] border-sgel-dark rounded transform rotate-15"></div>
+
+        {/* Cuadrado 6 - Azul */}
+        <div className="absolute top-4 left-[82%] w-13 h-13 bg-sgel-blue border-[3px] border-sgel-dark rounded transform -rotate-10"></div>
+
+        {/* Cuadrado 7 - Amarillo */}
+        <div className="absolute top-7 left-[88%] w-12 h-12 bg-sgel-yellow border-[3px] border-sgel-dark rounded transform rotate-8"></div>
+
+        {/* Cuadrado 8 - Rojo */}
+        <div className="absolute top-2 left-[94%] w-14 h-14 bg-sgel-red border-[3px] border-sgel-dark rounded transform -rotate-6"></div>
+
+        {/* Segunda fila - más abajo */}
+
+        {/* Cuadrado 9 - Amarillo */}
+        <div className="absolute top-16 left-[55%] w-8 h-8 bg-sgel-yellow border-[3px] border-sgel-dark rounded transform rotate-5"></div>
+
+        {/* Cuadrado 10 - Rojo */}
+        <div className="absolute top-18 left-[62%] w-10 h-10 bg-sgel-red border-[3px] border-sgel-dark rounded transform -rotate-12"></div>
+
+        {/* Cuadrado 11 - Azul */}
+        <div className="absolute top-20 left-[68%] w-9 h-9 bg-sgel-blue border-[3px] border-sgel-dark rounded transform rotate-7"></div>
+
+        {/* Cuadrado 12 - Verde */}
+        <div className="absolute top-17 left-[74%] w-11 h-11 bg-sgel-green border-[3px] border-sgel-dark rounded transform -rotate-9"></div>
+
+        {/* Cuadrado 13 - Rojo */}
+        <div className="absolute top-22 left-[80%] w-10 h-10 bg-sgel-red border-[3px] border-sgel-dark rounded transform rotate-11"></div>
+
+        {/* Cuadrado 14 - Amarillo */}
+        <div className="absolute top-19 left-[86%] w-12 h-12 bg-sgel-yellow border-[3px] border-sgel-dark rounded transform -rotate-5"></div>
+
+        {/* Cuadrado 15 - Azul */}
+        <div className="absolute top-15 left-[92%] w-9 h-9 bg-sgel-blue border-[3px] border-sgel-dark rounded transform rotate-13"></div>
+      </div>
+
+      {/* Cuadrados de colores en la parte inferior - menos cantidad */}
+      <div className="absolute bottom-0 left-0 w-full z-20">
+        {/* Cuadrado inferior 1 - Amarillo */}
+        <div className="absolute bottom-8 left-[3%] w-11 h-11 bg-sgel-yellow border-[3px] border-sgel-dark rounded transform -rotate-8"></div>
+
+        {/* Cuadrado inferior 2 - Verde */}
+        <div className="absolute bottom-10 left-[10%] w-9 h-9 bg-sgel-green border-[3px] border-sgel-dark rounded transform rotate-12"></div>
+
+        {/* Cuadrado inferior 3 - Rojo */}
+        <div className="absolute bottom-7 left-[17%] w-10 h-10 bg-sgel-red border-[3px] border-sgel-dark rounded transform -rotate-5"></div>
+
+        {/* Cuadrado inferior 4 - Círculo amarillo (centro-abajo) */}
+        <div className="absolute bottom-4 left-[48%] w-12 h-12 bg-sgel-yellow border-[3px] border-sgel-dark rounded-full transform rotate-3"></div>
+
+        {/* Cuadrado inferior 5 - Azul */}
+        <div className="absolute bottom-8 left-[54%] w-10 h-10 bg-sgel-blue border-[3px] border-sgel-dark rounded transform rotate-7"></div>
+
+        {/* Cuadrado inferior 6 - Rojo */}
+        <div className="absolute bottom-9 left-[60%] w-11 h-11 bg-sgel-red border-[3px] border-sgel-dark rounded transform -rotate-10"></div>
       </div>
 
       {/* Layout principal: Grid de 2 columnas */}
