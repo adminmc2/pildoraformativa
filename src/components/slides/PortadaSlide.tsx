@@ -23,7 +23,7 @@ export default function PortadaSlide() {
       </div>
 
       {/* Layout principal: Grid de 2 columnas */}
-      <div className="min-h-screen w-full grid grid-cols-1 lg:grid-cols-2">
+      <div className="min-h-screen w-full grid grid-cols-1 lg:grid-cols-[34%_66%]">
 
         {/* Columna IZQUIERDA - Texto */}
         <div className="relative z-10 flex items-center justify-center p-8 md:p-12 lg:p-16">
@@ -64,8 +64,8 @@ export default function PortadaSlide() {
         </div>
 
         {/* Columna DERECHA - Imagen */}
-        <div className="relative flex items-center justify-center p-4 md:p-8">
-          <div className="relative w-full h-full max-w-5xl max-h-[1200px]">
+        <div className="relative flex items-center justify-center p-0">
+          <div className="relative w-full h-[95vh]">
             <Image
               src="/portada2.png"
               alt="Nuevos Compañeros - Portada"
