@@ -12,6 +12,7 @@ import TerminalDemo from "@/components/terminal-demo";
 import HeroVideoDialogDemo from "@/components/hero-video-dialog-demo";
 import DockDemo from "@/components/dock-demo";
 import MorphingTextDemo from "@/components/morphing-text-demo";
+import HighlighterDemo from "@/components/highlighter-demo";
 
 export default function LayoutTestPage() {
   const [currentLayout, setCurrentLayout] = useState(1);
@@ -21,7 +22,7 @@ export default function LayoutTestPage() {
 
       {/* Navegación entre layouts */}
       <div className="fixed top-4 right-4 z-50 flex gap-2 flex-wrap max-w-md">
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22].map((num) => (
+        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23].map((num) => (
           <button
             key={num}
             onClick={() => setCurrentLayout(num)}
@@ -1040,6 +1041,42 @@ export default function LayoutTestPage() {
               </div>
             </div>
             <MorphingTextDemo />
+          </div>
+        </div>
+      )}
+
+      {/* LAYOUT 23: Highlighter - Resaltador de texto tipo marcador */}
+      {currentLayout === 23 && (
+        <div className="min-h-screen bg-sgel-yellow p-8 flex items-center justify-center relative overflow-hidden">
+          {/* Decoraciones */}
+          <div className="absolute top-10 left-10 bg-sgel-red w-32 h-32 border-4 border-black rounded-full"
+            style={{ boxShadow: "6px 6px 0px rgba(0,0,0,0.8)" }}></div>
+          <div className="absolute bottom-10 right-10 bg-sgel-green w-28 h-28 border-4 border-black rounded-xl transform rotate-45"
+            style={{ boxShadow: "6px 6px 0px rgba(0,0,0,0.8)" }}></div>
+          <div className="absolute top-1/4 right-20">
+            <svg width="80" height="80" viewBox="0 0 24 24" fill="black">
+              <path d="M12 2L14 10L22 12L14 14L12 22L10 14L2 12L10 10Z" />
+            </svg>
+          </div>
+          <div className="absolute bottom-1/4 left-20">
+            <svg width="90" height="90" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="2">
+              <path d="M12 2L14 10L22 12L14 14L12 22L10 14L2 12L10 10Z" />
+            </svg>
+          </div>
+          <div className="absolute top-1/2 left-10">
+            <div className="bg-sgel-blue w-24 h-24 border-4 border-black rounded-full"
+              style={{ boxShadow: "6px 6px 0px rgba(0,0,0,0.8)" }}></div>
+          </div>
+
+          <div className="w-full relative z-10">
+            <div className="text-center mb-12">
+              <h2 className="text-6xl font-black text-black mb-4">RESALTADOR DE TEXTO</h2>
+              <div className="bg-sgel-red border-4 border-black rounded-full px-8 py-3 inline-block"
+                style={{ boxShadow: "6px 6px 0px rgba(0,0,0,0.8)" }}>
+                <span className="font-black text-xl text-white">¡Efecto de marcador dibujado a mano!</span>
+              </div>
+            </div>
+            <HighlighterDemo />
           </div>
         </div>
       )}
