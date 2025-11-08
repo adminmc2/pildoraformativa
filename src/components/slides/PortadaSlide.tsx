@@ -86,20 +86,59 @@ export default function PortadaSlide() {
         <div className="relative z-10 flex items-center justify-center p-4 md:p-6 lg:p-8">
           <div className="w-full flex flex-col gap-6 lg:gap-8 text-left">
 
-            {/* Título del libro */}
-            <h1 className="text-6xl md:text-7xl lg:text-8xl font-serif font-bold text-sgel-red leading-tight -mt-8 whitespace-nowrap">
-              {bookTitle}
-            </h1>
+            {/* Título del libro con estilo sketch */}
+            <div className="relative -mt-16" style={{ width: 'fit-content' }}>
+              <div
+                className="absolute bg-white/90 border-[4px] border-black rounded-xl"
+                style={{
+                  transform: 'rotate(-1deg)',
+                  boxShadow: '6px 6px 0px rgba(0,0,0,0.8)',
+                  filter: 'drop-shadow(3px 3px 1px rgba(0,0,0,0.3))',
+                  top: '-15px',
+                  left: '-20px',
+                  width: 'calc(100% + 40px)',
+                  height: 'calc(100% + 30px)',
+                  zIndex: 0
+                }}
+              />
+              <h1
+                className="text-6xl md:text-7xl lg:text-8xl font-serif font-bold text-sgel-red leading-tight whitespace-nowrap relative"
+                style={{
+                  textShadow: '4px 4px 0px rgba(0,0,0,0.15)',
+                  zIndex: 1
+                }}
+              >
+                {bookTitle}
+              </h1>
+            </div>
 
-            {/* Título de la unidad */}
-            <div className="space-y-4">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-normal text-sgel-dark leading-snug whitespace-nowrap">
-                {unitTitle}
-              </h2>
+            {/* Título de la unidad con estilo sketch */}
+            <div className="relative mt-20 ml-64" style={{ width: 'fit-content' }}>
+              <div
+                className="absolute bg-white/90 border-[4px] border-black rounded-xl"
+                style={{
+                  transform: 'rotate(1deg)',
+                  boxShadow: '5px 5px 0px rgba(0,0,0,0.8)',
+                  filter: 'drop-shadow(2px 2px 1px rgba(0,0,0,0.3))',
+                  top: '-15px',
+                  left: '-20px',
+                  width: 'calc(100% + 40px)',
+                  height: 'calc(100% + 30px)',
+                  zIndex: 0
+                }}
+              />
+              <div className="relative" style={{ zIndex: 1 }}>
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-sgel-dark leading-tight">
+                  Unidad 2
+                </h2>
+                <h3 className="text-2xl md:text-3xl lg:text-4xl font-serif font-normal text-sgel-dark leading-tight whitespace-nowrap">
+                  El plural de nombres y adjetivos
+                </h3>
+              </div>
             </div>
 
             {/* Botón o indicador de continuar */}
-            <div className="flex items-center justify-end gap-4 mt-4 mr-[-3rem]">
+            <div className="flex items-center justify-end gap-4 mt-12 mr-[-19rem]">
               <AnimatedButton />
             </div>
 
