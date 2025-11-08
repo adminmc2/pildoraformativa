@@ -3,6 +3,7 @@ import { useState } from "react";
 import ThreeDCardDemo from "@/components/3d-card-demo-2";
 import LensDemo from "@/components/lens-demo";
 import FocusCardsDemo from "@/components/focus-cards-demo";
+import DraggableCardDemo from "@/components/draggable-card-demo";
 
 export default function LayoutTestPage() {
   const [currentLayout, setCurrentLayout] = useState(1);
@@ -12,7 +13,7 @@ export default function LayoutTestPage() {
 
       {/* Navegación entre layouts */}
       <div className="fixed top-4 right-4 z-50 flex gap-2 flex-wrap max-w-md">
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map((num) => (
+        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].map((num) => (
           <button
             key={num}
             onClick={() => setCurrentLayout(num)}
@@ -750,6 +751,13 @@ export default function LayoutTestPage() {
             </div>
             <FocusCardsDemo />
           </div>
+        </div>
+      )}
+
+      {/* LAYOUT 14: Draggable Cards - Tarjetas arrastrables */}
+      {currentLayout === 14 && (
+        <div className="min-h-screen bg-sgel-blue relative overflow-hidden">
+          <DraggableCardDemo />
         </div>
       )}
 
