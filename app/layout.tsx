@@ -28,6 +28,7 @@ export default function RootLayout({
     <html lang="es">
       <body
         className={`${merriweather.variable} ${ptSans.variable} antialiased`}
+        suppressHydrationWarning
       >
         {children}
       </body>
