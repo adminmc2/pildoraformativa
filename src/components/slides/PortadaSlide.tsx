@@ -119,6 +119,62 @@ export default function PortadaSlide() {
               className="object-contain"
               style={{ imageRendering: '-webkit-optimize-contrast' }}
             />
+
+            {/* Borde sketch superpuesto - Cara 1: Chica pelo rizado (fondo amarillo) */}
+            <div
+              className="absolute border-[4px] border-black rounded-xl bg-transparent pointer-events-none"
+              style={{
+                left: '52%',
+                top: '24%',
+                width: '23%',
+                height: '34%',
+                transform: 'rotate(1.5deg)',
+                boxShadow: '4px 4px 0px rgba(0,0,0,0.8)',
+                filter: 'drop-shadow(2px 2px 1px rgba(0,0,0,0.3))'
+              }}
+            />
+
+            {/* Borde sketch superpuesto - Cara 2: Chica fondo rosa */}
+            <div
+              className="absolute border-[4px] border-black rounded-xl bg-transparent pointer-events-none"
+              style={{
+                left: '35%',
+                top: '58%',
+                width: '22%',
+                height: '29%',
+                transform: 'rotate(-1.5deg)',
+                boxShadow: '4px 4px 0px rgba(0,0,0,0.8)',
+                filter: 'drop-shadow(2px 2px 1px rgba(0,0,0,0.3))'
+              }}
+            />
+
+            {/* Borde sketch superpuesto - Cara 3: Chico sudadera rosa (fondo azul) */}
+            <div
+              className="absolute border-[4px] border-black rounded-xl bg-transparent pointer-events-none"
+              style={{
+                left: '66%',
+                top: '58%',
+                width: '22%',
+                height: '29%',
+                transform: 'rotate(2deg)',
+                boxShadow: '4px 4px 0px rgba(0,0,0,0.8)',
+                filter: 'drop-shadow(2px 2px 1px rgba(0,0,0,0.3))'
+              }}
+            />
+
+            {/* Borde sketch superpuesto - Cara 4: Chico con gafas (fondo rojo) */}
+            <div
+              className="absolute border-[4px] border-black rounded-xl bg-transparent pointer-events-none"
+              style={{
+                left: '75%',
+                top: '13%',
+                width: '25%',
+                height: '30%',
+                transform: 'rotate(-1deg)',
+                boxShadow: '4px 4px 0px rgba(0,0,0,0.8)',
+                filter: 'drop-shadow(2px 2px 1px rgba(0,0,0,0.3))'
+              }}
+            />
           </div>
         </div>
 
