@@ -18,6 +18,7 @@ import NeonGradientCardDemo from "@/components/neon-gradient-card-demo";
 import ComicTextDemo from "@/components/comic-text-demo";
 import CoolModeDemo from "@/components/cool-mode-demo";
 import PixelImageDemo from "@/components/pixel-image-demo";
+import AnimatedCircularProgressBarDemo from "@/components/animated-circular-progress-bar-demo";
 
 export default function LayoutTestPage() {
   const [currentLayout, setCurrentLayout] = useState(1);
@@ -27,7 +28,7 @@ export default function LayoutTestPage() {
 
       {/* Navegación entre layouts */}
       <div className="fixed top-4 right-4 z-50 flex gap-2 flex-wrap max-w-md">
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28].map((num) => (
+        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29].map((num) => (
           <button
             key={num}
             onClick={() => setCurrentLayout(num)}
@@ -1216,6 +1217,32 @@ export default function LayoutTestPage() {
 
           <div className="relative z-10 w-full">
             <PixelImageDemo />
+          </div>
+        </div>
+      )}
+
+      {/* Layout 29: Animated Circular Progress Bar */}
+      {currentLayout === 29 && (
+        <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 p-8 flex flex-col items-center justify-center relative overflow-hidden">
+          {/* Decoración de fondo - círculos */}
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute top-1/4 left-1/4 w-64 h-64 border-8 border-sgel-yellow rounded-full"></div>
+            <div className="absolute bottom-1/4 right-1/4 w-80 h-80 border-8 border-sgel-green rounded-full"></div>
+            <div className="absolute top-1/2 left-1/2 w-48 h-48 border-8 border-sgel-blue rounded-full"></div>
+          </div>
+
+          <div className="text-center mb-12 relative z-10">
+            <h2 className="text-6xl font-black text-white mb-4 drop-shadow-lg">PROGRESO CIRCULAR</h2>
+            <div className="bg-gradient-to-r from-sgel-yellow via-sgel-green to-sgel-blue border-4 border-black rounded-full px-8 py-3 inline-block [box-shadow:6px_6px_0px_rgba(0,0,0,0.8)]">
+              <span className="font-black text-xl text-black">¡Barras de progreso animadas!</span>
+            </div>
+            <p className="text-2xl font-bold text-white mt-6">
+              Visualiza tu progreso en cada área de aprendizaje
+            </p>
+          </div>
+
+          <div className="relative z-10 w-full">
+            <AnimatedCircularProgressBarDemo />
           </div>
         </div>
       )}
