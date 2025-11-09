@@ -9,6 +9,10 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@progress/kendo-licensing": "^1.7.1",
+    "@progress/kendo-react-data-tools": "^12.2.0",
+    "@progress/kendo-react-grid": "^12.2.0",
+    "@progress/kendo-react-intl": "^12.2.0",
     "@tabler/icons-react": "^3.35.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",

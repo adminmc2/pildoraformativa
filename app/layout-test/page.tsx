@@ -19,6 +19,7 @@ import ComicTextDemo from "@/components/comic-text-demo";
 import CoolModeDemo from "@/components/cool-mode-demo";
 import PixelImageDemo from "@/components/pixel-image-demo";
 import AnimatedCircularProgressBarDemo from "@/components/animated-circular-progress-bar-demo";
+import SGELDataGridDemo from "@/components/sgel-data-grid-demo";
 
 export default function LayoutTestPage() {
   const [currentLayout, setCurrentLayout] = useState(1);
@@ -28,7 +29,7 @@ export default function LayoutTestPage() {
 
       {/* Navegación entre layouts */}
       <div className="fixed top-4 right-4 z-50 flex gap-2 flex-wrap max-w-md">
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29].map((num) => (
+        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30].map((num) => (
           <button
             key={num}
             onClick={() => setCurrentLayout(num)}
@@ -1243,6 +1244,58 @@ export default function LayoutTestPage() {
 
           <div className="relative z-10 w-full">
             <AnimatedCircularProgressBarDemo />
+          </div>
+        </div>
+      )}
+
+      {/* Layout 30: SGEL Data Grid - Dashboard Educativo */}
+      {currentLayout === 30 && (
+        <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50 p-8 flex flex-col items-center justify-center relative overflow-hidden">
+          {/* Decoración de fondo - Dashboard */}
+          <div className="absolute inset-0 opacity-5">
+            <div className="absolute top-10 left-10 w-64 h-64 border-8 border-sgel-yellow rotate-12"></div>
+            <div className="absolute bottom-20 right-20 w-72 h-72 border-8 border-sgel-green -rotate-12"></div>
+            <div className="absolute top-1/3 right-1/4 w-48 h-48 border-8 border-sgel-blue rotate-45"></div>
+            <div className="absolute bottom-1/3 left-1/4 w-56 h-56 border-8 border-sgel-red -rotate-45"></div>
+          </div>
+
+          <div className="text-center mb-12 relative z-10">
+            <h2 className="text-6xl font-black text-black mb-4 drop-shadow-lg">
+              DASHBOARD EDUCATIVO
+            </h2>
+            <div className="bg-gradient-to-r from-sgel-yellow via-sgel-green to-sgel-blue border-4 border-black rounded-full px-8 py-3 inline-block [box-shadow:6px_6px_0px_rgba(0,0,0,0.8)]">
+              <span className="font-black text-xl text-black">
+                ¡Tabla de datos con estilo SGEL!
+              </span>
+            </div>
+            <p className="text-2xl font-bold text-gray-800 mt-6">
+              Gestión de estudiantes con progreso y estadísticas
+            </p>
+          </div>
+
+          <div className="relative z-10 w-full px-4">
+            {/* Tarjetas de estadísticas rápidas */}
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8 max-w-7xl mx-auto">
+              <div className="bg-sgel-yellow border-4 border-black rounded-2xl p-6 [box-shadow:8px_8px_0px_rgba(0,0,0,0.8)]">
+                <div className="text-5xl font-black text-black mb-2">12</div>
+                <div className="text-lg font-bold text-black">Estudiantes</div>
+              </div>
+              <div className="bg-sgel-green border-4 border-black rounded-2xl p-6 [box-shadow:8px_8px_0px_rgba(0,0,0,0.8)]">
+                <div className="text-5xl font-black text-white mb-2">82%</div>
+                <div className="text-lg font-bold text-white">Promedio</div>
+              </div>
+              <div className="bg-sgel-blue border-4 border-black rounded-2xl p-6 [box-shadow:8px_8px_0px_rgba(0,0,0,0.8)]">
+                <div className="text-5xl font-black text-white mb-2">384</div>
+                <div className="text-lg font-bold text-white">Ejercicios</div>
+              </div>
+              <div className="bg-sgel-red border-4 border-black rounded-2xl p-6 [box-shadow:8px_8px_0px_rgba(0,0,0,0.8)]">
+                <div className="text-5xl font-black text-white mb-2">11</div>
+                <div className="text-lg font-bold text-white">Activos</div>
+              </div>
+            </div>
+
+            {/* Data Grid */}
+            <SGELDataGridDemo />
           </div>
         </div>
       )}
