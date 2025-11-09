@@ -16,6 +16,7 @@ import HighlighterDemo from "@/components/highlighter-demo";
 import LightRaysDemo from "@/components/light-rays-demo";
 import NeonGradientCardDemo from "@/components/neon-gradient-card-demo";
 import ComicTextDemo from "@/components/comic-text-demo";
+import CoolModeDemo from "@/components/cool-mode-demo";
 
 export default function LayoutTestPage() {
   const [currentLayout, setCurrentLayout] = useState(1);
@@ -25,7 +26,7 @@ export default function LayoutTestPage() {
 
       {/* Navegación entre layouts */}
       <div className="fixed top-4 right-4 z-50 flex gap-2 flex-wrap max-w-md">
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26].map((num) => (
+        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27].map((num) => (
           <button
             key={num}
             onClick={() => setCurrentLayout(num)}
@@ -1159,6 +1160,32 @@ export default function LayoutTestPage() {
 
           <div className="relative z-10 w-full">
             <ComicTextDemo />
+          </div>
+        </div>
+      )}
+
+      {/* Layout 27: Cool Mode */}
+      {currentLayout === 27 && (
+        <div className="min-h-screen bg-gradient-to-br from-purple-600 via-pink-500 to-red-500 p-8 flex flex-col items-center justify-center relative overflow-hidden">
+          {/* Decoración de fondo - partículas */}
+          <div className="absolute inset-0 opacity-20">
+            <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-white rounded-full blur-3xl animate-pulse"></div>
+            <div className="absolute bottom-1/4 right-1/4 w-40 h-40 bg-sgel-yellow rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+            <div className="absolute top-1/2 left-1/2 w-36 h-36 bg-sgel-green rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+          </div>
+
+          <div className="text-center mb-12 relative z-10">
+            <h2 className="text-6xl font-black text-white mb-4 drop-shadow-lg">MODO COOL</h2>
+            <div className="bg-white border-4 border-black rounded-full px-8 py-3 inline-block [box-shadow:6px_6px_0px_rgba(0,0,0,0.8)]">
+              <span className="font-black text-xl text-black">¡Haz clic y arrastra para ver partículas!</span>
+            </div>
+            <p className="text-2xl font-bold text-white mt-6 drop-shadow-lg">
+              Mantén presionado y mueve el cursor sobre los botones
+            </p>
+          </div>
+
+          <div className="relative z-10 w-full">
+            <CoolModeDemo />
           </div>
         </div>
       )}
