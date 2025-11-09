@@ -14,6 +14,7 @@ import DockDemo from "@/components/dock-demo";
 import MorphingTextDemo from "@/components/morphing-text-demo";
 import HighlighterDemo from "@/components/highlighter-demo";
 import LightRaysDemo from "@/components/light-rays-demo";
+import NeonGradientCardDemo from "@/components/neon-gradient-card-demo";
 
 export default function LayoutTestPage() {
   const [currentLayout, setCurrentLayout] = useState(1);
@@ -23,7 +24,7 @@ export default function LayoutTestPage() {
 
       {/* Navegación entre layouts */}
       <div className="fixed top-4 right-4 z-50 flex gap-2 flex-wrap max-w-md">
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24].map((num) => (
+        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25].map((num) => (
           <button
             key={num}
             onClick={() => setCurrentLayout(num)}
@@ -1110,6 +1111,29 @@ export default function LayoutTestPage() {
               </div>
             </div>
             <LightRaysDemo />
+          </div>
+        </div>
+      )}
+
+      {/* Layout 25: Neon Gradient Card */}
+      {currentLayout === 25 && (
+        <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 p-8 flex flex-col items-center justify-center relative overflow-hidden">
+          {/* Decoración de fondo */}
+          <div className="absolute inset-0 opacity-20">
+            <div className="absolute top-20 left-20 w-32 h-32 rounded-full bg-sgel-yellow blur-3xl"></div>
+            <div className="absolute bottom-20 right-20 w-40 h-40 rounded-full bg-sgel-blue blur-3xl"></div>
+            <div className="absolute top-1/2 left-1/2 w-36 h-36 rounded-full bg-sgel-green blur-3xl"></div>
+          </div>
+
+          <div className="text-center mb-12 relative z-10">
+            <h2 className="text-6xl font-black text-white mb-4">TARJETAS NEÓN</h2>
+            <div className="bg-gradient-to-r from-sgel-yellow to-sgel-green border-4 border-black rounded-full px-8 py-3 inline-block [box-shadow:6px_6px_0px_rgba(0,0,0,0.8)]">
+              <span className="font-black text-xl text-black">¡Bordes animados con efecto neón!</span>
+            </div>
+          </div>
+
+          <div className="relative z-10 w-full">
+            <NeonGradientCardDemo />
           </div>
         </div>
       )}
