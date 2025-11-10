@@ -20,6 +20,7 @@ import CoolModeDemo from "@/components/cool-mode-demo";
 import PixelImageDemo from "@/components/pixel-image-demo";
 import AnimatedCircularProgressBarDemo from "@/components/animated-circular-progress-bar-demo";
 import SGELDataGridDemo from "@/components/sgel-data-grid-demo";
+import PortadaPropuesta1 from "@/components/portada-propuesta-1";
 
 export default function LayoutTestPage() {
   const [currentLayout, setCurrentLayout] = useState(1);
@@ -29,7 +30,7 @@ export default function LayoutTestPage() {
 
       {/* Navegación entre layouts */}
       <div className="fixed top-4 right-4 z-50 flex gap-2 flex-wrap max-w-md">
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30].map((num) => (
+        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31].map((num) => (
           <button
             key={num}
             onClick={() => setCurrentLayout(num)}
@@ -1299,6 +1300,9 @@ export default function LayoutTestPage() {
           </div>
         </div>
       )}
+
+      {/* Layout 31: Propuesta Portada 1 - Diagonal con foto grande */}
+      {currentLayout === 31 && <PortadaPropuesta1 />}
 
     </div>
   );
