@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { AnimatedButton } from "@/components/ui/AnimatedButton";
 
-export default function PortadaPropuesta3() {
+export default function PortadaPropuesta1() {
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-blue-50 via-yellow-50 to-red-50">
 
