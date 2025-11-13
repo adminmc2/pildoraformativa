@@ -8,24 +8,30 @@ export default function PropuestaMetodologicaPage() {
     <div className="relative min-h-screen w-full bg-white">
 
       {/* Navegación entre slides */}
-      <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 flex gap-3 bg-white/90 backdrop-blur-sm px-6 py-3 rounded-full border-4 border-black"
-        style={{ boxShadow: "8px 8px 0px rgba(0,0,0,0.8)" }}>
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => (
-          <button
-            key={num}
-            onClick={() => setCurrentSlide(num)}
-            className={`w-12 h-12 rounded-full font-black border-4 border-black transition-all ${
-              currentSlide === num
-                ? "bg-sgel-yellow text-black scale-110"
-                : "bg-white text-black hover:bg-sgel-yellow"
-            }`}
-            style={{
-              boxShadow: currentSlide === num ? "4px 4px 0px rgba(0,0,0,0.8)" : "2px 2px 0px rgba(0,0,0,0.8)"
-            }}
-          >
-            {num}
-          </button>
-        ))}
+      <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 flex items-center gap-6">
+        {/* Flecha izquierda */}
+        <button
+          onClick={() => setCurrentSlide(currentSlide > 1 ? currentSlide - 1 : 10)}
+          className="w-14 h-14 rounded-full bg-white border-4 border-black font-black text-2xl hover:bg-sgel-yellow transition-all"
+          style={{ boxShadow: "4px 4px 0px rgba(0,0,0,0.8)" }}
+        >
+          ←
+        </button>
+
+        {/* Número actual */}
+        <div className="bg-white border-4 border-black rounded-full w-16 h-16 flex items-center justify-center"
+          style={{ boxShadow: "4px 4px 0px rgba(0,0,0,0.8)" }}>
+          <span className="font-black text-2xl">{currentSlide}</span>
+        </div>
+
+        {/* Flecha derecha */}
+        <button
+          onClick={() => setCurrentSlide(currentSlide < 10 ? currentSlide + 1 : 1)}
+          className="w-14 h-14 rounded-full bg-white border-4 border-black font-black text-2xl hover:bg-sgel-yellow transition-all"
+          style={{ boxShadow: "4px 4px 0px rgba(0,0,0,0.8)" }}
+        >
+          →
+        </button>
       </div>
 
       {/* SLIDE 1: Portada */}
