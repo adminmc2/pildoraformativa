@@ -45,8 +45,6 @@ export default function PropuestaMetodologicaPage() {
             <div className="bg-white border-4 border-black rounded-[3rem] p-16"
               style={{ boxShadow: "20px 20px 0px rgba(0,0,0,0.8)" }}>
 
-              {/* Emoji decorativo */}
-              <div className="text-9xl mb-8">📚</div>
 
               {/* Título principal */}
               <h1 className="text-6xl md:text-7xl font-black mb-8 leading-tight">
@@ -107,7 +105,6 @@ export default function PropuestaMetodologicaPage() {
                 {/* Card 1 */}
                 <div className="bg-sgel-yellow border-4 border-black rounded-2xl p-6"
                   style={{ boxShadow: "8px 8px 0px rgba(0,0,0,0.8)" }}>
-                  <div className="text-5xl mb-4">⏱️</div>
                   <h3 className="text-2xl font-black mb-3">Cápsulas cortas</h3>
                   <p className="text-lg font-bold">Contenidos de 5-10 minutos máximo</p>
                 </div>
@@ -115,7 +112,6 @@ export default function PropuestaMetodologicaPage() {
                 {/* Card 2 */}
                 <div className="bg-sgel-green border-4 border-black rounded-2xl p-6"
                   style={{ boxShadow: "8px 8px 0px rgba(0,0,0,0.8)" }}>
-                  <div className="text-5xl mb-4">🎯</div>
                   <h3 className="text-2xl font-black mb-3">Enfoque específico</h3>
                   <p className="text-lg font-bold">Un concepto gramatical por sesión</p>
                 </div>
@@ -123,7 +119,6 @@ export default function PropuestaMetodologicaPage() {
                 {/* Card 3 */}
                 <div className="bg-sgel-red border-4 border-black rounded-2xl p-6 text-white"
                   style={{ boxShadow: "8px 8px 0px rgba(0,0,0,0.8)" }}>
-                  <div className="text-5xl mb-4">📱</div>
                   <h3 className="text-2xl font-black mb-3">Digital-first</h3>
                   <p className="text-lg font-bold">Accesible desde cualquier dispositivo</p>
                 </div>
@@ -131,7 +126,6 @@ export default function PropuestaMetodologicaPage() {
                 {/* Card 4 */}
                 <div className="bg-sgel-blue border-4 border-black rounded-2xl p-6 text-white"
                   style={{ boxShadow: "8px 8px 0px rgba(0,0,0,0.8)" }}>
-                  <div className="text-5xl mb-4">♻️</div>
                   <h3 className="text-2xl font-black mb-3">Repetible</h3>
                   <p className="text-lg font-bold">El estudiante controla su ritmo</p>
                 </div>
@@ -318,13 +312,13 @@ export default function PropuestaMetodologicaPage() {
                       style={{ boxShadow: "4px 4px 0px rgba(0,0,0,0.8)" }}>
                       <span className="font-black text-xl">ANTES</span>
                     </div>
-                    <div className="text-6xl mb-4">📄</div>
+                    <div className="text-6xl mb-4"></div>
                     <ul className="space-y-3 text-lg font-bold">
-                      <li>❌ Fotocopias en blanco y negro</li>
-                      <li>❌ Ejercicios repetitivos</li>
-                      <li>❌ Sin feedback inmediato</li>
-                      <li>❌ Estático y lineal</li>
-                      <li>❌ Poco atractivo visual</li>
+                      <li>× Fotocopias en blanco y negro</li>
+                      <li>× Ejercicios repetitivos</li>
+                      <li>× Sin feedback inmediato</li>
+                      <li>× Estático y lineal</li>
+                      <li>× Poco atractivo visual</li>
                     </ul>
                   </div>
                 </div>
@@ -337,13 +331,13 @@ export default function PropuestaMetodologicaPage() {
                       style={{ boxShadow: "4px 4px 0px rgba(0,0,0,0.8)" }}>
                       <span className="font-black text-xl">AHORA</span>
                     </div>
-                    <div className="text-6xl mb-4">✨</div>
+                    <div className="text-6xl mb-4"></div>
                     <ul className="space-y-3 text-lg font-bold text-white">
-                      <li>✅ Contenidos interactivos</li>
-                      <li>✅ Animaciones y efectos</li>
-                      <li>✅ Feedback en tiempo real</li>
-                      <li>✅ Dinámico y adaptativo</li>
-                      <li>✅ Diseño visual atractivo</li>
+                      <li>• Contenidos interactivos</li>
+                      <li>• Animaciones y efectos</li>
+                      <li>• Feedback en tiempo real</li>
+                      <li>• Dinámico y adaptativo</li>
+                      <li>• Diseño visual atractivo</li>
                     </ul>
                   </div>
                 </div>
@@ -383,7 +377,7 @@ export default function PropuestaMetodologicaPage() {
                 {/* Material 1 */}
                 <div className="bg-sgel-yellow border-4 border-black rounded-2xl p-6 text-center"
                   style={{ boxShadow: "8px 8px 0px rgba(0,0,0,0.8)" }}>
-                  <div className="text-6xl mb-4">📝</div>
+                  <div className="text-6xl mb-4"></div>
                   <h3 className="text-2xl font-black mb-2">Gramática</h3>
                   <p className="text-lg font-bold">Reglas y estructuras</p>
                 </div>
@@ -391,7 +385,7 @@ export default function PropuestaMetodologicaPage() {
                 {/* Material 2 */}
                 <div className="bg-sgel-green border-4 border-black rounded-2xl p-6 text-center text-white"
                   style={{ boxShadow: "8px 8px 0px rgba(0,0,0,0.8)" }}>
-                  <div className="text-6xl mb-4">💬</div>
+                  <div className="text-6xl mb-4"></div>
                   <h3 className="text-2xl font-black mb-2">Vocabulario</h3>
                   <p className="text-lg font-bold">Léxico contextualizado</p>
                 </div>
@@ -399,7 +393,7 @@ export default function PropuestaMetodologicaPage() {
                 {/* Material 3 */}
                 <div className="bg-sgel-blue border-4 border-black rounded-2xl p-6 text-center text-white"
                   style={{ boxShadow: "8px 8px 0px rgba(0,0,0,0.8)" }}>
-                  <div className="text-6xl mb-4">🎯</div>
+                  <div className="text-6xl mb-4"></div>
                   <h3 className="text-2xl font-black mb-2">Ejercicios</h3>
                   <p className="text-lg font-bold">Práctica interactiva</p>
                 </div>
@@ -407,7 +401,7 @@ export default function PropuestaMetodologicaPage() {
                 {/* Material 4 */}
                 <div className="bg-sgel-red border-4 border-black rounded-2xl p-6 text-center text-white"
                   style={{ boxShadow: "8px 8px 0px rgba(0,0,0,0.8)" }}>
-                  <div className="text-6xl mb-4">📖</div>
+                  <div className="text-6xl mb-4"></div>
                   <h3 className="text-2xl font-black mb-2">Lecturas</h3>
                   <p className="text-lg font-bold">Textos adaptados</p>
                 </div>
@@ -415,7 +409,7 @@ export default function PropuestaMetodologicaPage() {
                 {/* Material 5 */}
                 <div className="bg-purple-500 border-4 border-black rounded-2xl p-6 text-center text-white"
                   style={{ boxShadow: "8px 8px 0px rgba(0,0,0,0.8)" }}>
-                  <div className="text-6xl mb-4">🎨</div>
+                  <div className="text-6xl mb-4"></div>
                   <h3 className="text-2xl font-black mb-2">Visuales</h3>
                   <p className="text-lg font-bold">Imágenes y gráficos</p>
                 </div>
@@ -423,7 +417,7 @@ export default function PropuestaMetodologicaPage() {
                 {/* Material 6 */}
                 <div className="bg-pink-500 border-4 border-black rounded-2xl p-6 text-center text-white"
                   style={{ boxShadow: "8px 8px 0px rgba(0,0,0,0.8)" }}>
-                  <div className="text-6xl mb-4">🎮</div>
+                  <div className="text-6xl mb-4"></div>
                   <h3 className="text-2xl font-black mb-2">Gamificación</h3>
                   <p className="text-lg font-bold">Mecánicas de juego</p>
                 </div>
@@ -467,35 +461,35 @@ export default function PropuestaMetodologicaPage() {
                 {/* Mini slide 1 */}
                 <div className="bg-sgel-yellow border-4 border-black rounded-xl p-4 text-center"
                   style={{ boxShadow: "4px 4px 0px rgba(0,0,0,0.8)" }}>
-                  <div className="text-3xl mb-2">1️⃣</div>
+                  <div className="text-3xl mb-2"></div>
                   <p className="text-sm font-black">Portada animada</p>
                 </div>
 
                 {/* Mini slide 2 */}
                 <div className="bg-sgel-blue border-4 border-black rounded-xl p-4 text-center text-white"
                   style={{ boxShadow: "4px 4px 0px rgba(0,0,0,0.8)" }}>
-                  <div className="text-3xl mb-2">2️⃣</div>
+                  <div className="text-3xl mb-2"></div>
                   <p className="text-sm font-black">Ejemplos visuales</p>
                 </div>
 
                 {/* Mini slide 3 */}
                 <div className="bg-sgel-green border-4 border-black rounded-xl p-4 text-center text-white"
                   style={{ boxShadow: "4px 4px 0px rgba(0,0,0,0.8)" }}>
-                  <div className="text-3xl mb-2">3️⃣</div>
+                  <div className="text-3xl mb-2"></div>
                   <p className="text-sm font-black">Análisis de patrones</p>
                 </div>
 
                 {/* Mini slide 4 */}
                 <div className="bg-sgel-red border-4 border-black rounded-xl p-4 text-center text-white"
                   style={{ boxShadow: "4px 4px 0px rgba(0,0,0,0.8)" }}>
-                  <div className="text-3xl mb-2">4️⃣</div>
+                  <div className="text-3xl mb-2"></div>
                   <p className="text-sm font-black">Regla inferida</p>
                 </div>
 
                 {/* Mini slide 5 */}
                 <div className="bg-purple-500 border-4 border-black rounded-xl p-4 text-center text-white"
                   style={{ boxShadow: "4px 4px 0px rgba(0,0,0,0.8)" }}>
-                  <div className="text-3xl mb-2">5️⃣</div>
+                  <div className="text-3xl mb-2"></div>
                   <p className="text-sm font-black">Práctica interactiva</p>
                 </div>
               </div>
@@ -504,21 +498,21 @@ export default function PropuestaMetodologicaPage() {
               <div className="mt-10 grid grid-cols-3 gap-6">
                 <div className="bg-gray-100 border-4 border-black rounded-xl p-6"
                   style={{ boxShadow: "6px 6px 0px rgba(0,0,0,0.8)" }}>
-                  <div className="text-4xl mb-3">⏱️</div>
+                  <div className="text-4xl mb-3"></div>
                   <h3 className="text-xl font-black mb-2">Duración</h3>
                   <p className="text-lg font-bold">8-10 minutos</p>
                 </div>
 
                 <div className="bg-gray-100 border-4 border-black rounded-xl p-6"
                   style={{ boxShadow: "6px 6px 0px rgba(0,0,0,0.8)" }}>
-                  <div className="text-4xl mb-3">🎨</div>
+                  <div className="text-4xl mb-3"></div>
                   <h3 className="text-xl font-black mb-2">Interactividad</h3>
                   <p className="text-lg font-bold">30+ componentes</p>
                 </div>
 
                 <div className="bg-gray-100 border-4 border-black rounded-xl p-6"
                   style={{ boxShadow: "6px 6px 0px rgba(0,0,0,0.8)" }}>
-                  <div className="text-4xl mb-3">📱</div>
+                  <div className="text-4xl mb-3"></div>
                   <h3 className="text-xl font-black mb-2">Responsive</h3>
                   <p className="text-lg font-bold">Multi-dispositivo</p>
                 </div>
@@ -564,10 +558,10 @@ export default function PropuestaMetodologicaPage() {
                   style={{ boxShadow: "8px 8px 0px rgba(0,0,0,0.8)" }}>
                   <h3 className="text-4xl font-black text-white mb-4">Next.js 14</h3>
                   <ul className="space-y-2 text-lg font-bold text-gray-300">
-                    <li>✓ App Router moderno</li>
-                    <li>✓ Server & Client Components</li>
-                    <li>✓ Optimización automática</li>
-                    <li>✓ SEO-friendly</li>
+                    <li>• App Router moderno</li>
+                    <li>• Server & Client Components</li>
+                    <li>• Optimización automática</li>
+                    <li>• SEO-friendly</li>
                   </ul>
                 </div>
 
@@ -576,10 +570,10 @@ export default function PropuestaMetodologicaPage() {
                   style={{ boxShadow: "8px 8px 0px rgba(0,0,0,0.8)" }}>
                   <h3 className="text-4xl font-black mb-4">React + TypeScript</h3>
                   <ul className="space-y-2 text-lg font-bold">
-                    <li>✓ Componentes reutilizables</li>
-                    <li>✓ Type-safe code</li>
-                    <li>✓ Developer experience</li>
-                    <li>✓ Mantenibilidad</li>
+                    <li>• Componentes reutilizables</li>
+                    <li>• Type-safe code</li>
+                    <li>• Developer experience</li>
+                    <li>• Mantenibilidad</li>
                   </ul>
                 </div>
 
@@ -588,10 +582,10 @@ export default function PropuestaMetodologicaPage() {
                   style={{ boxShadow: "8px 8px 0px rgba(0,0,0,0.8)" }}>
                   <h3 className="text-4xl font-black mb-4">Framer Motion</h3>
                   <ul className="space-y-2 text-lg font-bold">
-                    <li>✓ Animaciones fluidas</li>
-                    <li>✓ Transiciones suaves</li>
-                    <li>✓ Gestos interactivos</li>
-                    <li>✓ Performance optimizado</li>
+                    <li>• Animaciones fluidas</li>
+                    <li>• Transiciones suaves</li>
+                    <li>• Gestos interactivos</li>
+                    <li>• Performance optimizado</li>
                   </ul>
                 </div>
 
@@ -600,10 +594,10 @@ export default function PropuestaMetodologicaPage() {
                   style={{ boxShadow: "8px 8px 0px rgba(0,0,0,0.8)" }}>
                   <h3 className="text-4xl font-black mb-4">Tailwind CSS</h3>
                   <ul className="space-y-2 text-lg font-bold">
-                    <li>✓ Diseño consistente</li>
-                    <li>✓ Responsive por defecto</li>
-                    <li>✓ Customización SGEL</li>
-                    <li>✓ Desarrollo rápido</li>
+                    <li>• Diseño consistente</li>
+                    <li>• Responsive por defecto</li>
+                    <li>• Customización SGEL</li>
+                    <li>• Desarrollo rápido</li>
                   </ul>
                 </div>
               </div>
@@ -643,13 +637,13 @@ export default function PropuestaMetodologicaPage() {
                 <div>
                   <div className="bg-sgel-yellow border-4 border-black rounded-2xl p-8 text-center mb-4"
                     style={{ boxShadow: "8px 8px 0px rgba(0,0,0,0.8)" }}>
-                    <div className="text-7xl mb-4">🧑‍🎓</div>
+                    <div className="text-7xl mb-4"></div>
                     <h3 className="text-3xl font-black mb-6">Estudiantes</h3>
                     <ul className="text-left space-y-3 text-lg font-bold">
-                      <li>✓ Aprenden a su ritmo</li>
-                      <li>✓ Más motivación</li>
-                      <li>✓ Feedback instantáneo</li>
-                      <li>✓ Acceso 24/7</li>
+                      <li>• Aprenden a su ritmo</li>
+                      <li>• Más motivación</li>
+                      <li>• Feedback instantáneo</li>
+                      <li>• Acceso 24/7</li>
                     </ul>
                   </div>
                 </div>
@@ -658,13 +652,13 @@ export default function PropuestaMetodologicaPage() {
                 <div>
                   <div className="bg-sgel-blue border-4 border-black rounded-2xl p-8 text-center mb-4 text-white"
                     style={{ boxShadow: "8px 8px 0px rgba(0,0,0,0.8)" }}>
-                    <div className="text-7xl mb-4">👨‍🏫</div>
+                    <div className="text-7xl mb-4"></div>
                     <h3 className="text-3xl font-black mb-6">Profesores</h3>
                     <ul className="text-left space-y-3 text-lg font-bold">
-                      <li>✓ Material listo</li>
-                      <li>✓ Seguimiento digital</li>
-                      <li>✓ Personalización</li>
-                      <li>✓ Menos preparación</li>
+                      <li>• Material listo</li>
+                      <li>• Seguimiento digital</li>
+                      <li>• Personalización</li>
+                      <li>• Menos preparación</li>
                     </ul>
                   </div>
                 </div>
@@ -673,13 +667,13 @@ export default function PropuestaMetodologicaPage() {
                 <div>
                   <div className="bg-sgel-green border-4 border-black rounded-2xl p-8 text-center mb-4 text-white"
                     style={{ boxShadow: "8px 8px 0px rgba(0,0,0,0.8)" }}>
-                    <div className="text-7xl mb-4">🏢</div>
+                    <div className="text-7xl mb-4"></div>
                     <h3 className="text-3xl font-black mb-6">SGEL</h3>
                     <ul className="text-left space-y-3 text-lg font-bold">
-                      <li>✓ Innovación digital</li>
-                      <li>✓ Valor añadido</li>
-                      <li>✓ Escalabilidad</li>
-                      <li>✓ Competitividad</li>
+                      <li>• Innovación digital</li>
+                      <li>• Valor añadido</li>
+                      <li>• Escalabilidad</li>
+                      <li>• Competitividad</li>
                     </ul>
                   </div>
                 </div>
@@ -717,7 +711,7 @@ export default function PropuestaMetodologicaPage() {
             <div className="bg-white border-4 border-black rounded-[4rem] p-16"
               style={{ boxShadow: "20px 20px 0px rgba(0,0,0,0.8)" }}>
 
-              <div className="text-9xl mb-8">🚀</div>
+              <div className="text-9xl mb-8"></div>
 
               <h2 className="text-8xl font-black mb-8 leading-tight">
                 El Futuro del<br />Aprendizaje
@@ -739,15 +733,15 @@ export default function PropuestaMetodologicaPage() {
               <div className="flex justify-center gap-6 mt-12">
                 <div className="bg-sgel-yellow border-4 border-black rounded-2xl px-6 py-3"
                   style={{ boxShadow: "6px 6px 0px rgba(0,0,0,0.8)" }}>
-                  <span className="font-black text-xl">📚 Educación Digital</span>
+                  <span className="font-black text-xl"> Educación Digital</span>
                 </div>
                 <div className="bg-sgel-green border-4 border-black rounded-2xl px-6 py-3 text-white"
                   style={{ boxShadow: "6px 6px 0px rgba(0,0,0,0.8)" }}>
-                  <span className="font-black text-xl">💡 Innovación Pedagógica</span>
+                  <span className="font-black text-xl"> Innovación Pedagógica</span>
                 </div>
                 <div className="bg-sgel-blue border-4 border-black rounded-2xl px-6 py-3 text-white"
                   style={{ boxShadow: "6px 6px 0px rgba(0,0,0,0.8)" }}>
-                  <span className="font-black text-xl">⚡ Tech Stack Moderno</span>
+                  <span className="font-black text-xl"> Tech Stack Moderno</span>
                 </div>
               </div>
             </div>
