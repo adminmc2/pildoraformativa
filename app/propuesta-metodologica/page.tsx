@@ -8,12 +8,13 @@ export default function PropuestaMetodologicaPage() {
     <div className="relative min-h-screen w-full bg-white">
 
       {/* Navegación entre slides */}
-      <div className="fixed top-4 right-4 z-50 flex gap-2 flex-wrap max-w-md">
+      <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 flex gap-3 bg-white/90 backdrop-blur-sm px-6 py-3 rounded-full border-4 border-black"
+        style={{ boxShadow: "8px 8px 0px rgba(0,0,0,0.8)" }}>
         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => (
           <button
             key={num}
             onClick={() => setCurrentSlide(num)}
-            className={`w-10 h-10 rounded-full font-bold border-4 border-black transition-all ${
+            className={`w-12 h-12 rounded-full font-black border-4 border-black transition-all ${
               currentSlide === num
                 ? "bg-sgel-yellow text-black scale-110"
                 : "bg-white text-black hover:bg-sgel-yellow"
@@ -67,7 +68,7 @@ export default function PropuestaMetodologicaPage() {
                 </div>
                 <div className="bg-sgel-green border-4 border-black rounded-2xl px-8 py-4"
                   style={{ boxShadow: "6px 6px 0px rgba(0,0,0,0.8)" }}>
-                  <span className="font-black text-2xl text-white">2024</span>
+                  <span className="font-black text-2xl text-white">2025</span>
                 </div>
               </div>
             </div>
