@@ -1,9 +1,5 @@
-import PortadaSlide from "@/components/slides/PortadaSlide";
+import { redirect } from 'next/navigation';
 
 export default function Home() {
-  return (
-    <div>
-      <PortadaSlide />
-    </div>
-  );
+  redirect('/propuesta-metodologica');
 }
