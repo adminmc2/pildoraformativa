@@ -1,0 +1,21 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Redirects for propuesta-metodologica page
+[[redirects]]
+  from = "/"
+  to = "/propuesta-metodologica"
+  status = 200
+
+# Handle Next.js dynamic routes
+[[redirects]]
+  from = "/*"
+  to = "/:splat"
+  status = 200
