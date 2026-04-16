@@ -1,0 +1,301 @@
+"use client";
+
+import { useState } from "react";
+import { PilarStar } from "@/components/pildoras-formativas/characters/pilar-star";
+import { FloraFlower } from "@/components/pildoras-formativas/characters/flora-flower";
+import { VitoPill } from "@/components/pildoras-formativas/characters/vito-pill";
+import { LunaMoon } from "@/components/pildoras-formativas/characters/luna-moon";
+import { ChipiSpark } from "@/components/pildoras-formativas/characters/chipi-spark";
+import { SlideOpening } from "@/components/pildoras-formativas/slides/slide-opening";
+import { SlidePilar1 } from "@/components/pildoras-formativas/slides/slide-pilar-1";
+import { SlidePilar2 } from "@/components/pildoras-formativas/slides/slide-pilar-2";
+import { SlidePilar3 } from "@/components/pildoras-formativas/slides/slide-pilar-3";
+import { SlideFlora1 } from "@/components/pildoras-formativas/slides/slide-flora-1";
+import { SlideFlora2 } from "@/components/pildoras-formativas/slides/slide-flora-2";
+import { SlideFlora3 } from "@/components/pildoras-formativas/slides/slide-flora-3";
+import { SlideLuna1 } from "@/components/pildoras-formativas/slides/slide-luna-1";
+import { SlideLuna2 } from "@/components/pildoras-formativas/slides/slide-luna-2";
+import { SlideLuna3 } from "@/components/pildoras-formativas/slides/slide-luna-3";
+import { SlideDesafio } from "@/components/pildoras-formativas/slides/slide-desafio";
+import { SlideCierre } from "@/components/pildoras-formativas/slides/slide-cierre";
+
+type IntroSlide = {
+  kind: "intro";
+  step: string;
+  name: string;
+  badge: string;
+  badgeBg: string;
+  badgeFg: string;
+  headline: string[];
+  subtitle: string;
+  bg: string;
+  Character: React.ComponentType<{ className?: string }>;
+};
+
+type ContentSlide = {
+  kind:
+    | "opening"
+    | "pilar1"
+    | "pilar2"
+    | "pilar3"
+    | "flora1"
+    | "flora2"
+    | "flora3"
+    | "luna1"
+    | "luna2"
+    | "luna3"
+    | "desafio"
+    | "cierre";
+  step: string;
+  bg: string;
+};
+
+type Slide = IntroSlide | ContentSlide;
+
+const SLIDES: Slide[] = [
+  {
+    kind: "opening",
+    step: "PORTADA",
+    bg: "#FAF6EC",
+  },
+  {
+    kind: "intro",
+    step: "#01",
+    name: "PILI",
+    badge: "Anfitriona",
+    badgeBg: "var(--color-pf-star-soft)",
+    badgeFg: "#8A6B00",
+    headline: ["ABRIMOS", "JUNTOS"],
+    subtitle: "Pili es tu anfitriona. Te acompaña desde el principio y te ayuda a observar los ejemplos con atención. Siempre abre y cierra la píldora.",
+    bg: "#FAF6EC",
+    Character: (props) => <PilarStar pose="hug" {...props} />,
+  },
+  {
+    kind: "intro",
+    step: "#02",
+    name: "FLORA",
+    badge: "Observadora",
+    badgeBg: "var(--color-pf-flower-soft)",
+    badgeFg: "#8A1470",
+    headline: ["MIRA", "ESTO"],
+    subtitle: "Flora es tu observadora. Te guía con preguntas para que descubras los patrones sin que nadie te dé la respuesta.",
+    bg: "#E8F5E0",
+    Character: FloraFlower,
+  },
+  {
+    kind: "intro",
+    step: "#03",
+    name: "VITO",
+    badge: "Método",
+    badgeBg: "var(--color-pf-pill-soft)",
+    badgeFg: "#3F6B14",
+    headline: ["PASO", "A PASO"],
+    subtitle: "Vito es tu guía metódico. Descompone cada razonamiento pieza a pieza para que veas cómo funciona todo por dentro.",
+    bg: "var(--color-pf-star-soft)",
+    Character: VitoPill,
+  },
+  {
+    kind: "intro",
+    step: "#04",
+    name: "LUNA",
+    badge: "Verificadora",
+    badgeBg: "var(--color-pf-moon-soft)",
+    badgeFg: "#3B2A8A",
+    headline: ["¿LO", "SABES?"],
+    subtitle: "Luna es tu verificadora. Te pone a prueba con juegos de comprobación para que sepas si realmente lo has entendido.",
+    bg: "var(--color-pf-flower-soft)",
+    Character: LunaMoon,
+  },
+  {
+    kind: "intro",
+    step: "#05",
+    name: "CHIPI",
+    badge: "Desafío",
+    badgeBg: "var(--color-pf-spark-soft)",
+    badgeFg: "#8A2F10",
+    headline: ["¡A", "JUGAR!"],
+    subtitle: "Chipi es tu desafío final. Te reta por equipos a toda velocidad para que practiques lo aprendido hasta dominarlo.",
+    bg: "var(--color-pf-moon-soft)",
+    Character: ChipiSpark,
+  },
+  {
+    kind: "pilar1",
+    step: "#06",
+    bg: "#FAF6EC",
+  },
+  {
+    kind: "pilar2",
+    step: "#07",
+    bg: "#FAF6EC",
+  },
+  {
+    kind: "pilar3",
+    step: "#08",
+    bg: "#FAF6EC",
+  },
+  {
+    kind: "flora1",
+    step: "#09",
+    bg: "#E8F5E0",
+  },
+  {
+    kind: "flora2",
+    step: "#10",
+    bg: "#E8F5E0",
+  },
+  {
+    kind: "flora3",
+    step: "#11",
+    bg: "#E8F5E0",
+  },
+  {
+    kind: "luna1",
+    step: "#12",
+    bg: "var(--color-pf-moon-soft)",
+  },
+  {
+    kind: "luna2",
+    step: "#13",
+    bg: "var(--color-pf-moon-soft)",
+  },
+  {
+    kind: "luna3",
+    step: "#14",
+    bg: "var(--color-pf-moon-soft)",
+  },
+  {
+    kind: "desafio",
+    step: "#15",
+    bg: "var(--color-pf-spark-soft)",
+  },
+  {
+    kind: "cierre",
+    step: "#16",
+    bg: "var(--color-pf-pill-soft)",
+  },
+];
+
+export default function Pildora31Page() {
+  const [active, setActive] = useState(0);
+  const slide = SLIDES[active];
+
+  const next = () => setActive((active + 1) % SLIDES.length);
+  const prev = () => setActive((active - 1 + SLIDES.length) % SLIDES.length);
+
+  return (
+    <div
+      className="fixed inset-0 flex flex-col overflow-hidden transition-colors duration-500 font-[family-name:var(--font-pf-ui)]"
+      style={{ background: slide.bg }}
+    >
+      {slide.kind !== "opening" && (
+        <header className="flex-shrink-0 flex items-center justify-between px-8 pt-4 pb-1 text-[var(--color-pf-ink)]">
+          <button
+            onClick={() => setActive(0)}
+            aria-label="Volver al inicio"
+            className="w-9 h-9 flex items-center justify-center rounded-full hover:bg-white/60 transition"
+          >
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M3 12L12 3L21 12" />
+              <path d="M5 10V20H10V14H14V20H19V10" />
+            </svg>
+          </button>
+          <div className="text-center leading-tight">
+            <div className="font-[family-name:var(--font-pf-display)] text-xl tracking-wide">
+              PÍLDORA FORMATIVA 3.1
+            </div>
+            <div className="text-[10px] opacity-70 font-medium tracking-wider uppercase">
+              Posesivos · Unidad 3
+            </div>
+          </div>
+          <span className="text-base font-[family-name:var(--font-pf-display)] opacity-80">{slide.step}</span>
+        </header>
+      )}
+
+      <main className="flex-1 min-h-0 flex items-center justify-center px-6 py-1 overflow-hidden">
+        {slide.kind === "opening" && <SlideOpening onStart={next} />}
+        {slide.kind === "intro" && <IntroSlideView slide={slide} />}
+        {slide.kind === "pilar1" && <SlidePilar1 />}
+        {slide.kind === "pilar2" && <SlidePilar2 />}
+        {slide.kind === "pilar3" && <SlidePilar3 />}
+        {slide.kind === "flora1" && <SlideFlora1 />}
+        {slide.kind === "flora2" && <SlideFlora2 />}
+        {slide.kind === "flora3" && <SlideFlora3 />}
+        {slide.kind === "luna1" && <SlideLuna1 />}
+        {slide.kind === "luna2" && <SlideLuna2 />}
+        {slide.kind === "luna3" && <SlideLuna3 />}
+        {slide.kind === "desafio" && <SlideDesafio />}
+        {slide.kind === "cierre" && <SlideCierre />}
+      </main>
+
+      {slide.kind !== "opening" && (
+        <footer className="flex-shrink-0 flex items-center justify-between px-8 pb-4 pt-1">
+          <button
+            onClick={prev}
+            className="px-6 py-3 rounded-full bg-white/70 text-[var(--color-pf-ink)] font-semibold hover:bg-white transition"
+          >
+            ← Anterior
+          </button>
+
+          <div className="flex items-center gap-3">
+            {SLIDES.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setActive(i)}
+                aria-label={`Slide ${i + 1}`}
+                className="h-2 rounded-full transition-all"
+                style={{
+                  width: i === active ? 40 : 12,
+                  background: i === active ? "var(--color-pf-ink)" : "rgba(10,10,10,0.25)",
+                }}
+              />
+            ))}
+          </div>
+
+          <button
+            onClick={next}
+            className="px-8 py-3 rounded-full bg-[var(--color-pf-ink)] text-white font-semibold hover:opacity-90 transition"
+          >
+            Siguiente →
+          </button>
+        </footer>
+      )}
+    </div>
+  );
+}
+
+function IntroSlideView({ slide }: { slide: IntroSlide }) {
+  const Character = slide.Character;
+  return (
+    <div className="w-full h-full max-w-[1600px] grid grid-cols-[1fr_1fr] gap-6 items-center overflow-hidden">
+      <div className="relative min-h-0 flex flex-col justify-center px-4">
+        <div className="mb-4 flex items-center gap-3">
+          <span className="font-[family-name:var(--font-pf-display)] text-[clamp(24px,3vw,36px)] text-[var(--color-pf-ink)]">
+            {slide.name}
+          </span>
+          <span
+            className="px-5 py-1.5 rounded-full text-[clamp(13px,1.6vw,18px)] font-semibold"
+            style={{ background: slide.badgeBg, color: slide.badgeFg }}
+          >
+            {slide.badge}
+          </span>
+        </div>
+
+        <h1 className="font-[family-name:var(--font-pf-display)] uppercase leading-[0.86] tracking-tight text-[clamp(64px,12vw,180px)] text-[var(--color-pf-ink)]">
+          {slide.headline.map((line, i) => (
+            <span key={i} className="block">
+              {line}
+            </span>
+          ))}
+        </h1>
+
+        <p className="mt-6 max-w-2xl text-[clamp(18px,2.2vw,28px)] leading-relaxed text-[var(--color-pf-ink)] opacity-75">
+          {slide.subtitle}
+        </p>
+      </div>
+
+      <div className="flex items-center justify-center min-h-0 overflow-hidden">
+        <Character className="w-full max-w-[min(48vw,70vh)] h-auto" />
+      </div>
+    </div>
+  );
+}

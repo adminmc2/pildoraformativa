@@ -19,6 +19,23 @@
   --color-sgel-dark: #1a1a1a;
   --color-sgel-light: #f5f5f5;
 
+  /* Píldoras Formativas — paleta Little Movers */
+  --color-pf-star: #F5C842;
+  --color-pf-star-soft: #FEF3C7;
+  --color-pf-flower: #E91FCE;
+  --color-pf-flower-soft: #FCE7F3;
+  --color-pf-pill: #8FC751;
+  --color-pf-pill-soft: #DCEDC8;
+  --color-pf-moon: #7C5CFF;
+  --color-pf-moon-soft: #E9E5FF;
+  --color-pf-spark: #FF6B4A;
+  --color-pf-spark-soft: #FFE4DC;
+  --color-pf-ink: #0A0A0A;
+  --color-pf-cream: #F5F5F5;
+  --color-pf-paper: #FFFFFF;
+
+  --font-pf-display: var(--font-pf-display);
+  --font-pf-ui: var(--font-pf-ui);
 }
 
 /* Animación para NeonGradientCard */

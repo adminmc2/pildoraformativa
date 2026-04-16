@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@phosphor-icons/react": "^2.1.10",
     "@progress/kendo-licensing": "^1.7.1",
     "@progress/kendo-react-data-tools": "^12.2.0",
     "@progress/kendo-react-grid": "^12.2.0",
