@@ -13,6 +13,9 @@ import { SlidePilar3 } from "@/components/pildoras-formativas/slides/slide-pilar
 import { SlideFlora1 } from "@/components/pildoras-formativas/slides/slide-flora-1";
 import { SlideFlora2 } from "@/components/pildoras-formativas/slides/slide-flora-2";
 import { SlideFlora3 } from "@/components/pildoras-formativas/slides/slide-flora-3";
+import { SlideVito1 } from "@/components/pildoras-formativas/slides/slide-vito-1";
+import { SlideVito2 } from "@/components/pildoras-formativas/slides/slide-vito-2";
+import { SlideVito3 } from "@/components/pildoras-formativas/slides/slide-vito-3";
 import { SlideLuna1 } from "@/components/pildoras-formativas/slides/slide-luna-1";
 import { SlideLuna2 } from "@/components/pildoras-formativas/slides/slide-luna-2";
 import { SlideLuna3 } from "@/components/pildoras-formativas/slides/slide-luna-3";
@@ -41,6 +44,9 @@ type ContentSlide = {
     | "flora1"
     | "flora2"
     | "flora3"
+    | "vito1"
+    | "vito2"
+    | "vito3"
     | "luna1"
     | "luna2"
     | "luna3"
@@ -149,28 +155,43 @@ const SLIDES: Slide[] = [
     bg: "#E8F5E0",
   },
   {
-    kind: "luna1",
+    kind: "vito1",
     step: "#12",
+    bg: "var(--color-pf-pill-soft)",
+  },
+  {
+    kind: "vito2",
+    step: "#13",
+    bg: "var(--color-pf-pill-soft)",
+  },
+  {
+    kind: "vito3",
+    step: "#14",
+    bg: "var(--color-pf-pill-soft)",
+  },
+  {
+    kind: "luna1",
+    step: "#15",
     bg: "var(--color-pf-moon-soft)",
   },
   {
     kind: "luna2",
-    step: "#13",
+    step: "#16",
     bg: "var(--color-pf-moon-soft)",
   },
   {
     kind: "luna3",
-    step: "#14",
+    step: "#17",
     bg: "var(--color-pf-moon-soft)",
   },
   {
     kind: "desafio",
-    step: "#15",
+    step: "#18",
     bg: "var(--color-pf-spark-soft)",
   },
   {
     kind: "cierre",
-    step: "#16",
+    step: "#19",
     bg: "var(--color-pf-pill-soft)",
   },
 ];
@@ -220,6 +241,9 @@ export default function Pildora31Page() {
         {slide.kind === "flora1" && <SlideFlora1 />}
         {slide.kind === "flora2" && <SlideFlora2 />}
         {slide.kind === "flora3" && <SlideFlora3 />}
+        {slide.kind === "vito1" && <SlideVito1 />}
+        {slide.kind === "vito2" && <SlideVito2 />}
+        {slide.kind === "vito3" && <SlideVito3 />}
         {slide.kind === "luna1" && <SlideLuna1 />}
         {slide.kind === "luna2" && <SlideLuna2 />}
         {slide.kind === "luna3" && <SlideLuna3 />}

@@ -1,4 +1,5 @@
 "use client";
+// 🔒 BLOQUEADA — No modificar sin consultar al usuario. Slide aprobada hasta #11.
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";

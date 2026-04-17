@@ -1,4 +1,5 @@
 "use client";
+// 🔒 BLOQUEADA — No modificar sin consultar al usuario. Slide aprobada hasta #11.
 
 import React, { useState } from "react";
 import { PilarStar } from "@/components/pildoras-formativas/characters/pilar-star";
