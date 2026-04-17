@@ -1,47 +1,67 @@
 "use client";
 
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { MorphingText } from "@/components/ui/morphing-text";
 import { FloraFlower } from "@/components/pildoras-formativas/characters/flora-flower";
 import { CharacterStage } from "@/components/pildoras-formativas/shared/character-stage";
 
+const FORMS_NUESTRO = ["nuestro", "nuestra", "nuestros", "nuestras"];
+const FORMS_VUESTRO = ["vuestro", "vuestra", "vuestros", "vuestras"];
+
 type Form = {
-  id: string;
   pos: string;
   noun: string;
+  gender: string;
+  number: string;
+  group: "nuestro" | "vuestro";
 };
 
-const FORMS_4: Form[] = [
-  { id: "n1", pos: "Nuestro", noun: "profesor" },
-  { id: "n2", pos: "Nuestra", noun: "madre" },
-  { id: "n3", pos: "Nuestros", noun: "gatos" },
-  { id: "n4", pos: "Nuestras", noun: "mochilas" },
+const FORM_DETAILS: Form[] = [
+  { pos: "Nuestro", noun: "profesor", gender: "masculino", number: "singular", group: "nuestro" },
+  { pos: "Nuestra", noun: "madre", gender: "femenino", number: "singular", group: "nuestro" },
+  { pos: "Nuestros", noun: "gatos", gender: "masculino", number: "plural", group: "nuestro" },
+  { pos: "Nuestras", noun: "mochilas", gender: "femenino", number: "plural", group: "nuestro" },
+  { pos: "Vuestro", noun: "barrio", gender: "masculino", number: "singular", group: "vuestro" },
+  { pos: "Vuestra", noun: "clase", gender: "femenino", number: "singular", group: "vuestro" },
+  { pos: "Vuestros", noun: "amigos", gender: "masculino", number: "plural", group: "vuestro" },
+  { pos: "Vuestras", noun: "mochilas", gender: "femenino", number: "plural", group: "vuestro" },
 ];
 
 const BUBBLES = [
-  "¿Será igual?",
-  "Nuestro...",
-  "Nuestra...",
-  "Nuestros...",
-  "Nuestras...",
-  "¡Cuatro formas!",
-  "Familia 1 = solo número. Familia 2 = número + género.",
+  "¿Recordáis la pregunta? ¿Todos tienen 2 formas?",
+  "Nuestro. Masculino, uno.",
+  "¡Nuestra! Femenino, una. ¡Ha cambiado!",
+  "Nuestros. Masculino, varios.",
+  "¡Nuestras! Femenino, varias. ¡4 formas!",
+  "Ahora vuestro. ¿Pasará lo mismo?",
+  "Vuestro. Masculino, uno.",
+  "¡Vuestra! Femenino. Igual que nuestra.",
+  "Vuestros. Masculino, varios.",
+  "¡Vuestras! Femenino, varias. ¡También 4!",
+  "Nuestro y vuestro: 4 formas cada uno. Cambian con número Y género.",
 ];
 
+// Fases: 0=morphing nuestro, 1-4=formas nuestro, 5=morphing vuestro, 6-9=formas vuestro, 10=insight
 export function SlideFlora3() {
   const [step, setStep] = useState(0);
-  const totalSteps = 6;
+  const totalSteps = 10;
 
   const canNext = step < totalSteps;
   const canPrev = step > 0;
 
-  const formsVisible = Math.min(step, FORMS_4.length);
-  const countRevealed = step >= 5;
-  const insightRevealed = step === 6;
+  const nuestroVisible = step >= 1 ? Math.min(step, 4) : 0;
+  const vuestroVisible = step >= 6 ? Math.min(step - 5, 4) : 0;
+  const showNuestroCards = step >= 1;
+  const showVuestroCards = step >= 6;
+  const showMorphNuestro = step === 0;
+  const showMorphVuestro = step === 5;
+  const insightRevealed = step === totalSteps;
 
   return (
     <div className="w-full h-full flex items-center justify-center overflow-hidden">
-      <div className="w-full max-w-[1400px] grid grid-cols-[1.35fr_1fr] gap-10 items-center">
-        <div className="flex flex-col gap-3 min-w-0">
+      <div className="w-full max-w-[1500px] grid grid-cols-[1.5fr_1fr] gap-6 items-center">
+        <div className="flex flex-col gap-2 min-w-0">
           <div className="flex items-center gap-3">
             <span className="font-[family-name:var(--font-pf-display)] text-[clamp(18px,1.8vh,22px)] text-[var(--color-pf-ink)]">
               FLORA
@@ -57,113 +77,83 @@ export function SlideFlora3() {
             </span>
           </div>
 
-          <h1 className="font-[family-name:var(--font-pf-display)] uppercase leading-[0.88] tracking-tight text-[clamp(36px,min(6vw,8vh),96px)] text-[var(--color-pf-ink)]">
-            ¿Todos funcionan igual?
+          <h1 className="font-[family-name:var(--font-pf-display)] uppercase leading-[0.88] tracking-tight text-[clamp(32px,min(5vw,7vh),72px)] text-[var(--color-pf-ink)]">
+            ¿Solo 2 formas?
           </h1>
 
-          <p className="text-[clamp(18px,2.2vw,28px)] font-semibold text-white bg-[var(--color-pf-ink)] inline-block px-6 py-2.5 rounded-full">
-            Compara las dos familias de posesivos.
+          <p className="text-[clamp(14px,1.6vw,22px)] font-semibold text-white bg-[var(--color-pf-ink)] inline-block px-5 py-1.5 rounded-full self-start">
+            Mira cómo cambia «nuestro» y «vuestro».
           </p>
 
-          <div className="grid grid-cols-2 gap-4">
-            {/* FAMILIA 1: mi/tu/su — solo cambian con número (2 formas) */}
-            <div className="bg-white rounded-[22px] px-5 py-5 shadow-[0_14px_40px_-16px_rgba(0,0,0,0.12)]">
-              <div className="text-[10px] font-semibold tracking-wider text-[var(--color-pf-ink)] opacity-60 uppercase mb-3">
-                Familia 1
-              </div>
-              <div className="font-[family-name:var(--font-pf-display)] text-[clamp(18px,2.2vh,28px)] text-[var(--color-pf-ink)] mb-3">
-                mi · tu · su
-              </div>
-              <div className="flex items-baseline gap-2 mb-3">
-                <span className="font-[family-name:var(--font-pf-display)] text-[clamp(36px,min(4vw,5vh),60px)] text-[var(--color-pf-spark)] leading-none">
-                  2
-                </span>
-                <span className="text-sm font-semibold text-[var(--color-pf-ink)] opacity-70">
-                  formas cada uno
-                </span>
-              </div>
-              <div className="flex gap-2">
-                <span className="px-2.5 py-1 rounded-lg bg-[var(--color-pf-spark)] text-white text-sm font-[family-name:var(--font-pf-display)]">
-                  mi
-                </span>
-                <span className="px-2.5 py-1 rounded-lg bg-[var(--color-pf-spark)] text-white text-sm font-[family-name:var(--font-pf-display)]">
-                  mis
-                </span>
-              </div>
-              <p className="mt-3 text-xs text-[var(--color-pf-ink)] opacity-60">
-                Solo cambian con el número (singular / plural).
-              </p>
+          {/* Morphing Text — nuestro */}
+          {showMorphNuestro && (
+            <div className="bg-white rounded-[24px] px-8 py-6 shadow-[0_18px_50px_-18px_rgba(0,0,0,0.15)]">
+              <p className="text-[clamp(14px,1.6vw,18px)] text-[var(--color-pf-ink)] opacity-60 mb-2 font-semibold uppercase tracking-wider">Nosotros</p>
+              <MorphingText
+                texts={FORMS_NUESTRO}
+                className="h-[clamp(50px,7vh,90px)] text-[clamp(36px,min(4.5vw,6vh),72px)] text-[var(--color-pf-ink)] font-[family-name:var(--font-pf-display)]"
+              />
             </div>
+          )}
 
-            {/* FAMILIA 2: nuestro/vuestro — cambian con número Y género (4 formas) */}
-            <div className="bg-white rounded-[22px] px-5 py-5 shadow-[0_18px_50px_-18px_rgba(0,0,0,0.15)]">
-              <div className="text-[10px] font-semibold tracking-wider text-[var(--color-pf-ink)] opacity-60 uppercase mb-3">
-                Familia 2
-              </div>
-              <div className="font-[family-name:var(--font-pf-display)] text-[clamp(18px,2.2vh,28px)] text-[var(--color-pf-ink)] mb-3">
-                nuestro · vuestro
-              </div>
-
-              <div className="grid grid-cols-2 gap-2 mb-3">
-                {FORMS_4.map((form, i) => {
-                  const visible = i < formsVisible;
-                  return (
-                    <div
-                      key={form.id}
-                      className={`rounded-xl px-3 py-2 border-2 transition-all duration-500 min-h-[44px] ${
-                        visible
-                          ? "bg-[var(--color-pf-pill-soft)] border-transparent"
-                          : "bg-transparent border-dashed border-[var(--color-pf-ink)]/15"
-                      }`}
-                      style={{
-                        animation: visible
-                          ? "formIn 520ms cubic-bezier(0.2,0.8,0.2,1)"
-                          : "none",
-                      }}
-                    >
-                      {visible && (
-                        <div>
-                          <span
-                            className="inline-block px-2 py-0 rounded-md text-white font-[family-name:var(--font-pf-display)] text-[clamp(13px,1.4vh,17px)]"
-                            style={{ background: "var(--color-pf-pill)" }}
-                          >
-                            {form.pos}
-                          </span>
-                          <span className="ml-1.5 font-[family-name:var(--font-pf-display)] text-[clamp(13px,1.4vh,17px)] text-[var(--color-pf-ink)]">
-                            {form.noun}
-                          </span>
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
-
-              {countRevealed && (
-                <div
-                  className="flex items-baseline gap-2 mb-2"
-                  style={{ animation: "countIn 540ms cubic-bezier(0.2,0.8,0.2,1)" }}
-                >
-                  <span className="font-[family-name:var(--font-pf-display)] text-[clamp(36px,min(4vw,5vh),60px)] text-[var(--color-pf-pill)] leading-none">
-                    4
-                  </span>
-                  <span className="text-sm font-semibold text-[var(--color-pf-ink)] opacity-70">
-                    formas cada uno
-                  </span>
-                </div>
-              )}
-
-              {countRevealed && (
-                <p className="text-xs text-[var(--color-pf-ink)] opacity-60">
-                  Cambian con número <strong>y género</strong>.
-                </p>
-              )}
+          {/* Morphing Text — vuestro */}
+          {showMorphVuestro && (
+            <div className="bg-white rounded-[24px] px-8 py-6 shadow-[0_18px_50px_-18px_rgba(0,0,0,0.15)]">
+              <p className="text-[clamp(14px,1.6vw,18px)] text-[var(--color-pf-ink)] opacity-60 mb-2 font-semibold uppercase tracking-wider">Vosotros</p>
+              <MorphingText
+                texts={FORMS_VUESTRO}
+                className="h-[clamp(50px,7vh,90px)] text-[clamp(36px,min(4.5vw,6vh),72px)] text-[var(--color-pf-ink)] font-[family-name:var(--font-pf-display)]"
+              />
             </div>
-          </div>
+          )}
 
-          {/* Insight lo dice Flora en su burbuja */}
+          {/* Cards de nuestro */}
+          {showNuestroCards && !showMorphVuestro && (
+            <div>
+              <p className="text-[clamp(12px,1.3vw,16px)] font-semibold text-[var(--color-pf-ink)] opacity-50 uppercase tracking-wider mb-2">Nosotros</p>
+              <div className="grid grid-cols-4 gap-2">
+                {FORM_DETAILS.filter(f => f.group === "nuestro").map((form, i) => (
+                  <FormCard key={form.pos} form={form} visible={i < nuestroVisible} />
+                ))}
+              </div>
+            </div>
+          )}
 
-          <div className="flex items-center gap-3 mt-1">
+          {/* Cards de vuestro */}
+          {showVuestroCards && (
+            <div>
+              <p className="text-[clamp(12px,1.3vw,16px)] font-semibold text-[var(--color-pf-ink)] opacity-50 uppercase tracking-wider mb-1 mt-2">Nosotros</p>
+              <div className="grid grid-cols-4 gap-2 mb-2">
+                {FORM_DETAILS.filter(f => f.group === "nuestro").map((form) => (
+                  <FormCard key={form.pos} form={form} visible={true} />
+                ))}
+              </div>
+              <p className="text-[clamp(12px,1.3vw,16px)] font-semibold text-[var(--color-pf-ink)] opacity-50 uppercase tracking-wider mb-1">Vosotros</p>
+              <div className="grid grid-cols-4 gap-2">
+                {FORM_DETAILS.filter(f => f.group === "vuestro").map((form, i) => (
+                  <FormCard key={form.pos} form={form} visible={i < vuestroVisible} />
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Insight */}
+          {insightRevealed && (
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="flex items-center gap-4 px-5 py-3 rounded-[16px] bg-[var(--color-pf-pill-soft)]"
+            >
+              <span className="font-[family-name:var(--font-pf-display)] text-[clamp(28px,min(3.4vw,4.4vh),48px)] text-[var(--color-pf-pill)] leading-none">
+                4+4
+              </span>
+              <span className="font-[family-name:var(--font-pf-display)] text-[clamp(13px,1.4vw,20px)] text-[var(--color-pf-ink)]">
+                formas cada uno: número + género
+              </span>
+            </motion.div>
+          )}
+
+          <div className="flex items-center gap-3">
             <button
               onClick={() => canPrev && setStep(step - 1)}
               disabled={!canPrev}
@@ -178,12 +168,14 @@ export function SlideFlora3() {
               className="px-7 py-2.5 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-lg disabled:opacity-40 hover:opacity-90 transition"
             >
               {step === 0
-                ? "EMPEZAR"
+                ? "VER LAS FORMAS"
+                : step === 5
+                ? "AHORA VUESTRO"
                 : step === totalSteps
                 ? "COMPLETADO"
-                : step === 5
-                ? "REVELAR"
-                : "SIGUIENTE"}
+                : step < 5 || (step > 5 && step < 10)
+                ? "SIGUIENTE FORMA"
+                : "REVELAR"}
             </button>
             <span className="text-[var(--color-pf-ink)] font-semibold opacity-70 text-sm">
               {step} / {totalSteps}
@@ -195,48 +187,60 @@ export function SlideFlora3() {
           <FloraFlower className="w-full h-auto" />
         </CharacterStage>
       </div>
-
-      <style jsx>{`
-        @keyframes formIn {
-          0% {
-            opacity: 0;
-            transform: translateY(-12px) scale(0.96);
-          }
-          60% {
-            transform: translateY(3px) scale(1.02);
-          }
-          100% {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-          }
-        }
-        @keyframes countIn {
-          0% {
-            opacity: 0;
-            transform: scale(0.7);
-          }
-          60% {
-            transform: scale(1.12);
-          }
-          100% {
-            opacity: 1;
-            transform: scale(1);
-          }
-        }
-        @keyframes insightIn {
-          0% {
-            opacity: 0;
-            transform: translateY(10px) scale(0.94);
-          }
-          60% {
-            transform: translateY(-2px) scale(1.04);
-          }
-          100% {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-          }
-        }
-      `}</style>
     </div>
+  );
+}
+
+function FormCard({ form, visible }: { form: Form; visible: boolean }) {
+  if (!visible) {
+    return (
+      <div className="rounded-[12px] px-2 py-2 border-2 border-dashed border-[var(--color-pf-ink)]/15 min-h-[44px] flex items-center justify-center">
+        <span className="text-sm font-semibold text-[var(--color-pf-ink)] opacity-25">?</span>
+      </div>
+    );
+  }
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.85 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ type: "spring", stiffness: 300, damping: 25 }}
+      className="rounded-[14px] px-3 py-2.5 shadow-[0_8px_24px_-10px_rgba(0,0,0,0.1)] bg-[var(--color-pf-pill-soft)]"
+    >
+      <span
+        className="inline-block px-2.5 py-0.5 rounded-md text-white font-[family-name:var(--font-pf-display)] text-[clamp(16px,1.8vw,24px)]"
+        style={{
+          background: form.gender === "masculino"
+            ? "var(--color-pf-moon)"
+            : "var(--color-pf-flower)",
+        }}
+      >
+        {form.pos}
+      </span>
+      <span className="ml-1.5 font-[family-name:var(--font-pf-ui)] text-[clamp(15px,1.6vw,22px)] text-[var(--color-pf-ink)]">
+        {form.noun}
+      </span>
+      <div className="mt-0.5 flex gap-1">
+        <span
+          className="text-[clamp(11px,1.1vw,14px)] px-1.5 py-0 rounded text-white font-semibold"
+          style={{
+            background: form.gender === "masculino"
+              ? "var(--color-pf-moon)"
+              : "var(--color-pf-flower)",
+          }}
+        >
+          {form.gender === "masculino" ? "masc." : "fem."}
+        </span>
+        <span
+          className="text-[clamp(11px,1.1vw,14px)] px-1.5 py-0 rounded text-white font-semibold"
+          style={{
+            background: form.number === "singular"
+              ? "var(--color-pf-star)"
+              : "var(--color-pf-spark)",
+          }}
+        >
+          {form.number === "singular" ? "sing." : "plural"}
+        </span>
+      </div>
+    </motion.div>
   );
 }

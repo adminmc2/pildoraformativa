@@ -73,8 +73,8 @@ export function SlidePilar2() {
   const inVarios = PHRASES.filter((_, i) => placements[i] === "varios");
 
   return (
-    <div className="w-full h-full flex items-center justify-center overflow-hidden">
-      <div className="w-full max-w-[1400px] grid grid-cols-[1.6fr_1fr] gap-6 items-center">
+    <div className="w-full h-full flex items-start justify-center overflow-hidden pt-2">
+      <div className="w-full max-w-[1400px] grid grid-cols-[1.6fr_1fr] gap-6 items-start">
         <div className="flex flex-col min-w-0 h-full" style={{ perspective: "1200px" }}>
           {/* === BLOQUE SUPERIOR === */}
           <div className="flex-shrink-0 flex flex-col gap-2 -mt-24">
