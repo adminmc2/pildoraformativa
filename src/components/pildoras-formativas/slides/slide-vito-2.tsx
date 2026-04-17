@@ -95,7 +95,7 @@ export function SlideVito2() {
 
           {/* Ejemplo 1 */}
           <div className="bg-white rounded-[20px] px-6 py-4 shadow-[0_14px_40px_-16px_rgba(0,0,0,0.14)]">
-            <p className="font-[family-name:var(--font-pf-display)] text-[clamp(18px,min(2.2vw,2.8vh),30px)] text-[var(--color-pf-ink)] mb-3">
+            <p className="font-[family-name:var(--font-pf-display)] text-[clamp(22px,min(2.6vw,3.4vh),36px)] text-[var(--color-pf-ink)] mb-3">
               {EXAMPLES[0].sentence.replace("___", ex1Filled ? `【${EXAMPLES[0].answer}】` : "___")}
             </p>
             <div className="flex gap-2 flex-wrap">
@@ -105,7 +105,7 @@ export function SlideVito2() {
                     key={`e1-${i}`}
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
-                    className="px-3 py-1.5 rounded-xl text-[clamp(14px,1.5vw,20px)] font-semibold text-[var(--color-pf-ink)]"
+                    className="px-3 py-1.5 rounded-xl text-[clamp(18px,2vw,26px)] font-semibold text-[var(--color-pf-ink)]"
                     style={{ background: s.color }}
                   >
                     <span className="opacity-60">{s.label}</span> {s.value}
@@ -122,7 +122,7 @@ export function SlideVito2() {
               animate={{ opacity: 1, y: 0 }}
               className="bg-white rounded-[20px] px-6 py-4 shadow-[0_14px_40px_-16px_rgba(0,0,0,0.14)]"
             >
-              <p className="font-[family-name:var(--font-pf-display)] text-[clamp(18px,min(2.2vw,2.8vh),30px)] text-[var(--color-pf-ink)] mb-3">
+              <p className="font-[family-name:var(--font-pf-display)] text-[clamp(22px,min(2.6vw,3.4vh),36px)] text-[var(--color-pf-ink)] mb-3">
                 {EXAMPLES[1].sentence.replace("___", ex2Filled ? `【${EXAMPLES[1].answer}】` : "___")}
               </p>
               <div className="flex gap-2 flex-wrap">
@@ -132,7 +132,7 @@ export function SlideVito2() {
                       key={`e2-${i}`}
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
-                      className="px-3 py-1.5 rounded-xl text-[clamp(14px,1.5vw,20px)] font-semibold text-[var(--color-pf-ink)]"
+                      className="px-3 py-1.5 rounded-xl text-[clamp(18px,2vw,26px)] font-semibold text-[var(--color-pf-ink)]"
                       style={{ background: s.color }}
                     >
                       <span className="opacity-60">{s.label}</span> {s.value}
@@ -143,15 +143,7 @@ export function SlideVito2() {
             </motion.div>
           )}
 
-          {conclusionVisible && (
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="px-5 py-3 rounded-[16px] bg-[var(--color-pf-pill-soft)] font-[family-name:var(--font-pf-display)] text-[clamp(16px,1.8vw,24px)] text-[var(--color-pf-ink)]"
-            >
-              Persona + cosa = posesivo correcto.
-            </motion.div>
-          )}
+          {/* Conclusión eliminada — VITO ya lo dice en su burbuja */}
 
           <div className="flex items-center gap-3">
             <button
