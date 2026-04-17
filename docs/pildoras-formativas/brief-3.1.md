@@ -73,7 +73,27 @@ No es decorativo: es un requisito de diseño. El alumno de 12–15 años tiene q
 - **Humor, sorpresa, color, movimiento.**
 - Nunca "lista de frases con espacio a rellenar".
 
-### 4b. Aparición progresiva (click to reveal)
+### 4b. Enunciados en nivel A1.1
+**Cada slide tiene UN enunciado visible que dice al alumno qué hacer.** Reglas:
+
+- Frases cortas, imperativas, en presente: "Clasifica", "Encuentra", "Compara", "Toca".
+- **Máximo 10-12 palabras.** Si no cabe en una línea de pill, es demasiado largo.
+- **Vocabulario 100% conocido** por el alumno a esta altura de la unidad. No usar metalenguaje gramatical ("posesivo", "concordancia", "singular") salvo que se haya enseñado antes.
+- **Evitar ambigüedades**: "familia" (¿uno o varios?) → usar "padre", "madre", "abuelo" (inequívocos). "se llama" repetido en todas las frases → variar los verbos.
+- **Explicitar el criterio** cuando haya clasificación: no solo "Ordena en dos grupos" sino "Clasifica: ¿habla de uno o de varios?" — el alumno debe saber QUÉ criterio usar.
+- **No usar "leed"** (vosotros formal) si el trato es de tú en el resto de la píldora. Coherencia en el registro.
+- Sugerencias de verbos A1.1 para enunciados: lee, mira, escucha, toca, elige, busca, compara, ordena, clasifica, completa, responde.
+
+### 4c. Accesibilidad visual obligatoria
+**Todo texto proyectable debe ser legible desde el fondo del aula.** Reglas:
+- Texto mínimo en pantalla: **16px** (nunca menos). Los enunciados al menos **18px**.
+- Las frases que se colocan dentro de contenedores (cajas, tablas, pools) deben mantener al menos **15px** y nunca encogerse por falta de espacio.
+- Si un elemento no cabe legible, se reorganiza el layout (más espacio al contenido, menos al personaje), no se reduce el texto.
+- Las etiquetas de categorías (UNO, VARIOS, etc.) no deben partirse en varias líneas.
+- Los enunciados deben diferenciarse visualmente del resto de componentes (fondo oscuro con texto blanco o similar).
+- Las burbujas de diálogo de los personajes deben ser lo suficientemente grandes para leerse sin esfuerzo.
+
+### 4c. Aparición progresiva (click to reveal)
 **La información no aparece toda de golpe.** Dentro de cada slide, los bloques se revelan **paso a paso con clics**: primero un ejemplo, clic → otro ejemplo, clic → marca visual que destaca el patrón, clic → la pregunta que fuerza la hipótesis, etc. Esto crea ritmo, da tiempo al alumno a mirar, y convierte la pizarra en un espacio vivo en lugar de un mural estático.
 
 **Se aprovechan al máximo las potencialidades interactivas del proyecto**: animaciones de entrada, drag & drop, highlighters, cards expandibles, carousels, tarjetas 3D, progress bars, reveals, etc. Cualquier componente del sampler existente se reutiliza si ayuda a la función inductiva de la slide.
