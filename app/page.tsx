@@ -1,5 +1,5 @@
-import { redirect } from 'next/navigation';
+import { redirect } from "next/navigation";
 
 export default function Home() {
-  redirect('/propuesta-metodologica');
+  redirect("/pildoras-formativas/3-1");
 }
