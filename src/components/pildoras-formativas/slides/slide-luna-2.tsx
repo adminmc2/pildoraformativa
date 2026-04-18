@@ -1,68 +1,79 @@
 "use client";
 
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { LunaMoon } from "@/components/pildoras-formativas/characters/luna-moon";
 import { CharacterStage } from "@/components/pildoras-formativas/shared/character-stage";
 
-type Slot = {
-  id: string;
+type PersonItem = {
+  id: number;
   person: string;
-  singular: string;
-  plural: string;
-  gap: "singular" | "plural";
+  context: string;
+  blank: string;
+  filled: string;
   options: string[];
   correct: number;
+  color: string;
 };
 
-const SLOTS: Slot[] = [
-  { id: "yo", person: "Yo", singular: "mi", plural: "mis", gap: "plural", options: ["mis", "mi", "mes"], correct: 0 },
-  { id: "tu", person: "Tú", singular: "tu", plural: "tus", gap: "singular", options: ["tú", "tu", "te"], correct: 1 },
-  { id: "el", person: "Él / Ella", singular: "su", plural: "sus", gap: "plural", options: ["su", "sus", "sos"], correct: 1 },
-  { id: "nos", person: "Nosotros", singular: "nuestro", plural: "nuestros", gap: "singular", options: ["nuestro", "nuestra", "nos"], correct: 0 },
-  { id: "vos", person: "Vosotros", singular: "vuestro", plural: "vuestras", gap: "plural", options: ["vuestro", "vuestras", "vuestos"], correct: 1 },
-  { id: "ellos", person: "Ellos", singular: "su", plural: "sus", gap: "singular", options: ["su", "se", "so"], correct: 0 },
-];
-
-const BUBBLES = [
-  "¿Os acordáis?",
-  "Yo...",
-  "Tú...",
-  "Él / Ella...",
-  "Nosotros...",
-  "Vosotros...",
-  "Ellos...",
-  "¡Tabla completa! Comparad con el libro, p. 37.",
+// Orden mezclado — no secuencial
+const PERSONS: PersonItem[] = [
+  { id: 0, person: "Javier", context: "Javier tiene una hermana.", blank: "___ hermana se llama Alejandra.", filled: "Su hermana se llama Alejandra.", options: ["Mi", "Su", "Tu"], correct: 1, color: "var(--color-pf-pill)" },
+  { id: 1, person: "Nosotros", context: "Tenemos dos hermanos.", blank: "___ hermanos son mayores.", filled: "Nuestros hermanos son mayores.", options: ["Nuestras", "Sus", "Nuestros"], correct: 2, color: "var(--color-pf-flower)" },
+  { id: 2, person: "Tú", context: "Tienes una hermana.", blank: "___ hermana estudia música.", filled: "Tu hermana estudia música.", options: ["Su", "Mi", "Tu"], correct: 2, color: "var(--color-pf-star)" },
+  { id: 3, person: "Vosotros", context: "Tenéis dos hermanas.", blank: "___ hermanas estudian ingeniería.", filled: "Vuestras hermanas estudian ingeniería.", options: ["Vuestros", "Vuestras", "Nuestras"], correct: 1, color: "var(--color-pf-spark)" },
+  { id: 4, person: "Yo", context: "Tengo una hermana.", blank: "___ hermana se llama Ana.", filled: "Mi hermana se llama Ana.", options: ["Tu", "Su", "Mi"], correct: 2, color: "var(--color-pf-moon)" },
 ];
 
 export function SlideLuna2() {
-  const [filled, setFilled] = useState<(number | null)[]>(SLOTS.map(() => null));
-  const [activeSlot, setActiveSlot] = useState<number | null>(null);
-  const filledCount = filled.filter((f) => f !== null).length;
-  const allFilled = filledCount === SLOTS.length;
+  const [current, setCurrent] = useState(0);
+  const [answered, setAnswered] = useState(false);
+  const [wrongPick, setWrongPick] = useState<number | null>(null);
+  const [score, setScore] = useState(0);
 
-  const selectSlot = (i: number) => {
-    if (filled[i] !== null || allFilled) return;
-    setActiveSlot(i);
+  const finished = current >= PERSONS.length;
+  const item = PERSONS[current];
+
+  // Carousel positions
+  const getCardStyle = (index: number) => {
+    const diff = index - current;
+    if (diff === 0) return { x: 0, scale: 1, opacity: 1, zIndex: 10, rotateY: 0 };
+    if (diff === 1 || (diff < 0 && diff > -PERSONS.length + 1)) return { x: 220, scale: 0.8, opacity: 0.5, zIndex: 5, rotateY: 30 };
+    if (diff === -1 || (diff > 0 && diff < PERSONS.length - 1)) return { x: -220, scale: 0.8, opacity: 0.5, zIndex: 5, rotateY: -30 };
+    return { x: 0, scale: 0.6, opacity: 0, zIndex: 0, rotateY: 0 };
   };
 
-  const chooseOption = (optIndex: number) => {
-    if (activeSlot === null) return;
-    setFilled((prev) => {
-      const next = [...prev];
-      next[activeSlot] = optIndex;
-      return next;
-    });
-    setActiveSlot(null);
+  const choose = (i: number) => {
+    if (answered || finished) return;
+    if (i === item.correct) {
+      setScore((s) => s + 1);
+      setAnswered(true);
+      setWrongPick(null);
+    } else {
+      setWrongPick(i);
+    }
+  };
+
+  const next = () => {
+    setCurrent((c) => c + 1);
+    setAnswered(false);
+    setWrongPick(null);
   };
 
   const reset = () => {
-    setFilled(SLOTS.map(() => null));
-    setActiveSlot(null);
+    setCurrent(0);
+    setAnswered(false);
+    setWrongPick(null);
+    setScore(0);
   };
 
-  const bubble = allFilled
-    ? BUBBLES[7]
-    : BUBBLES[Math.min(filledCount + 1, 6)];
+  const bubble = finished
+    ? `¡${score} de ${PERSONS.length}! Mismo parentesco, diferente posesivo.`
+    : answered
+    ? `¡${item.filled.split(" ")[0]}! ${item.person} → ${item.filled.split(" ")[0].toLowerCase()}.`
+    : wrongPick !== null
+    ? `No es ${item.options[wrongPick]}. ¿Quién habla?`
+    : `${item.person}. ¿Qué posesivo?`;
 
   return (
     <div className="w-full h-full flex items-center justify-center overflow-hidden">
@@ -80,148 +91,134 @@ export function SlideLuna2() {
             </span>
           </div>
 
-          <h1 className="font-[family-name:var(--font-pf-display)] uppercase leading-[0.88] tracking-tight text-[clamp(40px,min(6.5vw,8.5vh),104px)] text-[var(--color-pf-ink)]">
-            Completa el cuadro
+          <h1 className="font-[family-name:var(--font-pf-display)] uppercase leading-[0.88] tracking-tight text-[clamp(40px,min(6.5vw,9vh),96px)] text-[var(--color-pf-ink)]">
+            Cada persona
           </h1>
 
-          <p className="text-[clamp(18px,2.2vw,28px)] font-semibold text-white bg-[var(--color-pf-ink)] inline-block px-6 py-2.5 rounded-full">
-            Toca un hueco y elige la forma correcta.
+          <p className="text-[clamp(16px,1.8vw,24px)] font-semibold text-white bg-[var(--color-pf-ink)] inline-block px-5 py-2 rounded-full self-start">
+            Mismo parentesco, diferente posesivo.
           </p>
 
-          <div className="bg-white rounded-[24px] px-5 py-4 shadow-[0_18px_50px_-18px_rgba(0,0,0,0.15)]">
-            <div className="grid grid-cols-[auto_1fr_1fr] gap-x-3 gap-y-1.5 items-center text-[clamp(13px,1.5vh,18px)]">
-              <div></div>
-              <div className="text-[10px] font-semibold tracking-wider text-[var(--color-pf-ink)] opacity-60 text-center uppercase">
-                Singular
+          {!finished ? (
+            <div>
+              {/* Carousel visual */}
+              <div className="relative h-[clamp(140px,18vh,200px)] mb-4" style={{ perspective: "1000px" }}>
+                {PERSONS.map((p, i) => {
+                  const style = getCardStyle(i);
+                  const isActive = i === current;
+                  return (
+                    <motion.div
+                      key={p.id}
+                      animate={{
+                        x: style.x,
+                        scale: style.scale,
+                        opacity: style.opacity,
+                        rotateY: style.rotateY,
+                      }}
+                      transition={{ type: "spring", stiffness: 200, damping: 25 }}
+                      className="absolute inset-0 flex items-center justify-center"
+                      style={{ zIndex: style.zIndex, transformStyle: "preserve-3d" }}
+                    >
+                      <div
+                        className="rounded-[24px] px-8 py-5 w-full max-w-[500px]"
+                        style={{
+                          background: isActive ? "white" : `color-mix(in srgb, white 90%, ${p.color})`,
+                          boxShadow: isActive
+                            ? `0 18px 50px -18px rgba(0,0,0,0.2), 0 0 0 3px ${p.color}`
+                            : "0 8px 24px -10px rgba(0,0,0,0.1)",
+                        }}
+                      >
+                        <div className="flex items-center gap-3 mb-2">
+                          <span
+                            className="px-3 py-1 rounded-full text-white font-[family-name:var(--font-pf-display)] text-[clamp(14px,1.6vw,20px)]"
+                            style={{ background: p.color }}
+                          >
+                            {p.person}
+                          </span>
+                          <span className="text-sm opacity-50">{current + 1}/{PERSONS.length}</span>
+                        </div>
+                        <p className="font-[family-name:var(--font-pf-ui)] text-[clamp(16px,1.8vw,22px)] text-[var(--color-pf-ink)] opacity-70 mb-1">
+                          {p.context}
+                        </p>
+                        <p className="font-[family-name:var(--font-pf-display)] text-[clamp(22px,min(2.8vw,3.6vh),38px)] text-[var(--color-pf-ink)]">
+                          {answered && isActive ? (
+                            <>
+                              <span className="inline-block px-3 py-0.5 rounded-lg text-white mr-1" style={{ background: p.color }}>
+                                {p.filled.split(" ")[0]}
+                              </span>
+                              {p.filled.split(" ").slice(1).join(" ")}
+                            </>
+                          ) : isActive ? (
+                            <>
+                              <span className="inline-block px-4 py-0.5 rounded-lg bg-black/10 mr-1">___</span>
+                              {p.blank.replace("___", "").trim()}
+                            </>
+                          ) : (
+                            <span className="opacity-30">{p.blank}</span>
+                          )}
+                        </p>
+                      </div>
+                    </motion.div>
+                  );
+                })}
               </div>
-              <div className="text-[10px] font-semibold tracking-wider text-[var(--color-pf-ink)] opacity-60 text-center uppercase">
-                Plural
-              </div>
 
-              {SLOTS.map((slot, i) => {
-                const isFilled = filled[i] !== null;
-                const isActive = activeSlot === i;
-                const isCorrect = isFilled && filled[i] === slot.correct;
+              {/* Opciones */}
+              {!answered && (
+                <div className="flex gap-3">
+                  {item.options.map((opt, i) => (
+                    <motion.button
+                      key={i}
+                      whileHover={{ scale: 1.03 }}
+                      whileTap={{ scale: 0.97 }}
+                      onClick={() => choose(i)}
+                      disabled={wrongPick === i}
+                      className={`flex-1 px-4 py-3 rounded-[18px] font-[family-name:var(--font-pf-display)] text-[clamp(20px,2.4vw,32px)] transition ${
+                        wrongPick === i
+                          ? "bg-[var(--color-pf-spark-soft)] text-[#8A2F10] line-through opacity-60"
+                          : "bg-white text-[var(--color-pf-ink)] shadow-[0_8px_24px_-10px_rgba(0,0,0,0.1)] hover:shadow-[0_12px_30px_-10px_rgba(0,0,0,0.15)] cursor-pointer"
+                      }`}
+                    >
+                      {opt}
+                    </motion.button>
+                  ))}
+                </div>
+              )}
 
-                const singContent = slot.gap === "singular"
-                  ? isFilled
-                    ? slot.options[filled[i]!]
-                    : "___"
-                  : slot.singular;
-
-                const plurContent = slot.gap === "plural"
-                  ? isFilled
-                    ? slot.options[filled[i]!]
-                    : "___"
-                  : slot.plural;
-
-                const gapCol = slot.gap;
-
-                return (
-                  <TableRow
-                    key={slot.id}
-                    person={slot.person}
-                    singContent={singContent}
-                    plurContent={plurContent}
-                    gapCol={gapCol}
-                    isFilled={isFilled}
-                    isActive={isActive}
-                    isCorrect={isCorrect}
-                    onClick={() => selectSlot(i)}
-                  />
-                );
-              })}
-            </div>
-
-            {activeSlot !== null && (
-              <div
-                className="mt-3 flex items-center justify-center gap-3"
-                style={{ animation: "optionsIn 400ms cubic-bezier(0.2,0.8,0.2,1)" }}
-              >
-                {SLOTS[activeSlot].options.map((opt, oi) => (
-                  <button
-                    key={oi}
-                    onClick={() => chooseOption(oi)}
-                    className="px-5 py-2.5 rounded-[16px] bg-[var(--color-pf-moon-soft)] font-[family-name:var(--font-pf-display)] text-[clamp(16px,2vh,24px)] text-[var(--color-pf-ink)] hover:bg-[var(--color-pf-moon)]/40 active:scale-[0.96] transition"
-                  >
-                    {opt}
-                  </button>
-                ))}
-              </div>
-            )}
-
-            {allFilled && (
-              <div className="mt-3">
+              {answered && (
                 <button
-                  onClick={reset}
-                  className="px-4 py-1.5 rounded-full bg-white border-2 border-[var(--color-pf-ink)] text-[var(--color-pf-ink)] text-xs font-semibold hover:bg-[var(--color-pf-moon-soft)] transition"
+                  onClick={next}
+                  className="px-7 py-2.5 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-lg hover:opacity-90 transition"
                 >
-                  ↺ Reiniciar
+                  SIGUIENTE PERSONA
                 </button>
+              )}
+            </div>
+          ) : (
+            <div className="bg-white rounded-[24px] px-8 py-8 shadow-[0_18px_50px_-18px_rgba(0,0,0,0.15)] text-center">
+              <div className="font-[family-name:var(--font-pf-display)] text-[clamp(48px,min(6vw,8vh),96px)] text-[var(--color-pf-moon)] leading-none mb-2">
+                {score}/{PERSONS.length}
               </div>
-            )}
-          </div>
+              <p className="font-[family-name:var(--font-pf-display)] text-[clamp(22px,2.8vh,36px)] text-[var(--color-pf-ink)]">
+                {score === PERSONS.length ? "¡Perfecto!" : score >= 3 ? "¡Bien!" : "¡A repasar!"}
+              </p>
+              <button
+                onClick={reset}
+                className="mt-4 px-5 py-2 rounded-full bg-white border-2 border-[var(--color-pf-ink)] text-[var(--color-pf-ink)] text-sm font-semibold hover:bg-[var(--color-pf-moon-soft)] transition"
+              >
+                ↺ Reiniciar
+              </button>
+            </div>
+          )}
         </div>
 
-        <CharacterStage bubble={bubble} step={filledCount}>
+        <CharacterStage
+          bubble={bubble}
+          step={current * 3 + (answered ? 2 : wrongPick !== null ? 1 : 0)}
+        >
           <LunaMoon className="w-full h-auto" />
         </CharacterStage>
       </div>
-
-      <style jsx>{`
-        @keyframes optionsIn {
-          0% { opacity: 0; transform: translateY(8px); }
-          100% { opacity: 1; transform: translateY(0); }
-        }
-      `}</style>
     </div>
-  );
-}
-
-function TableRow({
-  person,
-  singContent,
-  plurContent,
-  gapCol,
-  isFilled,
-  isActive,
-  isCorrect,
-  onClick,
-}: {
-  person: string;
-  singContent: string;
-  plurContent: string;
-  gapCol: "singular" | "plural";
-  isFilled: boolean;
-  isActive: boolean;
-  isCorrect: boolean;
-  onClick: () => void;
-}) {
-  const gapStyle = (col: "singular" | "plural") => {
-    if (col !== gapCol) return "bg-[var(--color-pf-star-soft)] text-[var(--color-pf-ink)]";
-    if (isActive) return "bg-[var(--color-pf-moon)] text-white ring-2 ring-[var(--color-pf-ink)]";
-    if (isFilled && isCorrect) return "bg-[var(--color-pf-pill-soft)] text-[var(--color-pf-ink)]";
-    if (isFilled && !isCorrect) return "bg-[var(--color-pf-spark-soft)] text-[var(--color-pf-ink)]";
-    return "bg-white border-2 border-dashed border-[var(--color-pf-ink)]/25 text-[var(--color-pf-ink)]/40 cursor-pointer hover:border-[var(--color-pf-moon)]";
-  };
-
-  return (
-    <>
-      <div className="font-[family-name:var(--font-pf-display)] text-[var(--color-pf-ink)] pr-2">
-        {person}
-      </div>
-      <div
-        className={`rounded-lg px-3 py-1.5 text-center font-[family-name:var(--font-pf-display)] transition-all ${gapStyle("singular")}`}
-        onClick={gapCol === "singular" && !isFilled ? onClick : undefined}
-      >
-        {singContent}
-      </div>
-      <div
-        className={`rounded-lg px-3 py-1.5 text-center font-[family-name:var(--font-pf-display)] transition-all ${gapStyle("plural")}`}
-        onClick={gapCol === "plural" && !isFilled ? onClick : undefined}
-      >
-        {plurContent}
-      </div>
-    </>
   );
 }

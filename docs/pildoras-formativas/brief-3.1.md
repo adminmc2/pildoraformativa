@@ -4,7 +4,7 @@
 
 ## 0. Contexto del proyecto
 
-**Producto:** Guía didáctica del profesor para el curso *Nuevo Compañeros 1* (SGEL), nivel **A1.1**, adolescentes de **12–15 años**, español como lengua extranjera (ELE).
+**Producto:** Guía didáctica del profesor para el curso *Nuevo Compañeros 1* (la plataforma), nivel **A1.1**, adolescentes de **12–15 años**, español como lengua extranjera (ELE).
 
 **Idiomas L1 del aula (9):** inglés, francés, portugués, alemán, polaco, holandés, griego, turco, checo.
 

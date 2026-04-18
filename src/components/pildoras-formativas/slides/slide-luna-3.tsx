@@ -1,64 +1,72 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
+import { Highlighter } from "@/components/ui/highlighter";
 import { LunaMoon } from "@/components/pildoras-formativas/characters/luna-moon";
 import { CharacterStage } from "@/components/pildoras-formativas/shared/character-stage";
 
-type MatchItem = {
+type Phrase = {
   id: number;
-  before: string;
-  after: string;
-  answer: string;
+  text: string;
+  correct: boolean;
+  correction: string;
+  errorWord: string;
 };
 
-const ITEMS: MatchItem[] = [
-  { id: 0, before: "Yo vivo con ", after: " familia.", answer: "mi" },
-  { id: 1, before: "", after: " abuelos son mexicanos.", answer: "Mis" },
-  { id: 2, before: "David tiene ", after: " libro en la cartera.", answer: "su" },
-  { id: 3, before: "", after: " profesor es muy simpático.", answer: "Nuestro" },
-  { id: 4, before: "Graciela vive con ", after: " tíos.", answer: "sus" },
-  { id: 5, before: "", after: " madre trabaja en el hotel.", answer: "Su" },
+const PHRASES: Phrase[] = [
+  { id: 0, text: "Mi padre es agricultor.", correct: true, correction: "", errorWord: "" },
+  { id: 1, text: "Mi hermanos son tres.", correct: false, correction: "Mis hermanos son tres.", errorWord: "Mi hermanos" },
+  { id: 2, text: "Tu madre es enfermera.", correct: true, correction: "", errorWord: "" },
+  { id: 3, text: "Nuestra gato se llama Tom.", correct: false, correction: "Nuestro gato se llama Tom.", errorWord: "Nuestra gato" },
+  { id: 4, text: "Sus tíos viven en Madrid.", correct: true, correction: "", errorWord: "" },
+  { id: 5, text: "Vuestras profesor es simpático.", correct: false, correction: "Vuestro profesor es simpático.", errorWord: "Vuestras profesor" },
 ];
 
-const POOL = ["sus", "mi", "Nuestro", "Su", "Mis", "su"];
-
 export function SlideLuna3() {
-  const [matched, setMatched] = useState<(string | null)[]>(ITEMS.map(() => null));
-  const [activeItem, setActiveItem] = useState<number | null>(null);
-  const matchedCount = matched.filter((m) => m !== null).length;
-  const allMatched = matchedCount === ITEMS.length;
+  const [current, setCurrent] = useState(0);
+  const [answered, setAnswered] = useState(false);
+  const [wrongPick, setWrongPick] = useState(false);
+  const [score, setScore] = useState(0);
 
-  const usedAnswers = new Set(matched.filter(Boolean));
+  const finished = current >= PHRASES.length;
+  const phrase = PHRASES[current];
 
-  const selectItem = (i: number) => {
-    if (matched[i] !== null || allMatched) return;
-    setActiveItem(i);
-  };
-
-  const selectPool = (word: string) => {
-    if (activeItem === null) return;
-    if (word === ITEMS[activeItem].answer) {
-      setMatched((prev) => {
-        const next = [...prev];
-        next[activeItem] = word;
-        return next;
-      });
-      setActiveItem(null);
+  const choose = (isCorrect: boolean) => {
+    if (answered || finished) return;
+    if (isCorrect === phrase.correct) {
+      setScore((s) => s + 1);
+      setAnswered(true);
+      setWrongPick(false);
+    } else {
+      setWrongPick(true);
     }
   };
 
-  const reset = () => {
-    setMatched(ITEMS.map(() => null));
-    setActiveItem(null);
+  const next = () => {
+    setCurrent((c) => c + 1);
+    setAnswered(false);
+    setWrongPick(false);
   };
 
-  const bubble = allMatched
-    ? "¡Todo conectado!"
-    : activeItem !== null
-    ? "¿Cuál va aquí?"
-    : matchedCount === 0
-    ? "Toca una frase..."
-    : `¡${matchedCount} de ${ITEMS.length}!`;
+  const reset = () => {
+    setCurrent(0);
+    setAnswered(false);
+    setWrongPick(false);
+    setScore(0);
+  };
+
+  const bubble = finished
+    ? `¡${score} de ${PHRASES.length}! Buen ojo para los errores.`
+    : answered
+    ? phrase.correct
+      ? "¡Correcto! Bien dicho."
+      : `¡Error encontrado! → ${phrase.correction}`
+    : wrongPick
+    ? phrase.correct
+      ? "No, está bien dicho. Mira otra vez."
+      : "No, hay un error. ¿Lo ves?"
+    : "¿Está bien dicho?";
 
   return (
     <div className="w-full h-full flex items-center justify-center overflow-hidden">
@@ -76,96 +84,118 @@ export function SlideLuna3() {
             </span>
           </div>
 
-          <h1 className="font-[family-name:var(--font-pf-display)] uppercase leading-[0.88] tracking-tight text-[clamp(48px,min(7.5vw,10vh),120px)] text-[var(--color-pf-ink)]">
-            Conecta
+          <h1 className="font-[family-name:var(--font-pf-display)] uppercase leading-[0.88] tracking-tight text-[clamp(44px,min(7vw,10vh),112px)] text-[var(--color-pf-ink)]">
+            ¿Bien dicho?
           </h1>
 
-          <p className="text-[clamp(18px,2.2vw,28px)] font-semibold text-white bg-[var(--color-pf-ink)] inline-block px-6 py-2.5 rounded-full">
-            Toca una frase. Luego toca su posesivo.
-          </p>
+          <div className="flex items-center gap-3">
+            <p className="text-[clamp(16px,1.8vw,24px)] font-semibold text-white bg-[var(--color-pf-ink)] inline-block px-5 py-2 rounded-full">
+              ¿El posesivo es correcto?
+            </p>
+            <span className="px-3 py-0.5 rounded-full bg-white text-[var(--color-pf-ink)] font-[family-name:var(--font-pf-display)] text-sm shadow-[0_4px_16px_-8px_rgba(0,0,0,0.15)]">
+              {Math.min(current + 1, PHRASES.length)}/{PHRASES.length}
+            </span>
+          </div>
 
-          <div className="bg-white rounded-[24px] px-5 py-4 shadow-[0_18px_50px_-18px_rgba(0,0,0,0.15)]">
-            <div className="flex flex-col gap-2 mb-4">
-              {ITEMS.map((item, i) => {
-                const isMatched = matched[i] !== null;
-                const isActive = activeItem === i;
-                return (
-                  <button
-                    key={item.id}
-                    onClick={() => selectItem(i)}
-                    disabled={isMatched}
-                    className={`text-left rounded-xl px-4 py-2 font-[family-name:var(--font-pf-ui)] text-[clamp(14px,1.6vh,20px)] transition-all ${
-                      isActive
-                        ? "bg-[var(--color-pf-moon)] text-white ring-2 ring-[var(--color-pf-ink)]"
-                        : isMatched
-                        ? "bg-[var(--color-pf-pill-soft)] text-[var(--color-pf-ink)]"
-                        : "bg-[var(--color-pf-moon-soft)]/50 text-[var(--color-pf-ink)] hover:bg-[var(--color-pf-moon-soft)] cursor-pointer"
+          {!finished ? (
+            <div>
+              <div
+                key={phrase.id}
+                className="bg-white rounded-[24px] px-8 py-6 shadow-[0_18px_50px_-18px_rgba(0,0,0,0.15)] mb-4"
+              >
+                <p className="font-[family-name:var(--font-pf-display)] text-[clamp(26px,min(3.4vw,4.4vh),48px)] leading-tight text-[var(--color-pf-ink)]">
+                  {answered && !phrase.correct ? (
+                    <Highlighter
+                      action="strike-through"
+                      color="var(--color-pf-spark)"
+                      strokeWidth={4}
+                      animationDuration={700}
+                      padding={4}
+                    >
+                      {phrase.text}
+                    </Highlighter>
+                  ) : (
+                    phrase.text
+                  )}
+                </p>
+
+                {answered && !phrase.correct && (
+                  <motion.p
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.8 }}
+                    className="mt-3 font-[family-name:var(--font-pf-display)] text-[clamp(22px,min(2.8vw,3.6vh),38px)] text-[var(--color-pf-pill)]"
+                  >
+                    → {phrase.correction}
+                  </motion.p>
+                )}
+              </div>
+
+              {!answered && (
+                <div className="grid grid-cols-2 gap-4">
+                  <motion.button
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.97 }}
+                    onClick={() => choose(true)}
+                    disabled={wrongPick && !phrase.correct}
+                    className={`px-6 py-4 rounded-[20px] font-[family-name:var(--font-pf-display)] text-[clamp(22px,2.8vh,34px)] transition ${
+                      wrongPick && phrase.correct
+                        ? "bg-[var(--color-pf-spark-soft)] text-[#8A2F10] opacity-60"
+                        : "bg-[var(--color-pf-pill-soft)] text-[var(--color-pf-ink)] hover:bg-[var(--color-pf-pill)]/40 cursor-pointer"
                     }`}
                   >
-                    {item.before}
-                    {isMatched ? (
-                      <span className="inline-block px-2 py-0 rounded-md bg-[var(--color-pf-spark)] text-white font-[family-name:var(--font-pf-display)] mx-0.5">
-                        {matched[i]}
-                      </span>
-                    ) : (
-                      <span className={`inline-block px-2 mx-0.5 rounded-md ${isActive ? "bg-white/30" : "bg-black/10"}`}>
-                        ___
-                      </span>
-                    )}
-                    {item.after}
-                  </button>
-                );
-              })}
-            </div>
+                    ✓ Correcto
+                  </motion.button>
+                  <motion.button
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.97 }}
+                    onClick={() => choose(false)}
+                    disabled={wrongPick && phrase.correct}
+                    className={`px-6 py-4 rounded-[20px] font-[family-name:var(--font-pf-display)] text-[clamp(22px,2.8vh,34px)] transition ${
+                      wrongPick && !phrase.correct
+                        ? "bg-[var(--color-pf-spark-soft)] text-[#8A2F10] opacity-60"
+                        : "bg-[var(--color-pf-spark-soft)] text-[var(--color-pf-ink)] hover:bg-[var(--color-pf-spark)]/40 cursor-pointer"
+                    }`}
+                  >
+                    ✗ Incorrecto
+                  </motion.button>
+                </div>
+              )}
 
-            {!allMatched && (
-              <div className="flex flex-wrap gap-2 pt-3 border-t-2 border-dashed border-[var(--color-pf-ink)]/10">
-                {POOL.map((word, pi) => {
-                  const isUsed = usedAnswers.has(word) && POOL.filter((w) => w === word).length <= [...usedAnswers].filter((w) => w === word).length;
-                  return (
-                    <button
-                      key={pi}
-                      onClick={() => selectPool(word)}
-                      disabled={isUsed || activeItem === null}
-                      className={`px-4 py-2 rounded-[14px] font-[family-name:var(--font-pf-display)] text-[clamp(16px,1.8vh,22px)] transition ${
-                        isUsed
-                          ? "bg-gray-100 text-gray-300 cursor-default"
-                          : activeItem !== null
-                          ? "bg-[var(--color-pf-star-soft)] text-[var(--color-pf-ink)] hover:bg-[var(--color-pf-star)]/50 active:scale-[0.96] cursor-pointer"
-                          : "bg-[var(--color-pf-star-soft)] text-[var(--color-pf-ink)] opacity-50 cursor-default"
-                      }`}
-                    >
-                      {word}
-                    </button>
-                  );
-                })}
-              </div>
-            )}
-
-            {allMatched && (
-              <div className="pt-3">
+              {answered && (
                 <button
-                  onClick={reset}
-                  className="px-4 py-1.5 rounded-full bg-white border-2 border-[var(--color-pf-ink)] text-[var(--color-pf-ink)] text-xs font-semibold hover:bg-[var(--color-pf-moon-soft)] transition"
+                  onClick={next}
+                  className="px-7 py-2.5 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-lg hover:opacity-90 transition"
                 >
-                  ↺ Reiniciar
+                  SIGUIENTE
                 </button>
+              )}
+            </div>
+          ) : (
+            <div className="bg-white rounded-[24px] px-8 py-8 shadow-[0_18px_50px_-18px_rgba(0,0,0,0.15)] text-center">
+              <div className="font-[family-name:var(--font-pf-display)] text-[clamp(48px,min(6vw,8vh),96px)] text-[var(--color-pf-moon)] leading-none mb-2">
+                {score}/{PHRASES.length}
               </div>
-            )}
-          </div>
+              <p className="font-[family-name:var(--font-pf-display)] text-[clamp(22px,2.8vh,36px)] text-[var(--color-pf-ink)]">
+                {score >= 5 ? "¡Perfecto!" : score >= 3 ? "¡Bien!" : "¡A repasar!"}
+              </p>
+              <button
+                onClick={reset}
+                className="mt-4 px-5 py-2 rounded-full bg-white border-2 border-[var(--color-pf-ink)] text-[var(--color-pf-ink)] text-sm font-semibold hover:bg-[var(--color-pf-moon-soft)] transition"
+              >
+                ↺ Reiniciar
+              </button>
+            </div>
+          )}
         </div>
 
-        <CharacterStage bubble={bubble} step={matchedCount * 2 + (activeItem !== null ? 1 : 0)}>
+        <CharacterStage
+          bubble={bubble}
+          step={current * 3 + (answered ? 2 : wrongPick ? 1 : 0)}
+        >
           <LunaMoon className="w-full h-auto" />
         </CharacterStage>
       </div>
-
-      <style jsx>{`
-        @keyframes doneIn {
-          0% { opacity: 0; transform: translateY(8px); }
-          100% { opacity: 1; transform: translateY(0); }
-        }
-      `}</style>
     </div>
   );
 }
