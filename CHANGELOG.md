@@ -1,5 +1,18 @@
 # Changelog
 
+## v0.8 — 2026-04-22
+
+### Diapositiva #13 (Vito 2 — "Paso a paso")
+- Reescritura completa: eliminado ejemplo redundante (Daniel→su), sustituido por nosotros/vosotros
+- Nuevo paso de género (¿Femenino o masculino?) en cada ejemplo, ausente en Vito 1
+- Mecánica de elección: alumno elige entre dos posesivos antes de ver el resultado
+- Colores coherentes con Flora 3: masculino = morado (pf-moon), femenino = rosa (pf-flower)
+- Botones de elección con color de género específico (no genérico)
+- Chip de género usa color específico: femenino → flower-soft, masculino → moon-soft
+- Conclusión visual con tres chips de color (sin repetir el texto de Vito)
+- Diálogos sincronizados: pregunta primero, respuesta en siguiente clic
+- 14 pasos (0-13): intro, 6 por ejemplo, conclusión
+
 ## v0.7 — 2026-04-21
 
 ### Diapositiva #12 (Vito 1 — "¿Quién tiene qué?")
