@@ -174,7 +174,7 @@ export function SlideDesafio() {
               CHIPI
             </span>
             <span
-              className="px-3 py-1 rounded-full text-xs font-semibold"
+              className="px-3 py-1 rounded-full text-base font-semibold"
               style={{
                 background: "var(--color-pf-spark-soft)",
                 color: "#8A2F10",
@@ -311,7 +311,7 @@ export function SlideDesafio() {
             CHIPI
           </span>
           <span
-            className="px-3 py-1 rounded-full text-xs font-semibold"
+            className="px-3 py-1 rounded-full text-base font-semibold"
             style={{
               background: "var(--color-pf-spark-soft)",
               color: "#8A2F10",

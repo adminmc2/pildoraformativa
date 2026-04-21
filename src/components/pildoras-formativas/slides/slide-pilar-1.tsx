@@ -71,7 +71,7 @@ export function SlidePilar1() {
               PILI
             </span>
             <span
-              className="px-3 py-1 rounded-full text-xs font-semibold"
+              className="px-3 py-1 rounded-full text-base font-semibold"
               style={{ background: "var(--color-pf-star-soft)", color: "#8A6B00" }}
             >
               Anfitriona
@@ -127,12 +127,12 @@ export function SlidePilar1() {
             ) : (
               <button
                 onClick={reset}
-                className="px-6 py-2 rounded-full bg-white/80 text-[var(--color-pf-ink)] text-sm font-semibold hover:bg-white transition"
+                className="px-6 py-2 rounded-full bg-white/80 text-[var(--color-pf-ink)] text-base font-semibold hover:bg-white transition"
               >
                 ↺ Reiniciar
               </button>
             )}
-            <span className="text-[var(--color-pf-ink)] font-semibold opacity-60 text-sm">
+            <span className="text-[var(--color-pf-ink)] font-semibold opacity-60 text-base">
               {phase} / 5
             </span>
           </div>

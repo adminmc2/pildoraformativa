@@ -93,7 +93,7 @@ export function SlideVito1() {
               VITO
             </span>
             <span
-              className="px-3 py-1 rounded-full text-xs font-semibold"
+              className="px-3 py-1 rounded-full text-base font-semibold"
               style={{ background: "var(--color-pf-pill-soft)", color: "#3F6B14" }}
             >
               Método
@@ -146,7 +146,7 @@ export function SlideVito1() {
                 </div>
 
                 {answered && (
-                  <AnimatedSpan delay={0.2} className="text-green-400 mt-2 text-[clamp(14px,1.5vw,18px)]">
+                  <AnimatedSpan delay={0.2} className="text-green-400 mt-2 text-[clamp(16px,1.5vw,18px)]">
                     ✓ Su {gap.options[gap.correct]}
                   </AnimatedSpan>
                 )}
@@ -180,7 +180,7 @@ export function SlideVito1() {
             {finished && (
               <button
                 onClick={reset}
-                className="px-4 py-1.5 rounded-full bg-white/80 text-[var(--color-pf-ink)] text-xs font-semibold hover:bg-white transition"
+                className="px-4 py-1.5 rounded-full bg-white/80 text-[var(--color-pf-ink)] text-base font-semibold hover:bg-white transition"
               >
                 ↺ Reiniciar
               </button>

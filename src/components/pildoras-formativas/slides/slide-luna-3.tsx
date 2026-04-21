@@ -137,7 +137,7 @@ export function SlideLuna3() {
               LUNA
             </span>
             <span
-              className="px-3 py-1 rounded-full text-xs font-semibold"
+              className="px-3 py-1 rounded-full text-base font-semibold"
               style={{ background: "var(--color-pf-moon-soft)", color: "#3B2A8A" }}
             >
               Verificadora
@@ -165,11 +165,11 @@ export function SlideLuna3() {
               </p>
 
               <div className="flex items-center gap-2 mt-3">
-                <span className="text-sm font-semibold opacity-50">
+                <span className="text-base font-semibold opacity-50">
                   {filledCount}/{GAPS.length}
                 </span>
                 {allFilled && (
-                  <span className="px-3 py-0.5 rounded-full bg-[var(--color-pf-pill)] text-white text-sm font-semibold">
+                  <span className="px-3 py-0.5 rounded-full bg-[var(--color-pf-pill)] text-white text-base font-semibold">
                     ¡Completo!
                   </span>
                 )}
@@ -206,7 +206,7 @@ export function SlideLuna3() {
           {allFilled && (
             <button
               onClick={reset}
-              className="self-start px-4 py-1.5 rounded-full bg-white/80 text-[var(--color-pf-ink)] text-xs font-semibold hover:bg-white transition"
+              className="self-start px-4 py-1.5 rounded-full bg-white/80 text-[var(--color-pf-ink)] text-base font-semibold hover:bg-white transition"
             >
               ↺ Reiniciar
             </button>

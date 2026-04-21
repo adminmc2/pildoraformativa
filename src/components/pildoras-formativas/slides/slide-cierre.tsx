@@ -30,7 +30,7 @@ export function SlideCierre() {
                 VITO
               </span>
               <span
-                className="px-3 py-1 rounded-full text-xs font-semibold"
+                className="px-3 py-1 rounded-full text-base font-semibold"
                 style={{
                   background: "var(--color-pf-pill-soft)",
                   color: "#3F6B14",
@@ -95,7 +95,7 @@ export function SlideCierre() {
                 PILI
               </span>
               <span
-                className="px-3 py-1 rounded-full text-xs font-semibold"
+                className="px-3 py-1 rounded-full text-base font-semibold"
                 style={{
                   background: "var(--color-pf-star-soft)",
                   color: "#8A6B00",
@@ -163,7 +163,7 @@ export function SlideCierre() {
           >
             ←
           </button>
-          <span className="text-[var(--color-pf-ink)] font-semibold opacity-70 text-xs">
+          <span className="text-[var(--color-pf-ink)] font-semibold opacity-70 text-base">
             Paso {step + 1} / {STEPS.length}
           </span>
           <button

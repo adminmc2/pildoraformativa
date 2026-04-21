@@ -44,7 +44,7 @@ export function SlidePilar3() {
               PILI
             </span>
             <span
-              className="px-3 py-1 rounded-full text-xs font-semibold"
+              className="px-3 py-1 rounded-full text-base font-semibold"
               style={{ background: "var(--color-pf-star-soft)", color: "#8A6B00" }}
             >
               Anfitriona
@@ -59,7 +59,7 @@ export function SlidePilar3() {
             <p className="text-[clamp(18px,2.2vw,28px)] font-semibold text-white bg-[var(--color-pf-ink)] inline-block px-6 py-2.5 rounded-full">
               Encuentra las 2 diferencias.
             </p>
-            <span className="inline-flex items-center gap-1 px-3 py-0.5 rounded-full bg-white text-[var(--color-pf-ink)] font-[family-name:var(--font-pf-display)] text-sm whitespace-nowrap shadow-[0_4px_16px_-8px_rgba(0,0,0,0.15)]">
+            <span className="inline-flex items-center gap-1 px-3 py-0.5 rounded-full bg-white text-[var(--color-pf-ink)] font-[family-name:var(--font-pf-display)] text-base whitespace-nowrap shadow-[0_4px_16px_-8px_rgba(0,0,0,0.15)]">
               {Math.min(phase, 2)} / 2
             </span>
           </div>
@@ -95,7 +95,7 @@ export function SlidePilar3() {
             ) : (
               <button
                 onClick={reset}
-                className="px-4 py-1.5 rounded-full bg-white/80 text-[var(--color-pf-ink)] text-xs font-semibold hover:bg-white transition"
+                className="px-4 py-1.5 rounded-full bg-white/80 text-[var(--color-pf-ink)] text-base font-semibold hover:bg-white transition"
               >
                 ↺ Reiniciar
               </button>

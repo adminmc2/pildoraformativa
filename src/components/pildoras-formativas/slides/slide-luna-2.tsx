@@ -92,7 +92,7 @@ export function SlideLuna2() {
               LUNA
             </span>
             <span
-              className="px-3 py-1 rounded-full text-xs font-semibold"
+              className="px-3 py-1 rounded-full text-base font-semibold"
               style={{ background: "var(--color-pf-moon-soft)", color: "#3B2A8A" }}
             >
               Verificadora
@@ -143,7 +143,7 @@ export function SlideLuna2() {
                     return (
                       <div
                         key={person}
-                        className="absolute font-[family-name:var(--font-pf-display)] text-[clamp(9px,1vw,13px)] text-[var(--color-pf-ink)] font-bold text-center leading-[1.1]"
+                        className="absolute font-[family-name:var(--font-pf-display)] text-[clamp(15px,1.2vw,16px)] text-[var(--color-pf-ink)] font-bold text-center leading-[1.1]"
                         style={{
                           left: `${x}%`,
                           top: `${y}%`,
@@ -180,7 +180,7 @@ export function SlideLuna2() {
                       >
                         {combo.person}
                       </span>
-                      <span className="text-[clamp(14px,1.6vw,20px)] opacity-50">
+                      <span className="text-[clamp(16px,1.6vw,20px)] opacity-50">
                         {current + 1}/{COMBOS.length}
                       </span>
                     </div>
@@ -256,7 +256,7 @@ export function SlideLuna2() {
                 </span>
                 <button
                   onClick={reset}
-                  className="px-5 py-2 rounded-full bg-white border-2 border-[var(--color-pf-ink)] text-[var(--color-pf-ink)] text-sm font-semibold hover:bg-[var(--color-pf-moon-soft)] transition"
+                  className="px-5 py-2 rounded-full bg-white border-2 border-[var(--color-pf-ink)] text-[var(--color-pf-ink)] text-base font-semibold hover:bg-[var(--color-pf-moon-soft)] transition"
                 >
                   ↺ Reiniciar
                 </button>

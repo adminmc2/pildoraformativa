@@ -64,14 +64,14 @@ export function SlideOpening({ onStart }: { onStart: () => void }) {
       </div>
 
       <p
-        className="relative text-sm font-semibold tracking-[0.35em] text-[var(--color-pf-ink)] opacity-60 uppercase"
+        className="relative text-base font-semibold tracking-[0.35em] text-[var(--color-pf-ink)] opacity-60 uppercase"
         style={{ animation: "fadeInDown 600ms ease-out 0ms both" }}
       >
         · Nuevo Compañeros 1 ·
       </p>
 
       <div
-        className="relative mt-2 px-5 py-1.5 rounded-full bg-white/80 text-[var(--color-pf-ink)] text-sm font-semibold tracking-wider uppercase shadow-[0_4px_16px_-8px_rgba(0,0,0,0.2)]"
+        className="relative mt-2 px-5 py-1.5 rounded-full bg-white/80 text-[var(--color-pf-ink)] text-base font-semibold tracking-wider uppercase shadow-[0_4px_16px_-8px_rgba(0,0,0,0.2)]"
         style={{ animation: "fadeInDown 600ms ease-out 150ms both" }}
       >
         Unidad 3 · La Familia

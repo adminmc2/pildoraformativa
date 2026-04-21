@@ -79,7 +79,7 @@ export function SlideLuna1() {
               LUNA
             </span>
             <span
-              className="px-3 py-1 rounded-full text-xs font-semibold"
+              className="px-3 py-1 rounded-full text-base font-semibold"
               style={{ background: "var(--color-pf-moon-soft)", color: "#3B2A8A" }}
             >
               Verificadora
@@ -104,7 +104,7 @@ export function SlideLuna1() {
                   exit={{ opacity: 0, x: 20 }}
                   className="bg-white rounded-[24px] px-8 py-6 shadow-[0_18px_50px_-18px_rgba(0,0,0,0.15)] mb-4 relative overflow-hidden"
                 >
-                  <span className="text-sm font-semibold opacity-50 float-right">
+                  <span className="text-base font-semibold opacity-50 float-right">
                     {current + 1}/{ITEMS.length}
                   </span>
                   <p className="font-[family-name:var(--font-pf-display)] text-[clamp(24px,min(3vw,4vh),44px)] leading-tight text-[var(--color-pf-ink)]">
@@ -178,7 +178,7 @@ export function SlideLuna1() {
               </p>
               <button
                 onClick={reset}
-                className="mt-4 px-5 py-2 rounded-full bg-white border-2 border-[var(--color-pf-ink)] text-[var(--color-pf-ink)] text-sm font-semibold hover:bg-[var(--color-pf-moon-soft)] transition"
+                className="mt-4 px-5 py-2 rounded-full bg-white border-2 border-[var(--color-pf-ink)] text-[var(--color-pf-ink)] text-base font-semibold hover:bg-[var(--color-pf-moon-soft)] transition"
               >
                 ↺ Reiniciar
               </button>

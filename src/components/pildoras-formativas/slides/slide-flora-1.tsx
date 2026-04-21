@@ -57,7 +57,7 @@ export function SlideFlora1() {
               FLORA
             </span>
             <span
-              className="px-3 py-1 rounded-full text-xs font-semibold"
+              className="px-3 py-1 rounded-full text-base font-semibold"
               style={{
                 background: "var(--color-pf-flower-soft)",
                 color: "#8A1470",
@@ -132,7 +132,7 @@ export function SlideFlora1() {
                     ) : (
                       <div className="px-5 py-3 flex items-center gap-3 opacity-40">
                         <UserCircle size={24} weight="thin" color="var(--color-pf-ink)" />
-                        <span className="text-sm font-semibold text-[var(--color-pf-ink)]">
+                        <span className="text-base font-semibold text-[var(--color-pf-ink)]">
                           {item.short}
                         </span>
                       </div>
@@ -165,7 +165,7 @@ export function SlideFlora1() {
                 ? "SIGUIENTE PERSONA"
                 : "REVELAR"}
             </button>
-            <span className="text-[var(--color-pf-ink)] font-semibold opacity-70 text-sm">
+            <span className="text-[var(--color-pf-ink)] font-semibold opacity-70 text-base">
               {step} / {totalSteps}
             </span>
           </div>

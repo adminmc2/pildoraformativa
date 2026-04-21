@@ -21,50 +21,50 @@ const OWNERS: Owner[] = [
   {
     id: "yo", owner: "Yo",
     singular: "mi", plural: "mis",
-    exSingular: "mi padre", exPlural: "mis abuelos",
+    exSingular: "padre", exPlural: "abuelos",
     color: "var(--color-pf-star)", softColor: "var(--color-pf-star-soft)",
   },
   {
     id: "tu", owner: "Tú",
     singular: "tu", plural: "tus",
-    exSingular: "tu instituto", exPlural: "tus libros",
+    exSingular: "instituto", exPlural: "libros",
     color: "var(--color-pf-pill)", softColor: "var(--color-pf-pill-soft)",
   },
   {
     id: "el", owner: "Él / Ella",
     singular: "su", plural: "sus",
-    exSingular: "su madre", exPlural: "sus tíos",
+    exSingular: "madre", exPlural: "tíos",
     color: "var(--color-pf-moon)", softColor: "var(--color-pf-moon-soft)",
   },
   {
     id: "nos", owner: "Nosotros",
     singular: "nuestro", plural: "nuestros",
-    exSingular: "nuestro profesor", exPlural: "nuestros gatos",
+    exSingular: "profesor", exPlural: "gatos",
     color: "var(--color-pf-flower)", softColor: "var(--color-pf-flower-soft)",
   },
   {
     id: "vos", owner: "Vosotros",
     singular: "vuestro", plural: "vuestros",
-    exSingular: "vuestro barrio", exPlural: "vuestros amigos",
+    exSingular: "barrio", exPlural: "amigos",
     color: "var(--color-pf-spark)", softColor: "var(--color-pf-spark-soft)",
   },
   {
     id: "ellos", owner: "Ellos / Ellas",
     singular: "su", plural: "sus",
-    exSingular: "su abuelo", exPlural: "sus hermanos",
+    exSingular: "abuelo", exPlural: "hermanos",
     color: "var(--color-pf-moon)", softColor: "var(--color-pf-moon-soft)",
   },
 ];
 
 const BUBBLES = [
-  "Cada persona tiene su posesivo.",
-  "Yo → mi, mis. Ya lo conoces.",
-  "Tú → tu, tus. ¿Ves el patrón?",
-  "Él, ella → su, sus. Siempre igual.",
-  "¡Nosotros! → nuestro, nuestros. ¡Nuevo!",
-  "¡Vosotros! → vuestro, vuestros. ¡Otro nuevo!",
-  "Ellos, ellas → su, sus. Como él y ella.",
-  "6 personas, cada una con singular y plural. ¿Todos tienen solo 2 formas?",
+  "Vamos a ver las 6 personas. ¿Qué posesivos usa cada una?",
+  "Yo... ¡mira! ¿Te suenan?",
+  "Tú... ¿se parecen a los de «yo»?",
+  "Él, ella... ¿Ves? Solo dos formas, como los demás.",
+  "¡Ahora nosotros! Algo nuevo... ¡fíjate!",
+  "¡Y vosotros! Se parece a nosotros, ¿no?",
+  "Ellos, ellas... Espera, ¿esto ya lo hemos visto?",
+  "Seis personas, y cada una con dos formas. ¿Seguro que solo dos?",
 ];
 
 export function SlideFlora2() {
@@ -85,7 +85,7 @@ export function SlideFlora2() {
               FLORA
             </span>
             <span
-              className="px-3 py-1 rounded-full text-xs font-semibold"
+              className="px-3 py-1 rounded-full text-base font-semibold"
               style={{
                 background: "var(--color-pf-flower-soft)",
                 color: "#8A1470",
@@ -162,7 +162,7 @@ export function SlideFlora2() {
                     key={owner.id}
                     className="rounded-[18px] px-4 py-3 border-2 border-dashed border-[var(--color-pf-ink)]/15 flex items-center justify-center min-h-[100px]"
                   >
-                    <span className="text-[clamp(14px,1.6vw,18px)] font-semibold text-[var(--color-pf-ink)] opacity-30">
+                    <span className="text-[clamp(16px,1.6vw,18px)] font-semibold text-[var(--color-pf-ink)] opacity-30">
                       {owner.owner}
                     </span>
                   </div>
@@ -170,28 +170,6 @@ export function SlideFlora2() {
               })}
             </AnimatePresence>
           </div>
-
-          {/* Insight */}
-          {insightRevealed && (
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="flex items-center gap-3 flex-wrap"
-            >
-              {OWNERS.map((o) => (
-                <span
-                  key={o.id}
-                  className="px-3 py-1 rounded-full font-[family-name:var(--font-pf-display)] text-[clamp(14px,1.6vw,20px)] text-[var(--color-pf-ink)]"
-                  style={{ background: o.softColor }}
-                >
-                  {o.singular}/{o.plural}
-                </span>
-              ))}
-              <span className="font-[family-name:var(--font-pf-display)] text-[clamp(14px,1.6vw,20px)] text-[var(--color-pf-ink)]">
-                = 2 formas
-              </span>
-            </motion.div>
-          )}
 
           <div className="flex items-center gap-3">
             <button
@@ -215,7 +193,7 @@ export function SlideFlora2() {
                 ? "SIGUIENTE PERSONA"
                 : "REVELAR"}
             </button>
-            <span className="text-[var(--color-pf-ink)] font-semibold opacity-70 text-sm">
+            <span className="text-[var(--color-pf-ink)] font-semibold opacity-70 text-base">
               {step} / {totalSteps}
             </span>
           </div>

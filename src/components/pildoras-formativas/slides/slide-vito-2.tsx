@@ -78,7 +78,7 @@ export function SlideVito2() {
               VITO
             </span>
             <span
-              className="px-3 py-1 rounded-full text-xs font-semibold"
+              className="px-3 py-1 rounded-full text-base font-semibold"
               style={{ background: "var(--color-pf-pill-soft)", color: "#3F6B14" }}
             >
               Método
@@ -160,7 +160,7 @@ export function SlideVito2() {
             >
               {step === totalSteps ? "COMPLETADO" : "SIGUIENTE PASO"}
             </button>
-            <span className="text-[var(--color-pf-ink)] font-semibold opacity-70 text-sm">
+            <span className="text-[var(--color-pf-ink)] font-semibold opacity-70 text-base">
               {step} / {totalSteps}
             </span>
           </div>

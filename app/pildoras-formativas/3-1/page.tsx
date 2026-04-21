@@ -218,8 +218,8 @@ export default function Pildora31Page() {
             <div className="font-[family-name:var(--font-pf-display)] text-xl tracking-wide">
               PÍLDORA FORMATIVA 3.1
             </div>
-            <div className="text-[10px] opacity-70 font-medium tracking-wider uppercase">
-              Posesivos · Unidad 3 · v0.3
+            <div className="text-base opacity-70 font-medium tracking-wider uppercase">
+              Posesivos · Unidad 3 · v0.4
             </div>
           </div>
           <span className="text-base font-[family-name:var(--font-pf-display)] opacity-80">{slide.step}</span>

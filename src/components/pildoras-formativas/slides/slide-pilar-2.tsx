@@ -84,7 +84,7 @@ export function SlidePilar2() {
               PILI
             </span>
             <span
-              className="px-3 py-1 rounded-full text-xs font-semibold"
+              className="px-3 py-1 rounded-full text-base font-semibold"
               style={{ background: "var(--color-pf-star-soft)", color: "#8A6B00" }}
             >
               Anfitriona
@@ -123,7 +123,7 @@ export function SlidePilar2() {
                   }}
                 >
                   <PhraseInline p={PHRASES[currentIndex]} />
-                  <span className="text-[11px] font-semibold opacity-50">
+                  <span className="text-base font-semibold opacity-50">
                     {currentIndex + 1}/{PHRASES.length}
                   </span>
                 </motion.div>
@@ -172,7 +172,7 @@ export function SlidePilar2() {
                       key={p.id}
                       initial={{ opacity: 0, y: -20, scale: 1.05 }}
                       animate={{ opacity: 1, y: 0, scale: 1 }}
-                      className="bg-white rounded-lg px-3 py-1.5 text-[clamp(14px,1.6vw,20px)] font-medium text-left text-[var(--color-pf-ink)]"
+                      className="bg-white rounded-lg px-3 py-1.5 text-[clamp(16px,1.6vw,20px)] font-medium text-left text-[var(--color-pf-ink)]"
                       style={{ boxShadow: "2px 2px 0px rgba(10,10,10,0.06)" }}
                     >
                       <PhraseInline p={p} />
@@ -211,7 +211,7 @@ export function SlidePilar2() {
                       key={p.id}
                       initial={{ opacity: 0, y: -20, scale: 1.05 }}
                       animate={{ opacity: 1, y: 0, scale: 1 }}
-                      className="bg-white rounded-lg px-3 py-1.5 text-[clamp(14px,1.6vw,20px)] font-medium text-left text-[var(--color-pf-ink)]"
+                      className="bg-white rounded-lg px-3 py-1.5 text-[clamp(16px,1.6vw,20px)] font-medium text-left text-[var(--color-pf-ink)]"
                       style={{ boxShadow: "2px 2px 0px rgba(10,10,10,0.06)" }}
                     >
                       <PhraseInline p={p} />
@@ -225,7 +225,7 @@ export function SlidePilar2() {
           {allPlaced && (
             <button
               onClick={reset}
-              className="self-start px-4 py-1.5 rounded-full bg-white/80 text-[var(--color-pf-ink)] text-xs font-semibold hover:bg-white transition"
+              className="self-start px-4 py-1.5 rounded-full bg-white/80 text-[var(--color-pf-ink)] text-base font-semibold hover:bg-white transition"
             >
               ↺ Reiniciar
             </button>
