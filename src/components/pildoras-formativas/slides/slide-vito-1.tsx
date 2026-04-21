@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Terminal, TypingAnimation } from "@/components/ui/terminal";
+import { Terminal, TypingAnimation, AnimatedSpan } from "@/components/ui/terminal";
 import { VitoPill } from "@/components/pildoras-formativas/characters/vito-pill";
 import { CharacterStage } from "@/components/pildoras-formativas/shared/character-stage";
 
@@ -15,7 +15,7 @@ const TEXT_LINES = [
 type Example = {
   id: string;
   sentence: string;
-  steps: { label: string; value: string; color: string }[];
+  steps: { label: string; value: string }[];
   answer: string;
 };
 
@@ -24,9 +24,9 @@ const EXAMPLES: Example[] = [
     id: "madre",
     sentence: "___ madre es Catalina.",
     steps: [
-      { label: "¿Quién?", value: "Javier = él", color: "var(--color-pf-flower-soft)" },
-      { label: "¿Una o varias?", value: "madre = una", color: "var(--color-pf-star-soft)" },
-      { label: "Resultado", value: "él + una → su", color: "var(--color-pf-pill-soft)" },
+      { label: "¿Quién?", value: "Javier = él" },
+      { label: "¿Singular o plural?", value: "madre = singular" },
+      { label: "Resultado", value: "él + singular → su" },
     ],
     answer: "Su",
   },
@@ -34,45 +34,60 @@ const EXAMPLES: Example[] = [
     id: "abuelo",
     sentence: "___ abuelo se llama Manolo.",
     steps: [
-      { label: "¿Quién?", value: "Javier = él", color: "var(--color-pf-flower-soft)" },
-      { label: "¿Uno o varios?", value: "abuelo = uno", color: "var(--color-pf-star-soft)" },
-      { label: "Resultado", value: "él + uno → su", color: "var(--color-pf-pill-soft)" },
+      { label: "¿Quién?", value: "Javier = él" },
+      { label: "¿Singular o plural?", value: "abuelo = singular" },
+      { label: "Resultado", value: "él + singular → su" },
     ],
     answer: "Su",
   },
 ];
 
 const BUBBLES = [
-  "Leemos el texto de Javier. Ahora, paso a paso.",
-  "Primero: ¿de quién hablamos?",
-  "Después: ¿una madre o varias?",
-  "Él + una → su. ¡Su madre!",
-  "Otra vez. Mismo proceso.",
-  "¿Quién? Ya lo sabemos.",
-  "Uno → su. ¡El proceso funciona!",
-  "Siempre igual: ¿quién? + ¿cuántos? = posesivo.",
+  "Vamos a razonar con el texto de Javier.",         // 0 — solo texto
+  "¿De quién es la madre?",                           // 1 — frase aparece (sin chips)
+  "De Javier. Él.",                                    // 2 — ¿Quién? aparece
+  "«Madre»: singular.",                                // 3 — ¿Singular o plural? aparece
+  "Él + singular = ...",                                // 4 — pausa: el alumno piensa
+  "¡Su madre!",                                        // 5 — resultado aparece + relleno
+  "Otra frase. ¿De quién es el abuelo?",               // 6 — frase 2 aparece (sin chips)
+  "De él. Otra vez.",                                   // 7 — ¿Quién? aparece
+  "«Abuelo»: singular.",                               // 8 — ¿Singular o plural? aparece
+  "Él + singular = ...",                                // 9 — pausa
+  "¡Siempre funciona!",                                // 10 — resultado + relleno
+  "¿De quién es? + ¿la palabra es singular o plural? = posesivo.",  // 11 — conclusión
 ];
 
-// Fases: 0=texto, 1-3=ejemplo 1 (pasos), 4-6=ejemplo 2 (pasos), 7=conclusión
+// Fases: 0=texto, 1-5=ejemplo 1, 6-10=ejemplo 2, 11=conclusión
 export function SlideVito1() {
   const [step, setStep] = useState(0);
-  const totalSteps = 7;
+  const totalSteps = 11;
 
   const canNext = step < totalSteps;
   const canPrev = step > 0;
 
-  const ex1Visible = step >= 1;
-  const ex1StepsVisible = step >= 1 ? Math.min(step, 3) : 0;
-  const ex1Filled = step >= 3;
-  const ex2Visible = step >= 4;
-  const ex2StepsVisible = step >= 6 ? 3 : step >= 5 ? 1 : 0;
-  const ex2Filled = step >= 6;
+  // Ejemplo activo: 0 (steps 1-5), 1 (steps 6-10), ninguno (-1)
+  const activeIdx = step >= 6 ? 1 : step >= 1 ? 0 : -1;
+  const ex = activeIdx >= 0 ? EXAMPLES[activeIdx] : null;
+
+  // Chips visibles: frase primero (0), luego 1, 2, pausa (2), resultado (3)
+  let stepsVisible = 0;
+  if (activeIdx === 0) {
+    if (step <= 3) stepsVisible = Math.max(0, step - 1);  // 1→0, 2→1, 3→2
+    else if (step === 4) stepsVisible = 2;                  // pausa: sin cambio
+    else stepsVisible = 3;                                  // 5→3 (resultado)
+  } else if (activeIdx === 1) {
+    if (step <= 8) stepsVisible = Math.max(0, step - 6);  // 6→0, 7→1, 8→2
+    else if (step === 9) stepsVisible = 2;                  // pausa
+    else stepsVisible = 3;                                  // 10→3
+  }
+
+  const isFilled = (activeIdx === 0 && step >= 5) || (activeIdx === 1 && step >= 10);
   const conclusionVisible = step === totalSteps;
 
   return (
     <div className="w-full h-full flex items-center justify-center overflow-hidden">
-      <div className="w-full max-w-[1400px] grid grid-cols-[1.35fr_1fr] gap-10 items-center">
-        <div className="flex flex-col gap-2 min-w-0">
+      <div className="w-full max-w-[1400px] grid grid-cols-[1.35fr_1fr] gap-8 items-center">
+        <div className="flex flex-col gap-1.5 min-w-0">
           <div className="flex items-center gap-3">
             <span className="font-[family-name:var(--font-pf-display)] text-[clamp(18px,1.8vh,22px)] text-[var(--color-pf-ink)]">
               VITO
@@ -85,91 +100,65 @@ export function SlideVito1() {
             </span>
           </div>
 
-          <h1 className="font-[family-name:var(--font-pf-display)] uppercase leading-[0.88] tracking-tight text-[clamp(42px,min(7vw,10vh),104px)] text-[var(--color-pf-ink)]">
+          <h1 className="font-[family-name:var(--font-pf-display)] uppercase leading-[0.88] tracking-tight text-[clamp(36px,min(5.5vw,7.5vh),80px)] text-[var(--color-pf-ink)]">
             ¿Quién tiene qué?
           </h1>
 
-          <p className="text-[clamp(18px,1.8vw,24px)] font-semibold text-white bg-[var(--color-pf-ink)] inline-block px-5 py-2 rounded-full self-start">
+          <p className="text-[clamp(18px,1.8vw,24px)] font-semibold text-white bg-[var(--color-pf-ink)] inline-block px-5 py-1.5 rounded-full self-start">
             ¿Cómo se elige el posesivo?
           </p>
 
-          {/* Terminal — contexto del texto de Javier */}
-          <Terminal className="border-[var(--color-pf-pill)] [box-shadow:8px_8px_0px_var(--color-pf-pill)]">
+          {/* Terminal — todo ocurre aquí dentro */}
+          <Terminal className="border-[var(--color-pf-pill)] [box-shadow:6px_6px_0px_var(--color-pf-pill)]">
             {TEXT_LINES.map((line, i) => (
-              <TypingAnimation key={i} speed={25} delay={i * 800} className="text-green-400 text-[clamp(16px,1.6vw,20px)]">
+              <TypingAnimation key={i} speed={25} delay={i * 800} className="text-green-400 text-[clamp(18px,1.8vw,22px)]">
                 {`> ${line}`}
               </TypingAnimation>
             ))}
+
+            {/* Ejemplo activo */}
+            {ex && (
+              <motion.div
+                key={ex.id}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="mt-3 border-t border-gray-700 pt-3"
+              >
+                <div className="text-yellow-300 text-[clamp(20px,2.2vw,28px)] font-bold mb-2">
+                  {ex.sentence.replace("___", isFilled ? ex.answer : "___")}
+                </div>
+
+                <div className="flex flex-col gap-1.5">
+                  {ex.steps.map((s, i) =>
+                    i < stepsVisible ? (
+                      <motion.div
+                        key={`${ex.id}-${i}`}
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        className="text-[clamp(18px,1.8vw,24px)]"
+                      >
+                        <span className="text-gray-400">{s.label}</span>{" "}
+                        <span className="text-cyan-300 font-semibold">{s.value}</span>
+                      </motion.div>
+                    ) : null
+                  )}
+                </div>
+
+                {isFilled && (
+                  <AnimatedSpan delay={0.2} className="text-green-400 mt-2 text-[clamp(18px,1.8vw,24px)]">
+                    ✓ {ex.answer} {activeIdx === 0 ? "madre" : "abuelo"}
+                  </AnimatedSpan>
+                )}
+              </motion.div>
+            )}
+
+            {/* Conclusión */}
+            {conclusionVisible && (
+              <AnimatedSpan delay={0.2} className="text-green-400 mt-3 border-t border-gray-700 pt-3 text-[clamp(20px,2.2vw,28px)] font-bold">
+                ✓ ¿De quién es? + ¿singular o plural? = posesivo
+              </AnimatedSpan>
+            )}
           </Terminal>
-
-          {/* Ejemplo 1 */}
-          {ex1Visible && (
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="bg-white rounded-[20px] px-6 py-3 shadow-[0_14px_40px_-16px_rgba(0,0,0,0.14)]"
-            >
-              <p className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.4vw,3vh),32px)] text-[var(--color-pf-ink)] mb-2">
-                {EXAMPLES[0].sentence.replace("___", ex1Filled ? `【${EXAMPLES[0].answer}】` : "___")}
-              </p>
-              <div className="flex gap-2 flex-wrap">
-                {EXAMPLES[0].steps.map((s, i) =>
-                  i < ex1StepsVisible ? (
-                    <motion.div
-                      key={`e1-${i}`}
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      className="px-3 py-1.5 rounded-xl text-[clamp(16px,1.8vw,22px)] font-semibold text-[var(--color-pf-ink)]"
-                      style={{ background: s.color }}
-                    >
-                      <span className="opacity-60">{s.label}</span> {s.value}
-                    </motion.div>
-                  ) : null
-                )}
-              </div>
-            </motion.div>
-          )}
-
-          {/* Ejemplo 2 */}
-          {ex2Visible && (
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="bg-white rounded-[20px] px-6 py-3 shadow-[0_14px_40px_-16px_rgba(0,0,0,0.14)]"
-            >
-              <p className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.4vw,3vh),32px)] text-[var(--color-pf-ink)] mb-2">
-                {EXAMPLES[1].sentence.replace("___", ex2Filled ? `【${EXAMPLES[1].answer}】` : "___")}
-              </p>
-              <div className="flex gap-2 flex-wrap">
-                {EXAMPLES[1].steps.map((s, i) =>
-                  i < ex2StepsVisible ? (
-                    <motion.div
-                      key={`e2-${i}`}
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      className="px-3 py-1.5 rounded-xl text-[clamp(16px,1.8vw,22px)] font-semibold text-[var(--color-pf-ink)]"
-                      style={{ background: s.color }}
-                    >
-                      <span className="opacity-60">{s.label}</span> {s.value}
-                    </motion.div>
-                  ) : null
-                )}
-              </div>
-            </motion.div>
-          )}
-
-          {/* Conclusión */}
-          {conclusionVisible && (
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="flex items-center gap-4 px-5 py-3 rounded-[16px] bg-[var(--color-pf-pill-soft)]"
-            >
-              <span className="font-[family-name:var(--font-pf-display)] text-[clamp(18px,min(2vw,2.6vh),26px)] text-[var(--color-pf-ink)]">
-                ¿Quién? + ¿Cuántos? = posesivo
-              </span>
-            </motion.div>
-          )}
 
           <div className="flex items-center gap-3">
             <button

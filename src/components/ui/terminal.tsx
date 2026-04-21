@@ -13,12 +13,12 @@ export function Terminal({ children, className }: TerminalProps) {
   return (
     <div
       className={cn(
-        "w-full max-w-3xl mx-auto bg-black border-4 border-black rounded-2xl overflow-hidden [box-shadow:12px_12px_0px_rgba(0,0,0,0.8)]",
+        "w-full max-w-3xl mx-auto bg-black border-3 border-black rounded-2xl overflow-hidden [box-shadow:8px_8px_0px_rgba(0,0,0,0.8)]",
         className
       )}
     >
       {/* Terminal Header */}
-      <div className="bg-gray-800 px-4 py-3 flex items-center gap-2 border-b-4 border-black">
+      <div className="bg-gray-800 px-4 py-2 flex items-center gap-2 border-b-3 border-black">
         <div className="flex gap-2">
           <div className="w-3 h-3 rounded-full bg-red-500 border-2 border-black"></div>
           <div className="w-3 h-3 rounded-full bg-yellow-500 border-2 border-black"></div>
@@ -28,7 +28,7 @@ export function Terminal({ children, className }: TerminalProps) {
       </div>
 
       {/* Terminal Body */}
-      <div className="p-6 font-mono text-sm text-white min-h-[300px] space-y-2">
+      <div className="p-4 font-mono text-sm text-white space-y-1">
         {children}
       </div>
     </div>

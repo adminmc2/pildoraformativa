@@ -1,16 +1,24 @@
 # Changelog
 
+## v0.7 — 2026-04-21
+
+### Diapositiva #12 (Vito 1 — "¿Quién tiene qué?")
+- Diálogos de Vito sincronizados: pregunta primero, respuesta aparece en el siguiente clic
+- Paso de pausa añadido ("Él + singular = ...") para que el alumno piense antes de ver el resultado
+- Ejemplo 2 con mismo ritmo que ejemplo 1 (4 pasos cada uno, ya no se acelera)
+- Etiquetas corregidas: "¿Una o varias?" → "¿Singular o plural?"
+- Conclusión sin metalenguaje: "¿De quién es? + ¿la palabra es singular o plural? = posesivo"
+- Terminal compacto: eliminado min-height, reducido padding
+
 ## v0.6 — 2026-04-21
 
 ### Diapositiva #12 (Vito 1 — "¿Quién tiene qué?")
 - Reescritura completa: de quiz de comprensión lectora a worked example genuino
 - Nuevo enfoque: razonamiento paso a paso (¿Quién? → ¿Cuántos? → Resultado)
 - Dos ejemplos del texto de Javier con revelación progresiva
-- Ejemplo 2 se acelera (patrón aprendido): salta de ¿Quién? al resultado
 - Enunciado cambiado: "Lee el texto y completa" → "¿Cómo se elige el posesivo?"
 - Terminal conservado como contexto narrativo del texto de Javier
 - Diálogos de Vito reescritos con registro metódico: guía el razonamiento, no evalúa
-- Conclusión visual: "¿Quién? + ¿Cuántos? = posesivo"
 
 ## v0.5 — 2026-04-21
 
