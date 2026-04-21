@@ -1,5 +1,17 @@
 # Changelog
 
+## v0.5 — 2026-04-21
+
+### Diapositiva #11 (Flora 3 — "¿Solo 2 formas?")
+- Diálogos de Flora reescritos: enfoque inductivo centrado en el descubrimiento del género
+- Flora crea anticipación en formas masculinas y reacciona con sorpresa en las femeninas
+- Bubble 0 reformulado: plantea el contraste género (mi/tu/su no cambian vs. los demás)
+- Eliminado metalenguaje del insight box ("número + género" → "formas cada uno")
+- Reta al alumno a predecir la siguiente forma ("¿adivináis la siguiente?")
+
+### Diapositiva #10 (Flora 2 — "Cada persona")
+- Bubble 0 reformulado: Flora pregunta qué posesivos usa cada persona (inductivo)
+
 ## v0.4 — 2026-04-21
 
 ### Accesibilidad

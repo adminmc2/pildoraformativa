@@ -30,17 +30,17 @@ const FORM_DETAILS: Form[] = [
 ];
 
 const BUBBLES = [
-  "¿Recordáis la pregunta? ¿Todos tienen 2 formas?",
-  "Nuestro. Masculino, uno.",
-  "¡Nuestra! Femenino, una. ¡Ha cambiado!",
-  "Nuestros. Masculino, varios.",
-  "¡Nuestras! Femenino, varias. ¡4 formas!",
+  "¿Femenino o masculino? Mi, tu, su no cambian. ¿Y los demás?",
+  "Nuestro... Normal. Espera, espera...",
+  "¡¿Nuestra?! ¡Aquí sí importa el femenino!",
+  "Nuestros... vale. ¿Y en femenino?",
+  "¡Nuestras! ¡Cuatro formas! ¡Este no para!",
   "Ahora vuestro. ¿Pasará lo mismo?",
-  "Vuestro. Masculino, uno.",
-  "¡Vuestra! Femenino. Igual que nuestra.",
-  "Vuestros. Masculino, varios.",
-  "¡Vuestras! Femenino, varias. ¡También 4!",
-  "Nuestro y vuestro: 4 formas cada uno. Cambian con número Y género.",
+  "Vuestro... ¿será como nuestro?",
+  "¡Vuestra! ¡Lo sabía! ¡También cambia!",
+  "Vuestros... ¿adivináis la siguiente?",
+  "¡Vuestras! ¡Otra vez cuatro!",
+  "4 y 4... ¿Por qué estos tienen más formas que los demás?",
 ];
 
 // Fases: 0=morphing nuestro, 1-4=formas nuestro, 5=morphing vuestro, 6-9=formas vuestro, 10=insight
@@ -149,7 +149,7 @@ export function SlideFlora3() {
                 4+4
               </span>
               <span className="font-[family-name:var(--font-pf-display)] text-[clamp(16px,1.4vw,20px)] text-[var(--color-pf-ink)]">
-                formas cada uno: número + género
+                formas cada uno
               </span>
             </motion.div>
           )}
