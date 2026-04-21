@@ -1,5 +1,17 @@
 # Changelog
 
+## v0.6 — 2026-04-21
+
+### Diapositiva #12 (Vito 1 — "¿Quién tiene qué?")
+- Reescritura completa: de quiz de comprensión lectora a worked example genuino
+- Nuevo enfoque: razonamiento paso a paso (¿Quién? → ¿Cuántos? → Resultado)
+- Dos ejemplos del texto de Javier con revelación progresiva
+- Ejemplo 2 se acelera (patrón aprendido): salta de ¿Quién? al resultado
+- Enunciado cambiado: "Lee el texto y completa" → "¿Cómo se elige el posesivo?"
+- Terminal conservado como contexto narrativo del texto de Javier
+- Diálogos de Vito reescritos con registro metódico: guía el razonamiento, no evalúa
+- Conclusión visual: "¿Quién? + ¿Cuántos? = posesivo"
+
 ## v0.5 — 2026-04-21
 
 ### Diapositiva #11 (Flora 3 — "¿Solo 2 formas?")
