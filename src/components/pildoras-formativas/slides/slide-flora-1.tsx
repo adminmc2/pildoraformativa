@@ -1,7 +1,7 @@
 "use client";
 // 🔒 BLOQUEADA — No modificar sin consultar al usuario. Slide aprobada hasta #11.
 
-import { useState } from "react";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { UserCircle } from "@phosphor-icons/react/dist/csr/UserCircle";
 import { FloraFlower } from "@/components/pildoras-formativas/characters/flora-flower";
@@ -22,12 +22,21 @@ const ITEMS: Item[] = [
   { id: "lucia", owner: "Lucía", pos: "Su", label: "madre trabaja en el hotel.", short: "Lucía → madre", ownerColor: "var(--color-pf-flower)" },
 ];
 
-const BUBBLES = [
+const P = ({ children }: { children: React.ReactNode }) => (
+  <span className="italic" style={{ color: "var(--color-pf-spark)" }}>{children}</span>
+);
+
+const BUBBLES: React.ReactNode[] = [
   "Ahora tres personas distintas.",
-  "David y su abuelo. Abuelo = uno.",
-  "Javier y su abuelo. ¡Otro dueño, misma palabra!",
-  "Lucía y su madre. Madre = una. Siempre Su.",
-  "El dueño cambia: David, Javier, Lucía. Pero Su no cambia. ¿Qué decide entonces?",
+  <>David y <P>su</P> abuelo. Abuelo = uno.</>,
+  <>Javier y <P>su</P> abuelo. ¡Otro dueño, misma palabra!</>,
+  <>Lucía y <P>su</P> madre. Madre = una. Siempre <P>su</P>.</>,
+  <>
+    David → <P>su</P><br />
+    Javier → <P>su</P><br />
+    Lucía → <P>su</P><br />
+    <span className="opacity-70">¡Siempre igual!</span>
+  </>,
 ];
 
 export function SlideFlora1() {
@@ -133,27 +142,6 @@ export function SlideFlora1() {
               );
             })}
           </div>
-
-          {/* Insight visual: los tres "Su" alineados */}
-          {insightRevealed && (
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="flex items-center gap-4 px-4 py-3 rounded-[16px] bg-[var(--color-pf-spark-soft)]"
-            >
-              {ITEMS.map((item) => (
-                <div key={item.id} className="flex items-center gap-2">
-                  <span className="text-sm font-semibold text-[var(--color-pf-ink)] opacity-70">{item.owner} →</span>
-                  <span className="px-2 py-0.5 rounded-lg bg-[var(--color-pf-spark)] text-white font-[family-name:var(--font-pf-display)] text-lg">
-                    Su
-                  </span>
-                </div>
-              ))}
-              <span className="ml-2 font-[family-name:var(--font-pf-display)] text-lg text-[var(--color-pf-ink)]">
-                = siempre igual
-              </span>
-            </motion.div>
-          )}
 
           <div className="flex items-center gap-3 mt-1">
             <button
