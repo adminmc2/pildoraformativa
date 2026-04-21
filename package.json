@@ -1,5 +1,5 @@
 {
-  "name": "proyecto-educativo",
+  "name": "pildoras-formativas",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,15 +10,9 @@
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.1.10",
-    "@progress/kendo-licensing": "^1.7.1",
-    "@progress/kendo-react-data-tools": "^12.2.0",
-    "@progress/kendo-react-grid": "^12.2.0",
-    "@progress/kendo-react-intl": "^12.2.0",
     "@tabler/icons-react": "^3.35.0",
-    "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "framer-motion": "^12.23.24",
-    "lucide-react": "^0.552.0",
     "next": "^16.2.4",
     "react": "19.2.0",
     "react-dom": "19.2.0",
@@ -26,7 +20,6 @@
     "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {
-    "@netlify/plugin-nextjs": "^5.14.5",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",

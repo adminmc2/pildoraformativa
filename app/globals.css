@@ -8,18 +8,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-pt-sans);
-  --font-serif: var(--font-merriweather);
 
-  /* Colores SGEL */
-  --color-sgel-red: #d42a24;
-  --color-sgel-blue: #459BD8;
-  --color-sgel-green: #62A25C;
-  --color-sgel-yellow: #FFC924;
-  --color-sgel-dark: #1a1a1a;
-  --color-sgel-light: #f5f5f5;
-
-  /* Píldoras Formativas — paleta Little Movers */
+  /* Paleta Little Movers — Píldoras Formativas */
   --color-pf-star: #F5C842;
   --color-pf-star-soft: #FEF3C7;
   --color-pf-flower: #E91FCE;
@@ -38,7 +28,7 @@
   --font-pf-ui: var(--font-pf-ui);
 }
 
-/* Animación para NeonGradientCard */
+/* NeonGradientCard animation */
 @keyframes background-position-spin {
   0% {
     background-position: top center;
@@ -53,15 +43,8 @@
   animation: background-position-spin 3s ease-in-out infinite alternate;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-pt-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-pf-ui), Arial, Helvetica, sans-serif;
 }

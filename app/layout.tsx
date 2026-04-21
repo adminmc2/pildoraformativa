@@ -1,18 +1,6 @@
 import type { Metadata } from "next";
-import { Merriweather, PT_Sans, Archivo_Black, Inter } from "next/font/google";
+import { Archivo_Black, Inter } from "next/font/google";
 import "./globals.css";
-
-const merriweather = Merriweather({
-  variable: "--font-merriweather",
-  subsets: ["latin"],
-  weight: ["300", "400", "700", "900"],
-});
-
-const ptSans = PT_Sans({
-  variable: "--font-pt-sans",
-  subsets: ["latin"],
-  weight: ["400", "700"],
-});
 
 const archivoBlack = Archivo_Black({
   variable: "--font-pf-display",
@@ -27,8 +15,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Nuevos Compañeros 1 - Unidad 2: El plural de nombres y adjetivos",
-  description: "Material interactivo para pizarras digitales - Nuevos Compañeros",
+  title: "Píldoras Formativas",
+  description: "Material pedagógico proyectable para aulas de ELE — A1.1 adolescentes",
 };
 
 export default function RootLayout({
@@ -39,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body
-        className={`${merriweather.variable} ${ptSans.variable} ${archivoBlack.variable} ${inter.variable} antialiased`}
+        className={`${archivoBlack.variable} ${inter.variable} antialiased`}
         suppressHydrationWarning
       >
         {children}
