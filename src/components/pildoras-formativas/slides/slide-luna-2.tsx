@@ -46,12 +46,15 @@ export function SlideLuna2() {
     setShowNoun(false);
 
     // Calcular ángulo para parar en la persona correcta
-    const personIndex = PERSONS.indexOf(combo.person.replace(" (Javier)", ""));
+    const personIndex = PERSONS.indexOf(combo.person);
     const sliceAngle = 360 / PERSONS.length;
-    const targetAngle = 360 - (personIndex * sliceAngle) - sliceAngle / 2;
-    const totalSpin = 1080 + targetAngle; // 3 vueltas + posición
+    const segCenter = personIndex * sliceAngle + sliceAngle / 2;
 
-    setSpinAngle((prev) => prev + totalSpin);
+    setSpinAngle((prev) => {
+      const currentEffective = prev % 360;
+      const additionalRotation = (360 - segCenter - currentEffective + 720) % 360;
+      return prev + 1080 + additionalRotation;
+    });
 
     setTimeout(() => {
       setSpinning(false);

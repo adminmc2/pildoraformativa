@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.11 — 2026-04-22
+
+### Luna 2 (#15) — Fix ruleta
+- Corregido cálculo de ángulo de parada: la ruleta ahora compensa la rotación acumulada para que la flecha siempre coincida con la persona mostrada en la tarjeta
+
 ## v0.10 — 2026-04-22
 
 ### Luna 1, 2 y 3 (#14–#16) — Coherencia de diálogos y visual
