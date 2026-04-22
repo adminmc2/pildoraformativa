@@ -125,7 +125,22 @@ export function SlideVito1() {
                 className="mt-3 border-t border-gray-700 pt-3"
               >
                 <div className="text-yellow-300 text-[clamp(20px,2.2vw,28px)] font-bold mb-2">
-                  {ex.sentence.replace("___", isFilled ? ex.answer : "___")}
+                  {(() => {
+                    const [before, after] = ex.sentence.split("___");
+                    return (
+                      <>
+                        {before}
+                        {isFilled ? (
+                          <span className="inline-block px-2 py-0.5 rounded-lg bg-green-500 text-white mx-1">
+                            {ex.answer}
+                          </span>
+                        ) : (
+                          <span className="inline-block px-3 py-0.5 rounded-lg bg-white/20 mx-1">___</span>
+                        )}
+                        {after}
+                      </>
+                    );
+                  })()}
                 </div>
 
                 <div className="flex flex-col gap-1.5">

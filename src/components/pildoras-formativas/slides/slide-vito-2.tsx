@@ -12,6 +12,7 @@ type Example = {
   choices: { text: string; color: string }[];
   correct: number;
   answer: string;
+  answerColor: string;
   wrongHint: string;
 };
 
@@ -30,6 +31,7 @@ const EXAMPLES: Example[] = [
     ],
     correct: 1,
     answer: "nuestras",
+    answerColor: "var(--color-pf-flower)",
     wrongHint: "No. Fíjate: femenino.",
   },
   {
@@ -46,6 +48,7 @@ const EXAMPLES: Example[] = [
     ],
     correct: 1,
     answer: "vuestro",
+    answerColor: "var(--color-pf-moon)",
     wrongHint: "No. Fíjate: masculino.",
   },
 ];
@@ -144,7 +147,25 @@ export function SlideVito2() {
               className="bg-white rounded-2xl px-6 py-4 shadow-[0_14px_40px_-16px_rgba(0,0,0,0.14)]"
             >
               <p className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.4vw,3vh),32px)] text-[var(--color-pf-ink)] mb-2">
-                {ex.sentence.replace("___", isFilled ? `【${ex.answer}】` : "___")}
+                {(() => {
+                  const [before, after] = ex.sentence.split("___");
+                  return (
+                    <>
+                      {before}
+                      {isFilled ? (
+                        <span
+                          className="inline-block px-2.5 py-0.5 rounded-lg text-white font-bold mx-1"
+                          style={{ background: ex.answerColor }}
+                        >
+                          {ex.answer}
+                        </span>
+                      ) : (
+                        <span className="inline-block px-3 py-0.5 rounded-lg bg-black/10 mx-1">___</span>
+                      )}
+                      {after}
+                    </>
+                  );
+                })()}
               </p>
 
               <div className="flex gap-2 flex-wrap">

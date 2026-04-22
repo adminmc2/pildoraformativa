@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.9 — 2026-04-22
+
+### Accesibilidad visual — respuestas destacadas
+- Vito 1: respuesta rellenada se muestra como pill verde (bg-green-500) con texto blanco en lugar de texto plano
+- Vito 2: respuesta rellenada se muestra como pill con color de género (rosa/morado) en lugar de corchetes 【】
+- Hueco vacío (___) con fondo suave para diferenciarse del texto
+- Coherente con Vito 3, que ya usaba pill con color
+
 ## v0.8 — 2026-04-22
 
 ### Diapositiva #13 (Vito 2 — "Paso a paso")
