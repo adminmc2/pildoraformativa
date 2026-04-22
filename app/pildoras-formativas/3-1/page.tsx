@@ -19,7 +19,7 @@ import { SlideVito2 } from "@/components/pildoras-formativas/slides/slide-vito-2
 import { SlideLuna1 } from "@/components/pildoras-formativas/slides/slide-luna-1";
 import { SlideLuna2 } from "@/components/pildoras-formativas/slides/slide-luna-2";
 import { SlideLuna3 } from "@/components/pildoras-formativas/slides/slide-luna-3";
-import { SlideDesafio } from "@/components/pildoras-formativas/slides/slide-desafio";
+import { SlideDesafioB } from "@/components/pildoras-formativas/slides/slide-desafio-b";
 import { SlideCierre } from "@/components/pildoras-formativas/slides/slide-cierre";
 
 type IntroSlide = {
@@ -49,7 +49,7 @@ type ContentSlide = {
     | "luna1"
     | "luna2"
     | "luna3"
-    | "desafio"
+    | "desafioB"
     | "cierre";
   step: string;
   bg: string;
@@ -179,9 +179,9 @@ const SLIDES: Slide[] = [
     bg: "var(--color-pf-moon-soft)",
   },
   {
-    kind: "desafio",
+    kind: "desafioB",
     step: "#17",
-    bg: "var(--color-pf-spark-soft)",
+    bg: "#2d1508",
   },
   {
     kind: "cierre",
@@ -196,6 +196,7 @@ export default function Pildora31Page() {
 
   const next = () => setActive((active + 1) % SLIDES.length);
   const prev = () => setActive((active - 1 + SLIDES.length) % SLIDES.length);
+  const isDark = slide.kind === "desafioB";
 
   return (
     <div
@@ -203,7 +204,7 @@ export default function Pildora31Page() {
       style={{ background: slide.bg }}
     >
       {slide.kind !== "opening" && (
-        <header className="flex-shrink-0 flex items-center justify-between px-8 pt-4 pb-1 text-[var(--color-pf-ink)]">
+        <header className={`flex-shrink-0 flex items-center justify-between px-8 pt-4 pb-1 ${isDark ? "text-white" : "text-[var(--color-pf-ink)]"}`}>
           <button
             onClick={() => setActive(0)}
             aria-label="Volver al inicio"
@@ -219,7 +220,7 @@ export default function Pildora31Page() {
               PÍLDORA FORMATIVA 3.1
             </div>
             <div className="text-base opacity-70 font-medium tracking-wider uppercase">
-              Posesivos · Unidad 3 · v0.12
+              Posesivos · Unidad 3 · v0.13
             </div>
           </div>
           <span className="text-base font-[family-name:var(--font-pf-display)] opacity-80">{slide.step}</span>
@@ -241,7 +242,7 @@ export default function Pildora31Page() {
         {slide.kind === "luna1" && <SlideLuna1 />}
         {slide.kind === "luna2" && <SlideLuna2 />}
         {slide.kind === "luna3" && <SlideLuna3 />}
-        {slide.kind === "desafio" && <SlideDesafio />}
+        {slide.kind === "desafioB" && <SlideDesafioB />}
         {slide.kind === "cierre" && <SlideCierre />}
       </main>
 
@@ -249,7 +250,7 @@ export default function Pildora31Page() {
         <footer className="flex-shrink-0 flex items-center justify-between px-8 pb-4 pt-1">
           <button
             onClick={prev}
-            className="px-6 py-3 rounded-full bg-white/70 text-[var(--color-pf-ink)] font-semibold hover:bg-white transition"
+            className={`px-6 py-3 rounded-full font-semibold transition ${isDark ? "bg-white/15 text-white hover:bg-white/25" : "bg-white/70 text-[var(--color-pf-ink)] hover:bg-white"}`}
           >
             ← Anterior
           </button>
@@ -263,7 +264,7 @@ export default function Pildora31Page() {
                 className="h-2 rounded-full transition-all"
                 style={{
                   width: i === active ? 40 : 12,
-                  background: i === active ? "var(--color-pf-ink)" : "rgba(10,10,10,0.25)",
+                  background: i === active ? (isDark ? "#fff" : "var(--color-pf-ink)") : (isDark ? "rgba(255,255,255,0.3)" : "rgba(10,10,10,0.25)"),
                 }}
               />
             ))}
@@ -271,7 +272,7 @@ export default function Pildora31Page() {
 
           <button
             onClick={next}
-            className="px-8 py-3 rounded-full bg-[var(--color-pf-ink)] text-white font-semibold hover:opacity-90 transition"
+            className={`px-8 py-3 rounded-full font-semibold transition ${isDark ? "bg-white/90 text-[#1a1a2e] hover:bg-white" : "bg-[var(--color-pf-ink)] text-white hover:opacity-90"}`}
           >
             Siguiente →
           </button>

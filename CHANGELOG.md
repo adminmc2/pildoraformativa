@@ -1,5 +1,16 @@
 # Changelog
 
+## v0.13 — 2026-04-22
+
+### Chipi (#17) — Desafío "Caja fuerte"
+- Nueva diapositiva de desafío con mecánica de juego arcade: 6 rondas de posesivos, equipos responden levantando dedos (A=1, B=2, C=3)
+- Puntuación con combos (×2, ×3) y bonus de velocidad (+1 al más rápido)
+- Fases: configuración → pregunta → corrección → resultado, con identidad visual coherente
+- Fondo cálido naranja (#2d1508) a pantalla completa, sin CRT
+- Chipi con drop-shadow dorado para visibilidad de trazos negros sobre fondo oscuro
+- Eliminada propuesta A (slide-desafio.tsx), conservada solo la B como #17
+- Todo el texto en español, tamaños accesibles para proyección
+
 ## v0.12 — 2026-04-22
 
 ### Luna 3 (#16) — Texto nuevo y diálogos propios
