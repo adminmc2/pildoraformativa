@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.12 — 2026-04-22
+
+### Luna 3 (#16) — Texto nuevo y diálogos propios
+- Texto reescrito: "Los deberes" — coherente, auténtico, con 5 posesivos plurales (mis, nuestras, sus, vuestros, tus)
+- Diálogos diferenciados de Luna 1 y 2 (Propuesta A): "Última prueba", "¿Cuál falta aquí?", "Casi... ¡pero no!"
+- Color de respuesta por género del sustantivo (answerColor)
+
 ## v0.11 — 2026-04-22
 
 ### Luna 2 (#15) — Fix ruleta

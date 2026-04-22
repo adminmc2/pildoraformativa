@@ -14,24 +14,25 @@ type Gap = {
   id: number;
   options: string[];
   correct: number;
+  answerColor: string;
 };
 
-// Texto coherente — Un día en el instituto. 5 posesivos: nuestro, mi, su, sus, tus
+// Texto coherente — Los deberes. 5 posesivos plurales: mis, nuestras, sus, vuestros, tus
 const TEXT_PARTS = [
   "",
-  " instituto está cerca del centro. ",
-  " amigo Javier estudia en la misma clase. ",
-  " hermana Alejandra va a otro colegio. Javier y Alejandra tienen ",
-  " libros en la misma habitación. Y tú, ¿dónde haces ",
-  " deberes?",
+  " compañeros de clase son geniales. ",
+  " profesoras son muy divertidas. Javier siempre hace ",
+  " deberes en la biblioteca. Y vosotros, ¿hacéis ",
+  " deberes en casa? ",
+  " notas seguro que son muy buenas.",
 ];
 
 const GAPS: Gap[] = [
-  { id: 0, options: ["Nuestra", "Nuestro", "Mi"], correct: 1 },
-  { id: 1, options: ["Tu", "Su", "Mi"], correct: 2 },
-  { id: 2, options: ["Mi", "Su", "Tu"], correct: 1 },
-  { id: 3, options: ["su", "sus", "nuestros"], correct: 1 },
-  { id: 4, options: ["sus", "mis", "tus"], correct: 2 },
+  { id: 0, options: ["Mi", "Mis", "Sus"], correct: 1, answerColor: "var(--color-pf-moon)" },
+  { id: 1, options: ["Nuestros", "Nuestras", "Vuestras"], correct: 1, answerColor: "var(--color-pf-flower)" },
+  { id: 2, options: ["su", "sus", "mis"], correct: 1, answerColor: "var(--color-pf-moon)" },
+  { id: 3, options: ["nuestros", "vuestros", "sus"], correct: 1, answerColor: "var(--color-pf-moon)" },
+  { id: 4, options: ["Mis", "Tus", "Sus"], correct: 1, answerColor: "var(--color-pf-flower)" },
 ];
 
 const NEON_COLORS = [
@@ -79,14 +80,14 @@ export function SlideLuna3() {
   };
 
   const bubble: React.ReactNode = allFilled
-    ? `${filledCount} de ${GAPS.length}. ¡Bien comprobado!`
+    ? "¡Texto completo! Todo comprobado."
     : activeGap !== null && wrongPick !== null
-    ? "Esa no, pero casi. ¿Y si pruebas otra?"
+    ? "Casi... ¡pero no! Otra oportunidad."
     : activeGap !== null
-    ? "A ver... ¿cuál es?"
+    ? "¿Cuál falta aquí?"
     : filledCount === 0
-    ? "Comprobamos. Toca un hueco."
-    : `¡${filledCount} de ${GAPS.length}! Sigue así.`;
+    ? "Última prueba. ¿Completas el texto?"
+    : `¡${filledCount} de ${GAPS.length}! Quedan ${GAPS.length - filledCount}.`;
 
   // Build the rendered text with gaps
   const renderText = () => {
@@ -106,8 +107,8 @@ export function SlideLuna3() {
               key={`g-${i}`}
               initial={{ scale: 0.8 }}
               animate={{ scale: 1 }}
-              className="inline-block px-3 py-0.5 rounded-lg text-white font-[family-name:var(--font-pf-display)] mx-1"
-              style={{ background: "var(--color-pf-moon)" }}
+              className="inline-block px-3 py-0.5 rounded-lg text-white font-bold font-[family-name:var(--font-pf-display)] mx-1"
+              style={{ background: gap.answerColor }}
             >
               {gap.options[answers[i]!]}
             </motion.span>
