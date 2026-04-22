@@ -186,7 +186,7 @@ const SLIDES: Slide[] = [
   {
     kind: "cierre",
     step: "#18",
-    bg: "var(--color-pf-pill-soft)",
+    bg: "#FAF6EC",
   },
 ];
 
@@ -220,7 +220,7 @@ export default function Pildora31Page() {
               PÍLDORA FORMATIVA 3.1
             </div>
             <div className="text-base opacity-70 font-medium tracking-wider uppercase">
-              Posesivos · Unidad 3 · v0.13
+              Posesivos · Unidad 3 · v0.14
             </div>
           </div>
           <span className="text-base font-[family-name:var(--font-pf-display)] opacity-80">{slide.step}</span>
@@ -270,12 +270,16 @@ export default function Pildora31Page() {
             ))}
           </div>
 
-          <button
-            onClick={next}
-            className={`px-8 py-3 rounded-full font-semibold transition ${isDark ? "bg-white/90 text-[#1a1a2e] hover:bg-white" : "bg-[var(--color-pf-ink)] text-white hover:opacity-90"}`}
-          >
-            Siguiente →
-          </button>
+          {active < SLIDES.length - 1 ? (
+            <button
+              onClick={next}
+              className={`px-8 py-3 rounded-full font-semibold transition ${isDark ? "bg-white/90 text-[#1a1a2e] hover:bg-white" : "bg-[var(--color-pf-ink)] text-white hover:opacity-90"}`}
+            >
+              Siguiente →
+            </button>
+          ) : (
+            <div className="px-8 py-3" />
+          )}
         </footer>
       )}
     </div>

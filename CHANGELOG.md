@@ -1,5 +1,15 @@
 # Changelog
 
+## v0.14 — 2026-04-22
+
+### Cierre (#18) — Pantalla final con los 5 personajes
+- Reescritura completa: pantalla única sin pasos ni navegación
+- Los 5 personajes (Pili, Flora, Vito, Luna, Chipi) con nombre, badge y burbuja de diálogo
+- Título grande "¡MISIÓN CUMPLIDA!" con animación pop
+- Estilo visual idéntico al opening (decoraciones flotantes, animaciones de entrada)
+- Fondo igualado al opening (#FAF6EC)
+- Botón "Siguiente" oculto en la última diapositiva
+
 ## v0.13 — 2026-04-22
 
 ### Chipi (#17) — Desafío "Caja fuerte"
