@@ -6,22 +6,27 @@ import { ComicText } from "@/components/ui/comic-text";
 import { LunaMoon } from "@/components/pildoras-formativas/characters/luna-moon";
 import { CharacterStage } from "@/components/pildoras-formativas/shared/character-stage";
 
+const P = ({ children }: { children: React.ReactNode }) => (
+  <span className="italic" style={{ color: "var(--color-pf-spark)" }}>{children}</span>
+);
+
 type Item = {
   id: number;
   before: string;
   after: string;
   options: string[];
   correct: number;
+  answerColor: string;
 };
 
 // Frases de Act 5 p.37 del JSON — no vistas antes en la píldora
 const ITEMS: Item[] = [
-  { id: 0, before: "¿Estudias música en ", after: " instituto?", options: ["mi", "tu", "su"], correct: 1 },
-  { id: 1, before: "Ellos tienen ", after: " ordenador en la habitación.", options: ["sus", "su", "mi"], correct: 1 },
-  { id: 2, before: "Graciela vive con ", after: " tíos.", options: ["su", "sus", "mis"], correct: 1 },
-  { id: 3, before: "Yo tengo ", after: " libros en la cartera.", options: ["mi", "mis", "sus"], correct: 1 },
-  { id: 4, before: "Javier tiene ", after: " bicicleta en la calle.", options: ["sus", "su", "tu"], correct: 1 },
-  { id: 5, before: "", after: " profesor de matemáticas es muy simpático.", options: ["Nuestra", "Nuestro", "Su"], correct: 1 },
+  { id: 0, before: "¿Estudias música en ", after: " instituto?", options: ["mi", "tu", "su"], correct: 1, answerColor: "var(--color-pf-moon)" },
+  { id: 1, before: "Ellos tienen ", after: " ordenador en la habitación.", options: ["sus", "su", "mi"], correct: 1, answerColor: "var(--color-pf-moon)" },
+  { id: 2, before: "Graciela vive con ", after: " tíos.", options: ["su", "sus", "mis"], correct: 1, answerColor: "var(--color-pf-moon)" },
+  { id: 3, before: "Yo tengo ", after: " libros en la cartera.", options: ["mi", "mis", "sus"], correct: 1, answerColor: "var(--color-pf-moon)" },
+  { id: 4, before: "Javier tiene ", after: " bicicleta en la calle.", options: ["sus", "su", "tu"], correct: 1, answerColor: "var(--color-pf-flower)" },
+  { id: 5, before: "", after: " profesor de matemáticas es muy simpático.", options: ["Nuestra", "Nuestro", "Su"], correct: 1, answerColor: "var(--color-pf-moon)" },
 ];
 
 export function SlideLuna1() {
@@ -62,13 +67,13 @@ export function SlideLuna1() {
     setShowComic(false);
   };
 
-  const bubble = finished
-    ? `¡${score} de ${ITEMS.length}! ¿Lo has entendido?`
+  const bubble: React.ReactNode = finished
+    ? `${score} de ${ITEMS.length}. ¡Bien comprobado!`
     : answered
-    ? `¡${item.options[item.correct]}! Correcto.`
+    ? <>¡Eso es, <P>{item.options[item.correct]}</P>!</>
     : wrongPick !== null
-    ? `No es ${item.options[wrongPick]}. Piensa: ¿uno o varios?`
-    : `Frase ${current + 1}. Elige el posesivo.`;
+    ? "Esa no, pero casi. ¿Y si pruebas otra?"
+    : "A ver... ¿cuál es?";
 
   return (
     <div className="w-full h-full flex items-center justify-center overflow-hidden">
@@ -90,7 +95,7 @@ export function SlideLuna1() {
             Elige
           </h1>
 
-          <p className="text-[clamp(16px,1.8vw,24px)] font-semibold text-white bg-[var(--color-pf-ink)] inline-block px-5 py-2 rounded-full self-start">
+          <p className="text-[clamp(18px,1.8vw,24px)] font-semibold text-white bg-[var(--color-pf-ink)] inline-block px-5 py-2 rounded-full self-start">
             ¿Qué posesivo va en cada frase?
           </p>
 
@@ -110,7 +115,10 @@ export function SlideLuna1() {
                   <p className="font-[family-name:var(--font-pf-display)] text-[clamp(24px,min(3vw,4vh),44px)] leading-tight text-[var(--color-pf-ink)]">
                     {item.before}
                     {answered ? (
-                      <span className="inline-block px-3 py-0.5 rounded-lg bg-[var(--color-pf-moon)] text-white mx-1">
+                      <span
+                        className="inline-block px-3 py-0.5 rounded-lg text-white font-bold mx-1"
+                        style={{ background: item.answerColor }}
+                      >
                         {item.options[item.correct]}
                       </span>
                     ) : (
@@ -127,20 +135,19 @@ export function SlideLuna1() {
               {!answered && (
                 <div className="flex gap-3">
                   {item.options.map((opt, i) => (
-                    <motion.button
+                    <button
                       key={i}
-                      whileHover={{ scale: 1.03 }}
-                      whileTap={{ scale: 0.97 }}
+                      type="button"
                       onClick={() => choose(i)}
                       disabled={wrongPick === i}
-                      className={`flex-1 px-4 py-3 rounded-[18px] font-[family-name:var(--font-pf-display)] text-[clamp(22px,2.6vw,36px)] transition ${
+                      className={`flex-1 px-4 py-3 rounded-[18px] font-[family-name:var(--font-pf-display)] text-[clamp(22px,2.6vw,36px)] transition-all ${
                         wrongPick === i
-                          ? "bg-[var(--color-pf-spark-soft)] text-[#8A2F10] line-through opacity-60"
-                          : "bg-white text-[var(--color-pf-ink)] shadow-[0_8px_24px_-10px_rgba(0,0,0,0.1)] hover:shadow-[0_12px_30px_-10px_rgba(0,0,0,0.15)] cursor-pointer"
+                          ? "bg-[var(--color-pf-spark-soft)] text-[#8A2F10] line-through opacity-60 cursor-not-allowed"
+                          : "bg-white text-[var(--color-pf-ink)] shadow-[0_8px_24px_-10px_rgba(0,0,0,0.1)] hover:shadow-[0_12px_30px_-10px_rgba(0,0,0,0.15)] hover:scale-[1.03] active:scale-[0.97] cursor-pointer"
                       }`}
                     >
                       {opt}
-                    </motion.button>
+                    </button>
                   ))}
                 </div>
               )}

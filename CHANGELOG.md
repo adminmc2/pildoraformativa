@@ -1,5 +1,16 @@
 # Changelog
 
+## v0.10 — 2026-04-22
+
+### Luna 1, 2 y 3 (#14–#16) — Coherencia de diálogos y visual
+- Diálogos de Luna ajustados al rol verificador (Propuesta B): "A ver... ¿cuál es?", "¡Eso es, *tu*!", "Esa no, pero casi. ¿Y si pruebas otra?"
+- Posesivos citados en burbujas con `<P>` (cursiva + color spark), coherente con Flora
+- Luna 1: color de respuesta por género del sustantivo (moon=masc, flower=fem), motion.button → button
+- Luna 2: eliminado "cosa", añadido campo `possessive` para citar con `<P>`
+- Luna 3: eliminado hint metodológico "¿Quién tiene qué?" (rol de Vito, no de Luna)
+- Subtítulos de las tres: mínimo 16px → 18px (accesibilidad)
+- CLAUDE.md: añadidas reglas de coherencia visual en diálogos, colores de género, y metodología por personaje
+
 ## v0.9 — 2026-04-22
 
 ### Accesibilidad visual — respuestas destacadas

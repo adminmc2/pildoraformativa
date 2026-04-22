@@ -5,21 +5,26 @@ import { motion } from "framer-motion";
 import { LunaMoon } from "@/components/pildoras-formativas/characters/luna-moon";
 import { CharacterStage } from "@/components/pildoras-formativas/shared/character-stage";
 
+const P = ({ children }: { children: React.ReactNode }) => (
+  <span className="italic" style={{ color: "var(--color-pf-spark)" }}>{children}</span>
+);
+
 type Combo = {
   id: number;
   person: string;
   noun: string;
+  possessive: string;
   answer: string;
   color: string;
 };
 
 const COMBOS: Combo[] = [
-  { id: 0, person: "Nosotros/as", noun: "profesora", answer: "Nuestra profesora", color: "var(--color-pf-flower)" },
-  { id: 1, person: "Tú", noun: "libros", answer: "Tus libros", color: "var(--color-pf-star)" },
-  { id: 2, person: "Yo", noun: "hermana", answer: "Mi hermana", color: "var(--color-pf-moon)" },
-  { id: 3, person: "Vosotros/as", noun: "mochilas", answer: "Vuestras mochilas", color: "var(--color-pf-spark)" },
-  { id: 4, person: "Él/Ella", noun: "abuelo", answer: "Su abuelo", color: "var(--color-pf-pill)" },
-  { id: 5, person: "Nosotros/as", noun: "hermanos", answer: "Nuestros hermanos", color: "var(--color-pf-flower)" },
+  { id: 0, person: "Nosotros/as", noun: "profesora", possessive: "nuestra", answer: "Nuestra profesora", color: "var(--color-pf-flower)" },
+  { id: 1, person: "Tú", noun: "libros", possessive: "tus", answer: "Tus libros", color: "var(--color-pf-star)" },
+  { id: 2, person: "Yo", noun: "hermana", possessive: "mi", answer: "Mi hermana", color: "var(--color-pf-moon)" },
+  { id: 3, person: "Vosotros/as", noun: "mochilas", possessive: "vuestras", answer: "Vuestras mochilas", color: "var(--color-pf-spark)" },
+  { id: 4, person: "Él/Ella", noun: "abuelo", possessive: "su", answer: "Su abuelo", color: "var(--color-pf-pill)" },
+  { id: 5, person: "Nosotros/as", noun: "hermanos", possessive: "nuestros", answer: "Nuestros hermanos", color: "var(--color-pf-flower)" },
 ];
 
 const PERSONS = ["Yo", "Tú", "Él/Ella", "Nosotros/as", "Vosotros/as", "Ellos/as"];
@@ -73,15 +78,15 @@ export function SlideLuna2() {
     setShowNoun(false);
   };
 
-  const bubble = finished
-    ? "¡Todas las combinaciones! Persona + cosa = posesivo."
+  const bubble: React.ReactNode = finished
+    ? "¡Bien comprobado! Todas las combinaciones."
     : revealed
-    ? `¡${combo.answer}!`
+    ? <>¡Eso es, <P>{combo.possessive}</P>!</>
     : showNoun
-    ? `${combo.person} + ${combo.noun}. ¿Cómo se dice?`
+    ? `${combo.person} + ${combo.noun}. ¿Cuál es?`
     : spinning
     ? "Girando..."
-    : `Ronda ${current + 1}. ¡Gira!`;
+    : "A ver... ¡Gira!";
 
   return (
     <div className="w-full h-full flex items-center justify-center overflow-hidden">
@@ -103,7 +108,7 @@ export function SlideLuna2() {
             Gira y responde
           </h1>
 
-          <p className="text-[clamp(16px,1.8vw,24px)] font-semibold text-white bg-[var(--color-pf-ink)] inline-block px-5 py-2 rounded-full self-start">
+          <p className="text-[clamp(18px,1.8vw,24px)] font-semibold text-white bg-[var(--color-pf-ink)] inline-block px-5 py-2 rounded-full self-start">
             La ruleta elige la persona. Tú dices el posesivo.
           </p>
 

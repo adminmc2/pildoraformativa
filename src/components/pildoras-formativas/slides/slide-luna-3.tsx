@@ -6,6 +6,10 @@ import { NeonGradientCard } from "@/components/ui/neon-gradient-card";
 import { LunaMoon } from "@/components/pildoras-formativas/characters/luna-moon";
 import { CharacterStage } from "@/components/pildoras-formativas/shared/character-stage";
 
+const P = ({ children }: { children: React.ReactNode }) => (
+  <span className="italic" style={{ color: "var(--color-pf-spark)" }}>{children}</span>
+);
+
 type Gap = {
   id: number;
   options: string[];
@@ -74,15 +78,15 @@ export function SlideLuna3() {
     setWrongPick(null);
   };
 
-  const bubble = allFilled
-    ? "¡Texto completo! 5 posesivos diferentes."
+  const bubble: React.ReactNode = allFilled
+    ? `${filledCount} de ${GAPS.length}. ¡Bien comprobado!`
     : activeGap !== null && wrongPick !== null
-    ? `No es ${GAPS[activeGap].options[wrongPick]}. ¿Quién tiene qué?`
+    ? "Esa no, pero casi. ¿Y si pruebas otra?"
     : activeGap !== null
-    ? "Elige el posesivo correcto."
+    ? "A ver... ¿cuál es?"
     : filledCount === 0
-    ? "Lee el texto. Toca un hueco para completarlo."
-    : `¡${filledCount} de ${GAPS.length}! Sigue.`;
+    ? "Comprobamos. Toca un hueco."
+    : `¡${filledCount} de ${GAPS.length}! Sigue así.`;
 
   // Build the rendered text with gaps
   const renderText = () => {
@@ -148,7 +152,7 @@ export function SlideLuna3() {
             Completa el texto
           </h1>
 
-          <p className="text-[clamp(16px,1.8vw,24px)] font-semibold text-white bg-[var(--color-pf-ink)] inline-block px-5 py-2 rounded-full self-start">
+          <p className="text-[clamp(18px,1.8vw,24px)] font-semibold text-white bg-[var(--color-pf-ink)] inline-block px-5 py-2 rounded-full self-start">
             Toca un hueco y elige el posesivo.
           </p>
 
