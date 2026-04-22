@@ -223,7 +223,11 @@ export default function Pildora31Page() {
               Posesivos · Unidad 3 · v0.14
             </div>
           </div>
-          <span className="text-base font-[family-name:var(--font-pf-display)] opacity-80">{slide.step}</span>
+          {slide.kind !== "cierre" ? (
+            <span className="text-base font-[family-name:var(--font-pf-display)] opacity-80">{slide.step}</span>
+          ) : (
+            <span className="w-9" />
+          )}
         </header>
       )}
 
