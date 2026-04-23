@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Archivo_Black, Inter } from "next/font/google";
+import { Archivo_Black, Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
 const archivoBlack = Archivo_Black({
@@ -12,6 +12,12 @@ const inter = Inter({
   variable: "--font-pf-ui",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+});
+
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-landing",
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -27,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body
-        className={`${archivoBlack.variable} ${inter.variable} antialiased`}
+        className={`${archivoBlack.variable} ${inter.variable} ${spaceGrotesk.variable} antialiased`}
         suppressHydrationWarning
       >
         {children}

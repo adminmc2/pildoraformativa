@@ -26,6 +26,16 @@
 
   --font-pf-display: var(--font-pf-display);
   --font-pf-ui: var(--font-pf-ui);
+  --font-landing: var(--font-landing);
+
+  /* Landing page palette (Strategos-inspired) */
+  --color-landing-bg: #FAFAF8;
+  --color-landing-surface: #FFFFFF;
+  --color-landing-border: #E8E5DE;
+  --color-landing-navy: #1E3A5F;
+  --color-landing-blue: #2175A5;
+  --color-landing-green: #78B042;
+  --color-landing-muted: #6B7B8D;
 }
 
 /* NeonGradientCard animation */

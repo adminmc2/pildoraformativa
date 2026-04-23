@@ -12,12 +12,13 @@ type Round = { before: string; after: string; options: [string, string, string];
 type Phase = "setup" | "question" | "marking" | "result";
 
 const ROUNDS: Round[] = [
-  { before: "¿Tienes ", after: " mochila aquí?", options: ["tu", "su", "mi"], correct: 0, answerColor: "#E91FCE" },
-  { before: "Ella vive con ", after: " abuelos.", options: ["mis", "sus", "tus"], correct: 1, answerColor: "#7C5CFF" },
-  { before: "Yo quiero ", after: " libro de mates.", options: ["mi", "su", "tus"], correct: 0, answerColor: "#7C5CFF" },
-  { before: "", after: " profesoras son geniales.", options: ["Nuestros", "Nuestras", "Vuestras"], correct: 1, answerColor: "#E91FCE" },
-  { before: "¿Tenéis ", after: " cuadernos?", options: ["nuestros", "sus", "vuestros"], correct: 2, answerColor: "#7C5CFF" },
-  { before: "Ellos tienen ", after: " mochilas nuevas.", options: ["nuestras", "sus", "vuestras"], correct: 1, answerColor: "#E91FCE" },
+  { before: "Hoy hablamos de la familia. ¿Cómo se llama ", after: " padre?", options: ["tu", "su", "mi"], correct: 0, answerColor: "#7C5CFF" },
+  { before: "Mira la familia de Javier. ", after: " madre se llama Catalina.", options: ["mis", "su", "tus"], correct: 1, answerColor: "#E91FCE" },
+  { before: "¿Tienes hermanos? — Sí, ", after: " hermanos se llaman Ana y Carlos.", options: ["mi", "mis", "sus"], correct: 1, answerColor: "#7C5CFF" },
+  { before: "¿Os gustan las clases? — ¡Sí! ", after: " profesoras son muy simpáticas.", options: ["Nuestros", "Nuestras", "Vuestras"], correct: 1, answerColor: "#E91FCE" },
+  { before: "Chicos, abrid ", after: " libros por la página 36.", options: ["nuestros", "sus", "vuestros"], correct: 2, answerColor: "#7C5CFF" },
+  { before: "David y Javier van al colegio. ", after: " mochilas son nuevas.", options: ["nuestras", "sus", "vuestras"], correct: 1, answerColor: "#E91FCE" },
+  { before: "¿En qué clase estáis? — ", after: " clase es la 2B.", options: ["nuestra", "vuestra", "su"], correct: 0, answerColor: "#E91FCE" },
 ];
 
 const TEAMS = [

@@ -2,7 +2,7 @@
  * Primitivos compartidos para generación de PDFs.
  * Colores, estilos base y componentes reutilizables.
  */
-import { Text, View, StyleSheet } from "@react-pdf/renderer";
+import { Text, View, StyleSheet, Image } from "@react-pdf/renderer";
 import type { ReactNode } from "react";
 
 /* ── Colores del proyecto (mismos que globals.css) ── */
@@ -40,7 +40,7 @@ export const base = StyleSheet.create({
     fontFamily: "Helvetica",
     fontSize: 11,
     color: C.ink,
-    backgroundColor: C.white,
+    backgroundColor: C.cream,
     paddingTop: 85,
     paddingBottom: 50,
     paddingHorizontal: 48,
@@ -173,21 +173,22 @@ export function Footer({ left = "Nuevo Compañeros 1 · SGEL" }) {
 }
 
 /** Bullet point con color */
-export function Bullet({ children, color = C.spark }: { children: string; color?: string }) {
+export function Bullet({ children, color = C.ink }: { children: string; color?: string }) {
   return (
-    <View style={{ flexDirection: "row", marginBottom: 4, paddingLeft: 4 }}>
-      <Text style={{ fontSize: 10, marginRight: 6, color }}>{"●"}</Text>
+    <View style={{ flexDirection: "row", marginBottom: 4, paddingLeft: 4, alignItems: "flex-start" }}>
+      <View style={{ width: 6, height: 6, borderRadius: 3, backgroundColor: color, marginRight: 8, marginTop: 4 }} />
       <Text style={{ fontSize: 10, lineHeight: 1.5, flex: 1 }}>{children}</Text>
     </View>
   );
 }
 
 /** Tarjeta de personaje */
-export function AgentCard({ name, badge, color, soft, desc }: {
-  name: string; badge: string; color: string; soft: string; desc: string;
+export function AgentCard({ name, badge, color, soft, desc, img }: {
+  name: string; badge: string; color: string; soft: string; desc: string; img?: string;
 }) {
   return (
     <View style={{ flexDirection: "row", alignItems: "center", borderRadius: 8, padding: 12, marginBottom: 8, backgroundColor: soft }}>
+      {img && <Image src={img} style={{ width: 40, height: 50, marginRight: 8 }} />}
       <View style={{ alignItems: "center", width: 60, gap: 3 }}>
         <Text style={{ fontFamily: "Helvetica-Bold", fontSize: 13, color }}>{name}</Text>
         <Text style={{ fontSize: 9, fontFamily: "Helvetica-Bold", paddingHorizontal: 8, paddingVertical: 3, borderRadius: 10, color: C.white, backgroundColor: color }}>{badge}</Text>
@@ -202,7 +203,7 @@ export function Callout({ title, children, color = C.star, bg = C.starSoft }: {
   title: string; children: ReactNode; color?: string; bg?: string;
 }) {
   return (
-    <View style={{ backgroundColor: bg, borderLeftWidth: 4, borderLeftColor: color, borderRadius: 6, padding: 12, marginBottom: 12 }}>
+    <View wrap={false} style={{ backgroundColor: bg, borderLeftWidth: 4, borderLeftColor: color, borderRadius: 6, padding: 12, marginBottom: 12 }}>
       <Text style={{ fontFamily: "Helvetica-Bold", fontSize: 11, marginBottom: 4 }}>{title}</Text>
       {typeof children === "string" ? (
         <Text style={{ fontSize: 10, lineHeight: 1.5, color: C.ink }}>{children}</Text>
@@ -213,18 +214,33 @@ export function Callout({ title, children, color = C.star, bg = C.starSoft }: {
   );
 }
 
-/** Tarjeta de diapositiva */
-export function SlideCard({ num, title, agent, agentColor, agentBg, children }: {
-  num: string; title: string; agent: string; agentColor: string; agentBg: string; children: string;
+/** Encabezado de diapositiva con línea divisoria */
+export function SlideHeading({ num, title, agent, agentColor, agentBg, technique }: {
+  num: string; title: string; agent: string; agentColor: string; agentBg: string; technique?: string;
 }) {
   return (
-    <View style={{ borderWidth: 1, borderColor: "#E0E0E0", borderRadius: 10, padding: 14, marginBottom: 12 }}>
-      <View style={{ flexDirection: "row", alignItems: "center", gap: 8, marginBottom: 8 }}>
-        <Text style={{ fontFamily: "Helvetica-Bold", fontSize: 14, color: C.white, backgroundColor: C.ink, width: 30, height: 30, borderRadius: 15, textAlign: "center", lineHeight: 30 }}>{num}</Text>
-        <Text style={{ fontFamily: "Helvetica-Bold", fontSize: 13, color: C.ink, flex: 1 }}>{title}</Text>
-        <Text style={{ fontSize: 9, fontFamily: "Helvetica-Bold", paddingHorizontal: 8, paddingVertical: 2, borderRadius: 8, backgroundColor: agentBg, color: agentColor }}>{agent}</Text>
+    <View style={{ marginTop: 18, marginBottom: 8 }} minPresenceAhead={120}>
+      <View style={{ borderBottomWidth: 1, borderBottomColor: "#D4D0C8", paddingBottom: 8, marginBottom: 6, flexDirection: "row", alignItems: "center", gap: 8 }}>
+        <Text style={{ fontFamily: "Helvetica-Bold", fontSize: 15, color: C.ink }}>
+          Diapositiva {num} — {title}
+        </Text>
+        <Text style={{ fontSize: 8, fontFamily: "Helvetica-Bold", paddingHorizontal: 8, paddingVertical: 2, borderRadius: 8, backgroundColor: agentBg, color: agentColor }}>{agent}</Text>
       </View>
-      <Text style={{ fontSize: 10, lineHeight: 1.5, color: C.ink }}>{children}</Text>
+      {technique && (
+        <Text style={{ fontSize: 9, color: C.gray, marginBottom: 4 }}>{technique}</Text>
+      )}
+    </View>
+  );
+}
+
+/** Paso individual (clic) */
+export function Step({ n, children }: { n: number; children: string }) {
+  return (
+    <View wrap={false} style={{ flexDirection: "row", marginBottom: 5, backgroundColor: C.white, borderRadius: 6, padding: 8, gap: 8, alignItems: "flex-start" }}>
+      <View style={{ width: 22, height: 22, borderRadius: 11, backgroundColor: C.ink, justifyContent: "center", alignItems: "center", flexShrink: 0 }}>
+        <Text style={{ fontFamily: "Helvetica-Bold", fontSize: 9, color: C.white }}>{n}</Text>
+      </View>
+      <Text style={{ fontSize: 10, lineHeight: 1.5, color: C.ink, flex: 1 }}>{children}</Text>
     </View>
   );
 }
