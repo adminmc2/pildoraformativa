@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { House } from "@phosphor-icons/react";
 import { PilarStar } from "@/components/pildoras-formativas/characters/pilar-star";
 import { FloraFlower } from "@/components/pildoras-formativas/characters/flora-flower";
 import { VitoPill } from "@/components/pildoras-formativas/characters/vito-pill";
@@ -206,15 +207,13 @@ export default function Pildora31Page() {
     >
       {slide.kind !== "opening" && (
         <header className={`flex-shrink-0 flex items-center justify-between px-8 pt-4 pb-1 ${isDark ? "text-white" : "text-[var(--color-pf-ink)]"}`}>
-          <Link
-            href="/"
-            aria-label="Volver a la unidad"
+          <button
+            onClick={() => setActive(0)}
+            aria-label="Volver al inicio"
             className="w-9 h-9 flex items-center justify-center rounded-full hover:bg-white/60 transition"
           >
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M15 18l-6-6 6-6" />
-            </svg>
-          </Link>
+            <House size={22} weight="bold" />
+          </button>
           <div className="text-center leading-tight">
             <div className="font-[family-name:var(--font-pf-display)] text-xl tracking-wide">
               PÍLDORA FORMATIVA 3.1

@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { House } from "@phosphor-icons/react";
 import { SlideOpening } from "@/components/pildoras-formativas/slides/slide-opening";
 import { SlideCierre } from "@/components/pildoras-formativas/slides/slide-cierre";
+import { SlidePili1 } from "@/components/pildoras-formativas/slides/3-2/slide-pili-1";
 
 /* ── Tipos ── */
 type ContentSlide = {
@@ -61,20 +63,18 @@ export default function Pildora32Page() {
     >
       {slide.kind !== "opening" && (
         <header className={`flex-shrink-0 flex items-center justify-between px-8 pt-4 pb-1 ${isDark ? "text-white" : "text-[var(--color-pf-ink)]"}`}>
-          <Link
-            href="/"
+          <button
+            onClick={() => setActive(0)}
             aria-label="Volver al inicio"
             className="w-9 h-9 flex items-center justify-center rounded-full hover:bg-white/60 transition"
           >
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M15 18l-6-6 6-6" />
-            </svg>
-          </Link>
+            <House size={22} weight="bold" />
+          </button>
           <div className="text-center leading-tight">
             <div className="font-[family-name:var(--font-pf-display)] text-xl tracking-wide">
               PÍLDORA FORMATIVA 3.2
             </div>
-            <div className="text-sm opacity-70 font-medium tracking-wider uppercase whitespace-nowrap overflow-hidden text-ellipsis max-w-[60vw]">
+            <div className="text-base opacity-70 font-medium tracking-wider uppercase">
               Un Correo Electrónico Personal · Unidad 3 · v0.1
             </div>
           </div>
@@ -96,7 +96,7 @@ export default function Pildora32Page() {
           />
         )}
 
-        {slide.kind === "pili1" && <PlaceholderSlide title="¿Quién es Marta?" agent="PILI" desc="Foto familia + predicciones" />}
+        {slide.kind === "pili1" && <SlidePili1 />}
         {slide.kind === "pili2" && <PlaceholderSlide title="Leemos juntos" agent="PILI" desc="Correo párrafo a párrafo (click-to-reveal)" />}
         {slide.kind === "flora1" && <PlaceholderSlide title="¿Verdad o mentira?" agent="FLORA" desc="7 afirmaciones — contrastar con el texto" />}
         {slide.kind === "flora2" && <PlaceholderSlide title="¿Qué se repite?" agent="FLORA" desc="Código de colores: azul (estructura) / rojo (personal)" />}
@@ -133,12 +133,16 @@ export default function Pildora32Page() {
             ))}
           </div>
 
-          <button
-            onClick={next}
-            className={`px-6 py-3 rounded-full font-semibold transition ${isDark ? "bg-white/15 text-white hover:bg-white/25" : "bg-white/70 text-[var(--color-pf-ink)] hover:bg-white"}`}
-          >
-            Siguiente →
-          </button>
+          {active < SLIDES.length - 1 ? (
+            <button
+              onClick={next}
+              className={`px-8 py-3 rounded-full font-semibold transition ${isDark ? "bg-white/90 text-[#1a1a2e] hover:bg-white" : "bg-[var(--color-pf-ink)] text-white hover:opacity-90"}`}
+            >
+              Siguiente →
+            </button>
+          ) : (
+            <div className="px-8 py-3" />
+          )}
         </footer>
       )}
     </div>
