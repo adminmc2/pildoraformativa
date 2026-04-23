@@ -1,0 +1,177 @@
+"use client";
+
+import { useState } from "react";
+import Link from "next/link";
+import { SlideOpening } from "@/components/pildoras-formativas/slides/slide-opening";
+import { SlideCierre } from "@/components/pildoras-formativas/slides/slide-cierre";
+
+/* ── Tipos ── */
+type ContentSlide = {
+  kind:
+    | "opening"
+    | "pili1"
+    | "pili2"
+    | "flora1"
+    | "flora2"
+    | "vito1"
+    | "vito2"
+    | "luna1"
+    | "luna2"
+    | "desafio"
+    | "cierre";
+  step: string;
+  bg: string;
+};
+
+type Slide = ContentSlide;
+
+/* ── Secuencia ── */
+const SLIDES: Slide[] = [
+  { kind: "opening", step: "PORTADA", bg: "#FAF6EC" },
+  // ── PILI — Hook + Input ──
+  { kind: "pili1", step: "#01", bg: "#FAF6EC" },
+  { kind: "pili2", step: "#02", bg: "#FAF6EC" },
+  // ── FLORA — Descubrimiento ──
+  { kind: "flora1", step: "#03", bg: "#E8F5E0" },
+  { kind: "flora2", step: "#04", bg: "#E8F5E0" },
+  // ── VITO — Worked example ──
+  { kind: "vito1", step: "#05", bg: "var(--color-pf-pill-soft)" },
+  { kind: "vito2", step: "#06", bg: "var(--color-pf-pill-soft)" },
+  // ── LUNA — Verificación ──
+  { kind: "luna1", step: "#07", bg: "var(--color-pf-moon-soft)" },
+  { kind: "luna2", step: "#08", bg: "var(--color-pf-moon-soft)" },
+  // ── CHIPI — Desafío ──
+  { kind: "desafio", step: "#09", bg: "#2d1508" },
+  // ── CIERRE ──
+  { kind: "cierre", step: "#10", bg: "#FAF6EC" },
+];
+
+export default function Pildora32Page() {
+  const [active, setActive] = useState(0);
+  const slide = SLIDES[active];
+
+  const next = () => setActive((active + 1) % SLIDES.length);
+  const prev = () => setActive((active - 1 + SLIDES.length) % SLIDES.length);
+  const isDark = slide.kind === "desafio";
+
+  return (
+    <div
+      className="fixed inset-0 flex flex-col overflow-hidden transition-colors duration-500 font-[family-name:var(--font-pf-ui)]"
+      style={{ background: slide.bg }}
+    >
+      {slide.kind !== "opening" && (
+        <header className={`flex-shrink-0 flex items-center justify-between px-8 pt-4 pb-1 ${isDark ? "text-white" : "text-[var(--color-pf-ink)]"}`}>
+          <Link
+            href="/"
+            aria-label="Volver al inicio"
+            className="w-9 h-9 flex items-center justify-center rounded-full hover:bg-white/60 transition"
+          >
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M15 18l-6-6 6-6" />
+            </svg>
+          </Link>
+          <div className="text-center leading-tight">
+            <div className="font-[family-name:var(--font-pf-display)] text-xl tracking-wide">
+              PÍLDORA FORMATIVA 3.2
+            </div>
+            <div className="text-sm opacity-70 font-medium tracking-wider uppercase whitespace-nowrap overflow-hidden text-ellipsis max-w-[60vw]">
+              Un Correo Electrónico Personal · Unidad 3 · v0.1
+            </div>
+          </div>
+          {slide.kind !== "cierre" ? (
+            <span className="text-base font-[family-name:var(--font-pf-display)] opacity-80">{slide.step}</span>
+          ) : (
+            <span className="w-9" />
+          )}
+        </header>
+      )}
+
+      <main className="flex-1 min-h-0 flex items-center justify-center px-6 py-1 overflow-hidden">
+        {slide.kind === "opening" && (
+          <SlideOpening
+            onStart={next}
+            pildora="3.2"
+            titulo="Un Correo Electrónico Personal"
+            unidad="Unidad 3 · La Familia"
+          />
+        )}
+
+        {slide.kind === "pili1" && <PlaceholderSlide title="¿Quién es Marta?" agent="PILI" desc="Foto familia + predicciones" />}
+        {slide.kind === "pili2" && <PlaceholderSlide title="Leemos juntos" agent="PILI" desc="Correo párrafo a párrafo (click-to-reveal)" />}
+        {slide.kind === "flora1" && <PlaceholderSlide title="¿Verdad o mentira?" agent="FLORA" desc="7 afirmaciones — contrastar con el texto" />}
+        {slide.kind === "flora2" && <PlaceholderSlide title="¿Qué se repite?" agent="FLORA" desc="Código de colores: azul (estructura) / rojo (personal)" />}
+        {slide.kind === "vito1" && <PlaceholderSlide title="De Marta a ti" agent="VITO" desc="Transformar el modelo paso a paso" />}
+        {slide.kind === "vito2" && <PlaceholderSlide title="Tu correo: 5 bloques" agent="VITO" desc="Writing frame con inicio de cada párrafo" />}
+        {slide.kind === "luna1" && <PlaceholderSlide title="¿Has entendido?" agent="LUNA" desc="6 preguntas de comprensión" />}
+        {slide.kind === "luna2" && <PlaceholderSlide title="Revisa con tu compañero" agent="LUNA" desc="Checklist de revisión entre pares" />}
+        {slide.kind === "desafio" && <PlaceholderSlide title="¿Cuánto sabéis de Marta?" agent="CHIPI" desc="Desafío relámpago por equipos" dark />}
+
+        {slide.kind === "cierre" && <SlideCierre />}
+      </main>
+
+      {slide.kind !== "opening" && (
+        <footer className="flex-shrink-0 flex items-center justify-between px-8 pb-4 pt-1">
+          <button
+            onClick={prev}
+            className={`px-6 py-3 rounded-full font-semibold transition ${isDark ? "bg-white/15 text-white hover:bg-white/25" : "bg-white/70 text-[var(--color-pf-ink)] hover:bg-white"}`}
+          >
+            ← Anterior
+          </button>
+
+          <div className="flex items-center gap-3">
+            {SLIDES.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setActive(i)}
+                aria-label={`Slide ${i + 1}`}
+                className="h-2 rounded-full transition-all"
+                style={{
+                  width: i === active ? 40 : 12,
+                  background: i === active ? (isDark ? "#fff" : "var(--color-pf-ink)") : (isDark ? "rgba(255,255,255,0.3)" : "rgba(10,10,10,0.25)"),
+                }}
+              />
+            ))}
+          </div>
+
+          <button
+            onClick={next}
+            className={`px-6 py-3 rounded-full font-semibold transition ${isDark ? "bg-white/15 text-white hover:bg-white/25" : "bg-white/70 text-[var(--color-pf-ink)] hover:bg-white"}`}
+          >
+            Siguiente →
+          </button>
+        </footer>
+      )}
+    </div>
+  );
+}
+
+/* ── Placeholder para slides pendientes ── */
+function PlaceholderSlide({ title, agent, desc, dark }: { title: string; agent: string; desc: string; dark?: boolean }) {
+  const colors: Record<string, { bg: string; fg: string }> = {
+    PILI: { bg: "var(--color-pf-star-soft)", fg: "#8A6B00" },
+    FLORA: { bg: "var(--color-pf-flower-soft)", fg: "#8A1470" },
+    VITO: { bg: "var(--color-pf-pill-soft)", fg: "#3F6B14" },
+    LUNA: { bg: "var(--color-pf-moon-soft)", fg: "#3B2A8A" },
+    CHIPI: { bg: "var(--color-pf-spark-soft)", fg: "#8A2F10" },
+  };
+  const c = colors[agent] ?? { bg: "#eee", fg: "#333" };
+
+  return (
+    <div className="flex flex-col items-center justify-center gap-6 text-center">
+      <span
+        className="px-4 py-1.5 rounded-full text-sm font-bold tracking-wider"
+        style={{ background: c.bg, color: c.fg }}
+      >
+        {agent}
+      </span>
+      <h2
+        className={`font-[family-name:var(--font-pf-display)] text-[clamp(32px,5vw,64px)] uppercase leading-tight ${dark ? "text-white" : "text-[var(--color-pf-ink)]"}`}
+      >
+        {title}
+      </h2>
+      <p className={`text-lg max-w-md ${dark ? "text-white/60" : "text-[var(--color-pf-ink)] opacity-50"}`}>
+        {desc}
+      </p>
+    </div>
+  );
+}

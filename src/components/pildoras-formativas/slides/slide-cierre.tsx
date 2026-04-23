@@ -64,7 +64,11 @@ const AGENTS = [
   },
 ];
 
-export function SlideCierre() {
+type CierreProps = {
+  unidad?: string;
+};
+
+export function SlideCierre({ unidad = "Unidad 3 · La Familia" }: CierreProps) {
   return (
     <div className="relative w-full h-full max-w-[1400px] mx-auto flex flex-col items-center justify-center text-center overflow-hidden">
       {/* Decorative background shapes */}
@@ -118,7 +122,7 @@ export function SlideCierre() {
         className="relative mt-2 px-5 py-1.5 rounded-full bg-white/80 text-[var(--color-pf-ink)] text-base font-semibold tracking-wider uppercase shadow-[0_4px_16px_-8px_rgba(0,0,0,0.2)]"
         style={{ animation: "fadeInDown 600ms ease-out 150ms both" }}
       >
-        Unidad 3 · La Familia
+        {unidad}
       </div>
 
       <h1

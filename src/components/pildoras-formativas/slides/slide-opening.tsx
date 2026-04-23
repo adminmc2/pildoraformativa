@@ -6,7 +6,19 @@ import { VitoPill } from "@/components/pildoras-formativas/characters/vito-pill"
 import { LunaMoon } from "@/components/pildoras-formativas/characters/luna-moon";
 import { ChipiSpark } from "@/components/pildoras-formativas/characters/chipi-spark";
 
-export function SlideOpening({ onStart }: { onStart: () => void }) {
+type OpeningProps = {
+  onStart: () => void;
+  pildora?: string;
+  titulo?: string;
+  unidad?: string;
+};
+
+export function SlideOpening({
+  onStart,
+  pildora = "3.1",
+  titulo = "Los Posesivos",
+  unidad = "Unidad 3 · La Familia",
+}: OpeningProps) {
   const cast = [
     { key: "pilar", Comp: () => <PilarStar pose="hug" className="w-full h-auto" />, enter: 700, float: 1500 },
     { key: "flora", Comp: () => <FloraFlower className="w-full h-auto" />, enter: 850, float: 1650 },
@@ -74,21 +86,25 @@ export function SlideOpening({ onStart }: { onStart: () => void }) {
         className="relative mt-2 px-5 py-1.5 rounded-full bg-white/80 text-[var(--color-pf-ink)] text-base font-semibold tracking-wider uppercase shadow-[0_4px_16px_-8px_rgba(0,0,0,0.2)]"
         style={{ animation: "fadeInDown 600ms ease-out 150ms both" }}
       >
-        Unidad 3 · La Familia
+        {unidad}
       </div>
 
       <div
         className="relative mt-[1vh] font-[family-name:var(--font-pf-display)] text-[clamp(20px,3vw,42px)] text-[var(--color-pf-ink)] opacity-85 tracking-wider"
         style={{ animation: "titleSlide 600ms cubic-bezier(0.2,0.8,0.2,1) 280ms both" }}
       >
-        PÍLDORA FORMATIVA 3.1
+        PÍLDORA FORMATIVA {pildora}
       </div>
 
       <h1
-        className="relative mt-1 font-[family-name:var(--font-pf-display)] uppercase leading-[0.88] text-[clamp(56px,11vw,200px)] text-[var(--color-pf-ink)]"
+        className={`relative mt-1 font-[family-name:var(--font-pf-display)] uppercase leading-[0.88] text-[var(--color-pf-ink)] ${
+          titulo.length > 20
+            ? "text-[clamp(36px,8vw,120px)]"
+            : "text-[clamp(56px,11vw,200px)]"
+        }`}
         style={{ animation: "bigPop 900ms cubic-bezier(0.2,0.8,0.2,1) 430ms both" }}
       >
-        Los Posesivos
+        {titulo}
       </h1>
 
       <div className="relative mt-[3vh] flex items-end justify-center gap-[clamp(12px,2vw,32px)]">
