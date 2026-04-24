@@ -1,5 +1,21 @@
 # Changelog
 
+## v0.18 — 2026-04-24
+
+### Píldora 3.2 — Slide #05 (Vito 1 — "Planifica: de Marta a ti")
+- Highlights en burbujas de Vito: palabras clave en naranja (font-semibold, sin cursiva)
+- Mensajes en 1ª persona singular (tú), sin "vuestro/vuestra"
+- Vito guía sin mencionar parentescos, sensible a familias diversas
+- Paso 1 agrupa padre + madre (2 filas juntas)
+- Paso 2 agrupa hermano + hermana + "soy hijo/a único/a" (3 filas juntas)
+- Fila nueva "Si no tienes hermanos:" → "soy hijo/a único/a"
+- Eliminada fila "compañera nueva" (no oportuna)
+- Fragmentos de Marta con … para indicar que son extractos del correo
+- Hints con verbo completo: "mi padre trabaja en…", "tengo deberes de…", "me gusta mucho (asignatura favorita)…"
+- Padre y madre en filas separadas (sin paréntesis)
+- INSTITUTO → ESCUELA
+- Versión píldora 3.2: v0.2 → v0.3
+
 ## v0.17 — 2026-04-24
 
 ### Píldora 3.2 — Slide #03 (Flora — "¿Qué se queda y qué cambia?")
