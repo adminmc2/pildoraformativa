@@ -170,7 +170,7 @@ export function SlideFlora1() {
         <div className="flex flex-col gap-2 min-w-0">
           {/* Badge */}
           <div className="flex items-center gap-3">
-            <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)] text-[var(--color-pf-ink)]">
+            <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)] text-[var(--color-pf-ink)]">
               FLORA
             </span>
             <span
@@ -201,7 +201,7 @@ export function SlideFlora1() {
                     return (
                       <div
                         key={cat}
-                        className="flex items-center gap-2 px-5 py-2 rounded-full font-[family-name:var(--font-pf-display)] transition-all text-[clamp(22px,min(2.6vw,3.2vh),32px)]"
+                        className="flex items-center gap-2 px-5 py-2 rounded-full font-[family-name:var(--font-pf-display)] transition-all text-[clamp(20px,min(2vw,2.5vh),24px)]"
                         style={{
                           background: isDone || isActive || phase === 4 ? c.soft : "rgba(255,255,255,0.6)",
                           color: isDone || isActive || phase === 4 ? c.color : "rgba(10,10,10,0.2)",
@@ -217,7 +217,7 @@ export function SlideFlora1() {
                 </div>
                 {/* Contador */}
                 {currentCat && phase >= 1 && phase <= 3 && (
-                  <span className="text-[clamp(20px,min(2.2vw,2.8vh),28px)] font-semibold opacity-60 text-[var(--color-pf-ink)]">
+                  <span className="text-[clamp(20px,min(2vw,2.5vh),24px)] font-semibold opacity-60 text-[var(--color-pf-ink)]">
                     {catCount} / {catTotal}
                   </span>
                 )}
@@ -232,7 +232,7 @@ export function SlideFlora1() {
                   return (
                     <div
                       key={pIdx}
-                      className="text-[clamp(20px,min(2.2vw,2.8vh),28px)] leading-relaxed text-[var(--color-pf-ink)]"
+                      className="text-[clamp(20px,min(2vw,2.5vh),24px)] leading-relaxed text-[var(--color-pf-ink)]"
                     >
                       {segs.map((seg, i) => {
                         const isId = identified.has(seg.id);
@@ -261,7 +261,7 @@ export function SlideFlora1() {
                                 />
                                 <span
                                   style={{ color: cat.color }}
-                                  className="font-semibold text-[clamp(22px,min(2.6vw,3.2vh),32px)]"
+                                  className="font-semibold text-[clamp(20px,min(2vw,2.5vh),24px)]"
                                 >
                                   tu información
                                 </span>
@@ -330,7 +330,7 @@ export function SlideFlora1() {
               <div className="mt-3">
                 <button
                   onClick={() => setPhase(1)}
-                  className="px-10 py-3 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)] hover:scale-[1.02] transition"
+                  className="px-10 py-3 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)] hover:scale-[1.02] transition"
                   style={{ animation: "btnPulse 2s ease-in-out infinite" }}
                 >
                   EMPEZAR
@@ -343,7 +343,7 @@ export function SlideFlora1() {
               <div className="mt-3">
                 <button
                   onClick={() => setPhase((phase + 1) as 2 | 3 | 4)}
-                  className="px-8 py-3 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)] hover:scale-[1.02] transition"
+                  className="px-8 py-3 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)] hover:scale-[1.02] transition"
                   style={{ animation: "btnPulse 2s ease-in-out infinite" }}
                 >
                   SIGUIENTE
@@ -356,7 +356,7 @@ export function SlideFlora1() {
               <div className="mt-3">
                 <button
                   onClick={() => setShowSkeleton(true)}
-                  className="px-8 py-3 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)] hover:scale-[1.02] transition"
+                  className="px-8 py-3 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)] hover:scale-[1.02] transition"
                   style={{ animation: "btnPulse 2s ease-in-out infinite" }}
                 >
                   VER ESQUELETO

@@ -289,7 +289,7 @@ export function SlideFlora2() {
           >
             <span
               style={{ color: isTargetable ? `${f.color}80` : `${f.color}40` }}
-              className="text-[clamp(20px,min(2.2vw,2.8vh),28px)] select-none"
+              className="text-[clamp(20px,min(2vw,2.5vh),24px)] select-none"
             >
               ···
             </span>
@@ -352,7 +352,7 @@ export function SlideFlora2() {
         <div className="flex flex-col gap-2 min-w-0">
           {/* Badge */}
           <div className="flex items-center gap-3">
-            <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)] text-[var(--color-pf-ink)]">
+            <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)] text-[var(--color-pf-ink)]">
               FLORA
             </span>
             <span
@@ -386,7 +386,7 @@ export function SlideFlora2() {
                   return (
                     <div
                       key={id}
-                      className="flex items-center gap-2 px-5 py-2 rounded-full font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)] transition-all"
+                      className="flex items-center gap-2 px-5 py-2 rounded-full font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)] transition-all"
                       style={{
                         background: catDone ? f.soft : "rgba(10,10,10,0.04)",
                         color: catDone ? f.color : "var(--color-pf-ink)",
@@ -396,7 +396,7 @@ export function SlideFlora2() {
                       {catDone && <CheckCircle size={22} weight="fill" />}
                       {f.label}
                       {!catDone && (
-                        <span className="opacity-60 text-[clamp(20px,min(2.2vw,2.8vh),28px)]">
+                        <span className="opacity-60 text-[clamp(20px,min(2vw,2.5vh),24px)]">
                           {gDone}/{gTotal}
                         </span>
                       )}
@@ -408,7 +408,7 @@ export function SlideFlora2() {
                 return (
                   <div
                     key={id}
-                    className="flex items-center gap-2 px-5 py-2 rounded-full font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)]"
+                    className="flex items-center gap-2 px-5 py-2 rounded-full font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)]"
                     style={{
                       background: f.soft,
                       color: f.color,
@@ -436,7 +436,7 @@ export function SlideFlora2() {
                 {EMAIL.map((segs, pIdx) => (
                   <div
                     key={pIdx}
-                    className="text-[clamp(20px,min(2.2vw,2.8vh),28px)] leading-relaxed text-[var(--color-pf-ink)]"
+                    className="text-[clamp(20px,min(2vw,2.5vh),24px)] leading-relaxed text-[var(--color-pf-ink)]"
                   >
                     {segs.map(renderSeg)}
                   </div>
@@ -451,7 +451,7 @@ export function SlideFlora2() {
               className="mt-2 px-4 py-3 rounded-xl bg-white shadow-md border border-gray-100 flex flex-col gap-2"
               style={{ animation: "cardIn 200ms ease-out" }}
             >
-              <span className="text-[clamp(20px,min(2.2vw,2.8vh),28px)] text-[var(--color-pf-ink)]">
+              <span className="text-[clamp(20px,min(2vw,2.5vh),24px)] text-[var(--color-pf-ink)]">
                 «{activeContent}» — ¿Qué función tiene?
               </span>
               <div className="flex flex-wrap gap-2">
@@ -461,7 +461,7 @@ export function SlideFlora2() {
                     <button
                       key={fId}
                       onClick={() => handlePick(fId)}
-                      className="px-6 py-2.5 rounded-full font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)] transition-all hover:scale-105 active:scale-95"
+                      className="px-6 py-2.5 rounded-full font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)] transition-all hover:scale-105 active:scale-95"
                       style={{
                         background: f.soft,
                         color: f.color,
@@ -481,7 +481,7 @@ export function SlideFlora2() {
             <div className="mt-3">
               <button
                 onClick={() => setPhase(1)}
-                className="px-10 py-3 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)] hover:scale-[1.02] transition"
+                className="px-10 py-3 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)] hover:scale-[1.02] transition"
                 style={{ animation: "btnPulse 2s ease-in-out infinite" }}
               >
                 EMPEZAR
@@ -492,13 +492,13 @@ export function SlideFlora2() {
           {/* Fase 1: contador + CONTINUAR */}
           {phase === 1 && !active && (
             <div className="mt-2 flex items-center gap-4">
-              <span className="text-[clamp(20px,min(2.2vw,2.8vh),28px)] font-semibold opacity-60 text-[var(--color-pf-ink)]">
+              <span className="text-[clamp(20px,min(2vw,2.5vh),24px)] font-semibold opacity-60 text-[var(--color-pf-ink)]">
                 {doneCount} / {UNIQUE_GK.length}
               </span>
               {allClassified && (
                 <button
                   onClick={() => setPhase(2)}
-                  className="px-8 py-2.5 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)] hover:scale-[1.02] transition"
+                  className="px-8 py-2.5 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)] hover:scale-[1.02] transition"
                   style={{ animation: "btnPulse 2s ease-in-out infinite" }}
                 >
                   CONTINUAR
@@ -521,7 +521,7 @@ export function SlideFlora2() {
                   <button
                     key={g}
                     onClick={() => handleSelectPiece(g)}
-                    className="px-5 py-2.5 rounded-xl font-semibold text-[clamp(20px,min(2.2vw,2.8vh),28px)] transition-all hover:scale-105 active:scale-95 shadow-sm"
+                    className="px-5 py-2.5 rounded-xl font-semibold text-[clamp(20px,min(2vw,2.5vh),24px)] transition-all hover:scale-105 active:scale-95 shadow-sm"
                     style={{
                       background: isSelected ? f.color : f.soft,
                       color: isSelected ? "white" : f.color,
@@ -540,7 +540,7 @@ export function SlideFlora2() {
           {/* Fase 2: contador */}
           {phase === 2 && (
             <div className="mt-1">
-              <span className="text-[clamp(20px,min(2.2vw,2.8vh),28px)] font-semibold opacity-60 text-[var(--color-pf-ink)]">
+              <span className="text-[clamp(20px,min(2vw,2.5vh),24px)] font-semibold opacity-60 text-[var(--color-pf-ink)]">
                 {placed.size} / {UNIQUE_GK.length}
               </span>
             </div>

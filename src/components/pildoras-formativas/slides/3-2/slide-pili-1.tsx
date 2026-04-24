@@ -139,7 +139,7 @@ export function SlidePili1() {
         <div className="flex flex-col gap-3 min-w-0">
           {/* Badge */}
           <div className="flex items-center gap-3">
-            <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)] text-[var(--color-pf-ink)]">
+            <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)] text-[var(--color-pf-ink)]">
               PILI
             </span>
             <span
@@ -156,7 +156,7 @@ export function SlidePili1() {
           </h1>
 
           {/* Instrucción */}
-          <p className="text-[clamp(22px,min(2.6vw,3.2vh),32px)] font-semibold text-white bg-[var(--color-pf-ink)] w-fit px-5 py-2 rounded-full">
+          <p className="text-[clamp(20px,min(2vw,2.5vh),24px)] font-semibold text-white bg-[var(--color-pf-ink)] w-fit px-5 py-2 rounded-full">
             {phase === 0
               ? "¿Qué cosas son de un email?"
               : phase === 1
@@ -169,7 +169,7 @@ export function SlidePili1() {
             <div className="mt-4">
               <button
                 onClick={() => setPhase(1)}
-                className="px-10 py-4 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)] hover:scale-[1.02] transition"
+                className="px-10 py-4 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)] hover:scale-[1.02] transition"
                 style={{ animation: "btnPulse 2s ease-in-out infinite" }}
               >
                 SIGUIENTE
@@ -194,7 +194,7 @@ export function SlidePili1() {
                         <CatIcon size={15} weight="bold" color="white" />
                       </div>
                       <span
-                        className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)] font-bold"
+                        className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)] font-bold"
                         style={{ color: c.color }}
                       >
                         {c.label}
@@ -226,7 +226,7 @@ export function SlidePili1() {
                         weight="duotone"
                         style={{ color: "var(--color-pf-ink)" }}
                       />
-                      <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)] leading-tight text-center font-semibold text-[var(--color-pf-ink)]">
+                      <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)] leading-tight text-center font-semibold text-[var(--color-pf-ink)]">
                         {item.label}
                       </span>
 
@@ -284,7 +284,7 @@ export function SlidePili1() {
                 <div className="mt-3">
                   <button
                     onClick={() => setPhase(2)}
-                    className="px-8 py-3 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)] hover:scale-[1.02] transition"
+                    className="px-8 py-3 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)] hover:scale-[1.02] transition"
                     style={{ animation: "btnPulse 2s ease-in-out infinite" }}
                   >
                     VER EN EL CORREO DE MARTA
@@ -303,7 +303,7 @@ export function SlidePili1() {
               {/* Header email */}
               <div className="px-5 py-2.5 border-b border-[var(--color-pf-ink)]/10 flex items-center gap-2">
                 <EnvelopeSimple size={20} weight="duotone" className="text-[var(--color-pf-ink)] opacity-60" />
-                <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)] text-[var(--color-pf-ink)] tracking-wide">
+                <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)] text-[var(--color-pf-ink)] tracking-wide">
                   CORREO DE MARTA
                 </span>
               </div>
@@ -326,7 +326,7 @@ export function SlidePili1() {
                     {/* Etiqueta + texto */}
                     <div className="flex flex-col gap-0.5 min-w-0">
                       <span
-                        className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)] font-bold tracking-wider uppercase"
+                        className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)] font-bold tracking-wider uppercase"
                         style={{ color: section.color }}
                       >
                         {section.label}
@@ -334,7 +334,7 @@ export function SlidePili1() {
                       {section.lines.map((line, j) => (
                         <span
                           key={j}
-                          className="text-[clamp(20px,min(2.2vw,2.8vh),28px)] leading-snug text-[var(--color-pf-ink)]"
+                          className="text-[clamp(20px,min(2vw,2.5vh),24px)] leading-snug text-[var(--color-pf-ink)]"
                         >
                           {line}
                         </span>

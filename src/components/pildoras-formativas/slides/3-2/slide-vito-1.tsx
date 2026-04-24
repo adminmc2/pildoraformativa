@@ -53,7 +53,7 @@ export function SlideVito1() {
         <div className="flex flex-col gap-1.5 min-w-0">
           {/* Badge */}
           <div className="flex items-center gap-3">
-            <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)] text-[var(--color-pf-ink)]">
+            <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)] text-[var(--color-pf-ink)]">
               VITO
             </span>
             <span
@@ -70,7 +70,7 @@ export function SlideVito1() {
           </h1>
 
           {/* Instrucción */}
-          <p className="text-[clamp(22px,min(2.6vw,3.2vh),32px)] font-semibold text-white bg-[var(--color-pf-ink)] px-5 py-1.5 rounded-full w-fit flex items-center gap-2">
+          <p className="text-[clamp(20px,min(2vw,2.5vh),24px)] font-semibold text-white bg-[var(--color-pf-ink)] px-5 py-1.5 rounded-full w-fit flex items-center gap-2">
             <PencilSimple size={22} weight="bold" />
             Apuntad vuestros datos en el cuaderno
           </p>
@@ -88,11 +88,11 @@ export function SlideVito1() {
             >
               {/* Cabecera */}
               <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2 px-4 py-2 bg-[var(--color-pf-ink)] text-white">
-                <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)]">
+                <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)]">
                   MARTA DICE...
                 </span>
                 <ArrowRight size={22} weight="bold" className="opacity-60" />
-                <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)]">
+                <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)]">
                   TÚ ESCRIBES...
                 </span>
               </div>
@@ -109,7 +109,7 @@ export function SlideVito1() {
                     <React.Fragment key={i}>
                       {showTheme && (
                         <div
-                          className="px-4 py-1 font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)] tracking-wider"
+                          className="px-4 py-1 font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)] tracking-wider"
                           style={{ background: t.soft, color: t.color }}
                         >
                           {t.label}
@@ -124,7 +124,7 @@ export function SlideVito1() {
                         }}
                       >
                         <span
-                          className="text-[clamp(20px,min(2.2vw,2.8vh),28px)] leading-snug font-medium"
+                          className="text-[clamp(20px,min(2vw,2.5vh),24px)] leading-snug font-medium"
                           style={{ color: t.color }}
                         >
                           {row.marta}
@@ -134,7 +134,7 @@ export function SlideVito1() {
                           weight="bold"
                           className="opacity-25 flex-shrink-0"
                         />
-                        <span className="text-[clamp(20px,min(2.2vw,2.8vh),28px)] leading-snug text-[var(--color-pf-ink)] opacity-50 italic">
+                        <span className="text-[clamp(20px,min(2vw,2.5vh),24px)] leading-snug text-[var(--color-pf-ink)] opacity-50 italic">
                           {row.hint}
                         </span>
                       </div>

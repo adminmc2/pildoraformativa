@@ -127,7 +127,7 @@ export function SlidePili2() {
         <div className="flex flex-col gap-3 min-w-0">
           {/* Badge */}
           <div className="flex items-center gap-3">
-            <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)] text-[var(--color-pf-ink)]">
+            <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)] text-[var(--color-pf-ink)]">
               PILI
             </span>
             <span
@@ -144,7 +144,7 @@ export function SlidePili2() {
           </h1>
 
           {/* Instrucción */}
-          <p className="text-[clamp(22px,min(2.6vw,3.2vh),32px)] font-semibold text-white bg-[var(--color-pf-ink)] w-fit px-5 py-2 rounded-full">
+          <p className="text-[clamp(20px,min(2vw,2.5vh),24px)] font-semibold text-white bg-[var(--color-pf-ink)] w-fit px-5 py-2 rounded-full">
             {phase === 0
               ? "Las partes del email están desordenadas."
               : allDone
@@ -157,7 +157,7 @@ export function SlidePili2() {
             <div className="mt-4">
               <button
                 onClick={() => setPhase(1)}
-                className="px-10 py-4 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)] hover:scale-[1.02] transition"
+                className="px-10 py-4 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)] hover:scale-[1.02] transition"
                 style={{ animation: "btnPulse 2s ease-in-out infinite" }}
               >
                 SIGUIENTE
@@ -180,7 +180,7 @@ export function SlidePili2() {
                     weight="duotone"
                     className="text-[var(--color-pf-ink)] opacity-60"
                   />
-                  <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)] text-[var(--color-pf-ink)] tracking-wide">
+                  <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)] text-[var(--color-pf-ink)] tracking-wide">
                     EMAIL
                   </span>
                 </div>
@@ -240,12 +240,12 @@ export function SlidePili2() {
                             />
                             <div className="flex flex-col min-w-0 flex-1">
                               <span
-                                className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)] font-bold tracking-wider uppercase"
+                                className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)] font-bold tracking-wider uppercase"
                                 style={{ color: filledBlock.color }}
                               >
                                 {filledBlock.label}
                               </span>
-                              <span className="text-[clamp(20px,min(2.2vw,2.8vh),28px)] leading-snug text-[var(--color-pf-ink)] opacity-70 truncate">
+                              <span className="text-[clamp(20px,min(2vw,2.5vh),24px)] leading-snug text-[var(--color-pf-ink)] opacity-70 truncate">
                                 {filledBlock.preview}
                               </span>
                             </div>
@@ -260,7 +260,7 @@ export function SlidePili2() {
                             />
                           </>
                         ) : (
-                          <span className="text-[clamp(20px,min(2.2vw,2.8vh),28px)] text-[var(--color-pf-ink)] opacity-20 font-semibold">
+                          <span className="text-[clamp(20px,min(2vw,2.5vh),24px)] text-[var(--color-pf-ink)] opacity-20 font-semibold">
                             {selected ? "¿Va aquí?" : "· · ·"}
                           </span>
                         )}
@@ -272,7 +272,7 @@ export function SlidePili2() {
 
               {/* Columna derecha: banco de piezas sueltas */}
               <div className="flex flex-col gap-1.5">
-                <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)] text-[var(--color-pf-ink)] opacity-50 tracking-wide">
+                <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)] text-[var(--color-pf-ink)] opacity-50 tracking-wide">
                   PIEZAS
                 </span>
                 {SCRAMBLED.map((block, i) => {
@@ -290,7 +290,7 @@ export function SlidePili2() {
                           className="w-[3px] rounded-full flex-shrink-0 self-stretch"
                           style={{ background: "rgba(10,10,10,0.1)" }}
                         />
-                        <span className="text-[clamp(20px,min(2.2vw,2.8vh),28px)] text-[var(--color-pf-ink)] line-through">
+                        <span className="text-[clamp(20px,min(2vw,2.5vh),24px)] text-[var(--color-pf-ink)] line-through">
                           {block.label}
                         </span>
                       </div>
@@ -321,12 +321,12 @@ export function SlidePili2() {
                         style={{ background: block.color }}
                       />
                       <span
-                        className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)] font-bold tracking-wide uppercase"
+                        className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)] font-bold tracking-wide uppercase"
                         style={{ color: block.color }}
                       >
                         {block.label}
                       </span>
-                      <span className="text-[clamp(20px,min(2.2vw,2.8vh),28px)] leading-snug text-[var(--color-pf-ink)] opacity-60 truncate min-w-0">
+                      <span className="text-[clamp(20px,min(2vw,2.5vh),24px)] leading-snug text-[var(--color-pf-ink)] opacity-60 truncate min-w-0">
                         {block.preview}
                       </span>
                     </button>
