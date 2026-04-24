@@ -1,5 +1,25 @@
 # Changelog
 
+## v0.22 — 2026-04-24
+
+### Píldora 3.2 — Brief actualizado
+- Reducido de 11 a 9 slides de contenido para reflejar la implementación real
+- Eliminada FLORA #05 "¿Qué pregunta Marta?" (no implementada)
+- Fusionadas VITO #07+#08 en un solo #06 "Tu correo: elige y conecta"
+- Renumeradas Luna (#07-#08) y Chipi (#09)
+- Actualizado Flora #04: "Los conectores de Marta" → "¿Para qué sirve cada frase?"
+- Actualizados diagramas de secuencia, flujo pedagógico y correspondencias
+
+### Píldora 3.2 — Slide #07 (Luna 1 — "¿Tu email está completo?")
+- Nueva slide interactiva: checklist de autoevaluación con 5 ítems
+- Ítems: principio/saludo, final/despedida, verbos, conjugación, mayúsculas
+- Botones SÍ/NO por ítem con feedback visual (verde/rojo)
+- Revelación progresiva: un ítem activo a la vez
+- Luna guía cada comprobación con burbujas específicas
+- Botón "COMPROBAR DE NUEVO" si hay algún NO
+- Highlights naranja (font-semibold, sin cursiva)
+- Versión píldora 3.2: v0.6 → v0.7
+
 ## v0.21 — 2026-04-24
 
 ### Píldora 3.2 — Slide #06 (Vito 2 — "Tu correo: elige y conecta")

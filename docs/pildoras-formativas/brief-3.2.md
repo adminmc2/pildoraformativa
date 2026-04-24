@@ -28,11 +28,11 @@
 > ¡Un saludo desde Cádiz!
 > Marta
 
-**3 temas del correo:** familia, amigos/compañeros, instituto/asignaturas.
+**3 temas del correo:** familia, amigos/compañeros, escuela/asignaturas.
 
 ---
 
-## Estructura de la píldora — 13 slides
+## Estructura de la píldora — 9 slides de contenido
 
 | # | Agente | Título | Paso tarjeta | Estrategias EE |
 |---|--------|--------|-------------|----------------|
@@ -40,14 +40,12 @@
 | 01 | PILI | ¿Email, chat o post? | Intro género | S36 Genre awareness |
 | 02 | PILI | Ordena el email | Intro estructura | S8 Sentence unscrambling; S35 TLC Deconstruction |
 | 03 | FLORA | ¿Qué se queda y qué cambia? | 2. Marca con dos colores | S3 Parallel writing; S73 Input enhancement |
-| 04 | FLORA | Los conectores de Marta | 2. (profundización) | S7 Sentence combining; S74 Consciousness-raising |
-| 05 | FLORA | ¿Qué pregunta Marta? | 1. Lee el modelo (función comunicativa) | S74 Consciousness-raising |
-| 06 | VITO | Planifica: de Marta a ti | 3. Planifica | S13 Graphic organizers; S4 Guided composition |
-| 07 | VITO | Escribe tu correo | 4. Escribe | S11 Writing frames; S12 Sentence starters |
-| 08 | VITO | Conecta y mejora | 4. (profundización) | S7 Sentence combining; S9 Sentence expansion |
-| 09 | LUNA | ¿Tu email está completo? | Revisa tu email | S53 COPS checklist; Protocolo E4 |
-| 10 | LUNA | Revisa con tu compañero | Intercambia | S55 Peer response checklists; Protocolo E5 |
-| 11 | CHIPI | ¡Corrige el desastre! | Desafío | Gamificación; S74 Consciousness-raising |
+| 04 | FLORA | ¿Para qué sirve cada frase? | 2. (profundización) | S7 Sentence combining; S74 Consciousness-raising |
+| 05 | VITO | Planifica: de Marta a ti | 3. Planifica | S13 Graphic organizers; S4 Guided composition |
+| 06 | VITO | Tu correo: elige y conecta | 4. Escribe | S11 Writing frames; S7 Sentence combining |
+| 07 | LUNA | ¿Tu email está completo? | Revisa tu email | S53 COPS checklist; Protocolo E4 |
+| 08 | LUNA | Revisa con tu compañero | Intercambia | S55 Peer response checklists; Protocolo E5 |
+| 09 | CHIPI | ¡Corrige el desastre! | Desafío | Gamificación; S74 Consciousness-raising |
 | — | PILI | Cierre | — | — |
 
 ---
@@ -148,7 +146,7 @@ PILI: "¡Perfecto! Un email siempre va en este orden. Ahora Flora os va a enseñ
 
 ---
 
-### FLORA — Observadora (slides #03–#05)
+### FLORA — Observadora (slides #03–#04)
 
 Flora pregunta sin dar la respuesta. Guía el descubrimiento inductivo. Nunca dice "esto es así"; dice "¿qué observáis?"
 
@@ -160,207 +158,109 @@ Flora pregunta sin dar la respuesta. Guía el descubrimiento inductivo. Nunca di
 
 **Mecánica:**
 - El correo completo de Marta visible a la izquierda.
-- Cada frase/segmento es pulsable. Al pulsar, el alumno elige: **AZUL** (lo copio igual) o **ROJO** (lo cambio con mis datos).
-- 12-14 segmentos clasificables:
-
-| Segmento | Color correcto | Justificación |
-|----------|---------------|---------------|
-| ¡Hola, Pierre! | AZUL (estructura) | Se mantiene el formato, cambia el nombre |
-| ¿Qué tal estás? | AZUL | Fórmula fija de saludo |
-| Hoy te hablo de mi familia: | AZUL | Cambio de tema (estructura) |
-| mi padre trabaja en un hotel | ROJO | Dato personal |
-| y mi madre en un hospital | ROJO | Dato personal |
-| Mi hermano Mario tiene once años | ROJO | Dato personal |
-| y mi hermana Ana tiene seis | ROJO | Dato personal |
-| ¿Y tú, cuántos hermanos tienes? | AZUL | Pregunta al destinatario (se mantiene o adapta) |
-| Y en el instituto, ¿qué tal el nuevo curso? | AZUL | Cambio de tema |
-| tengo muchos amigos en mi clase: Emilio, Elena, Santiago | ROJO | Dato personal |
-| tengo una compañera nueva: se llama Bárbara. Es de Barcelona. | ROJO | Dato personal |
-| tenemos muchos deberes de Tecnología y Matemáticas | ROJO | Dato personal |
-| A mí me gusta mucho la Historia | ROJO | Dato personal |
-| ¡Un saludo desde Cádiz! | AZUL | Despedida (estructura) |
+- Descubrimiento por 3 capas en fases sucesivas:
+  - **Fase 1** — Email (azul #1E6091): identificar estructura del email (saludo, despedida, firma)
+  - **Fase 2** — Tema (dorado #B8860B): identificar frases que abren/cambian tema (intro familia, amigos, instituto)
+  - **Fase 3** — Info. personal (magenta #B5179E): identificar datos específicos de Marta
+- **Fase 4** — Práctica: ciclar datos alternativos + esqueleto final del email
 
 - Flora reacciona a cada decisión:
-  - Acierto azul: "¡Eso es! Esta parte la podéis copiar tal cual."
-  - Acierto rojo: "¡Claro! Aquí ponéis VUESTROS datos."
-  - Error: "¿Seguro? Si TÚ escribes este email, ¿el nombre de tu padre es Antonio?"
-
-**Fases:**
-- Fase 0: Flora introduce. Burbuja: "Marta ha escrito este correo. Si vosotros escribís uno parecido, ¿qué cosas copiáis igual y qué cosas cambiáis?"
-- Fase 1: Clasificación interactiva. Contador de aciertos.
-- Fase 2: El email queda en dos colores. Flora: "¡Mirad! Lo azul es el esqueleto del email. Lo rojo son vuestros datos personales. Todos los emails tienen este mismo esqueleto."
+  - Acierto: "¡Eso es!"
+  - Error: "¿Seguro? Si TÚ escribes este email, ¿cambiarías eso?"
 
 **Resumen visual final:**
-- AZUL (copio): Saludo, conectores, cambios de tema, preguntas al destinatario, despedida
-- ROJO (cambio): Nombres, edades, lugares, profesiones, asignaturas, opiniones
+- AZUL (copio): Saludo, despedida, firma
+- DORADO (tema): Conectores, cambios de tema
+- MAGENTA (cambio): Nombres, edades, lugares, profesiones, asignaturas, opiniones
 
 **Personaje:** FloraFlower — pregunta inductiva, nunca da la respuesta directamente
 
 ---
 
-#### #04 — Los conectores de Marta
+#### #04 — ¿Para qué sirve cada frase?
 
-**Objetivo:** El alumno identifica y practica los conectores y transiciones que dan fluidez al email.
+**Objetivo:** El alumno identifica las funciones discursivas del email: frases que abren tema, conectan ideas y preguntan al destinatario.
 
 **Mecánica:**
-- El correo de Marta visible con 8 huecos donde estaban los conectores y expresiones de transición.
-- Banco de palabras debajo (desordenado): `y | también | pero | porque | además | especialmente | Hoy te hablo de | Y en el instituto | Este curso`
-- El alumno arrastra cada palabra al hueco correcto.
+- El correo de Marta visible con las frases funcionales resaltables.
+- 3 categorías de funciones discursivas:
+  - **ABRE TEMA** (azul #2E86C1): frases que introducen un bloque temático ("Hoy te hablo de mi familia:", "Y en el instituto, ¿qué tal el nuevo curso?", "Este curso es un poco más difícil.")
+  - **CONECTA** (naranja #D35400): palabras y expresiones que conectan ideas ("y", "también", "además", "especialmente")
+  - **PREGUNTA** (morado #8E44AD): preguntas dirigidas al destinatario ("¿Y tú, cuántos hermanos tienes?", "¿Tú también tienes muchos deberes este año?")
 
-**Huecos en el texto:**
-
-1. "mi padre trabaja en un hotel ___ mi madre en un hospital" → **y**
-2. "___ te hablo de mi familia:" → **Hoy**
-3. "___, ¿qué tal el nuevo curso?" → **Y en el instituto**
-4. "___ tengo una compañera nueva" → **y también**
-5. "Sus padres trabajan en Cádiz ___ sus abuelos ___ viven aquí" → **y ... también**
-6. "___ es un poco más difícil" → **Este curso**
-7. "___ tenemos muchos deberes" → **y además**
-8. "___ de Tecnología y Matemáticas" → **especialmente**
-
-- Flora reacciona: "¿Veis? Marta no pone frase. Punto. Frase. Punto. Usa palabras para CONECTAR."
-- Al completar: Flora resalta los conectores en un color (spark) y dice: "Estos conectores hacen que el email fluya. Los vais a necesitar para el vuestro."
+- El alumno clasifica cada frase funcional pulsándola y eligiendo su categoría.
+- Flora reacciona: "¿Veis? Marta no pone frase, punto, frase, punto. Usa palabras para CONECTAR y también PREGUNTA a Pierre."
 
 **Personaje:** FloraFlower — pose observadora, preguntas como "¿Qué palabra falta aquí? Leed la frase entera."
 
 ---
 
-#### #05 — ¿Qué pregunta Marta?
-
-**Objetivo:** El alumno descubre que un buen email no solo informa, también pregunta al destinatario.
-
-**Mecánica:**
-- El correo completo de Marta visible.
-- Flora: "Marta no solo HABLA de ella. También PREGUNTA a Pierre. ¿Podéis encontrar las preguntas?"
-- El alumno pulsa las frases que son preguntas. Hay 3 preguntas en el correo:
-  1. "¿Y tú, cuántos hermanos tienes?"
-  2. "¿qué tal el nuevo curso?"
-  3. "¿Tú también tienes muchos deberes este año?"
-
-- Al encontrar cada una → se resalta con borde spark y Flora comenta:
-  - Pregunta 1: "¡Marta pregunta por la familia de Pierre!"
-  - Pregunta 2: "¡Y por su instituto!"
-  - Pregunta 3: "¡Y por sus deberes! Marta quiere saber cosas de Pierre, no solo hablar de ella."
-
-- Al completar las 3: Flora: "Un buen email tiene información Y preguntas. ¿Qué le vais a preguntar vosotros a vuestro amigo?"
-
-**Fase extra (opcional):** Aparecen 4 opciones de preguntas y el alumno elige 1-2 para incluir en su propio correo:
-  - "¿Y tú, tienes hermanos?"
-  - "¿Qué asignaturas te gustan?"
-  - "¿Cómo es tu ciudad?"
-  - "¿Tienes muchos amigos en tu clase?"
-
-**Personaje:** FloraFlower — descubrimiento inductivo de un patrón oculto (la función comunicativa de preguntar)
-
----
-
-### VITO — Método (slides #06–#08)
+### VITO — Método (slides #05–#06)
 
 Vito razona paso a paso. Explica el POR QUÉ. Hace pausa antes de dar el resultado. Trabaja con el alumno, no para el alumno.
 
 ---
 
-#### #06 — Planifica: de Marta a ti
+#### #05 — Planifica: de Marta a ti
 
-**Objetivo:** El alumno planifica su propio correo sustituyendo los datos personales de Marta por los suyos.
+**Objetivo:** El alumno planifica su propio correo creando una tabla con los datos de Marta vs. sus propios datos.
 
 **Mecánica:**
-- Pantalla dividida en dos columnas:
-  - Izquierda: "MARTA DICE..." — los segmentos ROJOS extraídos de #03
-  - Derecha: "TÚ ESCRIBES..." — campo de texto para 2-3 palabras
+- Tabla de dos columnas con revelación progresiva (step-by-step):
+  - Izquierda: "MARTA DICE..." — fragmentos del correo de Marta (con …)
+  - Derecha: "TÚ ESCRIBES..." — hint con estructura a completar
 
 | Marta dice... | Tú escribes... |
 |---|---|
-| mi padre trabaja en un hotel | _______________ |
-| mi madre en un hospital | _______________ |
-| Mi hermano Mario tiene once años | _______________ |
-| mi hermana Ana tiene seis | _______________ |
-| tengo muchos amigos: Emilio, Elena, Santiago | _______________ |
-| una compañera nueva: se llama Bárbara. Es de Barcelona | _______________ |
-| muchos deberes de Tecnología y Matemáticas | _______________ |
-| me gusta mucho la Historia | _______________ |
+| …mi padre trabaja en un hotel… | mi padre trabaja en… |
+| …mi madre, en un hospital… | mi madre trabaja en… |
+| …mi hermano Mario tiene once años… | mi hermano/a… tiene… años |
+| …mi hermana Ana tiene seis… | mi hermana/o… tiene… años |
+| Si no tienes hermanos: | soy hijo/a único/a |
+| …tengo muchos amigos: Emilio, Elena, Santiago… | tengo muchos amigos: … |
+| …tengo deberes de Tecnología y Matemáticas… | tengo deberes de… |
+| …me gusta mucho la Historia… | me gusta mucho (asignatura favorita)… |
 
-- Vito guía uno a uno con pausa:
-  - "Marta dice que su padre trabaja en un hotel. Piensa: ¿dónde trabaja TU padre o TU madre?"
-  - "No hace falta frases largas. Solo 2-3 palabras: un nombre, un lugar, un número."
-  - "Si no tienes hermanos, puedes escribir: no tengo hermanos. ¡También vale!"
+- 3 temas con colores: FAMILIA (#C0392B), AMIGOS (#D68910), ESCUELA (#2E86C1)
+- Agrupación por pasos: padre+madre juntos, hermanos juntos (incluyendo opción "hijo/a único/a"), amigos, escuela
+- Vito guía paso a paso con mensajes en 1ª persona singular, sin mencionar parentescos directamente
+- Highlights naranja (font-semibold, sin cursiva) en burbujas de Vito
 
-- Al completar: Vito: "¡Ya tenéis el plan! Con estos datos vamos a escribir vuestro correo."
-
-**Personaje:** VitoVine — pose metódica, razona en voz alta
+**Personaje:** VitoPill — pose metódica, razona en voz alta
 
 ---
 
-#### #07 — Escribe tu correo
+#### #06 — Tu correo: elige y conecta
 
-**Objetivo:** El alumno escribe su correo completo usando el writing frame con estructura pre-rellenada.
+**Objetivo:** El alumno escribe su correo eligiendo tarjetas encadenables con conectores integrados que forman un email coherente.
 
 **Mecánica:**
-- Writing frame completo visible. Las partes AZULES (estructura) están pre-escritas. Los huecos ROJOS (datos personales) están vacíos para completar.
+- 5 grupos de tarjetas con revelación progresiva (un grupo por paso):
 
-```
-De: _______________     Para: _______________
+| Grupo | Color | Tarjetas |
+|-------|-------|----------|
+| **SALUDO** | verde #3F6B14 | Saludo: ¡Hola, ___! ¿Qué tal estás? |
+| **FAMILIA** | rojo #C0392B | Padre y madre · Solo con madre · Solo con padre · Con hermano/a · Más hermanos · Sin hermanos · Pregunta |
+| **AMIGOS** | dorado #D68910 | Muchos amigos · Mejor amigo/a |
+| **ESCUELA** | azul #2E86C1 | Deberes · Me gusta · Pregunta |
+| **DESPEDIDA** | morado #7C5CFF | Despedida · Firma |
 
-¡Hola, _______________! ¿Qué tal estás?
+- Cada tarjeta lleva su conector integrado en naranja (font-semibold, color spark): "Hoy te hablo de mi familia:", "Y", "¿Y tú?", "Yo este año", "Este curso", "A mí", "¿Tú también"
+- El alumno elige varias tarjetas por grupo según su situación personal
+- Al copiar las tarjetas en orden, el resultado es un email coherente con conectores naturales
+- Opciones inclusivas en FAMILIA: padre y madre / solo madre / solo padre / con hermanos / más hermanos / sin hermanos
 
-Hoy te hablo de mi familia: mi padre _______________
-y mi madre _______________. Mi hermano/a _______________
-tiene _______________ años.
-¿Y tú, _______________?
-
-En mi clase tengo muchos amigos: _______________.
-También tengo un/a compañero/a: se llama _______________.
-Es de _______________.
-
-Este curso _______________. Tenemos muchos deberes
-de _______________. A mí me gusta mucho _______________.
-¿Tú también _______________?
-
-¡Un saludo desde _______________!
-_______________
-```
-
-- Vito guía párrafo a párrafo:
-  - Párrafo 1 (familia): "Copiad lo azul. Completad con lo que habéis planificado. Si no sabéis una palabra, mirad el correo de Marta."
-  - Párrafo 2 (amigos): "Ahora los amigos. ¿Cómo se llaman vuestros compañeros?"
-  - Párrafo 3 (instituto): "¿Qué asignaturas tenéis? ¿Cuál os gusta más?"
-  - Al terminar: "¡Ya tenéis un borrador! Pero aún se puede mejorar..."
-
-**Personaje:** VitoVine — paso a paso, sin prisa
+**Personaje:** VitoPill — guía grupo a grupo
 
 ---
 
-#### #08 — Conecta y mejora
-
-**Objetivo:** El alumno mejora su borrador usando conectores para que suene natural.
-
-**Mecánica:**
-- Vito muestra ejemplos de ANTES (sin conectores) y DESPUÉS (con conectores):
-
-| Sin conectores (suena raro) | Con conectores (suena bien) |
-|---|---|
-| Mi padre es profesor. Mi madre es médica. | Mi padre es profesor **y** mi madre es médica. |
-| Me gusta Música. No me gusta Matemáticas. | Me gusta Música, **pero** no me gusta Matemáticas. |
-| Tengo una amiga. Se llama Sara. | **También** tengo una amiga: se llama Sara. |
-| Tenemos muchos deberes. Son de Ciencias. | Tenemos muchos deberes, **especialmente** de Ciencias. |
-
-- Actividad: 4-5 pares de frases del propio email del alumno (o de un ejemplo genérico) donde debe elegir el conector correcto de un banco: `y | pero | también | porque | especialmente | además`
-
-- Vito razona: "Sin conectores, el email parece una lista de frases sueltas. CON conectores, suena como habla una persona de verdad."
-
-- Al completar: "¡Ahora vuestro email tiene mucho mejor ritmo! Vamos a comprobar si está completo."
-
-**Personaje:** VitoVine — muestra el antes/después, explica el porqué
-
----
-
-### LUNA — Verificadora (slides #09–#10)
+### LUNA — Verificadora (slides #07–#08)
 
 Luna comprueba. Es directa, concreta, no enseña. Pregunta "¿lo tienes?" y verifica.
 
 ---
 
-#### #09 — ¿Tu email está completo?
+#### #07 — ¿Tu email está completo?
 
 **Objetivo:** El alumno autoevalúa su correo con la checklist de la tarjeta de estrategia.
 
@@ -386,7 +286,7 @@ Luna comprueba. Es directa, concreta, no enseña. Pregunta "¿lo tienes?" y veri
 
 ---
 
-#### #10 — Revisa con tu compañero
+#### #08 — Revisa con tu compañero
 
 **Objetivo:** El alumno practica la revisión entre pares usando la checklist.
 
@@ -410,13 +310,13 @@ Luna comprueba. Es directa, concreta, no enseña. Pregunta "¿lo tienes?" y veri
 
 ---
 
-### CHIPI — Desafío (slide #11)
+### CHIPI — Desafío (slide #09)
 
 Chipi reta, es rápido, da feedback inmediato. Competición por equipos.
 
 ---
 
-#### #11 — ¡Corrige el desastre!
+#### #09 — ¡Corrige el desastre!
 
 **Objetivo:** Consolidación lúdica. El alumno identifica errores en un email mal escrito.
 
@@ -464,9 +364,9 @@ carlos
 ## Secuencia visual
 
 ```
-PORTADA → #01 PILI → #02 PILI → #03 FLORA → #04 FLORA → #05 FLORA
+PORTADA → #01 PILI → #02 PILI → #03 FLORA → #04 FLORA
     ↓
-#06 VITO → #07 VITO → #08 VITO → #09 LUNA → #10 LUNA → #11 CHIPI → CIERRE
+#05 VITO → #06 VITO → #07 LUNA → #08 LUNA → #09 CHIPI → CIERRE
 ```
 
 ## Flujo pedagógico
@@ -475,11 +375,11 @@ PORTADA → #01 PILI → #02 PILI → #03 FLORA → #04 FLORA → #05 FLORA
 ¿Qué es un email?        →  ¿Cómo está ordenado?
 (género textual)              (estructura)
         ↓                          ↓
-¿Qué copio / qué cambio?  →  ¿Qué conectores usa?  →  ¿Qué preguntas hace?
-(azul / rojo)                  (fluidez)                 (función comunicativa)
-        ↓                          ↓                          ↓
-Planifica tus datos       →  Escribe con el frame   →  Conecta y mejora
-(de Marta a ti)               (estructura + datos)       (antes / después)
+¿Qué copio / qué cambio?  →  ¿Para qué sirve cada frase?
+(3 capas)                      (funciones discursivas)
+        ↓                          ↓
+Planifica tus datos       →  Elige tarjetas y conecta
+(de Marta a ti)               (email coherente)
         ↓                          ↓
 ¿Está completo?           →  Revisa con tu compañero  →  ¡Corrige el desastre!
 (autoevaluación)              (peer review)               (desafío)
@@ -490,21 +390,21 @@ Planifica tus datos       →  Escribe con el frame   →  Conecta y mejora
 | Paso de la tarjeta | Slides |
 |---------------------|--------|
 | 1. Lee el modelo | #01, #02 (PILI presenta la estructura del email) |
-| 2. Marca con dos colores | #03 (FLORA: azul/rojo), #04 (conectores), #05 (preguntas) |
-| 3. Planifica | #06 (VITO: tabla Marta vs. Tú) |
-| 4. Escribe | #07 (VITO: writing frame), #08 (VITO: conectores) |
-| Revisa tu email | #09 (LUNA: autoevaluación), #10 (LUNA: peer review) |
-| Desafío extra | #11 (CHIPI: corrige el desastre) |
+| 2. Marca con dos colores | #03 (FLORA: 3 capas), #04 (funciones discursivas) |
+| 3. Planifica | #05 (VITO: tabla Marta vs. Tú) |
+| 4. Escribe | #06 (VITO: tarjetas encadenables con conectores) |
+| Revisa tu email | #07 (LUNA: autoevaluación), #08 (LUNA: peer review) |
+| Desafío extra | #09 (CHIPI: corrige el desastre) |
 
 ## Correspondencia con Protocolo E
 
 | Fase | Slides |
 |------|--------|
-| E1 Modelo / Worked example | #01, #02, #03, #04, #05 |
-| E2 Planificación | #06 |
-| E3 Borrador | #07, #08 |
-| E4 Revisión entre pares | #09, #10 |
-| E5 Versión final | #10 (parte final) |
+| E1 Modelo / Worked example | #01, #02, #03, #04 |
+| E2 Planificación | #05 |
+| E3 Borrador | #06 |
+| E4 Revisión entre pares | #07, #08 |
+| E5 Versión final | #08 (parte final) |
 
 ---
 

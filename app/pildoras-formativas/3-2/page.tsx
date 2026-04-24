@@ -11,6 +11,7 @@ import { SlideFlora1 } from "@/components/pildoras-formativas/slides/3-2/slide-f
 import { SlideFlora2 } from "@/components/pildoras-formativas/slides/3-2/slide-flora-2";
 import { SlideVito1 } from "@/components/pildoras-formativas/slides/3-2/slide-vito-1";
 import { SlideVito2 } from "@/components/pildoras-formativas/slides/3-2/slide-vito-2";
+import { SlideLuna1 } from "@/components/pildoras-formativas/slides/3-2/slide-luna-1";
 
 /* ── Tipos ── */
 type ContentSlide = {
@@ -80,7 +81,7 @@ export default function Pildora32Page() {
               PÍLDORA FORMATIVA 3.2
             </div>
             <div className="text-base md:text-lg opacity-70 font-medium tracking-wider uppercase">
-              Un Correo Electrónico Personal · Unidad 3 · v0.6
+              Un Correo Electrónico Personal · Unidad 3 · v0.7
             </div>
           </div>
           {slide.kind !== "cierre" ? (
@@ -107,7 +108,7 @@ export default function Pildora32Page() {
         {slide.kind === "flora2" && <SlideFlora2 />}
         {slide.kind === "vito1" && <SlideVito1 />}
         {slide.kind === "vito2" && <SlideVito2 />}
-        {slide.kind === "luna1" && <PlaceholderSlide title="¿Has entendido?" agent="LUNA" desc="6 preguntas de comprensión" />}
+        {slide.kind === "luna1" && <SlideLuna1 />}
         {slide.kind === "luna2" && <PlaceholderSlide title="Revisa con tu compañero" agent="LUNA" desc="Checklist de revisión entre pares" />}
         {slide.kind === "desafio" && <PlaceholderSlide title="¿Cuánto sabéis de Marta?" agent="CHIPI" desc="Desafío relámpago por equipos" dark />}
 
