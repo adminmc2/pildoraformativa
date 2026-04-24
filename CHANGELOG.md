@@ -1,5 +1,41 @@
 # Changelog
 
+## v0.21 — 2026-04-24
+
+### Píldora 3.2 — Slide #06 (Vito 2 — "Tu correo: elige y conecta")
+- Reescritura completa: tarjetas encadenables con conectores integrados
+- Cada tarjeta lleva su conector en naranja (Hoy te hablo de…, Y, ¿Y tú?, Este curso, A mí…)
+- Tarjetas combinables: el alumno elige varias por grupo según su situación
+- Al copiar en orden: email coherente, no frases sueltas
+- FAMILIA: 7 tarjetas, AMIGOS: 2, ESCUELA: 3
+- Eliminadas propuestas B y C
+- Versión píldora 3.2: v0.5 → v0.6
+
+## v0.20 — 2026-04-24
+
+### Píldora 3.2 — Slide #06 (Vito 2 — 3 propuestas de "Tu correo: elige tus frases")
+- 3 variantes de slide para comparar (#06A, #06B, #06C)
+- Tarjetas de situación por tema: SALUDO, FAMILIA, AMIGOS, ESCUELA, DESPEDIDA
+- Coherencia con Vito 1: mismos temas, colores, frases con verbo
+- Opciones inclusivas: padre y madre / solo madre / solo padre / con hermanos / sin hermanos
+- **Propuesta A** (paso a paso): un grupo de tarjetas por paso, ritmo Vito 1
+- **Propuesta B** (catálogo): todas las tarjetas visibles a la vez, sin pasos
+- **Propuesta C** (selección interactiva): tarjetas clicables con check verde, contador
+- Versión píldora 3.2: v0.4 → v0.5
+
+## v0.19 — 2026-04-24
+
+### Píldora 3.2 — Slide #06 (Vito 2 — "Tu correo: 5 bloques")
+- Nueva slide interactiva: writing frame con 5 bloques del correo
+- Bloques: SALUDO, FAMILIA, AMIGOS, ESCUELA, DESPEDIDA
+- Cada bloque con barra de color lateral, etiqueta y frase modelo con huecos (___)
+- Huecos en línea punteada naranja (color spark) para rellenar con datos del plan
+- Bloques aparecen uno a uno con animación (rowIn)
+- Vito guía cada bloque con mensajes en 1ª persona singular
+- Highlights naranja (font-semibold, sin cursiva) en burbujas de Vito
+- Texto estándar: clamp(20px,min(2vw,2.5vh),24px)
+- Versión píldora 3.2: v0.3 → v0.4
+
 ## v0.18 — 2026-04-24
 
 ### Píldora 3.2 — Slide #05 (Vito 1 — "Planifica: de Marta a ti")
