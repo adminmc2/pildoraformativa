@@ -1,23 +1,22 @@
 # Changelog
 
+## v0.23 — 2026-04-24
+
+### Píldora 3.2 — Slide #07 (Luna — "Revisa y comparte")
+- Fusionadas Luna 1 (autoevaluación) y Luna 2 (peer review) en una sola diapositiva
+- Fase 1: checklist de 5 ítems con SÍ/NO (principio, final, verbos, conjugación, mayúsculas)
+- Fase 2: revisión entre pares con 5 instrucciones paso a paso (intercambiar, leer, marcar lo bueno, marcar lo confuso, corregir)
+- Transición con botón "AHORA CON TU COMPAÑERO →"
+- Reducida píldora de 9 a 8 slides de contenido
+- Chipi renumerado de #09 a #08
+- Brief actualizado a 8 slides
+- Versión píldora 3.2: v0.7 → v0.8
+
 ## v0.22 — 2026-04-24
 
-### Píldora 3.2 — Brief actualizado
-- Reducido de 11 a 9 slides de contenido para reflejar la implementación real
-- Eliminada FLORA #05 "¿Qué pregunta Marta?" (no implementada)
-- Fusionadas VITO #07+#08 en un solo #06 "Tu correo: elige y conecta"
-- Renumeradas Luna (#07-#08) y Chipi (#09)
-- Actualizado Flora #04: "Los conectores de Marta" → "¿Para qué sirve cada frase?"
-- Actualizados diagramas de secuencia, flujo pedagógico y correspondencias
-
-### Píldora 3.2 — Slide #07 (Luna 1 — "¿Tu email está completo?")
-- Nueva slide interactiva: checklist de autoevaluación con 5 ítems
-- Ítems: principio/saludo, final/despedida, verbos, conjugación, mayúsculas
-- Botones SÍ/NO por ítem con feedback visual (verde/rojo)
-- Revelación progresiva: un ítem activo a la vez
-- Luna guía cada comprobación con burbujas específicas
-- Botón "COMPROBAR DE NUEVO" si hay algún NO
-- Highlights naranja (font-semibold, sin cursiva)
+### Píldora 3.2 — Brief actualizado a 9 slides + Slide #07 (Luna 1)
+- Brief: reducido de 11 a 9 slides, eliminada FLORA #05, fusionadas VITO #07+#08
+- Slide #07: checklist de autoevaluación con 5 ítems SÍ/NO
 - Versión píldora 3.2: v0.6 → v0.7
 
 ## v0.21 — 2026-04-24

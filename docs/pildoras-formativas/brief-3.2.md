@@ -32,7 +32,7 @@
 
 ---
 
-## Estructura de la píldora — 9 slides de contenido
+## Estructura de la píldora — 8 slides de contenido
 
 | # | Agente | Título | Paso tarjeta | Estrategias EE |
 |---|--------|--------|-------------|----------------|
@@ -43,9 +43,8 @@
 | 04 | FLORA | ¿Para qué sirve cada frase? | 2. (profundización) | S7 Sentence combining; S74 Consciousness-raising |
 | 05 | VITO | Planifica: de Marta a ti | 3. Planifica | S13 Graphic organizers; S4 Guided composition |
 | 06 | VITO | Tu correo: elige y conecta | 4. Escribe | S11 Writing frames; S7 Sentence combining |
-| 07 | LUNA | ¿Tu email está completo? | Revisa tu email | S53 COPS checklist; Protocolo E4 |
-| 08 | LUNA | Revisa con tu compañero | Intercambia | S55 Peer response checklists; Protocolo E5 |
-| 09 | CHIPI | ¡Corrige el desastre! | Desafío | Gamificación; S74 Consciousness-raising |
+| 07 | LUNA | Revisa y comparte | Revisa + Intercambia | S53 COPS checklist; S55 Peer response; E4-E5 |
+| 08 | CHIPI | ¡Corrige el desastre! | Desafío | Gamificación; S74 Consciousness-raising |
 | — | PILI | Cierre | — | — |
 
 ---
@@ -254,69 +253,54 @@ Vito razona paso a paso. Explica el POR QUÉ. Hace pausa antes de dar el resulta
 
 ---
 
-### LUNA — Verificadora (slides #07–#08)
+### LUNA — Verificadora (slide #07)
 
 Luna comprueba. Es directa, concreta, no enseña. Pregunta "¿lo tienes?" y verifica.
 
 ---
 
-#### #07 — ¿Tu email está completo?
+#### #07 — Revisa y comparte
 
-**Objetivo:** El alumno autoevalúa su correo con la checklist de la tarjeta de estrategia.
+**Objetivo:** El alumno autoevalúa su correo con una checklist y luego practica la revisión entre pares.
 
-**Mecánica:**
-- 5 ítems de la tarjeta de revisión como checklist interactivo:
+**Mecánica — Fase 1 (autoevaluación):**
+- 5 ítems como checklist interactivo con botones SÍ/NO:
 
 | # | Ítem | Pista |
 |---|------|-------|
-| 1 | ¿Tiene principio? (saludo o frase de inicio) | Busca: ¡Hola, ___! |
-| 2 | ¿Tiene final? (despedida o frase de cierre) | Busca: ¡Un saludo / Un abrazo desde...! |
-| 3 | ¿Cada frase tiene un verbo? | Comprueba: trabaja, tiene, estudia, vivo... |
-| 4 | ¿Los verbos están bien? | una persona → trabaja, tiene / yo → trabajo, tengo |
+| 1 | ¿Tiene principio? (saludo) | Busca: ¡Hola, ___! |
+| 2 | ¿Tiene final? (despedida) | Busca: ¡Un saludo desde...! |
+| 3 | ¿Cada frase tiene un verbo? | trabaja, tiene, estudia, vivo... |
+| 4 | ¿Los verbos están bien? | una persona → trabaja / yo → trabajo |
 | 5 | ¿Las mayúsculas están bien? | Nombres propios y después de punto |
 
-- El alumno marca SÍ o NO en cada ítem.
-- Luna reacciona:
-  - SÍ: "¡Comprobado!" (check verde)
-  - NO: "Revisa tu correo antes de seguir. ¿Dónde falta?"
-- Al completar 5/5 SÍ: Luna: "¡Tu email está listo para compartir! Ahora toca intercambiar."
-- Si hay algún NO: Luna: "Corrige primero y luego pasa al siguiente paso."
+- Revelación progresiva: un ítem activo a la vez
+- SÍ → check verde / NO → X roja
+- Si hay algún NO: botón "COMPROBAR DE NUEVO"
+- Al completar: botón "AHORA CON TU COMPAÑERO →"
 
-**Personaje:** LunaMoon — directa, verificadora, sin rodeos
+**Mecánica — Fase 2 (revisión entre pares):**
+- 5 instrucciones visuales con icono y revelación progresiva:
+  1. Intercambia tu cuaderno con tu compañero/a
+  2. Lee su correo y comprueba la misma lista
+  3. Marca lo que te gusta: frases que suenan bien
+  4. Marca lo que no entiendes: frases confusas
+  5. Corrige tu correo con los comentarios de tu compañero/a
 
----
+- Luna: "No es un examen. Es una ayuda."
+- Nota para el profesor: la fase 2 es de apoyo visual para una actividad física (intercambio de cuadernos).
 
-#### #08 — Revisa con tu compañero
-
-**Objetivo:** El alumno practica la revisión entre pares usando la checklist.
-
-**Mecánica:**
-- Instrucciones visuales paso a paso:
-  1. "Intercambia tu cuaderno con tu compañero/a."
-  2. "Lee su correo y marca la checklist."
-  3. "Añade dos cosas más:"
-
-- Checklist ampliada (5 ítems anteriores + 2 nuevos):
-  6. ¿Marca lo que te gusta? (frases que suenan bien)
-  7. ¿Marca lo que no entiendes? (frases confusas)
-
-- Luna: "No es un examen. Es una ayuda. Decid a vuestro compañero qué puede mejorar."
-
-- Al final: "Corrige tu correo con los comentarios de tu compañero. Escribe la versión final."
-
-- Nota para el profesor: esta slide es de apoyo visual para una actividad física (intercambio de cuadernos). La interactividad es mínima — es una guía proyectable.
-
-**Personaje:** LunaMoon — verificadora, pero con tono constructivo ("es para ayudar, no para evaluar")
+**Personaje:** LunaMoon — directa en fase 1, constructiva en fase 2
 
 ---
 
-### CHIPI — Desafío (slide #09)
+### CHIPI — Desafío (slide #08)
 
 Chipi reta, es rápido, da feedback inmediato. Competición por equipos.
 
 ---
 
-#### #09 — ¡Corrige el desastre!
+#### #08 — ¡Corrige el desastre!
 
 **Objetivo:** Consolidación lúdica. El alumno identifica errores en un email mal escrito.
 
@@ -366,7 +350,7 @@ carlos
 ```
 PORTADA → #01 PILI → #02 PILI → #03 FLORA → #04 FLORA
     ↓
-#05 VITO → #06 VITO → #07 LUNA → #08 LUNA → #09 CHIPI → CIERRE
+#05 VITO → #06 VITO → #07 LUNA → #08 CHIPI → CIERRE
 ```
 
 ## Flujo pedagógico
@@ -381,8 +365,8 @@ PORTADA → #01 PILI → #02 PILI → #03 FLORA → #04 FLORA
 Planifica tus datos       →  Elige tarjetas y conecta
 (de Marta a ti)               (email coherente)
         ↓                          ↓
-¿Está completo?           →  Revisa con tu compañero  →  ¡Corrige el desastre!
-(autoevaluación)              (peer review)               (desafío)
+Revisa y comparte         →  ¡Corrige el desastre!
+(autoevaluación + peer)       (desafío)
 ```
 
 ## Correspondencia con la tarjeta de estrategia
@@ -393,8 +377,8 @@ Planifica tus datos       →  Elige tarjetas y conecta
 | 2. Marca con dos colores | #03 (FLORA: 3 capas), #04 (funciones discursivas) |
 | 3. Planifica | #05 (VITO: tabla Marta vs. Tú) |
 | 4. Escribe | #06 (VITO: tarjetas encadenables con conectores) |
-| Revisa tu email | #07 (LUNA: autoevaluación), #08 (LUNA: peer review) |
-| Desafío extra | #09 (CHIPI: corrige el desastre) |
+| Revisa tu email | #07 (LUNA: autoevaluación + peer review) |
+| Desafío extra | #08 (CHIPI: corrige el desastre) |
 
 ## Correspondencia con Protocolo E
 
@@ -403,8 +387,8 @@ Planifica tus datos       →  Elige tarjetas y conecta
 | E1 Modelo / Worked example | #01, #02, #03, #04 |
 | E2 Planificación | #05 |
 | E3 Borrador | #06 |
-| E4 Revisión entre pares | #07, #08 |
-| E5 Versión final | #08 (parte final) |
+| E4 Revisión entre pares | #07 (fase 1 + fase 2) |
+| E5 Versión final | #07 (fase 2, parte final) |
 
 ---
 

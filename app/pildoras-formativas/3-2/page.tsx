@@ -24,7 +24,6 @@ type ContentSlide = {
     | "vito1"
     | "vito2"
     | "luna1"
-    | "luna2"
     | "desafio"
     | "cierre";
   step: string;
@@ -47,11 +46,10 @@ const SLIDES: Slide[] = [
   { kind: "vito2", step: "#06", bg: "var(--color-pf-pill-soft)" },
   // ── LUNA — Verificación ──
   { kind: "luna1", step: "#07", bg: "var(--color-pf-moon-soft)" },
-  { kind: "luna2", step: "#08", bg: "var(--color-pf-moon-soft)" },
   // ── CHIPI — Desafío ──
-  { kind: "desafio", step: "#09", bg: "#2d1508" },
+  { kind: "desafio", step: "#08", bg: "#2d1508" },
   // ── CIERRE ──
-  { kind: "cierre", step: "#10", bg: "#FAF6EC" },
+  { kind: "cierre", step: "#09", bg: "#FAF6EC" },
 ];
 
 export default function Pildora32Page() {
@@ -81,7 +79,7 @@ export default function Pildora32Page() {
               PÍLDORA FORMATIVA 3.2
             </div>
             <div className="text-base md:text-lg opacity-70 font-medium tracking-wider uppercase">
-              Un Correo Electrónico Personal · Unidad 3 · v0.7
+              Un Correo Electrónico Personal · Unidad 3 · v0.8
             </div>
           </div>
           {slide.kind !== "cierre" ? (
@@ -109,8 +107,7 @@ export default function Pildora32Page() {
         {slide.kind === "vito1" && <SlideVito1 />}
         {slide.kind === "vito2" && <SlideVito2 />}
         {slide.kind === "luna1" && <SlideLuna1 />}
-        {slide.kind === "luna2" && <PlaceholderSlide title="Revisa con tu compañero" agent="LUNA" desc="Checklist de revisión entre pares" />}
-        {slide.kind === "desafio" && <PlaceholderSlide title="¿Cuánto sabéis de Marta?" agent="CHIPI" desc="Desafío relámpago por equipos" dark />}
+        {slide.kind === "desafio" && <PlaceholderSlide title="¡Corrige el desastre!" agent="CHIPI" desc="Desafío: encuentra los errores en el email de Carlos" dark />}
 
         {slide.kind === "cierre" && <SlideCierre />}
       </main>
