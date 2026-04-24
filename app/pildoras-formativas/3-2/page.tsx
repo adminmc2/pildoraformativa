@@ -6,6 +6,7 @@ import { House } from "@phosphor-icons/react";
 import { SlideOpening } from "@/components/pildoras-formativas/slides/slide-opening";
 import { SlideCierre } from "@/components/pildoras-formativas/slides/slide-cierre";
 import { SlidePili1 } from "@/components/pildoras-formativas/slides/3-2/slide-pili-1";
+import { SlidePili2 } from "@/components/pildoras-formativas/slides/3-2/slide-pili-2";
 
 /* ── Tipos ── */
 type ContentSlide = {
@@ -97,7 +98,7 @@ export default function Pildora32Page() {
         )}
 
         {slide.kind === "pili1" && <SlidePili1 />}
-        {slide.kind === "pili2" && <PlaceholderSlide title="Leemos juntos" agent="PILI" desc="Correo párrafo a párrafo (click-to-reveal)" />}
+        {slide.kind === "pili2" && <SlidePili2 />}
         {slide.kind === "flora1" && <PlaceholderSlide title="¿Verdad o mentira?" agent="FLORA" desc="7 afirmaciones — contrastar con el texto" />}
         {slide.kind === "flora2" && <PlaceholderSlide title="¿Qué se repite?" agent="FLORA" desc="Código de colores: azul (estructura) / rojo (personal)" />}
         {slide.kind === "vito1" && <PlaceholderSlide title="De Marta a ti" agent="VITO" desc="Transformar el modelo paso a paso" />}

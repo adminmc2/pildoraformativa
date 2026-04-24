@@ -4,97 +4,139 @@ import React, { useState } from "react";
 import { PilarStar } from "@/components/pildoras-formativas/characters/pilar-star";
 import { CharacterStage } from "@/components/pildoras-formativas/shared/character-stage";
 import {
-  UsersThree,
-  Handshake,
-  GraduationCap,
-  MapPin,
+  At,
+  Paperclip,
+  Smiley,
+  Microphone,
+  Checks,
+  Hash,
+  Heart,
+  Camera,
+  Star,
+  ChatCircle,
   EnvelopeSimple,
+  Image,
+  PaperPlaneTilt,
+  PencilSimple,
   CheckCircle,
+  Handshake,
+  Tag,
 } from "@phosphor-icons/react";
 
-/* ── Temas del correo ── */
-const TOPICS = [
-  {
-    id: "familia" as const,
-    Icon: UsersThree,
-    label: "Mi familia",
-    example: "Mi padre trabaja en… y mi madre en…",
-    color: "var(--color-pf-star)",
-    softColor: "var(--color-pf-star-soft)",
-  },
-  {
-    id: "amigos" as const,
-    Icon: Handshake,
-    label: "Mis amigos",
-    example: "Tengo un compañero que se llama…",
-    color: "var(--color-pf-flower)",
-    softColor: "var(--color-pf-flower-soft)",
-  },
-  {
-    id: "instituto" as const,
-    Icon: GraduationCap,
-    label: "Mi instituto",
-    example: "Este curso estudio… y salimos a las…",
-    color: "var(--color-pf-pill)",
-    softColor: "var(--color-pf-pill-soft)",
-  },
-  {
-    id: "ciudad" as const,
-    Icon: MapPin,
-    label: "Mi ciudad",
-    example: "Vivo en… y me gusta mucho…",
-    color: "var(--color-pf-moon)",
-    softColor: "var(--color-pf-moon-soft)",
-  },
+/* ── Categorías ── */
+const CATS = {
+  email: { label: "Email", Icon: EnvelopeSimple, color: "#2563EB", soft: "#DBEAFE" },
+  chat: { label: "Chat", Icon: ChatCircle, color: "#16A34A", soft: "#DCFCE7" },
+  post: { label: "Post", Icon: Image, color: "#9333EA", soft: "#F3E8FF" },
+} as const;
+
+type Cat = keyof typeof CATS;
+
+/* ── Elementos a clasificar (orden mezclado) ── */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const ITEMS: { id: string; label: string; Icon: React.ComponentType<any>; cats: Cat[] }[] = [
+  { id: "arroba", label: "@ arroba", Icon: At, cats: ["email", "chat", "post"] },
+  { id: "emoji", label: "Emoji", Icon: Smiley, cats: ["email", "chat", "post"] },
+  { id: "hashtag", label: "#hashtag", Icon: Hash, cats: ["post"] },
+  { id: "de-para", label: "De: / Para:", Icon: EnvelopeSimple, cats: ["email"] },
+  { id: "audio", label: "Nota de voz", Icon: Microphone, cats: ["chat"] },
+  { id: "like", label: "Like", Icon: Heart, cats: ["chat", "post"] },
+  { id: "asunto", label: "Asunto", Icon: Tag, cats: ["email"] },
+  { id: "jajaja", label: "jajaja", Icon: ChatCircle, cats: ["chat", "post"] },
+  { id: "firma", label: "Firma (nombre)", Icon: PencilSimple, cats: ["email"] },
+  { id: "foto", label: "Foto con filtro", Icon: Camera, cats: ["chat", "post"] },
+  { id: "saludo", label: "¡Hola! ¿Qué tal?", Icon: Handshake, cats: ["email", "chat", "post"] },
+  { id: "sticker", label: "Sticker", Icon: Star, cats: ["chat", "post"] },
+  { id: "despedida", label: "Un saludo desde...", Icon: PaperPlaneTilt, cats: ["email"] },
+  { id: "visto", label: "Visto azul", Icon: Checks, cats: ["chat"] },
+  { id: "adjuntar", label: "Adjuntar archivo", Icon: Paperclip, cats: ["email", "chat"] },
 ];
 
-type TopicId = (typeof TOPICS)[number]["id"];
+const CAT_KEYS = Object.keys(CATS) as Cat[];
 
+/* ── Secciones del email de Marta (fase 2) ── */
+const EMAIL_PARTS = [
+  { label: "DE / PARA", color: "var(--color-pf-ink)", lines: ["De: marta@correo.es", "Para: pierre@correo.fr"] },
+  { label: "ASUNTO", color: "var(--color-pf-star)", lines: ["¡Hola desde Cádiz!"] },
+  { label: "SALUDO", color: "var(--color-pf-pill)", lines: ["¡Hola, Pierre! ¿Qué tal estás?"] },
+  {
+    label: "CUERPO",
+    color: "var(--color-pf-flower)",
+    lines: [
+      "Hoy te hablo de mi familia: mi padre trabaja en un hotel y mi madre en un hospital...",
+      "Yo este año tengo muchos amigos en mi clase: Emilio, Elena, Santiago...",
+      "Este curso es un poco más difícil. Tres días a la semana salimos a las 15:30...",
+      "¿Tú también tienes muchos deberes este año?",
+    ],
+  },
+  { label: "DESPEDIDA", color: "var(--color-pf-spark)", lines: ["¡Un saludo desde Cádiz!"] },
+  { label: "FIRMA", color: "var(--color-pf-moon)", lines: ["Marta"] },
+];
+
+/* ── Highlight helper ── */
 const C = ({ children }: { children: React.ReactNode }) => (
   <span className="italic" style={{ color: "var(--color-pf-spark)" }}>
     {children}
   </span>
 );
 
+/* ── Helpers ── */
+const emptySel = (): Record<Cat, boolean> => ({ email: false, chat: false, post: false });
+
+function isCorrect(itemId: string, selections: Record<string, Record<Cat, boolean>>): boolean {
+  const item = ITEMS.find((i) => i.id === itemId);
+  if (!item) return false;
+  const sel = selections[itemId];
+  if (!sel) return false;
+  const selected = CAT_KEYS.filter((c) => sel[c]);
+  return (
+    selected.length === item.cats.length && selected.every((c) => item.cats.includes(c))
+  );
+}
+
 /* ── Componente ── */
 export function SlidePili1() {
-  const [phase, setPhase] = useState<0 | 1>(0);
-  const [revealed, setRevealed] = useState<Set<TopicId>>(new Set());
+  const [phase, setPhase] = useState<0 | 1 | 2>(0);
+  const [selections, setSelections] = useState<Record<string, Record<Cat, boolean>>>({});
 
-  const allRevealed = revealed.size === TOPICS.length;
+  const correctCount = ITEMS.filter((item) => isCorrect(item.id, selections)).length;
+  const allDone = correctCount === ITEMS.length;
 
-  const next = () => {
-    if (phase === 0) setPhase(1);
+  /* ── Handler ── */
+  const handleToggle = (itemId: string, cat: Cat) => {
+    if (isCorrect(itemId, selections)) return; // locked
+    setSelections((prev) => {
+      const itemSel = prev[itemId] || emptySel();
+      return { ...prev, [itemId]: { ...itemSel, [cat]: !itemSel[cat] } };
+    });
   };
 
-  const reset = () => {
-    setPhase(0);
-    setRevealed(new Set());
-  };
-
-  const revealTopic = (id: TopicId) => {
-    if (phase !== 1) return;
-    setRevealed((prev) => new Set(prev).add(id));
-  };
-
+  /* ── Bubble ── */
   const bubble =
-    phase === 0
-      ? <>Hoy tenéis una <C>misión</C>: escribir un correo a un amigo de otro país.</>
-      : !allRevealed
-      ? <>Pensad: si un amigo no conoce vuestra vida, <C>¿de qué le habláis?</C> Pulsad cada tarjeta.</>
-      : <>¡Ya tenéis los <C>4 temas</C>! Ahora vamos a ver cómo <C>Marta</C> organiza su correo.</>;
+    phase === 0 ? (
+      <>
+        ¿Sabéis qué cosas tiene un <C>email</C> y qué cosas NO?
+      </>
+    ) : phase === 1 && !allDone ? (
+      <>
+        Pulsad los colores en cada tarjeta. <C>¡Algunos van en más de una!</C>
+      </>
+    ) : phase === 1 && allDone ? (
+      <>
+        ¡Muy bien! Ahora mirad cómo se ven estas partes en el <C>correo de Marta</C>.
+      </>
+    ) : (
+      <>
+        ¡Así es un <C>email</C>! Tiene partes muy claras: saludo, cuerpo, despedida y firma.
+      </>
+    );
 
-  const buttonLabel =
-    phase === 0
-      ? "SIGUIENTE"
-      : !allRevealed
-      ? "PULSA CADA TARJETA"
-      : "COMPLETADO";
+  const stepKey = phase * 100 + correctCount;
 
   return (
     <div className="w-full h-full flex items-center justify-center overflow-hidden">
       <div className="w-full max-w-[1400px] grid grid-cols-[1.8fr_1fr] gap-8 items-center">
-        <div className="flex flex-col gap-4 min-w-0">
+        <div className="flex flex-col gap-3 min-w-0">
           {/* Badge */}
           <div className="flex items-center gap-3">
             <span className="font-[family-name:var(--font-pf-display)] text-[clamp(18px,1.8vh,22px)] text-[var(--color-pf-ink)]">
@@ -109,164 +151,206 @@ export function SlidePili1() {
           </div>
 
           {/* Título */}
-          <h1 className="font-[family-name:var(--font-pf-display)] uppercase leading-[0.88] tracking-tight text-[clamp(40px,min(6vw,8vh),80px)] text-[var(--color-pf-ink)] whitespace-nowrap">
-            ¡Escribe a un amigo!
+          <h1 className="font-[family-name:var(--font-pf-display)] uppercase leading-[0.88] tracking-tight text-[clamp(36px,min(5.5vw,7vh),72px)] text-[var(--color-pf-ink)] whitespace-nowrap">
+            {phase < 2 ? "¿Email, chat o post?" : "El correo de Marta"}
           </h1>
 
-          {/* Instrucción (píldora oscura) */}
-          <p className="text-[clamp(18px,2.2vw,28px)] font-semibold text-white bg-[var(--color-pf-ink)] inline-block px-6 py-2.5 rounded-full">
+          {/* Instrucción */}
+          <p className="text-[clamp(16px,2vw,24px)] font-semibold text-white bg-[var(--color-pf-ink)] inline-block px-5 py-2 rounded-full">
             {phase === 0
-              ? "¿De qué puedes hablar en un correo a un amigo?"
-              : "Elige los temas y mira cómo se rellena el correo."}
+              ? "¿Qué cosas son de un email?"
+              : phase === 1
+                ? `Clasifica cada elemento. ${correctCount} / ${ITEMS.length}`
+                : "Estas son las partes de un email."}
           </p>
 
-          {/* ── Email template ── */}
-          <div className="rounded-[24px] bg-white shadow-[0_14px_40px_-16px_rgba(0,0,0,0.14)] overflow-hidden">
-            {/* Header del email */}
-            <div className="px-7 py-3 border-b border-[var(--color-pf-ink)]/10 flex items-center gap-3">
-              <EnvelopeSimple size={22} weight="duotone" className="text-[var(--color-pf-ink)] opacity-60" />
-              <span className="font-[family-name:var(--font-pf-display)] text-[clamp(16px,1.6vw,20px)] text-[var(--color-pf-ink)] tracking-wide">
-                NUEVO CORREO
-              </span>
-            </div>
-
-            {/* Campos De / Para */}
-            <div className="px-7 py-2 border-b border-[var(--color-pf-ink)]/10 font-[family-name:var(--font-pf-display)] text-[clamp(16px,1.5vw,20px)]">
-              <div className="flex gap-2 items-center py-1">
-                <span className="text-[var(--color-pf-ink)] opacity-50 w-16">De:</span>
-                <span className="text-[var(--color-pf-ink)]">TU NOMBRE</span>
-              </div>
-              <div className="flex gap-2 items-center py-1">
-                <span className="text-[var(--color-pf-ink)] opacity-50 w-16">Para:</span>
-                <span className="text-[var(--color-pf-ink)]">Un amigo de otro país</span>
-              </div>
-            </div>
-
-            {/* Cuerpo del email */}
-            <div className="px-7 py-4 min-h-[110px] flex flex-col gap-1.5 font-[family-name:var(--font-pf-display)] text-[clamp(18px,min(2vw,2.5vh),24px)] leading-snug text-[var(--color-pf-ink)]">
-              {/* Saludo — copiado de Marta */}
-              <div className="italic" style={{ color: "var(--color-pf-spark)", opacity: 0.8 }}>
-                ¡Hola, Pierre! ¿Qué tal estás?
-              </div>
-
-              {/* 4 líneas temáticas */}
-              {TOPICS.map((t) => {
-                const isRevealed = phase >= 1 && revealed.has(t.id);
-                const IconComp = t.Icon;
-                return (
-                  <div
-                    key={t.id}
-                    className="flex items-center gap-3 transition-all duration-400"
-                    style={{
-                      opacity: isRevealed ? 1 : 0.18,
-                      animation: isRevealed ? "lineIn 400ms cubic-bezier(0.2,0.8,0.2,1)" : "none",
-                    }}
-                  >
-                    <IconComp
-                      size={18}
-                      weight={isRevealed ? "fill" : "regular"}
-                      style={{ color: isRevealed ? t.color : "var(--color-pf-ink)", flexShrink: 0 }}
-                    />
-                    <span>
-                      {isRevealed ? t.example : "· · · · · · · · · · · · · ·"}
-                    </span>
-                  </div>
-                );
-              })}
-
-              {/* Despedida — copiada de Marta */}
-              <div className="italic mt-1" style={{ color: "var(--color-pf-spark)", opacity: 0.8 }}>
-                ¡Un saludo desde Cádiz!<br />Marta
-              </div>
-            </div>
-          </div>
-
-          {/* ── Tarjetas de temas (fase 1) ── */}
-          {phase === 1 && (
-            <div
-              className="grid grid-cols-4 gap-3"
-              style={{ animation: "cardIn 500ms cubic-bezier(0.2,0.8,0.2,1)" }}
-            >
-              {TOPICS.map((t, i) => {
-                const isRevealed = revealed.has(t.id);
-                const IconComp = t.Icon;
-                return (
-                  <button
-                    key={t.id}
-                    onClick={() => revealTopic(t.id)}
-                    disabled={isRevealed}
-                    className="flex flex-col items-center gap-2 rounded-[16px] px-3 py-3 border-2 transition-all duration-300 hover:scale-[1.04] active:scale-[0.97] disabled:hover:scale-100"
-                    style={{
-                      background: isRevealed ? "rgba(10,10,10,0.04)" : t.softColor,
-                      borderColor: isRevealed ? "rgba(10,10,10,0.06)" : t.color,
-                      boxShadow: isRevealed
-                        ? "none"
-                        : `0 6px 24px -6px ${t.color}50`,
-                      opacity: isRevealed ? 0.35 : 1,
-                      animation: isRevealed
-                        ? "none"
-                        : `cardIn 400ms cubic-bezier(0.2,0.8,0.2,1) ${i * 80}ms both, cardPulse 2s ease-in-out ${i * 200}ms infinite`,
-                    }}
-                  >
-                    <IconComp
-                      size={30}
-                      weight={isRevealed ? "regular" : "fill"}
-                      style={{ color: isRevealed ? "rgba(10,10,10,0.25)" : t.color }}
-                    />
-                    <span
-                      className="font-[family-name:var(--font-pf-display)] text-[clamp(13px,1.2vw,16px)] leading-tight font-bold"
-                      style={{ color: isRevealed ? "rgba(10,10,10,0.25)" : "var(--color-pf-ink)" }}
-                    >
-                      {t.label}
-                    </span>
-                    {isRevealed && (
-                      <CheckCircle
-                        size={18}
-                        weight="fill"
-                        style={{ color: "rgba(10,10,10,0.2)" }}
-                      />
-                    )}
-                  </button>
-                );
-              })}
-            </div>
-          )}
-
-          {/* Botón + contador */}
-          <div className="mt-2 flex items-center gap-4">
-            {phase === 0 ? (
+          {/* ── FASE 0: Intro ── */}
+          {phase === 0 && (
+            <div className="mt-4">
               <button
-                onClick={next}
+                onClick={() => setPhase(1)}
                 className="px-10 py-4 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-[clamp(16px,2vh,22px)] hover:scale-[1.02] transition"
                 style={{ animation: "btnPulse 2s ease-in-out infinite" }}
               >
                 SIGUIENTE
               </button>
-            ) : !allRevealed ? (
-              <span
-                className="px-6 py-2.5 rounded-full bg-[var(--color-pf-spark)] text-white font-[family-name:var(--font-pf-display)] text-[clamp(14px,1.6vh,18px)]"
-                style={{ animation: "btnPulse 2s ease-in-out infinite" }}
-              >
-                PULSA CADA TARJETA
-              </span>
-            ) : (
-              <button
-                onClick={reset}
-                className="px-6 py-2 rounded-full bg-white/80 text-[var(--color-pf-ink)] text-base font-semibold hover:bg-white transition"
-              >
-                Reiniciar
-              </button>
-            )}
-            <span className="text-[var(--color-pf-ink)] font-semibold opacity-60 text-base">
-              {revealed.size} / 4
-            </span>
-          </div>
+            </div>
+          )}
+
+          {/* ── FASE 1: Clasificación con mini-botones ── */}
+          {phase === 1 && (
+            <div style={{ animation: "cardIn 400ms cubic-bezier(0.2,0.8,0.2,1)" }}>
+              {/* Leyenda */}
+              <div className="flex gap-5 mb-3">
+                {CAT_KEYS.map((cat) => {
+                  const c = CATS[cat];
+                  const CatIcon = c.Icon;
+                  return (
+                    <div key={cat} className="flex items-center gap-2">
+                      <div
+                        className="w-7 h-7 rounded-full flex items-center justify-center"
+                        style={{ background: c.color }}
+                      >
+                        <CatIcon size={15} weight="bold" color="white" />
+                      </div>
+                      <span
+                        className="font-[family-name:var(--font-pf-display)] text-[clamp(15px,1.5vw,18px)] font-bold"
+                        style={{ color: c.color }}
+                      >
+                        {c.label}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* Grid de tarjetas */}
+              <div className="grid grid-cols-5 gap-2">
+                {ITEMS.map((item, i) => {
+                  const correct = isCorrect(item.id, selections);
+                  const sel = selections[item.id] || emptySel();
+                  const ItemIcon = item.Icon;
+
+                  return (
+                    <div
+                      key={item.id}
+                      className="flex flex-col items-center gap-1 rounded-[14px] px-2 py-2 border-2 transition-all duration-300"
+                      style={{
+                        background: correct ? "#F0FDF4" : "white",
+                        borderColor: correct ? "#22C55E" : "rgba(10,10,10,0.08)",
+                        animation: `cardIn 300ms cubic-bezier(0.2,0.8,0.2,1) ${i * 40}ms both`,
+                      }}
+                    >
+                      <ItemIcon
+                        size={22}
+                        weight="duotone"
+                        style={{ color: "var(--color-pf-ink)" }}
+                      />
+                      <span className="font-[family-name:var(--font-pf-display)] text-[clamp(15px,1.3vw,17px)] leading-tight text-center font-semibold text-[var(--color-pf-ink)]">
+                        {item.label}
+                      </span>
+
+                      {/* Mini-botones de categoría */}
+                      <div className="flex gap-1.5 mt-0.5">
+                        {CAT_KEYS.map((cat) => {
+                          const c = CATS[cat];
+                          const CatIcon = c.Icon;
+                          const toggled = sel[cat];
+                          return (
+                            <button
+                              key={cat}
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                handleToggle(item.id, cat);
+                              }}
+                              disabled={correct}
+                              className="w-7 h-7 rounded-full flex items-center justify-center transition-all hover:scale-110 active:scale-90 disabled:hover:scale-100"
+                              style={{
+                                background: toggled ? c.color : "rgba(10,10,10,0.05)",
+                                border: `2px solid ${toggled ? c.color : "rgba(10,10,10,0.1)"}`,
+                              }}
+                              aria-label={`${c.label} para ${item.label}`}
+                            >
+                              <CatIcon
+                                size={13}
+                                weight={toggled ? "fill" : "regular"}
+                                style={{
+                                  color: toggled ? "white" : "rgba(10,10,10,0.25)",
+                                }}
+                              />
+                            </button>
+                          );
+                        })}
+                      </div>
+
+                      {/* Check cuando es correcto */}
+                      {correct && (
+                        <CheckCircle
+                          size={16}
+                          weight="fill"
+                          style={{
+                            color: "#22C55E",
+                            animation: "checkPop 300ms cubic-bezier(0.2,0.8,0.2,1)",
+                          }}
+                        />
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* Botón completar */}
+              {allDone && (
+                <div className="mt-3">
+                  <button
+                    onClick={() => setPhase(2)}
+                    className="px-8 py-3 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-[clamp(16px,2vh,20px)] hover:scale-[1.02] transition"
+                    style={{ animation: "btnPulse 2s ease-in-out infinite" }}
+                  >
+                    VER EN EL CORREO DE MARTA
+                  </button>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* ── FASE 2: Email de Marta con partes etiquetadas ── */}
+          {phase === 2 && (
+            <div
+              className="rounded-[20px] bg-white shadow-[0_14px_40px_-16px_rgba(0,0,0,0.14)] overflow-hidden"
+              style={{ animation: "cardIn 500ms cubic-bezier(0.2,0.8,0.2,1)" }}
+            >
+              {/* Header email */}
+              <div className="px-5 py-2.5 border-b border-[var(--color-pf-ink)]/10 flex items-center gap-2">
+                <EnvelopeSimple size={20} weight="duotone" className="text-[var(--color-pf-ink)] opacity-60" />
+                <span className="font-[family-name:var(--font-pf-display)] text-[clamp(15px,1.4vw,18px)] text-[var(--color-pf-ink)] tracking-wide">
+                  CORREO DE MARTA
+                </span>
+              </div>
+
+              {/* Secciones etiquetadas */}
+              <div className="px-5 py-3 flex flex-col gap-2">
+                {EMAIL_PARTS.map((section, i) => (
+                  <div
+                    key={section.label}
+                    className="flex gap-3 items-start"
+                    style={{
+                      animation: `cardIn 400ms cubic-bezier(0.2,0.8,0.2,1) ${i * 80}ms both`,
+                    }}
+                  >
+                    {/* Barra de color */}
+                    <div
+                      className="w-[4px] rounded-full flex-shrink-0 self-stretch"
+                      style={{ background: section.color }}
+                    />
+                    {/* Etiqueta + texto */}
+                    <div className="flex flex-col gap-0.5 min-w-0">
+                      <span
+                        className="font-[family-name:var(--font-pf-display)] text-[clamp(11px,1vw,14px)] font-bold tracking-wider uppercase"
+                        style={{ color: section.color }}
+                      >
+                        {section.label}
+                      </span>
+                      {section.lines.map((line, j) => (
+                        <span
+                          key={j}
+                          className="text-[clamp(14px,min(1.4vw,1.8vh),18px)] leading-snug text-[var(--color-pf-ink)]"
+                        >
+                          {line}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Columna derecha: personaje */}
-        <CharacterStage bubble={bubble} step={phase + revealed.size}>
+        <CharacterStage bubble={bubble} step={stepKey}>
           <PilarStar
-            pose={allRevealed ? "wave" : phase >= 1 ? "point" : "hug"}
+            pose={phase === 2 ? "wave" : allDone ? "wave" : phase === 1 ? "point" : "hug"}
             className="w-full h-auto"
           />
         </CharacterStage>
@@ -274,53 +358,21 @@ export function SlidePili1() {
 
       <style jsx>{`
         @keyframes cardIn {
-          0% {
-            opacity: 0;
-            transform: translateY(14px) scale(0.96);
-          }
-          100% {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-          }
-        }
-        @keyframes lineIn {
-          0% {
-            opacity: 0;
-            transform: translateX(-10px);
-          }
-          100% {
-            opacity: 1;
-            transform: translateX(0);
-          }
+          0% { opacity: 0; transform: translateY(14px) scale(0.96); }
+          100% { opacity: 1; transform: translateY(0) scale(1); }
         }
         @keyframes checkPop {
-          0% {
-            transform: scale(0);
-          }
-          60% {
-            transform: scale(1.3);
-          }
-          100% {
-            transform: scale(1);
-          }
+          0% { transform: scale(0); }
+          60% { transform: scale(1.3); }
+          100% { transform: scale(1); }
         }
         @keyframes cardPulse {
-          0%, 100% {
-            transform: scale(1);
-            box-shadow: 0 6px 20px -10px rgba(0,0,0,0.08);
-          }
-          50% {
-            transform: scale(1.03);
-            box-shadow: 0 8px 28px -8px rgba(0,0,0,0.15);
-          }
+          0%, 100% { transform: scale(1); box-shadow: 0 4px 16px -6px rgba(0,0,0,0.08); }
+          50% { transform: scale(1.03); box-shadow: 0 6px 24px -6px rgba(0,0,0,0.15); }
         }
         @keyframes btnPulse {
-          0%, 100% {
-            box-shadow: 0 0 0 0 rgba(10, 10, 10, 0.28);
-          }
-          50% {
-            box-shadow: 0 0 0 18px rgba(10, 10, 10, 0);
-          }
+          0%, 100% { box-shadow: 0 0 0 0 rgba(10, 10, 10, 0.28); }
+          50% { box-shadow: 0 0 0 18px rgba(10, 10, 10, 0); }
         }
       `}</style>
     </div>

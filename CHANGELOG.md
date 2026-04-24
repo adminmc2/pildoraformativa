@@ -1,5 +1,37 @@
 # Changelog
 
+## v0.16 — 2026-04-23
+
+### Píldora 3.2 — Slide #01 (Pili — "¡Escribe a un amigo!")
+- Nueva slide interactiva: email vacío con saludo/despedida de Marta, 4 tarjetas temáticas (familia, amigos, instituto, ciudad)
+- Tarjetas llamativas con color y pulso antes de pulsar, apagadas después
+- Saludo y despedida copiados del correo de Marta como marco fijo del email
+- Icono Phosphor en tarjetas (UsersThree, Handshake, GraduationCap, MapPin)
+- Layout adaptado: columna izquierda 1.8fr, título en una línea, texto email ampliado
+
+### Píldora 3.2 — Scaffold
+- Página 3-2 con 9 slides placeholder + opening parametrizado + cierre
+- Título: "Un Correo Electrónico Personal"
+- Título responsivo en opening para nombres largos (clamp adaptativo)
+
+### Landing page y navegación
+- Icono Home (Phosphor House) en header de 3.1 y 3.2: vuelve a la portada (slide 0)
+- Footer 3.2 alineado con 3.1: botón Siguiente oscuro, oculto en última slide
+- Header subtitle 3.2: text-base (igual que 3.1)
+
+### Pipeline de producción
+- 5 agentes Claude Code como slash commands (.claude/commands/)
+- Documentación del pipeline (docs/pipeline-produccion.md)
+- Componentes opening y cierre parametrizados para reutilización entre píldoras
+
+## v0.15 — 2026-04-22
+
+### Landing page
+- Carrusel de 6 slides (intro + 5 agentes) con barras de navegación visibles
+- Tarjetas de unidad con texto "3.1 Los Posesivos"
+- Modal con fondo sólido negro, tarjeta blanca, botones color TEJA
+- Icono Phosphor Pill en slide intro del carrusel
+
 ## v0.14 — 2026-04-22
 
 ### Cierre (#18) — Pantalla final con los 5 personajes
