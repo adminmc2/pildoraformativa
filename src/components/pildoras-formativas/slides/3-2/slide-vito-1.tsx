@@ -65,13 +65,13 @@ export function SlideVito1() {
           </div>
 
           {/* Título */}
-          <h1 className="font-[family-name:var(--font-pf-display)] uppercase leading-[0.88] tracking-tight text-[clamp(28px,min(4vw,5.5vh),52px)] text-[var(--color-pf-ink)]">
+          <h1 className="font-[family-name:var(--font-pf-display)] uppercase leading-[0.88] tracking-tight text-[clamp(30px,min(4.5vw,6vh),56px)] text-[var(--color-pf-ink)]">
             {step <= ROWS.length ? "Planifica: de Marta a ti" : "¡Plan listo!"}
           </h1>
 
           {/* Instrucción */}
-          <p className="text-[clamp(18px,min(2vw,2.8vh),26px)] font-semibold text-white bg-[var(--color-pf-ink)] px-5 py-1.5 rounded-full w-fit flex items-center gap-2">
-            <PencilSimple size={20} weight="bold" />
+          <p className="text-[clamp(22px,min(2.6vw,3.2vh),32px)] font-semibold text-white bg-[var(--color-pf-ink)] px-5 py-1.5 rounded-full w-fit flex items-center gap-2">
+            <PencilSimple size={22} weight="bold" />
             Apuntad vuestros datos en el cuaderno
           </p>
 
@@ -88,11 +88,11 @@ export function SlideVito1() {
             >
               {/* Cabecera */}
               <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2 px-4 py-2 bg-[var(--color-pf-ink)] text-white">
-                <span className="font-[family-name:var(--font-pf-display)] text-[clamp(16px,min(1.6vw,2.2vh),22px)]">
+                <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)]">
                   MARTA DICE...
                 </span>
-                <ArrowRight size={18} weight="bold" className="opacity-60" />
-                <span className="font-[family-name:var(--font-pf-display)] text-[clamp(16px,min(1.6vw,2.2vh),22px)]">
+                <ArrowRight size={22} weight="bold" className="opacity-60" />
+                <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)]">
                   TÚ ESCRIBES...
                 </span>
               </div>
@@ -109,7 +109,7 @@ export function SlideVito1() {
                     <React.Fragment key={i}>
                       {showTheme && (
                         <div
-                          className="px-4 py-1 font-[family-name:var(--font-pf-display)] text-[clamp(16px,min(1.5vw,2vh),20px)] tracking-wider"
+                          className="px-4 py-1 font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)] tracking-wider"
                           style={{ background: t.soft, color: t.color }}
                         >
                           {t.label}
@@ -124,17 +124,17 @@ export function SlideVito1() {
                         }}
                       >
                         <span
-                          className="text-[clamp(17px,min(1.7vw,2.3vh),23px)] leading-snug font-medium"
+                          className="text-[clamp(20px,min(2.2vw,2.8vh),28px)] leading-snug font-medium"
                           style={{ color: t.color }}
                         >
                           {row.marta}
                         </span>
                         <ArrowRight
-                          size={14}
+                          size={18}
                           weight="bold"
                           className="opacity-25 flex-shrink-0"
                         />
-                        <span className="text-[clamp(17px,min(1.7vw,2.3vh),23px)] leading-snug text-[var(--color-pf-ink)] opacity-50 italic">
+                        <span className="text-[clamp(20px,min(2.2vw,2.8vh),28px)] leading-snug text-[var(--color-pf-ink)] opacity-50 italic">
                           {row.hint}
                         </span>
                       </div>
