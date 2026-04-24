@@ -69,14 +69,14 @@ export function SlideAwareness() {
   const visibleBeats = BEATS.slice(0, Math.floor((step + 1) / 2));
 
   return (
-    <div className="w-full max-w-[1400px] mx-auto grid grid-cols-[1.4fr_1fr] gap-10 items-start">
+    <div className="w-full max-w-[1800px] mx-auto grid grid-cols-[1.4fr_1fr] gap-10 items-start">
       <div>
         <div className="mb-3 flex items-center gap-3">
-          <span className="font-[family-name:var(--font-pf-display)] text-xl text-[var(--color-pf-ink)]">
+          <span className="font-[family-name:var(--font-pf-display)] text-base text-[var(--color-pf-ink)]">
             FLORA
           </span>
           <span
-            className="px-3 py-1 rounded-full text-xs font-semibold"
+            className="px-3 py-1 rounded-full text-base font-semibold"
             style={{
               background: "var(--color-pf-flower-soft)",
               color: "#8A1470",
@@ -89,7 +89,7 @@ export function SlideAwareness() {
         <h1 className="font-[family-name:var(--font-pf-display)] uppercase leading-[0.9] tracking-tight text-[clamp(56px,7vw,120px)] text-[var(--color-pf-ink)] mb-3">
           ¿Y ahora?
         </h1>
-        <p className="text-lg text-[var(--color-pf-ink)] opacity-70 mb-6">
+        <p className="text-base text-[var(--color-pf-ink)] opacity-70 mb-6">
           Mira tres comparaciones distintas. Piensa antes de revelar.
         </p>
 
@@ -105,7 +105,7 @@ export function SlideAwareness() {
                   key={beat.id}
                   className="rounded-[24px] border-2 border-dashed border-[var(--color-pf-ink)]/15 px-6 py-4 opacity-40"
                 >
-                  <span className="text-xs font-semibold tracking-wider text-[var(--color-pf-ink)]/60">
+                  <span className="text-base font-semibold tracking-wider text-[var(--color-pf-ink)]/60">
                     PASO {i + 1} · {beat.label}
                   </span>
                 </div>
@@ -119,17 +119,17 @@ export function SlideAwareness() {
                 style={{ animation: "beatIn 500ms cubic-bezier(0.2,0.8,0.2,1)" }}
               >
                 <div className="flex items-center gap-3 mb-3">
-                  <span className="text-[11px] font-semibold tracking-wider text-[var(--color-pf-ink)]/70">
+                  <span className="text-base font-semibold tracking-wider text-[var(--color-pf-ink)]/70">
                     PASO {i + 1} · {beat.label.toUpperCase()}
                   </span>
                 </div>
-                <div className="grid grid-cols-1 gap-1.5 font-[family-name:var(--font-pf-display)] text-[clamp(16px,1.7vw,24px)] leading-snug text-[var(--color-pf-ink)]">
+                <div className="grid grid-cols-1 gap-1.5 font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)] leading-snug text-[var(--color-pf-ink)]">
                   <PhraseLine phrase={beat.phraseA} highlightActive={showInsight} highlight={beat.highlight} />
                   <PhraseLine phrase={beat.phraseB} highlightActive={showInsight} highlight={beat.highlight} />
                 </div>
                 {showInsight && (
                   <div
-                    className="mt-3 inline-block px-4 py-2 rounded-full bg-[var(--color-pf-pill-soft)] text-[var(--color-pf-ink)] text-sm font-semibold"
+                    className="mt-3 inline-block px-4 py-2 rounded-full bg-[var(--color-pf-pill-soft)] text-[var(--color-pf-ink)] text-base font-semibold"
                     style={{ animation: "insightIn 500ms cubic-bezier(0.2,0.8,0.2,1) 300ms both" }}
                   >
                     {beat.insight}
@@ -144,7 +144,7 @@ export function SlideAwareness() {
           <button
             onClick={() => canPrev && setStep(step - 1)}
             disabled={!canPrev}
-            className="w-12 h-12 rounded-full bg-white/80 text-[var(--color-pf-ink)] font-bold text-xl disabled:opacity-30 hover:bg-white transition"
+            className="w-12 h-12 rounded-full bg-white/80 text-[var(--color-pf-ink)] font-bold text-base disabled:opacity-30 hover:bg-white transition"
             aria-label="Atrás"
           >
             ←
@@ -152,7 +152,7 @@ export function SlideAwareness() {
           <button
             onClick={() => canNext && setStep(step + 1)}
             disabled={!canNext}
-            className="px-8 py-3 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-xl disabled:opacity-40 hover:opacity-90 transition"
+            className="px-8 py-3 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-base disabled:opacity-40 hover:opacity-90 transition"
           >
             {step === 0
               ? "EMPEZAR"
@@ -162,7 +162,7 @@ export function SlideAwareness() {
               ? "REVELAR"
               : "SIGUIENTE COMPARACIÓN"}
           </button>
-          <span className="text-[var(--color-pf-ink)] font-semibold opacity-70 text-sm">
+          <span className="text-[var(--color-pf-ink)] font-semibold opacity-70 text-base">
             {step} / {totalSteps}
           </span>
         </div>
@@ -180,17 +180,17 @@ export function SlideAwareness() {
           }}
         >
           {!currentBeat && (
-            <p className="text-[var(--color-pf-ink)] opacity-50 text-sm">
+            <p className="text-[var(--color-pf-ink)] opacity-50 text-base">
               Flora te hará 3 preguntas…
             </p>
           )}
           {currentBeat && !insightRevealed && (
-            <p className="font-[family-name:var(--font-pf-display)] text-[clamp(18px,1.9vw,26px)] leading-snug text-[var(--color-pf-ink)]">
+            <p className="font-[family-name:var(--font-pf-display)] text-[clamp(22px,min(2.6vw,3.2vh),32px)] leading-snug text-[var(--color-pf-ink)]">
               {currentBeat.question}
             </p>
           )}
           {currentBeat && insightRevealed && (
-            <p className="font-[family-name:var(--font-pf-display)] text-[clamp(18px,1.9vw,26px)] leading-snug text-[var(--color-pf-ink)]">
+            <p className="font-[family-name:var(--font-pf-display)] text-[clamp(22px,min(2.6vw,3.2vh),32px)] leading-snug text-[var(--color-pf-ink)]">
               {currentBeat.insight}
             </p>
           )}

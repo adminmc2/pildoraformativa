@@ -58,3 +58,65 @@ body {
   color: var(--foreground);
   font-family: var(--font-pf-ui), Arial, Helvetica, sans-serif;
 }
+
+/* Shared responsive shell for pildora presentations (3.1 / 3.2). */
+.pf-presentation-shell {
+  min-height: 100dvh;
+  --pf-text-min: 18px;
+  --pf-text-regular: 20px;
+}
+
+.pf-presentation-shell .text-xs,
+.pf-presentation-shell .text-sm {
+  font-size: var(--pf-text-min) !important;
+  line-height: 1.35;
+}
+
+.pf-presentation-shell .text-base {
+  font-size: var(--pf-text-regular) !important;
+  line-height: 1.35;
+}
+
+.pf-presentation-shell :where(p, li, label, figcaption, td, th, input, textarea, select) {
+  font-size: max(var(--pf-text-regular), 1em);
+  line-height: 1.35;
+}
+
+.pf-presentation-shell :where(button) {
+  font-size: max(var(--pf-text-min), 1em);
+}
+
+@media (max-height: 820px) {
+  .pf-presentation-shell header {
+    padding-top: 0.5rem;
+  }
+
+  .pf-presentation-shell main {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .pf-presentation-shell footer {
+    padding-top: 0.25rem;
+    padding-bottom: 0.5rem;
+  }
+}
+
+@media (min-width: 1920px) {
+  .pf-presentation-shell {
+    --pf-text-min: 20px;
+    --pf-text-regular: 22px;
+  }
+
+  .pf-presentation-shell main {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1280px) and (max-width: 1919px) {
+  .pf-presentation-shell {
+    --pf-text-min: 19px;
+    --pf-text-regular: 21px;
+  }
+}

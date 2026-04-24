@@ -123,11 +123,11 @@ export function SlidePili2() {
 
   return (
     <div className="w-full h-full flex items-center justify-center overflow-hidden">
-      <div className="w-full max-w-[1400px] grid grid-cols-1 md:grid-cols-[1.8fr_1fr] gap-4 md:gap-8 items-center">
+      <div className="w-full max-w-[1800px] grid grid-cols-1 md:grid-cols-[2.5fr_1fr] gap-4 md:gap-6 items-center px-3 md:px-4">
         <div className="flex flex-col gap-3 min-w-0">
           {/* Badge */}
           <div className="flex items-center gap-3">
-            <span className="font-[family-name:var(--font-pf-display)] text-[clamp(18px,1.8vh,22px)] text-[var(--color-pf-ink)]">
+            <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)] text-[var(--color-pf-ink)]">
               PILI
             </span>
             <span
@@ -139,12 +139,12 @@ export function SlidePili2() {
           </div>
 
           {/* Título */}
-          <h1 className="font-[family-name:var(--font-pf-display)] uppercase leading-[0.88] tracking-tight text-[clamp(36px,min(5.5vw,7vh),72px)] text-[var(--color-pf-ink)] whitespace-nowrap">
+          <h1 className="font-[family-name:var(--font-pf-display)] uppercase leading-[0.88] tracking-tight text-[clamp(36px,min(5.5vw,7vh),72px)] text-[var(--color-pf-ink)]">
             {allDone ? "¡Ordenado!" : "Ordena el email"}
           </h1>
 
           {/* Instrucción */}
-          <p className="text-[clamp(16px,2vw,24px)] font-semibold text-white bg-[var(--color-pf-ink)] inline-block px-5 py-2 rounded-full">
+          <p className="text-[clamp(22px,min(2.6vw,3.2vh),32px)] font-semibold text-white bg-[var(--color-pf-ink)] w-fit px-5 py-2 rounded-full">
             {phase === 0
               ? "Las partes del email están desordenadas."
               : allDone
@@ -157,7 +157,7 @@ export function SlidePili2() {
             <div className="mt-4">
               <button
                 onClick={() => setPhase(1)}
-                className="px-10 py-4 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-[clamp(16px,2vh,22px)] hover:scale-[1.02] transition"
+                className="px-10 py-4 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)] hover:scale-[1.02] transition"
                 style={{ animation: "btnPulse 2s ease-in-out infinite" }}
               >
                 SIGUIENTE
@@ -168,7 +168,7 @@ export function SlidePili2() {
           {/* ── FASE 1: Esqueleto + banco de piezas ── */}
           {phase === 1 && (
             <div
-              className="grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-3 md:gap-5"
+              className="grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-3 md:gap-5 items-start"
               style={{ animation: "cardIn 400ms cubic-bezier(0.2,0.8,0.2,1)" }}
             >
               {/* Columna izquierda: esqueleto del email */}
@@ -180,13 +180,13 @@ export function SlidePili2() {
                     weight="duotone"
                     className="text-[var(--color-pf-ink)] opacity-60"
                   />
-                  <span className="font-[family-name:var(--font-pf-display)] text-[clamp(16px,1.3vw,17px)] text-[var(--color-pf-ink)] tracking-wide">
+                  <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)] text-[var(--color-pf-ink)] tracking-wide">
                     EMAIL
                   </span>
                 </div>
 
                 {/* Slots */}
-                <div className="px-3 py-3 flex flex-col gap-2">
+                <div className="px-3 py-2 flex flex-col gap-1.5">
                   {SLOTS.map((slot, i) => {
                     const filledId = placed.get(slot.order);
                     const filledBlock = filledId
@@ -222,7 +222,7 @@ export function SlidePili2() {
                       >
                         {/* Número de posición */}
                         <span
-                          className="w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0"
+                          className="w-6 h-6 rounded-full flex items-center justify-center text-base font-bold flex-shrink-0"
                           style={{
                             background: filledBlock ? filledBlock.color : "rgba(10,10,10,0.08)",
                             color: filledBlock ? "white" : "rgba(10,10,10,0.3)",
@@ -240,12 +240,12 @@ export function SlidePili2() {
                             />
                             <div className="flex flex-col min-w-0 flex-1">
                               <span
-                                className="font-[family-name:var(--font-pf-display)] text-[clamp(16px,1.2vw,17px)] font-bold tracking-wider uppercase"
+                                className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)] font-bold tracking-wider uppercase"
                                 style={{ color: filledBlock.color }}
                               >
                                 {filledBlock.label}
                               </span>
-                              <span className="text-[clamp(16px,1.1vw,17px)] leading-snug text-[var(--color-pf-ink)] opacity-70 truncate">
+                              <span className="text-[clamp(20px,min(2.2vw,2.8vh),28px)] leading-snug text-[var(--color-pf-ink)] opacity-70 truncate">
                                 {filledBlock.preview}
                               </span>
                             </div>
@@ -260,7 +260,7 @@ export function SlidePili2() {
                             />
                           </>
                         ) : (
-                          <span className="text-[clamp(16px,1.2vw,17px)] text-[var(--color-pf-ink)] opacity-20 font-semibold">
+                          <span className="text-[clamp(20px,min(2.2vw,2.8vh),28px)] text-[var(--color-pf-ink)] opacity-20 font-semibold">
                             {selected ? "¿Va aquí?" : "· · ·"}
                           </span>
                         )}
@@ -271,8 +271,8 @@ export function SlidePili2() {
               </div>
 
               {/* Columna derecha: banco de piezas sueltas */}
-              <div className="flex flex-col gap-2">
-                <span className="font-[family-name:var(--font-pf-display)] text-[clamp(16px,1.3vw,17px)] text-[var(--color-pf-ink)] opacity-50 tracking-wide mb-1">
+              <div className="flex flex-col gap-1.5">
+                <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)] text-[var(--color-pf-ink)] opacity-50 tracking-wide">
                   PIEZAS
                 </span>
                 {SCRAMBLED.map((block, i) => {
@@ -283,14 +283,14 @@ export function SlidePili2() {
                     return (
                       <div
                         key={block.id}
-                        className="flex items-center gap-2.5 rounded-[10px] px-3 py-2 border-2 opacity-20"
+                        className="flex items-center gap-2 rounded-lg px-2.5 py-1 border-2 opacity-20"
                         style={{ borderColor: "rgba(10,10,10,0.06)", background: "rgba(10,10,10,0.02)" }}
                       >
                         <div
                           className="w-[3px] rounded-full flex-shrink-0 self-stretch"
                           style={{ background: "rgba(10,10,10,0.1)" }}
                         />
-                        <span className="text-[clamp(16px,1.2vw,17px)] text-[var(--color-pf-ink)] line-through">
+                        <span className="text-[clamp(20px,min(2.2vw,2.8vh),28px)] text-[var(--color-pf-ink)] line-through">
                           {block.label}
                         </span>
                       </div>
@@ -301,7 +301,7 @@ export function SlidePili2() {
                     <button
                       key={block.id}
                       onClick={() => handleBlockClick(block.id)}
-                      className="flex items-center gap-2.5 rounded-[10px] px-3 py-2.5 border-2 text-left transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+                      className="flex items-center gap-2 rounded-lg px-2.5 py-1.5 border-2 text-left transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
                       style={{
                         borderColor: isSelected ? block.color : "rgba(10,10,10,0.08)",
                         background: isSelected
@@ -317,20 +317,18 @@ export function SlidePili2() {
                     >
                       {/* Barra de color */}
                       <div
-                        className="w-[4px] rounded-full flex-shrink-0 self-stretch"
+                        className="w-[3px] rounded-full flex-shrink-0 self-stretch"
                         style={{ background: block.color }}
                       />
-                      <div className="flex flex-col min-w-0 flex-1">
-                        <span
-                          className="font-[family-name:var(--font-pf-display)] text-[clamp(16px,1.2vw,17px)] font-bold tracking-wide uppercase"
-                          style={{ color: block.color }}
-                        >
-                          {block.label}
-                        </span>
-                        <span className="text-[clamp(16px,1.1vw,17px)] leading-snug text-[var(--color-pf-ink)] opacity-70">
-                          {block.preview}
-                        </span>
-                      </div>
+                      <span
+                        className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)] font-bold tracking-wide uppercase"
+                        style={{ color: block.color }}
+                      >
+                        {block.label}
+                      </span>
+                      <span className="text-[clamp(20px,min(2.2vw,2.8vh),28px)] leading-snug text-[var(--color-pf-ink)] opacity-60 truncate min-w-0">
+                        {block.preview}
+                      </span>
                     </button>
                   );
                 })}

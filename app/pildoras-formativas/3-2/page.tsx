@@ -8,6 +8,7 @@ import { SlideCierre } from "@/components/pildoras-formativas/slides/slide-cierr
 import { SlidePili1 } from "@/components/pildoras-formativas/slides/3-2/slide-pili-1";
 import { SlidePili2 } from "@/components/pildoras-formativas/slides/3-2/slide-pili-2";
 import { SlideFlora1 } from "@/components/pildoras-formativas/slides/3-2/slide-flora-1";
+import { SlideFlora2 } from "@/components/pildoras-formativas/slides/3-2/slide-flora-2";
 
 /* ── Tipos ── */
 type ContentSlide = {
@@ -60,7 +61,7 @@ export default function Pildora32Page() {
 
   return (
     <div
-      className="fixed inset-0 flex flex-col overflow-y-auto md:overflow-hidden transition-colors duration-500 font-[family-name:var(--font-pf-ui)]"
+      className="pf-presentation-shell fixed inset-0 flex flex-col overflow-y-auto overflow-x-hidden transition-colors duration-500 font-[family-name:var(--font-pf-ui)]"
       style={{ background: slide.bg }}
     >
       {slide.kind !== "opening" && (
@@ -73,10 +74,10 @@ export default function Pildora32Page() {
             <House size={22} weight="bold" />
           </button>
           <div className="text-center leading-tight">
-            <div className="font-[family-name:var(--font-pf-display)] text-sm md:text-xl tracking-wide">
+            <div className="font-[family-name:var(--font-pf-display)] text-base sm:text-lg md:text-xl tracking-wide">
               PÍLDORA FORMATIVA 3.2
             </div>
-            <div className="text-xs md:text-base opacity-70 font-medium tracking-wider uppercase">
+            <div className="text-base md:text-lg opacity-70 font-medium tracking-wider uppercase">
               Un Correo Electrónico Personal · Unidad 3 · v0.2
             </div>
           </div>
@@ -88,7 +89,7 @@ export default function Pildora32Page() {
         </header>
       )}
 
-      <main className="flex-1 min-h-0 flex items-center justify-center px-3 md:px-6 py-1 overflow-x-hidden overflow-y-auto md:overflow-hidden">
+      <main className="flex-1 min-h-0 flex items-center justify-center px-3 md:px-6 py-2 overflow-x-hidden overflow-y-auto">
         {slide.kind === "opening" && (
           <SlideOpening
             onStart={next}
@@ -101,7 +102,7 @@ export default function Pildora32Page() {
         {slide.kind === "pili1" && <SlidePili1 />}
         {slide.kind === "pili2" && <SlidePili2 />}
         {slide.kind === "flora1" && <SlideFlora1 />}
-        {slide.kind === "flora2" && <PlaceholderSlide title="¿Qué se repite?" agent="FLORA" desc="Código de colores: azul (estructura) / rojo (personal)" />}
+        {slide.kind === "flora2" && <SlideFlora2 />}
         {slide.kind === "vito1" && <PlaceholderSlide title="De Marta a ti" agent="VITO" desc="Transformar el modelo paso a paso" />}
         {slide.kind === "vito2" && <PlaceholderSlide title="Tu correo: 5 bloques" agent="VITO" desc="Writing frame con inicio de cada párrafo" />}
         {slide.kind === "luna1" && <PlaceholderSlide title="¿Has entendido?" agent="LUNA" desc="6 preguntas de comprensión" />}
@@ -112,15 +113,15 @@ export default function Pildora32Page() {
       </main>
 
       {slide.kind !== "opening" && (
-        <footer className="flex-shrink-0 flex items-center justify-between px-3 md:px-8 pb-3 md:pb-4 pt-1">
+        <footer className="flex-shrink-0 flex flex-wrap md:flex-nowrap items-center justify-between gap-2 md:gap-4 px-3 md:px-8 pb-3 md:pb-4 pt-2">
           <button
             onClick={prev}
-            className={`px-4 md:px-6 py-2.5 md:py-3 rounded-full text-sm md:text-base font-semibold transition ${isDark ? "bg-white/15 text-white hover:bg-white/25" : "bg-white/70 text-[var(--color-pf-ink)] hover:bg-white"}`}
+            className={`px-4 md:px-6 py-2.5 md:py-3 rounded-full text-base font-semibold transition ${isDark ? "bg-white/15 text-white hover:bg-white/25" : "bg-white/70 text-[var(--color-pf-ink)] hover:bg-white"}`}
           >
             ← Anterior
           </button>
 
-          <div className="flex items-center gap-1.5 md:gap-3">
+          <div className="order-3 md:order-none w-full md:w-auto flex items-center justify-center gap-2 md:gap-3">
             {SLIDES.map((_, i) => (
               <button
                 key={i}
@@ -138,7 +139,7 @@ export default function Pildora32Page() {
           {active < SLIDES.length - 1 ? (
             <button
               onClick={next}
-              className={`px-5 md:px-8 py-2.5 md:py-3 rounded-full text-sm md:text-base font-semibold transition ${isDark ? "bg-white/90 text-[#1a1a2e] hover:bg-white" : "bg-[var(--color-pf-ink)] text-white hover:opacity-90"}`}
+              className={`px-5 md:px-8 py-2.5 md:py-3 rounded-full text-base font-semibold transition ${isDark ? "bg-white/90 text-[#1a1a2e] hover:bg-white" : "bg-[var(--color-pf-ink)] text-white hover:opacity-90"}`}
             >
               Siguiente →
             </button>
@@ -165,7 +166,7 @@ function PlaceholderSlide({ title, agent, desc, dark }: { title: string; agent: 
   return (
     <div className="flex flex-col items-center justify-center gap-6 text-center">
       <span
-        className="px-4 py-1.5 rounded-full text-sm font-bold tracking-wider"
+        className="px-4 py-1.5 rounded-full text-base font-bold tracking-wider"
         style={{ background: c.bg, color: c.fg }}
       >
         {agent}

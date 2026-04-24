@@ -116,10 +116,10 @@ export function SlideVito2() {
 
   return (
     <div className="w-full h-full flex items-center justify-center overflow-hidden">
-      <div className="w-full max-w-[1400px] grid grid-cols-1 md:grid-cols-[1.35fr_1fr] gap-4 md:gap-8 items-center">
+      <div className="w-full max-w-[1800px] grid grid-cols-1 md:grid-cols-[2.5fr_1fr] gap-4 md:gap-6 items-center px-3 md:px-4">
         <div className="flex flex-col gap-1.5 min-w-0">
           <div className="flex items-center gap-3">
-            <span className="font-[family-name:var(--font-pf-display)] text-[clamp(18px,1.8vh,22px)] text-[var(--color-pf-ink)]">
+            <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)] text-[var(--color-pf-ink)]">
               VITO
             </span>
             <span
@@ -134,7 +134,7 @@ export function SlideVito2() {
             Paso a paso
           </h1>
 
-          <p className="text-[clamp(18px,1.8vw,24px)] font-semibold text-white bg-[var(--color-pf-ink)] inline-block px-5 py-1.5 rounded-full self-start">
+          <p className="text-[clamp(22px,min(2.6vw,3.2vh),32px)] font-semibold text-white bg-[var(--color-pf-ink)] inline-block px-5 py-1.5 rounded-full self-start">
             ¿Cómo se elige el posesivo correcto?
           </p>
 
@@ -146,7 +146,7 @@ export function SlideVito2() {
               animate={{ opacity: 1, y: 0 }}
               className="bg-white rounded-2xl px-6 py-4 shadow-[0_14px_40px_-16px_rgba(0,0,0,0.14)]"
             >
-              <p className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.4vw,3vh),32px)] text-[var(--color-pf-ink)] mb-2">
+              <p className="font-[family-name:var(--font-pf-display)] text-[clamp(22px,min(2.6vw,3.2vh),32px)] text-[var(--color-pf-ink)] mb-2">
                 {(() => {
                   const [before, after] = ex.sentence.split("___");
                   return (
@@ -175,7 +175,7 @@ export function SlideVito2() {
                       key={`${ex.id}-${i}`}
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
-                      className="px-3 py-1.5 rounded-xl text-[clamp(16px,1.8vw,22px)] font-semibold text-[var(--color-pf-ink)]"
+                      className="px-3 py-1.5 rounded-xl text-[clamp(20px,min(2.2vw,2.8vh),28px)] font-semibold text-[var(--color-pf-ink)]"
                       style={{ background: s.color }}
                     >
                       <span className="opacity-60">{s.label}</span> {s.value}
@@ -193,7 +193,7 @@ export function SlideVito2() {
                       type="button"
                       onClick={() => handleChoice(i)}
                       disabled={wrongChoice === i}
-                      className={`px-6 py-2.5 rounded-xl font-bold text-[clamp(18px,2vw,26px)] cursor-pointer transition-all ${
+                      className={`px-6 py-2.5 rounded-xl font-bold text-[clamp(22px,min(2.6vw,3.2vh),32px)] cursor-pointer transition-all ${
                         wrongChoice === i
                           ? "bg-red-500/60 text-white line-through opacity-60 cursor-not-allowed"
                           : "text-white hover:scale-105 hover:opacity-90 active:scale-95"
@@ -211,7 +211,7 @@ export function SlideVito2() {
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  className="text-green-600 font-bold text-[clamp(18px,1.8vw,24px)] mt-2"
+                  className="text-green-600 font-bold text-[clamp(22px,min(2.6vw,3.2vh),32px)] mt-2"
                 >
                   ✓ {ex.answer}
                 </motion.div>
@@ -226,19 +226,19 @@ export function SlideVito2() {
               animate={{ opacity: 1, y: 0 }}
               className="bg-white rounded-2xl px-6 py-4 shadow-[0_14px_40px_-16px_rgba(0,0,0,0.14)]"
             >
-              <p className="font-[family-name:var(--font-pf-display)] text-[clamp(18px,min(2vw,2.6vh),24px)] text-[var(--color-pf-ink)] mb-2">
+              <p className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)] text-[var(--color-pf-ink)] mb-2">
                 Con nosotros y vosotros:
               </p>
               <div className="flex gap-2 flex-wrap">
-                <span className="px-3 py-1.5 rounded-xl text-[clamp(16px,1.8vw,22px)] font-semibold text-[var(--color-pf-ink)]" style={{ background: "var(--color-pf-flower-soft)" }}>
+                <span className="px-3 py-1.5 rounded-xl text-[clamp(20px,min(2.2vw,2.8vh),28px)] font-semibold text-[var(--color-pf-ink)]" style={{ background: "var(--color-pf-flower-soft)" }}>
                   ¿De quién es?
                 </span>
-                <span className="text-[clamp(16px,1.8vw,22px)] font-bold text-[var(--color-pf-ink)] self-center">+</span>
-                <span className="px-3 py-1.5 rounded-xl text-[clamp(16px,1.8vw,22px)] font-semibold text-[var(--color-pf-ink)]" style={{ background: "var(--color-pf-star-soft)" }}>
+                <span className="text-[clamp(20px,min(2.2vw,2.8vh),28px)] font-bold text-[var(--color-pf-ink)] self-center">+</span>
+                <span className="px-3 py-1.5 rounded-xl text-[clamp(20px,min(2.2vw,2.8vh),28px)] font-semibold text-[var(--color-pf-ink)]" style={{ background: "var(--color-pf-star-soft)" }}>
                   ¿Singular o plural?
                 </span>
-                <span className="text-[clamp(16px,1.8vw,22px)] font-bold text-[var(--color-pf-ink)] self-center">+</span>
-                <span className="px-3 py-1.5 rounded-xl text-[clamp(16px,1.8vw,22px)] font-semibold text-[var(--color-pf-ink)]" style={{ background: "var(--color-pf-moon-soft)" }}>
+                <span className="text-[clamp(20px,min(2.2vw,2.8vh),28px)] font-bold text-[var(--color-pf-ink)] self-center">+</span>
+                <span className="px-3 py-1.5 rounded-xl text-[clamp(20px,min(2.2vw,2.8vh),28px)] font-semibold text-[var(--color-pf-ink)]" style={{ background: "var(--color-pf-moon-soft)" }}>
                   ¿Femenino o masculino?
                 </span>
               </div>
@@ -249,20 +249,20 @@ export function SlideVito2() {
             <button
               onClick={handlePrev}
               disabled={!canPrev}
-              className="w-11 h-11 rounded-full bg-white/80 text-[var(--color-pf-ink)] font-bold text-lg disabled:opacity-30 hover:bg-white transition flex-shrink-0"
+              className="w-11 h-11 rounded-full bg-white/80 text-[var(--color-pf-ink)] font-bold text-base disabled:opacity-30 hover:bg-white transition flex-shrink-0"
               aria-label="Atrás"
             >
               ←
             </button>
             {isChoiceStep ? (
-              <span className="px-7 py-2.5 rounded-full bg-[var(--color-pf-ink)]/20 text-[var(--color-pf-ink)] font-[family-name:var(--font-pf-display)] text-lg">
+              <span className="px-7 py-2.5 rounded-full bg-[var(--color-pf-ink)]/20 text-[var(--color-pf-ink)] font-[family-name:var(--font-pf-display)] text-base">
                 ↑ ELIGE
               </span>
             ) : (
               <button
                 onClick={() => canNext && setStep(step + 1)}
                 disabled={!canNext}
-                className="px-7 py-2.5 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-lg disabled:opacity-40 hover:opacity-90 transition"
+                className="px-7 py-2.5 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-base disabled:opacity-40 hover:opacity-90 transition"
               >
                 {step === 0
                   ? "EMPEZAR"

@@ -95,16 +95,16 @@ export function SlideDesafioB() {
   /* ====== SETUP ====== */
   if (phase === "setup") {
     return (
-      <div className="w-full h-full relative overflow-hidden rounded-[20px]">
+      <div className="w-full h-full relative overflow-x-hidden overflow-y-auto rounded-[20px]">
         <PixelStar x="5%" y="8%" delay="0s" /><PixelStar x="92%" y="6%" delay="0.6s" />
         <PixelStar x="10%" y="85%" delay="1.2s" /><PixelStar x="88%" y="78%" delay="0.3s" />
         <PixelStar x="45%" y="3%" delay="0.9s" /><PixelStar x="75%" y="92%" delay="1.5s" />
 
-        <div className="relative z-10 w-full h-full flex items-center justify-center">
-          <div className="flex gap-4 md:gap-12 items-center max-w-[1200px] w-full px-8">
+        <div className="relative z-10 w-full min-h-full flex items-center justify-center py-4">
+          <div className="flex flex-col-reverse lg:flex-row gap-5 lg:gap-12 items-center max-w-[1200px] w-full px-4 md:px-8">
             {/* Left — título y config */}
             <div className="flex-1 flex flex-col items-center gap-5">
-              <p className="font-[family-name:var(--font-pf-display)] text-xl tracking-[0.3em] uppercase"
+              <p className="font-[family-name:var(--font-pf-display)] text-[clamp(22px,min(2.6vw,3.2vh),32px)] tracking-[0.3em] uppercase"
                 style={{ color: "#ff6b4a", textShadow: "0 0 10px rgba(255,107,74,0.5)", animation: "blink 1.2s step-end infinite" }}>
                 ¡A JUGAR!
               </p>
@@ -123,7 +123,7 @@ export function SlideDesafioB() {
               </div>
 
               {/* Config */}
-              <div className="flex items-center gap-6 mt-2 rounded-2xl px-8 py-5"
+              <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 mt-2 rounded-2xl px-4 md:px-8 py-4 md:py-5"
                 style={{ background: "rgba(0,0,0,0.2)", border: "1px solid rgba(255,255,255,0.08)" }}>
                 <div className="flex items-center gap-2">
                   <span className="font-[family-name:var(--font-pf-display)] text-[17px] tracking-wider uppercase" style={{ color: "rgba(255,255,255,0.6)" }}>EQUIPOS</span>
@@ -144,7 +144,7 @@ export function SlideDesafioB() {
                   <span className="font-[family-name:var(--font-pf-display)] text-[17px] tracking-wider uppercase" style={{ color: "rgba(255,255,255,0.6)" }}>TIEMPO</span>
                   {[5,8,10].map(s=>(
                     <button key={s} onClick={()=>setTimerSec(s)}
-                      className="px-4 rounded-full font-[family-name:var(--font-pf-display)] text-xl transition active:scale-90"
+                      className="px-4 rounded-full font-[family-name:var(--font-pf-display)] text-base transition active:scale-90"
                       style={{
                         height: 52,
                         background: timerSec===s ? "#ff6b4a" : "transparent",
@@ -157,7 +157,7 @@ export function SlideDesafioB() {
               </div>
 
               <button onClick={start}
-                className="mt-2 px-20 py-5 rounded-full font-[family-name:var(--font-pf-display)] text-4xl text-white uppercase tracking-wider transition active:scale-95"
+                className="mt-2 px-10 md:px-20 py-4 md:py-5 rounded-full font-[family-name:var(--font-pf-display)] text-[clamp(24px,min(3vw,3.8vh),38px)] text-white uppercase tracking-wider transition active:scale-95"
                 style={{
                   background: "linear-gradient(180deg, #ff6b4a 0%, #e05530 100%)",
                   boxShadow: "0 0 30px rgba(255,107,74,0.5), 0 6px 0 #b03a1a, 0 8px 20px rgba(0,0,0,0.4)",
@@ -170,9 +170,9 @@ export function SlideDesafioB() {
 
             {/* Right — Chipi */}
             <div className="flex-shrink-0 flex flex-col items-center gap-4">
-              <div className="rounded-xl px-5 py-3 max-w-[200px]"
+              <div className="rounded-xl px-5 py-3 max-w-[280px]"
                 style={{ background: "rgba(0,0,0,0.2)", border: "1px solid rgba(255,255,255,0.1)", animation: "fadeUp 500ms ease-out 800ms both" }}>
-                <p className="font-[family-name:var(--font-pf-display)] text-[clamp(15px,1.5vw,18px)] text-center leading-snug text-white/80">¿Quién abrirá la caja?</p>
+                <p className="font-[family-name:var(--font-pf-display)] text-[clamp(22px,min(2.6vw,3.2vh),32px)] text-center leading-[1.15] text-white/90">¿Quién abrirá la caja?</p>
               </div>
               <div style={{ filter: "drop-shadow(0 0 3px rgba(255,220,160,0.9)) drop-shadow(0 0 6px rgba(255,200,130,0.6))" }}>
                 <ChipiSpark className="w-[min(26vw,34vh)] h-auto" />
@@ -198,12 +198,12 @@ export function SlideDesafioB() {
     const winners = ranking.filter(r=>r.s===ranking[0].s);
 
     return (
-      <div className="w-full h-full relative overflow-hidden rounded-[20px]">
+      <div className="w-full h-full relative overflow-x-hidden overflow-y-auto rounded-[20px]">
         <PixelStar x="5%" y="10%" delay="0s" /><PixelStar x="92%" y="15%" delay="0.4s" />
         <PixelStar x="12%" y="80%" delay="0.8s" /><PixelStar x="88%" y="75%" delay="1.2s" />
 
-        <div className="relative z-10 w-full h-full flex items-center justify-center">
-          <div className="flex gap-4 md:gap-12 items-center max-w-[1200px] w-full px-8">
+        <div className="relative z-10 w-full min-h-full flex items-center justify-center py-4">
+          <div className="flex flex-col-reverse lg:flex-row gap-5 lg:gap-12 items-center max-w-[1200px] w-full px-4 md:px-8">
             {/* Left — puntuaciones */}
             <div className="flex-1 flex flex-col items-center gap-4">
               <h1 className="font-[family-name:var(--font-pf-display)] uppercase leading-[0.85] tracking-tight text-center text-[clamp(60px,10vw,120px)]"
@@ -219,7 +219,7 @@ export function SlideDesafioB() {
               </div>
 
               <div className="w-full max-w-[500px] space-y-2.5">
-                <p className="font-[family-name:var(--font-pf-display)] text-lg tracking-[0.3em] uppercase text-center mb-2"
+                <p className="font-[family-name:var(--font-pf-display)] text-base tracking-[0.3em] uppercase text-center mb-2"
                   style={{ color: "#ff6b4a", textShadow: "0 0 8px rgba(255,107,74,0.5)" }}>PUNTUACIONES</p>
                 {ranking.map((r, pos) => (
                   <div key={r.i} className="flex items-center justify-between px-6 py-4 rounded-xl"
@@ -251,9 +251,9 @@ export function SlideDesafioB() {
 
             {/* Right — Chipi */}
             <div className="flex-shrink-0 flex flex-col items-center gap-4">
-              <div className="rounded-xl px-5 py-3 max-w-[200px]"
+              <div className="rounded-xl px-5 py-3 max-w-[280px]"
                 style={{ background: "rgba(0,0,0,0.2)", border: "1px solid rgba(255,255,255,0.1)" }}>
-                <p className="font-[family-name:var(--font-pf-display)] text-[clamp(15px,1.5vw,18px)] text-center leading-snug text-white/80">{bubble}</p>
+                <p className="font-[family-name:var(--font-pf-display)] text-[clamp(22px,min(2.6vw,3.2vh),32px)] text-center leading-[1.15] text-white/90">{bubble}</p>
               </div>
               <div style={{ filter: "drop-shadow(0 0 3px rgba(255,220,160,0.9)) drop-shadow(0 0 6px rgba(255,200,130,0.6))" }}>
                 <ChipiSpark className="w-[min(24vw,30vh)] h-auto" />
@@ -275,15 +275,15 @@ export function SlideDesafioB() {
   const timerColor = pct > 60 ? "#4ade80" : pct > 30 ? "#ffe066" : "#ff6b4a";
 
   return (
-    <div className="w-full h-full relative overflow-hidden rounded-[20px]">
+    <div className="w-full h-full relative overflow-x-hidden overflow-y-auto rounded-[20px]">
       <PixelStar x="3%" y="8%" delay="0s" /><PixelStar x="97%" y="12%" delay="0.7s" />
 
-      <div className="relative z-10 w-full h-full flex gap-4 p-4">
+      <div className="relative z-10 w-full min-h-full flex flex-col lg:flex-row gap-4 p-3 md:p-4">
         {/* Main content */}
         <div className="flex-1 min-w-0 flex flex-col gap-2 rounded-2xl p-5"
           style={{ background: "rgba(0,0,0,0.2)", border: "1px solid rgba(255,255,255,0.06)" }}>
           {/* Top bar — RONDA + scores */}
-          <div className="flex-shrink-0 flex items-center justify-between">
+          <div className="flex-shrink-0 flex flex-wrap items-center justify-between gap-3">
             <div className="flex items-center gap-3">
               <span className="font-[family-name:var(--font-pf-display)] text-base tracking-[0.2em] uppercase"
                 style={{ color: "#ff6b4a", textShadow: "0 0 8px rgba(255,107,74,0.5)" }}>
@@ -291,7 +291,7 @@ export function SlideDesafioB() {
               </span>
               <span className="font-[family-name:var(--font-pf-display)] text-3xl text-white"
                 style={{ textShadow: "0 0 10px rgba(255,255,255,0.3)" }}>
-                {roundIdx + 1}<span className="text-lg text-white/30">/{ROUNDS.length}</span>
+                {roundIdx + 1}<span className="text-base text-white/30">/{ROUNDS.length}</span>
               </span>
               <div className="flex items-center gap-1.5 ml-1">
                 {ROUNDS.map((_, i) => (
@@ -308,11 +308,11 @@ export function SlideDesafioB() {
               {Array.from({ length: numTeams }, (_, i) => (
                 <div key={i} className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg"
                   style={{ background: "rgba(0,0,0,0.2)", border: `1px solid ${TEAMS[i].bg}30` }}>
-                  <span className="font-[family-name:var(--font-pf-display)] text-sm font-bold"
+                  <span className="font-[family-name:var(--font-pf-display)] text-base font-bold"
                     style={{ color: TEAMS[i].neon }}>{TEAMS[i].name}</span>
-                  <span className="font-[family-name:var(--font-pf-display)] text-xl font-bold text-white">{scores[i]}</span>
+                  <span className="font-[family-name:var(--font-pf-display)] text-base font-bold text-white">{scores[i]}</span>
                   {streaks[i] >= 2 && (
-                    <span className="font-[family-name:var(--font-pf-display)] text-xs font-bold"
+                    <span className="font-[family-name:var(--font-pf-display)] text-base font-bold"
                       style={{ color: "#ff6b4a" }}>x{Math.min(streaks[i], 3)}</span>
                   )}
                 </div>
@@ -324,7 +324,7 @@ export function SlideDesafioB() {
           <div className="flex-shrink-0 flex items-center justify-center py-1">
             {phase === "question" ? (
               <div className="flex items-center gap-4">
-                <div className="w-32 md:w-48 h-3 rounded-full overflow-hidden" style={{ background: "rgba(255,255,255,0.08)" }}>
+                <div className="w-28 sm:w-32 md:w-48 h-3 rounded-full overflow-hidden" style={{ background: "rgba(255,255,255,0.08)" }}>
                   <div className="h-full rounded-full transition-[width] duration-1000 ease-linear"
                     style={{ width: `${pct}%`, background: timerColor, boxShadow: `0 0 10px ${timerColor}` }} />
                 </div>
@@ -334,7 +334,7 @@ export function SlideDesafioB() {
                 </span>
               </div>
             ) : (
-              <span className="font-[family-name:var(--font-pf-display)] text-xl tracking-[0.3em] uppercase"
+              <span className="font-[family-name:var(--font-pf-display)] text-base tracking-[0.3em] uppercase"
                 style={{ color: "#4ade80", textShadow: "0 0 10px rgba(74,222,128,0.5)", animation: "blink 0.8s step-end 3" }}>
                 ★ RESPUESTA ★
               </span>
@@ -363,7 +363,7 @@ export function SlideDesafioB() {
           </div>
 
           {/* Options A/B/C */}
-          <div className="flex-shrink-0 flex justify-center gap-4 md:gap-8 mb-2">
+          <div className="flex-shrink-0 flex flex-wrap justify-center gap-3 md:gap-6 mb-2">
             {round.options.map((opt, i) => {
               const isCorrect = phase === "marking" && i === round.correct;
               const isFaded = phase === "marking" && i !== round.correct;
@@ -383,7 +383,7 @@ export function SlideDesafioB() {
                     }}>
                     {OPTION_LABELS[i]}
                   </div>
-                  <span className="font-[family-name:var(--font-pf-display)] text-[clamp(16px,1.2vw,18px)] transition-all duration-300"
+                  <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)] transition-all duration-300"
                     style={{ color: isFaded ? "rgba(255,255,255,0.1)" : "rgba(255,255,255,0.5)" }}>
                     {i === 0 ? "☝️ 1 dedo" : i === 1 ? "✌️ 2 dedos" : "🤟 3 dedos"}
                   </span>
@@ -403,7 +403,7 @@ export function SlideDesafioB() {
           <div className="flex-shrink-0">
             {phase === "question" && (
               <button onClick={reveal}
-                className="w-full py-3.5 rounded-full font-[family-name:var(--font-pf-display)] text-[clamp(18px,2vw,26px)] text-white uppercase tracking-wider transition active:scale-[0.98]"
+                className="w-full py-3.5 rounded-full font-[family-name:var(--font-pf-display)] text-[clamp(22px,min(2.6vw,3.2vh),32px)] text-white uppercase tracking-wider transition active:scale-[0.98]"
                 style={{
                   background: "linear-gradient(180deg, #ff6b4a 0%, #e05530 100%)",
                   boxShadow: "0 0 24px rgba(255,107,74,0.4), 0 4px 0 #b03a1a",
@@ -415,10 +415,10 @@ export function SlideDesafioB() {
             {phase === "marking" && (
               <div className="space-y-2.5">
                 <div className="flex items-center gap-2 flex-wrap">
-                  <span className="font-[family-name:var(--font-pf-display)] text-sm tracking-wider uppercase text-white/50">¿ACIERTO?</span>
+                  <span className="font-[family-name:var(--font-pf-display)] text-base tracking-wider uppercase text-white/50">¿ACIERTO?</span>
                   {Array.from({ length: numTeams }, (_, i) => (
                     <button key={i} onClick={() => toggleTeam(i)} disabled={busy}
-                      className="px-4 py-2 rounded-full font-[family-name:var(--font-pf-display)] text-[clamp(16px,1.5vw,20px)] transition active:scale-95 disabled:opacity-40"
+                      className="px-4 py-2 rounded-full font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)] transition active:scale-95 disabled:opacity-40"
                       style={{
                         background: checked[i] ? TEAMS[i].bg : "rgba(255,255,255,0.06)",
                         color: checked[i] ? "#fff" : TEAMS[i].neon,
@@ -430,10 +430,10 @@ export function SlideDesafioB() {
                   ))}
                 </div>
                 <div className="flex items-center gap-2 flex-wrap">
-                  <span className="font-[family-name:var(--font-pf-display)] text-sm tracking-wider uppercase" style={{ color: "#ffe066" }}>¿MÁS RÁPIDO? (+1)</span>
+                  <span className="font-[family-name:var(--font-pf-display)] text-base tracking-wider uppercase" style={{ color: "#ffe066" }}>¿MÁS RÁPIDO? (+1)</span>
                   {Array.from({ length: numTeams }, (_, i) => (
                     <button key={i} onClick={() => toggleSpeed(i)} disabled={busy}
-                      className="px-3 py-1.5 rounded-full font-[family-name:var(--font-pf-display)] text-[clamp(15px,1.3vw,18px)] transition active:scale-95 disabled:opacity-40"
+                      className="px-3 py-1.5 rounded-full font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)] transition active:scale-95 disabled:opacity-40"
                       style={{
                         background: fastest === i ? "#ffe066" : "rgba(255,255,255,0.04)",
                         color: fastest === i ? "#1e0f05" : "rgba(255,255,255,0.35)",
@@ -445,7 +445,7 @@ export function SlideDesafioB() {
                   ))}
                 </div>
                 <button onClick={confirmRound} disabled={busy}
-                  className="w-full py-3 rounded-full font-[family-name:var(--font-pf-display)] text-[clamp(18px,2vw,26px)] text-white uppercase tracking-wider transition active:scale-[0.98] disabled:opacity-50"
+                  className="w-full py-3 rounded-full font-[family-name:var(--font-pf-display)] text-[clamp(22px,min(2.6vw,3.2vh),32px)] text-white uppercase tracking-wider transition active:scale-[0.98] disabled:opacity-50"
                   style={{
                     background: busy ? "linear-gradient(180deg, #4ade80 0%, #22c55e 100%)" : "linear-gradient(180deg, #ff6b4a 0%, #e05530 100%)",
                     boxShadow: busy ? "0 0 16px rgba(74,222,128,0.4), 0 4px 0 #16a34a" : "0 0 20px rgba(255,107,74,0.4), 0 4px 0 #b03a1a",
@@ -459,13 +459,13 @@ export function SlideDesafioB() {
         </div>
 
         {/* Right — Chipi */}
-        <div className="w-[120px] md:w-[160px] flex-shrink-0 flex flex-col items-center justify-end gap-3 pb-2">
-          <div className="rounded-xl px-3.5 py-2.5 max-w-[160px]" key={`${roundIdx}-${phase}-${busy}`}
+        <div className="w-full lg:w-[160px] flex-shrink-0 flex flex-row lg:flex-col items-center justify-center lg:justify-end gap-3 pb-2">
+          <div className="rounded-xl px-4 py-3 max-w-[280px]" key={`${roundIdx}-${phase}-${busy}`}
             style={{ background: "rgba(0,0,0,0.2)", border: "1px solid rgba(255,255,255,0.08)", animation: "fadeUp 400ms ease-out" }}>
-            <p className="font-[family-name:var(--font-pf-display)] text-[clamp(15px,1.5vw,18px)] text-center leading-snug text-white/80">{bubble}</p>
+            <p className="font-[family-name:var(--font-pf-display)] text-[clamp(22px,min(2.6vw,3.2vh),32px)] text-center leading-[1.15] text-white/90">{bubble}</p>
           </div>
           <div style={{ filter: "drop-shadow(0 0 3px rgba(255,220,160,0.9)) drop-shadow(0 0 6px rgba(255,200,130,0.6))" }}>
-            <ChipiSpark className="w-[110px] h-auto" />
+            <ChipiSpark className="w-[90px] md:w-[110px] h-auto" />
           </div>
         </div>
       </div>

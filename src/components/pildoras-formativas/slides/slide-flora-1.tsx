@@ -50,10 +50,10 @@ export function SlideFlora1() {
 
   return (
     <div className="w-full h-full flex items-center justify-center overflow-hidden">
-      <div className="w-full max-w-[1400px] grid grid-cols-1 md:grid-cols-[1.35fr_1fr] gap-4 md:gap-10 items-center">
+      <div className="w-full max-w-[1800px] grid grid-cols-1 md:grid-cols-[2.5fr_1fr] gap-4 md:gap-6 items-center px-3 md:px-4">
         <div className="flex flex-col gap-3 min-w-0">
           <div className="flex items-center gap-3">
-            <span className="font-[family-name:var(--font-pf-display)] text-[clamp(18px,1.8vh,22px)] text-[var(--color-pf-ink)]">
+            <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)] text-[var(--color-pf-ink)]">
               FLORA
             </span>
             <span
@@ -71,7 +71,7 @@ export function SlideFlora1() {
             ¿El dueño importa?
           </h1>
 
-          <p className="text-[clamp(18px,2.2vw,28px)] font-semibold text-white bg-[var(--color-pf-ink)] inline-block px-6 py-2.5 rounded-full self-start">
+          <p className="text-[clamp(22px,min(2.6vw,3.2vh),32px)] font-semibold text-white bg-[var(--color-pf-ink)] inline-block px-6 py-2.5 rounded-full self-start">
             Tres personas, la misma palabra. ¿Por qué?
           </p>
 
@@ -104,7 +104,7 @@ export function SlideFlora1() {
                           <motion.span
                             initial={{ opacity: 0, x: -10 }}
                             animate={{ opacity: 1, x: 0 }}
-                            className="font-[family-name:var(--font-pf-display)] text-[clamp(16px,1.8vw,22px)] text-[var(--color-pf-ink)]"
+                            className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)] text-[var(--color-pf-ink)]"
                           >
                             {item.owner}
                           </motion.span>
@@ -114,7 +114,7 @@ export function SlideFlora1() {
                             initial={{ scale: 0.8 }}
                             animate={{ scale: 1 }}
                             transition={{ type: "spring", stiffness: 400, damping: 20, delay: 0.1 }}
-                            className="inline-block px-3 py-0.5 rounded-lg text-white font-[family-name:var(--font-pf-display)] text-[clamp(20px,2.4vw,30px)]"
+                            className="inline-block px-3 py-0.5 rounded-lg text-white font-[family-name:var(--font-pf-display)] text-[clamp(22px,min(2.6vw,3.2vh),32px)]"
                             style={{ background: "var(--color-pf-spark)" }}
                           >
                             {item.pos}
@@ -123,7 +123,7 @@ export function SlideFlora1() {
                             initial={{ opacity: 0, x: -10 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: 0.15 }}
-                            className="font-[family-name:var(--font-pf-ui)] text-[clamp(20px,2.4vw,30px)] text-[var(--color-pf-ink)]"
+                            className="font-[family-name:var(--font-pf-ui)] text-[clamp(22px,min(2.6vw,3.2vh),32px)] text-[var(--color-pf-ink)]"
                           >
                             {item.label}
                           </motion.span>
@@ -147,7 +147,7 @@ export function SlideFlora1() {
             <button
               onClick={() => canPrev && setStep(step - 1)}
               disabled={!canPrev}
-              className="w-11 h-11 rounded-full bg-white/80 text-[var(--color-pf-ink)] font-bold text-lg disabled:opacity-30 hover:bg-white transition flex-shrink-0"
+              className="w-11 h-11 rounded-full bg-white/80 text-[var(--color-pf-ink)] font-bold text-base disabled:opacity-30 hover:bg-white transition flex-shrink-0"
               aria-label="Atrás"
             >
               ←
@@ -155,7 +155,7 @@ export function SlideFlora1() {
             <button
               onClick={() => canNext && setStep(step + 1)}
               disabled={!canNext}
-              className="px-7 py-2.5 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-lg disabled:opacity-40 hover:opacity-90 transition"
+              className="px-7 py-2.5 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-base disabled:opacity-40 hover:opacity-90 transition"
             >
               {step === 0
                 ? "EMPEZAR"

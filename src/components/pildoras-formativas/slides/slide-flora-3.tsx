@@ -61,10 +61,10 @@ export function SlideFlora3() {
 
   return (
     <div className="w-full h-full flex items-center justify-center overflow-hidden">
-      <div className="w-full max-w-[1500px] grid grid-cols-1 md:grid-cols-[1.5fr_1fr] gap-4 md:gap-6 items-center">
+      <div className="w-full max-w-[1800px] grid grid-cols-1 md:grid-cols-[2.5fr_1fr] gap-4 md:gap-6 items-center px-3 md:px-4">
         <div className="flex flex-col gap-2 min-w-0">
           <div className="flex items-center gap-3">
-            <span className="font-[family-name:var(--font-pf-display)] text-[clamp(18px,1.8vh,22px)] text-[var(--color-pf-ink)]">
+            <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)] text-[var(--color-pf-ink)]">
               FLORA
             </span>
             <span
@@ -82,14 +82,14 @@ export function SlideFlora3() {
             ¿Solo 2 formas?
           </h1>
 
-          <p className="text-[clamp(18px,1.6vw,22px)] font-semibold text-white bg-[var(--color-pf-ink)] inline-block px-5 py-1.5 rounded-full self-start">
+          <p className="text-[clamp(20px,min(2.2vw,2.8vh),28px)] font-semibold text-white bg-[var(--color-pf-ink)] inline-block px-5 py-1.5 rounded-full self-start">
             Mira cómo cambia «nuestro» y «vuestro».
           </p>
 
           {/* Morphing Text — nuestro */}
           {showMorphNuestro && (
             <div className="bg-white rounded-[24px] px-8 py-6 shadow-[0_18px_50px_-18px_rgba(0,0,0,0.15)]">
-              <p className="text-[clamp(16px,1.6vw,18px)] text-[var(--color-pf-ink)] opacity-60 mb-2 font-semibold uppercase tracking-wider">Nosotros</p>
+              <p className="text-[clamp(20px,min(2.2vw,2.8vh),28px)] text-[var(--color-pf-ink)] opacity-60 mb-2 font-semibold uppercase tracking-wider">Nosotros</p>
               <MorphingText
                 texts={FORMS_NUESTRO}
                 className="h-[clamp(50px,7vh,90px)] text-[clamp(36px,min(4.5vw,6vh),72px)] text-[var(--color-pf-ink)] font-[family-name:var(--font-pf-display)]"
@@ -100,7 +100,7 @@ export function SlideFlora3() {
           {/* Morphing Text — vuestro */}
           {showMorphVuestro && (
             <div className="bg-white rounded-[24px] px-8 py-6 shadow-[0_18px_50px_-18px_rgba(0,0,0,0.15)]">
-              <p className="text-[clamp(16px,1.6vw,18px)] text-[var(--color-pf-ink)] opacity-60 mb-2 font-semibold uppercase tracking-wider">Vosotros</p>
+              <p className="text-[clamp(20px,min(2.2vw,2.8vh),28px)] text-[var(--color-pf-ink)] opacity-60 mb-2 font-semibold uppercase tracking-wider">Vosotros</p>
               <MorphingText
                 texts={FORMS_VUESTRO}
                 className="h-[clamp(50px,7vh,90px)] text-[clamp(36px,min(4.5vw,6vh),72px)] text-[var(--color-pf-ink)] font-[family-name:var(--font-pf-display)]"
@@ -111,7 +111,7 @@ export function SlideFlora3() {
           {/* Cards de nuestro */}
           {showNuestroCards && !showMorphVuestro && (
             <div>
-              <p className="text-[clamp(16px,1.3vw,16px)] font-semibold text-[var(--color-pf-ink)] opacity-50 uppercase tracking-wider mb-2">Nosotros</p>
+              <p className="text-[clamp(20px,min(2.2vw,2.8vh),28px)] font-semibold text-[var(--color-pf-ink)] opacity-50 uppercase tracking-wider mb-2">Nosotros</p>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
                 {FORM_DETAILS.filter(f => f.group === "nuestro").map((form, i) => (
                   <FormCard key={form.pos} form={form} visible={i < nuestroVisible} />
@@ -123,13 +123,13 @@ export function SlideFlora3() {
           {/* Cards de vuestro */}
           {showVuestroCards && (
             <div>
-              <p className="text-[clamp(16px,1.3vw,16px)] font-semibold text-[var(--color-pf-ink)] opacity-50 uppercase tracking-wider mb-1 mt-2">Nosotros</p>
+              <p className="text-[clamp(20px,min(2.2vw,2.8vh),28px)] font-semibold text-[var(--color-pf-ink)] opacity-50 uppercase tracking-wider mb-1 mt-2">Nosotros</p>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mb-2">
                 {FORM_DETAILS.filter(f => f.group === "nuestro").map((form) => (
                   <FormCard key={form.pos} form={form} visible={true} />
                 ))}
               </div>
-              <p className="text-[clamp(16px,1.3vw,16px)] font-semibold text-[var(--color-pf-ink)] opacity-50 uppercase tracking-wider mb-1">Vosotros</p>
+              <p className="text-[clamp(20px,min(2.2vw,2.8vh),28px)] font-semibold text-[var(--color-pf-ink)] opacity-50 uppercase tracking-wider mb-1">Vosotros</p>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
                 {FORM_DETAILS.filter(f => f.group === "vuestro").map((form, i) => (
                   <FormCard key={form.pos} form={form} visible={i < vuestroVisible} />
@@ -145,10 +145,10 @@ export function SlideFlora3() {
               animate={{ opacity: 1, y: 0 }}
               className="flex items-center gap-4 px-5 py-3 rounded-[16px] bg-[var(--color-pf-pill-soft)]"
             >
-              <span className="font-[family-name:var(--font-pf-display)] text-[clamp(28px,min(3.4vw,4.4vh),48px)] text-[var(--color-pf-pill)] leading-none">
+              <span className="font-[family-name:var(--font-pf-display)] text-[clamp(24px,min(3vw,3.6vh),38px)] text-[var(--color-pf-pill)] leading-none">
                 4+4
               </span>
-              <span className="font-[family-name:var(--font-pf-display)] text-[clamp(16px,1.4vw,20px)] text-[var(--color-pf-ink)]">
+              <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)] text-[var(--color-pf-ink)]">
                 formas cada uno
               </span>
             </motion.div>
@@ -158,7 +158,7 @@ export function SlideFlora3() {
             <button
               onClick={() => canPrev && setStep(step - 1)}
               disabled={!canPrev}
-              className="w-11 h-11 rounded-full bg-white/80 text-[var(--color-pf-ink)] font-bold text-lg disabled:opacity-30 hover:bg-white transition flex-shrink-0"
+              className="w-11 h-11 rounded-full bg-white/80 text-[var(--color-pf-ink)] font-bold text-base disabled:opacity-30 hover:bg-white transition flex-shrink-0"
               aria-label="Atrás"
             >
               ←
@@ -166,7 +166,7 @@ export function SlideFlora3() {
             <button
               onClick={() => canNext && setStep(step + 1)}
               disabled={!canNext}
-              className="px-7 py-2.5 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-lg disabled:opacity-40 hover:opacity-90 transition"
+              className="px-7 py-2.5 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-base disabled:opacity-40 hover:opacity-90 transition"
             >
               {step === 0
                 ? "VER LAS FORMAS"
@@ -208,7 +208,7 @@ function FormCard({ form, visible }: { form: Form; visible: boolean }) {
       className="rounded-[14px] px-3 py-2.5 shadow-[0_8px_24px_-10px_rgba(0,0,0,0.1)] bg-[var(--color-pf-pill-soft)]"
     >
       <span
-        className="inline-block px-2.5 py-0.5 rounded-md text-white font-[family-name:var(--font-pf-display)] text-[clamp(16px,1.8vw,24px)]"
+        className="inline-block px-2.5 py-0.5 rounded-md text-white font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)]"
         style={{
           background: form.gender === "masculino"
             ? "var(--color-pf-moon)"
@@ -217,12 +217,12 @@ function FormCard({ form, visible }: { form: Form; visible: boolean }) {
       >
         {form.pos}
       </span>
-      <span className="ml-1.5 font-[family-name:var(--font-pf-ui)] text-[clamp(16px,1.6vw,22px)] text-[var(--color-pf-ink)]">
+      <span className="ml-1.5 font-[family-name:var(--font-pf-ui)] text-[clamp(20px,min(2.2vw,2.8vh),28px)] text-[var(--color-pf-ink)]">
         {form.noun}
       </span>
       <div className="mt-0.5 flex gap-1">
         <span
-          className="text-[clamp(16px,1.1vw,16px)] px-1.5 py-0 rounded text-white font-semibold"
+          className="text-[clamp(20px,min(2.2vw,2.8vh),28px)] px-1.5 py-0 rounded text-white font-semibold"
           style={{
             background: form.gender === "masculino"
               ? "var(--color-pf-moon)"
@@ -232,7 +232,7 @@ function FormCard({ form, visible }: { form: Form; visible: boolean }) {
           {form.gender === "masculino" ? "masc." : "fem."}
         </span>
         <span
-          className="text-[clamp(16px,1.1vw,16px)] px-1.5 py-0 rounded text-white font-semibold"
+          className="text-[clamp(20px,min(2.2vw,2.8vh),28px)] px-1.5 py-0 rounded text-white font-semibold"
           style={{
             background: form.number === "singular"
               ? "var(--color-pf-star)"

@@ -75,12 +75,12 @@ export function SlidePilar2() {
 
   return (
     <div className="w-full h-full flex items-center justify-center overflow-hidden">
-      <div className="w-full max-w-[1400px] px-3 md:px-0 grid grid-cols-1 md:grid-cols-[1.6fr_1fr] gap-6 items-center">
+      <div className="w-full max-w-[1800px] px-3 md:px-4 grid grid-cols-1 md:grid-cols-[2.5fr_1fr] gap-6 items-center">
         <div className="flex flex-col min-w-0 h-full" style={{ perspective: "1200px" }}>
           {/* === BLOQUE SUPERIOR === */}
           <div className="flex-shrink-0 flex flex-col gap-2">
           <div className="flex items-center gap-3">
-            <span className="font-[family-name:var(--font-pf-display)] text-[clamp(18px,1.8vh,22px)] text-[var(--color-pf-ink)]">
+            <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)] text-[var(--color-pf-ink)]">
               PILI
             </span>
             <span
@@ -96,7 +96,7 @@ export function SlidePilar2() {
             <h1 className="font-[family-name:var(--font-pf-display)] uppercase leading-[0.88] tracking-tight text-[clamp(48px,min(8vw,11vh),128px)] text-[var(--color-pf-ink)]">
               ¿Uno o varios?
             </h1>
-            <p className="text-[clamp(16px,1.8vw,24px)] font-semibold text-white bg-[var(--color-pf-ink)] px-5 py-2 rounded-full">
+            <p className="text-[clamp(20px,min(2.2vw,2.8vh),28px)] font-semibold text-white bg-[var(--color-pf-ink)] px-5 py-2 rounded-full">
               Clasifica: ¿habla de uno o de varios?
             </p>
           </div>
@@ -116,7 +116,7 @@ export function SlidePilar2() {
                   exit={{ opacity: 0, scale: 0.8, y: -20 }}
                   transition={{ type: "spring", stiffness: 300, damping: 25 }}
                   whileHover={{ scale: 1.03, rotateZ: 0 }}
-                  className="bg-white rounded-[18px] px-6 py-3 font-[family-name:var(--font-pf-display)] text-[clamp(18px,min(2.2vw,2.8vh),32px)] leading-tight text-[var(--color-pf-ink)] inline-flex items-center gap-2 cursor-default"
+                  className="bg-white rounded-[18px] px-6 py-3 font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)] leading-tight text-[var(--color-pf-ink)] inline-flex items-center gap-2 cursor-default"
                   style={{
                     boxShadow: "8px 8px 0px rgba(10,10,10,0.15), 0 20px 40px -20px rgba(0,0,0,0.2)",
                     transformStyle: "preserve-3d",
@@ -133,7 +133,7 @@ export function SlidePilar2() {
                   key="done"
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="font-[family-name:var(--font-pf-display)] text-[clamp(24px,min(3.4vw,4.4vh),48px)] text-[var(--color-pf-ink)]"
+                  className="font-[family-name:var(--font-pf-display)] text-[clamp(24px,min(3vw,3.6vh),38px)] text-[var(--color-pf-ink)]"
                 >
                   ¡MUY BIEN!
                 </motion.div>
@@ -161,7 +161,7 @@ export function SlidePilar2() {
             >
               <div className="flex items-center gap-2 mb-2 whitespace-nowrap">
                 <Square size={24} weight="fill" color="var(--color-pf-ink)" className="flex-shrink-0" />
-                <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.6vw,3.4vh),36px)] text-[var(--color-pf-ink)]">
+                <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.4vw,3vh),30px)] text-[var(--color-pf-ink)]">
                   UNO
                 </span>
               </div>
@@ -172,7 +172,7 @@ export function SlidePilar2() {
                       key={p.id}
                       initial={{ opacity: 0, y: -20, scale: 1.05 }}
                       animate={{ opacity: 1, y: 0, scale: 1 }}
-                      className="bg-white rounded-lg px-3 py-1.5 text-[clamp(16px,1.6vw,20px)] font-medium text-left text-[var(--color-pf-ink)]"
+                      className="bg-white rounded-lg px-3 py-1.5 text-[clamp(20px,min(2.2vw,2.8vh),28px)] font-medium text-left text-[var(--color-pf-ink)]"
                       style={{ boxShadow: "2px 2px 0px rgba(10,10,10,0.06)" }}
                     >
                       <PhraseInline p={p} />
@@ -200,7 +200,7 @@ export function SlidePilar2() {
             >
               <div className="flex items-center gap-2 mb-2 whitespace-nowrap">
                 <GridFour size={24} weight="fill" color="var(--color-pf-ink)" className="flex-shrink-0" />
-                <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.6vw,3.4vh),36px)] text-[var(--color-pf-ink)]">
+                <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.4vw,3vh),30px)] text-[var(--color-pf-ink)]">
                   VARIOS
                 </span>
               </div>
@@ -211,7 +211,7 @@ export function SlidePilar2() {
                       key={p.id}
                       initial={{ opacity: 0, y: -20, scale: 1.05 }}
                       animate={{ opacity: 1, y: 0, scale: 1 }}
-                      className="bg-white rounded-lg px-3 py-1.5 text-[clamp(16px,1.6vw,20px)] font-medium text-left text-[var(--color-pf-ink)]"
+                      className="bg-white rounded-lg px-3 py-1.5 text-[clamp(20px,min(2.2vw,2.8vh),28px)] font-medium text-left text-[var(--color-pf-ink)]"
                       style={{ boxShadow: "2px 2px 0px rgba(10,10,10,0.06)" }}
                     >
                       <PhraseInline p={p} />

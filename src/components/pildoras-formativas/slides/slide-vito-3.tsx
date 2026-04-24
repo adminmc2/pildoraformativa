@@ -113,14 +113,14 @@ export function SlideVito3() {
 
   return (
     <div className="w-full h-full flex items-center justify-center overflow-hidden">
-      <div className="w-full max-w-[1400px] grid grid-cols-1 md:grid-cols-[1.35fr_1fr] gap-4 md:gap-10 items-center">
+      <div className="w-full max-w-[1800px] grid grid-cols-1 md:grid-cols-[2.5fr_1fr] gap-4 md:gap-6 items-center px-3 md:px-4">
         <div className="flex flex-col gap-3 min-w-0">
           <div className="flex items-center gap-3">
-            <span className="font-[family-name:var(--font-pf-display)] text-[clamp(18px,1.8vh,22px)] text-[var(--color-pf-ink)]">
+            <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)] text-[var(--color-pf-ink)]">
               VITO
             </span>
             <span
-              className="px-3 py-1 rounded-full text-xs font-semibold"
+              className="px-3 py-1 rounded-full text-base font-semibold"
               style={{ background: "var(--color-pf-pill-soft)", color: "#3F6B14" }}
             >
               Método
@@ -131,7 +131,7 @@ export function SlideVito3() {
             Completa
           </h1>
 
-          <p className="text-[clamp(16px,1.8vw,24px)] font-semibold text-white bg-[var(--color-pf-ink)] inline-block px-5 py-2 rounded-full self-start">
+          <p className="text-[clamp(20px,min(2.2vw,2.8vh),28px)] font-semibold text-white bg-[var(--color-pf-ink)] inline-block px-5 py-2 rounded-full self-start">
             Mismo parentesco, diferente posesivo. Elige.
           </p>
 
@@ -152,17 +152,17 @@ export function SlideVito3() {
                       alt={item.person}
                       className="w-12 h-12 rounded-full object-cover"
                     />
-                    <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,2.4vw,32px)] text-[var(--color-pf-ink)]">
+                    <span className="font-[family-name:var(--font-pf-display)] text-[clamp(22px,min(2.6vw,3.2vh),32px)] text-[var(--color-pf-ink)]">
                       {item.person}
                     </span>
-                    <span className="text-sm font-semibold opacity-50 ml-auto">
+                    <span className="text-base font-semibold opacity-50 ml-auto">
                       {current + 1} / {ITEMS.length}
                     </span>
                   </div>
-                  <p className="font-[family-name:var(--font-pf-ui)] text-[clamp(18px,2vw,26px)] text-[var(--color-pf-ink)] opacity-70 mb-2">
+                  <p className="font-[family-name:var(--font-pf-ui)] text-[clamp(22px,min(2.6vw,3.2vh),32px)] text-[var(--color-pf-ink)] opacity-70 mb-2">
                     {item.context}
                   </p>
-                  <p className="font-[family-name:var(--font-pf-display)] text-[clamp(24px,min(3vw,3.8vh),40px)] text-[var(--color-pf-ink)]">
+                  <p className="font-[family-name:var(--font-pf-display)] text-[clamp(24px,min(2.8vw,3.4vh),34px)] text-[var(--color-pf-ink)]">
                     {answered ? (
                       <>
                         <span className="inline-block px-3 py-0.5 rounded-lg bg-[var(--color-pf-pill)] text-white mr-1">
@@ -192,7 +192,7 @@ export function SlideVito3() {
                       whileTap={{ scale: 0.97 }}
                       onClick={() => choose(i)}
                       disabled={wrongPick === i}
-                      className={`flex-1 px-4 py-3 rounded-[18px] font-[family-name:var(--font-pf-display)] text-[clamp(20px,2.4vw,32px)] transition ${
+                      className={`flex-1 px-4 py-3 rounded-[18px] font-[family-name:var(--font-pf-display)] text-[clamp(22px,min(2.6vw,3.2vh),32px)] transition ${
                         wrongPick === i
                           ? "bg-[var(--color-pf-spark-soft)] text-[#8A2F10] line-through opacity-60"
                           : "bg-white text-[var(--color-pf-ink)] shadow-[0_8px_24px_-10px_rgba(0,0,0,0.1)] hover:shadow-[0_12px_30px_-10px_rgba(0,0,0,0.15)] cursor-pointer"
@@ -208,7 +208,7 @@ export function SlideVito3() {
               {answered && (
                 <button
                   onClick={next}
-                  className="px-7 py-2.5 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-lg hover:opacity-90 transition"
+                  className="px-7 py-2.5 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-base hover:opacity-90 transition"
                 >
                   SIGUIENTE PERSONA
                 </button>
@@ -219,12 +219,12 @@ export function SlideVito3() {
               <div className="font-[family-name:var(--font-pf-display)] text-[clamp(36px,min(5vw,7vh),72px)] text-[var(--color-pf-pill)] leading-none mb-2">
                 5 / 5
               </div>
-              <p className="font-[family-name:var(--font-pf-display)] text-[clamp(22px,2.8vh,36px)] text-[var(--color-pf-ink)]">
+              <p className="font-[family-name:var(--font-pf-display)] text-[clamp(22px,min(2.6vw,3.2vh),32px)] text-[var(--color-pf-ink)]">
                 ¡Todas las personas!
               </p>
               <button
                 onClick={reset}
-                className="mt-4 px-5 py-2 rounded-full bg-white border-2 border-[var(--color-pf-ink)] text-[var(--color-pf-ink)] text-sm font-semibold hover:bg-[var(--color-pf-pill-soft)] transition"
+                className="mt-4 px-5 py-2 rounded-full bg-white border-2 border-[var(--color-pf-ink)] text-[var(--color-pf-ink)] text-base font-semibold hover:bg-[var(--color-pf-pill-soft)] transition"
               >
                 ↺ Reiniciar
               </button>

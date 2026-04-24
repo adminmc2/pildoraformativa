@@ -35,14 +35,14 @@ export function SlideComprobacion() {
   const progress = ((TOTAL_SECONDS - seconds) / TOTAL_SECONDS) * 100;
 
   return (
-    <div className="w-full h-full max-w-[1400px] mx-auto grid grid-cols-[1.2fr_1fr] gap-8 items-stretch overflow-hidden">
+    <div className="w-full h-full max-w-[1800px] mx-auto grid grid-cols-[1.2fr_1fr] gap-8 items-stretch overflow-hidden">
       <div className="flex flex-col min-h-0 overflow-hidden justify-center">
         <div className="mb-3 flex items-center gap-3">
-          <span className="font-[family-name:var(--font-pf-display)] text-xl text-[var(--color-pf-ink)]">
+          <span className="font-[family-name:var(--font-pf-display)] text-base text-[var(--color-pf-ink)]">
             LUNA
           </span>
           <span
-            className="px-3 py-1 rounded-full text-xs font-semibold"
+            className="px-3 py-1 rounded-full text-base font-semibold"
             style={{
               background: "var(--color-pf-moon-soft)",
               color: "#3B2A8A",
@@ -61,12 +61,12 @@ export function SlideComprobacion() {
             <p className="font-[family-name:var(--font-pf-display)] text-[clamp(28px,3vw,44px)] leading-tight text-[var(--color-pf-ink)] mb-3">
               Abre el libro en la <span className="underline decoration-[var(--color-pf-moon)] decoration-[6px] underline-offset-4">página 37</span>.
             </p>
-            <p className="text-xl text-[var(--color-pf-ink)] opacity-80 mb-8">
+            <p className="text-base text-[var(--color-pf-ink)] opacity-80 mb-8">
               Mira el cuadro de posesivos. Tienes 30 segundos.
             </p>
             <button
               onClick={start}
-              className="px-8 py-4 rounded-full bg-[var(--color-pf-ink)] text-white font-semibold text-lg hover:opacity-90 transition"
+              className="px-8 py-4 rounded-full bg-[var(--color-pf-ink)] text-white font-semibold text-base hover:opacity-90 transition"
             >
               Empezar 30 s
             </button>
@@ -76,7 +76,7 @@ export function SlideComprobacion() {
         {phase === "timing" && (
           <div className="bg-white rounded-[36px] px-10 py-10 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.15)]">
             <div className="flex items-center justify-between mb-6">
-              <p className="text-xl font-semibold text-[var(--color-pf-ink)] opacity-80">
+              <p className="text-base font-semibold text-[var(--color-pf-ink)] opacity-80">
                 Página 37 · Cuadro de posesivos
               </p>
               <span className="font-[family-name:var(--font-pf-display)] text-5xl text-[var(--color-pf-moon)]">
@@ -117,7 +117,7 @@ export function SlideComprobacion() {
               </span>
               ?
             </p>
-            <p className="font-[family-name:var(--font-pf-display)] text-[clamp(22px,2.4vw,36px)] leading-tight text-[var(--color-pf-ink)] opacity-80">
+            <p className="font-[family-name:var(--font-pf-display)] text-[clamp(22px,min(2.6vw,3.2vh),32px)] leading-tight text-[var(--color-pf-ink)] opacity-80">
               ¿Por qué esa diferencia?
             </p>
             <button

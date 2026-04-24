@@ -37,10 +37,10 @@ export function SlidePilar3() {
 
   return (
     <div className="w-full h-full flex items-center justify-center overflow-hidden">
-      <div className="w-full max-w-[1400px] px-3 md:px-0 grid grid-cols-1 md:grid-cols-[1.35fr_1fr] gap-4 md:gap-10 items-center">
+      <div className="w-full max-w-[1800px] px-3 md:px-4 grid grid-cols-1 md:grid-cols-[2.5fr_1fr] gap-4 md:gap-6 items-center">
         <div className="flex flex-col gap-4 min-w-0">
           <div className="flex items-center gap-3">
-            <span className="font-[family-name:var(--font-pf-display)] text-[clamp(18px,1.8vh,22px)] text-[var(--color-pf-ink)]">
+            <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)] text-[var(--color-pf-ink)]">
               PILI
             </span>
             <span
@@ -56,7 +56,7 @@ export function SlidePilar3() {
           </h1>
 
           <div className="flex items-center gap-3">
-            <p className="text-[clamp(18px,2.2vw,28px)] font-semibold text-white bg-[var(--color-pf-ink)] inline-block px-6 py-2.5 rounded-full">
+            <p className="text-[clamp(22px,min(2.6vw,3.2vh),32px)] font-semibold text-white bg-[var(--color-pf-ink)] w-fit px-6 py-2.5 rounded-full">
               Encuentra las 2 diferencias.
             </p>
             <span className="inline-flex items-center gap-1 px-3 py-0.5 rounded-full bg-white text-[var(--color-pf-ink)] font-[family-name:var(--font-pf-display)] text-base whitespace-nowrap shadow-[0_4px_16px_-8px_rgba(0,0,0,0.15)]">
@@ -87,7 +87,7 @@ export function SlidePilar3() {
             {phase < 3 ? (
               <button
                 onClick={next}
-                className="px-8 py-3 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-[clamp(16px,2vh,22px)] hover:scale-[1.02] transition"
+                className="px-8 py-3 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)] hover:scale-[1.02] transition"
                 style={{ animation: "btnPulse 2.2s ease-in-out infinite" }}
               >
                 {phase === 0 ? "REVELAR DIFERENCIA →" : phase === 1 ? "SIGUIENTE DIFERENCIA →" : "¿CASUALIDAD?"}

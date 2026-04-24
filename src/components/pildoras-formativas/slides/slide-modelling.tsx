@@ -84,14 +84,14 @@ export function SlideModelling() {
   };
 
   return (
-    <div className="w-full max-w-[1400px] mx-auto grid grid-cols-[1fr_320px] gap-12 items-center">
+    <div className="w-full max-w-[1800px] mx-auto grid grid-cols-[1fr_320px] gap-12 items-center px-3 md:px-4">
       <div>
         <div className="mb-3 flex items-center gap-3">
-          <span className="font-[family-name:var(--font-pf-display)] text-xl text-[var(--color-pf-ink)]">
+          <span className="font-[family-name:var(--font-pf-display)] text-base text-[var(--color-pf-ink)]">
             PÍLAR
           </span>
           <span
-            className="px-3 py-1 rounded-full text-xs font-semibold"
+            className="px-3 py-1 rounded-full text-base font-semibold"
             style={{
               background: "var(--color-pf-star-soft)",
               color: "#8A6B00",
@@ -112,7 +112,7 @@ export function SlideModelling() {
             animation: "sceneIn 420ms cubic-bezier(0.2, 0.8, 0.2, 1)",
           }}
         >
-          <div className="flex items-center gap-5 mb-8 text-sm font-semibold tracking-wider">
+          <div className="flex items-center gap-5 mb-8 text-base font-semibold tracking-wider">
             <span className="px-4 py-2 rounded-full bg-[var(--color-pf-star-soft)] text-[#8A6B00]">
               {scene.poseedor}
             </span>
@@ -149,7 +149,7 @@ export function SlideModelling() {
             <button
               onClick={prevScene}
               disabled={sceneIndex === 0}
-              className="w-12 h-12 rounded-full bg-white/80 text-[var(--color-pf-ink)] font-bold text-xl disabled:opacity-30 hover:bg-white transition"
+              className="w-12 h-12 rounded-full bg-white/80 text-[var(--color-pf-ink)] font-bold text-base disabled:opacity-30 hover:bg-white transition"
               aria-label="Escena anterior"
             >
               ←
@@ -160,7 +160,7 @@ export function SlideModelling() {
             <button
               onClick={nextScene}
               disabled={isLast}
-              className="w-12 h-12 rounded-full bg-[var(--color-pf-ink)] text-white font-bold text-xl disabled:opacity-30 hover:opacity-90 transition"
+              className="w-12 h-12 rounded-full bg-[var(--color-pf-ink)] text-white font-bold text-base disabled:opacity-30 hover:opacity-90 transition"
               aria-label="Siguiente escena"
             >
               →

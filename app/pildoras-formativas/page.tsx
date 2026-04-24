@@ -101,7 +101,7 @@ export default function PildorasFormativasPage() {
       </header>
 
       <main className="flex-1 flex items-center justify-center px-4 md:px-10 pb-4">
-        <div className="w-full max-w-[1400px] grid grid-cols-1 md:grid-cols-[1.1fr_1fr] gap-6 md:gap-12 items-center">
+        <div className="w-full max-w-[1800px] grid grid-cols-1 md:grid-cols-[1.1fr_1fr] gap-6 md:gap-12 items-center">
           <div className="relative">
             <h1 className="font-[family-name:var(--font-pf-display)] uppercase leading-[0.88] tracking-tight text-[clamp(80px,12vw,200px)] text-[var(--color-pf-ink)]">
               {slide.headline.map((line, i) => (

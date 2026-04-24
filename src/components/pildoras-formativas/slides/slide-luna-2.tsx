@@ -93,10 +93,10 @@ export function SlideLuna2() {
 
   return (
     <div className="w-full h-full flex items-center justify-center overflow-hidden">
-      <div className="w-full max-w-[1400px] grid grid-cols-1 md:grid-cols-[1.35fr_1fr] gap-4 md:gap-10 items-center">
+      <div className="w-full max-w-[1800px] grid grid-cols-1 md:grid-cols-[2.5fr_1fr] gap-4 md:gap-6 items-center px-3 md:px-4">
         <div className="flex flex-col gap-3 min-w-0">
           <div className="flex items-center gap-3">
-            <span className="font-[family-name:var(--font-pf-display)] text-[clamp(18px,1.8vh,22px)] text-[var(--color-pf-ink)]">
+            <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)] text-[var(--color-pf-ink)]">
               LUNA
             </span>
             <span
@@ -111,13 +111,13 @@ export function SlideLuna2() {
             Gira y responde
           </h1>
 
-          <p className="text-[clamp(18px,1.8vw,24px)] font-semibold text-white bg-[var(--color-pf-ink)] inline-block px-5 py-2 rounded-full self-start">
+          <p className="text-[clamp(22px,min(2.6vw,3.2vh),32px)] font-semibold text-white bg-[var(--color-pf-ink)] inline-block px-5 py-2 rounded-full self-start">
             La ruleta elige la persona. Tú dices el posesivo.
           </p>
 
           <div className="flex flex-col items-center gap-4">
             {/* Ruleta + resultado en fila */}
-            <div className="flex items-center gap-4 md:gap-8 w-full">
+            <div className="flex items-center gap-4 md:gap-6 w-full">
               {/* Ruleta con segmentos de color */}
               <div className="relative flex-shrink-0" style={{ width: "clamp(200px, 24vw, 300px)", height: "clamp(200px, 24vw, 300px)" }}>
                 {/* Flecha indicadora */}
@@ -151,7 +151,7 @@ export function SlideLuna2() {
                     return (
                       <div
                         key={person}
-                        className="absolute font-[family-name:var(--font-pf-display)] text-[clamp(15px,1.2vw,16px)] text-[var(--color-pf-ink)] font-bold text-center leading-[1.1]"
+                        className="absolute font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)] text-[var(--color-pf-ink)] font-bold text-center leading-[1.1]"
                         style={{
                           left: `${x}%`,
                           top: `${y}%`,
@@ -183,17 +183,17 @@ export function SlideLuna2() {
                   >
                     <div className="flex items-center gap-3 mb-3">
                       <span
-                        className="px-4 py-1.5 rounded-full text-white font-[family-name:var(--font-pf-display)] text-[clamp(18px,2vw,26px)]"
+                        className="px-4 py-1.5 rounded-full text-white font-[family-name:var(--font-pf-display)] text-[clamp(22px,min(2.6vw,3.2vh),32px)]"
                         style={{ background: combo.color }}
                       >
                         {combo.person}
                       </span>
-                      <span className="text-[clamp(16px,1.6vw,20px)] opacity-50">
+                      <span className="text-[clamp(20px,min(2.2vw,2.8vh),28px)] opacity-50">
                         {current + 1}/{COMBOS.length}
                       </span>
                     </div>
 
-                    <p className="font-[family-name:var(--font-pf-display)] text-[clamp(28px,min(3.4vw,4.4vh),48px)] text-[var(--color-pf-ink)] mb-3">
+                    <p className="font-[family-name:var(--font-pf-display)] text-[clamp(24px,min(3vw,3.6vh),38px)] text-[var(--color-pf-ink)] mb-3">
                       + {combo.noun}
                     </p>
 
@@ -203,9 +203,9 @@ export function SlideLuna2() {
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ type: "spring", stiffness: 300, damping: 20 }}
                       >
-                        <span className="text-[clamp(22px,min(2.6vw,3.4vh),38px)] opacity-40 mr-2">→</span>
+                        <span className="text-[clamp(22px,min(2.6vw,3.2vh),32px)] opacity-40 mr-2">→</span>
                         <span
-                          className="inline-block px-5 py-2 rounded-xl text-white font-[family-name:var(--font-pf-display)] text-[clamp(28px,min(3.4vw,4.4vh),48px)]"
+                          className="inline-block px-5 py-2 rounded-xl text-white font-[family-name:var(--font-pf-display)] text-[clamp(24px,min(3vw,3.6vh),38px)]"
                           style={{ background: combo.color }}
                         >
                           {combo.answer}
@@ -216,13 +216,13 @@ export function SlideLuna2() {
                 )}
 
                 {!showNoun && !spinning && !finished && (
-                  <p className="text-[clamp(20px,2.2vw,28px)] text-[var(--color-pf-ink)] opacity-50 font-[family-name:var(--font-pf-display)]">
+                  <p className="text-[clamp(22px,min(2.6vw,3.2vh),32px)] text-[var(--color-pf-ink)] opacity-50 font-[family-name:var(--font-pf-display)]">
                     Pulsa GIRAR.
                   </p>
                 )}
 
                 {spinning && (
-                  <p className="text-[clamp(20px,2.2vw,28px)] text-[var(--color-pf-ink)] opacity-50 font-[family-name:var(--font-pf-display)] animate-pulse">
+                  <p className="text-[clamp(22px,min(2.6vw,3.2vh),32px)] text-[var(--color-pf-ink)] opacity-50 font-[family-name:var(--font-pf-display)] animate-pulse">
                     Girando...
                   </p>
                 )}
@@ -235,7 +235,7 @@ export function SlideLuna2() {
             {!finished && !showNoun && !spinning && (
               <button
                 onClick={spin}
-                className="px-8 py-3 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-[clamp(16px,2vh,22px)] hover:scale-[1.02] transition"
+                className="px-8 py-3 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)] hover:scale-[1.02] transition"
                 style={{ animation: "btnPulse 2.2s ease-in-out infinite" }}
               >
                 GIRAR
@@ -244,7 +244,7 @@ export function SlideLuna2() {
             {showNoun && !revealed && (
               <button
                 onClick={reveal}
-                className="px-8 py-3 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-[clamp(16px,2vh,22px)] hover:scale-[1.02] transition"
+                className="px-8 py-3 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)] hover:scale-[1.02] transition"
               >
                 REVELAR
               </button>
@@ -252,7 +252,7 @@ export function SlideLuna2() {
             {revealed && !finished && (
               <button
                 onClick={next}
-                className="px-7 py-2.5 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-lg hover:opacity-90 transition"
+                className="px-7 py-2.5 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-base hover:opacity-90 transition"
               >
                 SIGUIENTE RONDA
               </button>

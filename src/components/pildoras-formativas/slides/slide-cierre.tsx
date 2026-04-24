@@ -70,7 +70,7 @@ type CierreProps = {
 
 export function SlideCierre({ unidad = "Unidad 3 · La Familia" }: CierreProps) {
   return (
-    <div className="relative w-full h-full max-w-[1400px] mx-auto flex flex-col items-center justify-center text-center px-4 md:px-8 overflow-x-hidden overflow-y-auto">
+    <div className="relative w-full h-full max-w-[1800px] mx-auto flex flex-col items-center justify-center text-center px-4 md:px-8 overflow-x-hidden overflow-y-auto">
       {/* Decorative background shapes */}
       <div aria-hidden className="absolute inset-0 pointer-events-none">
         <div
@@ -146,10 +146,10 @@ export function SlideCierre({ unidad = "Unidad 3 · La Familia" }: CierreProps) 
             >
               {/* Bubble */}
               <div
-                className="rounded-xl px-3 py-1.5 mb-2 max-w-[160px] text-center"
+                className="rounded-xl px-4 py-2 mb-2 max-w-[220px] text-center"
                 style={{ background: "white", boxShadow: "0 4px 12px rgba(0,0,0,0.08)" }}
               >
-                <p className="font-[family-name:var(--font-pf-display)] text-[clamp(16px,1.3vw,18px)] leading-snug text-[var(--color-pf-ink)]">
+                <p className="font-[family-name:var(--font-pf-display)] text-[clamp(22px,min(2.6vw,3.2vh),32px)] leading-[1.15] text-[var(--color-pf-ink)]">
                   {agent.bubble}
                 </p>
               </div>
@@ -159,11 +159,11 @@ export function SlideCierre({ unidad = "Unidad 3 · La Familia" }: CierreProps) 
 
               {/* Name + badge */}
               <div className="flex flex-col items-center gap-0.5 mt-1">
-                <span className="font-[family-name:var(--font-pf-display)] text-[clamp(16px,1.4vw,18px)] text-[var(--color-pf-ink)] font-bold">
+                <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)] text-[var(--color-pf-ink)] font-bold">
                   {agent.name}
                 </span>
                 <span
-                  className="px-2 py-0.5 rounded-full text-[clamp(16px,1.1vw,16px)] font-semibold"
+                  className="px-2 py-0.5 rounded-full text-[clamp(20px,min(2.2vw,2.8vh),28px)] font-semibold"
                   style={{ background: agent.badgeBg, color: agent.badgeColor }}
                 >
                   {agent.badge}

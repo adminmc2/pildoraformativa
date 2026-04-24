@@ -135,10 +135,10 @@ export function SlideLuna3() {
 
   return (
     <div className="w-full h-full flex items-center justify-center overflow-hidden">
-      <div className="w-full max-w-[1400px] grid grid-cols-1 md:grid-cols-[1.35fr_1fr] gap-4 md:gap-10 items-center">
+      <div className="w-full max-w-[1800px] grid grid-cols-1 md:grid-cols-[2.5fr_1fr] gap-4 md:gap-6 items-center px-3 md:px-4">
         <div className="flex flex-col gap-3 min-w-0">
           <div className="flex items-center gap-3">
-            <span className="font-[family-name:var(--font-pf-display)] text-[clamp(18px,1.8vh,22px)] text-[var(--color-pf-ink)]">
+            <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)] text-[var(--color-pf-ink)]">
               LUNA
             </span>
             <span
@@ -153,7 +153,7 @@ export function SlideLuna3() {
             Completa el texto
           </h1>
 
-          <p className="text-[clamp(18px,1.8vw,24px)] font-semibold text-white bg-[var(--color-pf-ink)] inline-block px-5 py-2 rounded-full self-start">
+          <p className="text-[clamp(22px,min(2.6vw,3.2vh),32px)] font-semibold text-white bg-[var(--color-pf-ink)] inline-block px-5 py-2 rounded-full self-start">
             Toca un hueco y elige el posesivo.
           </p>
 
@@ -165,7 +165,7 @@ export function SlideLuna3() {
             className="w-full"
           >
             <div className="px-6 py-5">
-              <p className="font-[family-name:var(--font-pf-ui)] text-[clamp(20px,min(2.4vw,3vh),32px)] leading-relaxed text-[var(--color-pf-ink)]">
+              <p className="font-[family-name:var(--font-pf-ui)] text-[clamp(22px,min(2.6vw,3.2vh),32px)] leading-relaxed text-[var(--color-pf-ink)]">
                 {renderText()}
               </p>
 
@@ -196,7 +196,7 @@ export function SlideLuna3() {
                   whileTap={{ scale: 0.97 }}
                   onClick={() => chooseOption(i)}
                   disabled={wrongPick === i}
-                  className={`flex-1 px-4 py-3 rounded-[18px] font-[family-name:var(--font-pf-display)] text-[clamp(20px,2.4vw,32px)] transition ${
+                  className={`flex-1 px-4 py-3 rounded-[18px] font-[family-name:var(--font-pf-display)] text-[clamp(22px,min(2.6vw,3.2vh),32px)] transition ${
                     wrongPick === i
                       ? "bg-[var(--color-pf-spark-soft)] text-[#8A2F10] line-through opacity-60"
                       : "bg-white text-[var(--color-pf-ink)] shadow-[0_8px_24px_-10px_rgba(0,0,0,0.1)] hover:shadow-[0_12px_30px_-10px_rgba(0,0,0,0.15)] cursor-pointer"

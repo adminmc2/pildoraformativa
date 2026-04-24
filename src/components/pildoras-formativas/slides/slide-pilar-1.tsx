@@ -64,10 +64,10 @@ export function SlidePilar1() {
 
   return (
     <div className="w-full h-full flex items-center justify-center overflow-hidden">
-      <div className="w-full max-w-[1400px] px-3 md:px-0 grid grid-cols-1 md:grid-cols-[1.35fr_1fr] gap-4 md:gap-10 items-center">
+      <div className="w-full max-w-[1800px] px-3 md:px-4 grid grid-cols-1 md:grid-cols-[2.5fr_1fr] gap-4 md:gap-6 items-center">
         <div className="flex flex-col gap-4 min-w-0">
           <div className="flex items-center gap-3">
-            <span className="font-[family-name:var(--font-pf-display)] text-[clamp(18px,1.8vh,22px)] text-[var(--color-pf-ink)]">
+            <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)] text-[var(--color-pf-ink)]">
               PILI
             </span>
             <span
@@ -82,7 +82,7 @@ export function SlidePilar1() {
             Tres frases
           </h1>
 
-          <p className="text-[clamp(18px,2.2vw,28px)] font-semibold text-white bg-[var(--color-pf-ink)] inline-block px-6 py-2.5 rounded-full">
+          <p className="text-[clamp(22px,min(2.6vw,3.2vh),32px)] font-semibold text-white bg-[var(--color-pf-ink)] w-fit px-6 py-2.5 rounded-full">
             Lee las frases, responde y presta atención.
           </p>
 
@@ -90,7 +90,7 @@ export function SlidePilar1() {
             {PHRASES.map((p) => (
               <div
                 key={p.id}
-                className="bg-white rounded-[24px] px-7 py-4 shadow-[0_14px_40px_-16px_rgba(0,0,0,0.14)] font-[family-name:var(--font-pf-display)] text-[clamp(22px,min(3vw,3.8vh),44px)] leading-tight text-[var(--color-pf-ink)]"
+                className="bg-white rounded-[24px] px-7 py-4 shadow-[0_14px_40px_-16px_rgba(0,0,0,0.14)] font-[family-name:var(--font-pf-display)] text-[clamp(24px,min(2.8vw,3.4vh),34px)] leading-tight text-[var(--color-pf-ink)]"
               >
                 {showCircles ? (
                   <Highlighter
@@ -117,7 +117,7 @@ export function SlidePilar1() {
             {phase < 5 ? (
               <button
                 onClick={next}
-                className="px-10 py-4 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-[clamp(16px,2vh,22px)] hover:scale-[1.02] transition"
+                className="px-10 py-4 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)] hover:scale-[1.02] transition"
                 style={{
                   animation: phase === 3 ? "btnPulse 2s ease-in-out infinite" : "none",
                 }}

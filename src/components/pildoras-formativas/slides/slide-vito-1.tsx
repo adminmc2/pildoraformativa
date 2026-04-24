@@ -86,10 +86,10 @@ export function SlideVito1() {
 
   return (
     <div className="w-full h-full flex items-center justify-center overflow-hidden">
-      <div className="w-full max-w-[1400px] grid grid-cols-1 md:grid-cols-[1.35fr_1fr] gap-4 md:gap-8 items-center">
+      <div className="w-full max-w-[1800px] grid grid-cols-1 md:grid-cols-[2.5fr_1fr] gap-4 md:gap-6 items-center px-3 md:px-4">
         <div className="flex flex-col gap-1.5 min-w-0">
           <div className="flex items-center gap-3">
-            <span className="font-[family-name:var(--font-pf-display)] text-[clamp(18px,1.8vh,22px)] text-[var(--color-pf-ink)]">
+            <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)] text-[var(--color-pf-ink)]">
               VITO
             </span>
             <span
@@ -104,14 +104,14 @@ export function SlideVito1() {
             ¿Quién tiene qué?
           </h1>
 
-          <p className="text-[clamp(18px,1.8vw,24px)] font-semibold text-white bg-[var(--color-pf-ink)] inline-block px-5 py-1.5 rounded-full self-start">
+          <p className="text-[clamp(22px,min(2.6vw,3.2vh),32px)] font-semibold text-white bg-[var(--color-pf-ink)] inline-block px-5 py-1.5 rounded-full self-start">
             ¿Cómo se elige el posesivo?
           </p>
 
           {/* Terminal — todo ocurre aquí dentro */}
           <Terminal className="border-[var(--color-pf-pill)] [box-shadow:6px_6px_0px_var(--color-pf-pill)]">
             {TEXT_LINES.map((line, i) => (
-              <TypingAnimation key={i} speed={25} delay={i * 800} className="text-green-400 text-[clamp(18px,1.8vw,22px)]">
+              <TypingAnimation key={i} speed={25} delay={i * 800} className="text-green-400 text-[clamp(20px,min(2.2vw,2.8vh),28px)]">
                 {`> ${line}`}
               </TypingAnimation>
             ))}
@@ -124,7 +124,7 @@ export function SlideVito1() {
                 animate={{ opacity: 1 }}
                 className="mt-3 border-t border-gray-700 pt-3"
               >
-                <div className="text-yellow-300 text-[clamp(20px,2.2vw,28px)] font-bold mb-2">
+                <div className="text-yellow-300 text-[clamp(22px,min(2.6vw,3.2vh),32px)] font-bold mb-2">
                   {(() => {
                     const [before, after] = ex.sentence.split("___");
                     return (
@@ -150,7 +150,7 @@ export function SlideVito1() {
                         key={`${ex.id}-${i}`}
                         initial={{ opacity: 0, x: -10 }}
                         animate={{ opacity: 1, x: 0 }}
-                        className="text-[clamp(18px,1.8vw,24px)]"
+                        className="text-[clamp(22px,min(2.6vw,3.2vh),32px)]"
                       >
                         <span className="text-gray-400">{s.label}</span>{" "}
                         <span className="text-cyan-300 font-semibold">{s.value}</span>
@@ -160,7 +160,7 @@ export function SlideVito1() {
                 </div>
 
                 {isFilled && (
-                  <AnimatedSpan delay={0.2} className="text-green-400 mt-2 text-[clamp(18px,1.8vw,24px)]">
+                  <AnimatedSpan delay={0.2} className="text-green-400 mt-2 text-[clamp(22px,min(2.6vw,3.2vh),32px)]">
                     ✓ {ex.answer} {activeIdx === 0 ? "madre" : "abuelo"}
                   </AnimatedSpan>
                 )}
@@ -169,7 +169,7 @@ export function SlideVito1() {
 
             {/* Conclusión */}
             {conclusionVisible && (
-              <AnimatedSpan delay={0.2} className="text-green-400 mt-3 border-t border-gray-700 pt-3 text-[clamp(20px,2.2vw,28px)] font-bold">
+              <AnimatedSpan delay={0.2} className="text-green-400 mt-3 border-t border-gray-700 pt-3 text-[clamp(22px,min(2.6vw,3.2vh),32px)] font-bold">
                 ✓ ¿De quién es? + ¿singular o plural? = posesivo
               </AnimatedSpan>
             )}
@@ -179,7 +179,7 @@ export function SlideVito1() {
             <button
               onClick={() => canPrev && setStep(step - 1)}
               disabled={!canPrev}
-              className="w-11 h-11 rounded-full bg-white/80 text-[var(--color-pf-ink)] font-bold text-lg disabled:opacity-30 hover:bg-white transition flex-shrink-0"
+              className="w-11 h-11 rounded-full bg-white/80 text-[var(--color-pf-ink)] font-bold text-base disabled:opacity-30 hover:bg-white transition flex-shrink-0"
               aria-label="Atrás"
             >
               ←
@@ -187,7 +187,7 @@ export function SlideVito1() {
             <button
               onClick={() => canNext && setStep(step + 1)}
               disabled={!canNext}
-              className="px-7 py-2.5 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-lg disabled:opacity-40 hover:opacity-90 transition"
+              className="px-7 py-2.5 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-base disabled:opacity-40 hover:opacity-90 transition"
             >
               {step === 0
                 ? "EMPEZAR"

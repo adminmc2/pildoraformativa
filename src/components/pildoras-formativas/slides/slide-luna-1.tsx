@@ -77,10 +77,10 @@ export function SlideLuna1() {
 
   return (
     <div className="w-full h-full flex items-center justify-center overflow-hidden">
-      <div className="w-full max-w-[1400px] grid grid-cols-1 md:grid-cols-[1.35fr_1fr] gap-4 md:gap-10 items-center">
+      <div className="w-full max-w-[1800px] grid grid-cols-1 md:grid-cols-[2.5fr_1fr] gap-4 md:gap-6 items-center px-3 md:px-4">
         <div className="flex flex-col gap-3 min-w-0 relative">
           <div className="flex items-center gap-3">
-            <span className="font-[family-name:var(--font-pf-display)] text-[clamp(18px,1.8vh,22px)] text-[var(--color-pf-ink)]">
+            <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)] text-[var(--color-pf-ink)]">
               LUNA
             </span>
             <span
@@ -95,7 +95,7 @@ export function SlideLuna1() {
             Elige
           </h1>
 
-          <p className="text-[clamp(18px,1.8vw,24px)] font-semibold text-white bg-[var(--color-pf-ink)] inline-block px-5 py-2 rounded-full self-start">
+          <p className="text-[clamp(22px,min(2.6vw,3.2vh),32px)] font-semibold text-white bg-[var(--color-pf-ink)] inline-block px-5 py-2 rounded-full self-start">
             ¿Qué posesivo va en cada frase?
           </p>
 
@@ -112,7 +112,7 @@ export function SlideLuna1() {
                   <span className="text-base font-semibold opacity-50 float-right">
                     {current + 1}/{ITEMS.length}
                   </span>
-                  <p className="font-[family-name:var(--font-pf-display)] text-[clamp(24px,min(3vw,4vh),44px)] leading-tight text-[var(--color-pf-ink)]">
+                  <p className="font-[family-name:var(--font-pf-display)] text-[clamp(24px,min(2.8vw,3.4vh),36px)] leading-tight text-[var(--color-pf-ink)]">
                     {item.before}
                     {answered ? (
                       <span
@@ -140,7 +140,7 @@ export function SlideLuna1() {
                       type="button"
                       onClick={() => choose(i)}
                       disabled={wrongPick === i}
-                      className={`flex-1 px-4 py-3 rounded-[18px] font-[family-name:var(--font-pf-display)] text-[clamp(22px,2.6vw,36px)] transition-all ${
+                      className={`flex-1 px-4 py-3 rounded-[18px] font-[family-name:var(--font-pf-display)] text-[clamp(22px,min(2.6vw,3.2vh),32px)] transition-all ${
                         wrongPick === i
                           ? "bg-[var(--color-pf-spark-soft)] text-[#8A2F10] line-through opacity-60 cursor-not-allowed"
                           : "bg-white text-[var(--color-pf-ink)] shadow-[0_8px_24px_-10px_rgba(0,0,0,0.1)] hover:shadow-[0_12px_30px_-10px_rgba(0,0,0,0.15)] hover:scale-[1.03] active:scale-[0.97] cursor-pointer"
@@ -155,7 +155,7 @@ export function SlideLuna1() {
               {answered && (
                 <button
                   onClick={next}
-                  className="px-7 py-2.5 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-lg hover:opacity-90 transition"
+                  className="px-7 py-2.5 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-base hover:opacity-90 transition"
                 >
                   SIGUIENTE
                 </button>
@@ -180,7 +180,7 @@ export function SlideLuna1() {
               <div className="font-[family-name:var(--font-pf-display)] text-[clamp(48px,min(6vw,8vh),96px)] text-[var(--color-pf-moon)] leading-none mb-2">
                 {score}/{ITEMS.length}
               </div>
-              <p className="font-[family-name:var(--font-pf-display)] text-[clamp(22px,2.8vh,36px)] text-[var(--color-pf-ink)]">
+              <p className="font-[family-name:var(--font-pf-display)] text-[clamp(22px,min(2.6vw,3.2vh),32px)] text-[var(--color-pf-ink)]">
                 {score >= 5 ? "¡Perfecto!" : score >= 3 ? "¡Bien!" : "¡A repasar!"}
               </p>
               <button
