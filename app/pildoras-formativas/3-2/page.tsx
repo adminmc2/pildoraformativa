@@ -9,6 +9,7 @@ import { SlidePili1 } from "@/components/pildoras-formativas/slides/3-2/slide-pi
 import { SlidePili2 } from "@/components/pildoras-formativas/slides/3-2/slide-pili-2";
 import { SlideFlora1 } from "@/components/pildoras-formativas/slides/3-2/slide-flora-1";
 import { SlideFlora2 } from "@/components/pildoras-formativas/slides/3-2/slide-flora-2";
+import { SlideVito1 } from "@/components/pildoras-formativas/slides/3-2/slide-vito-1";
 
 /* ── Tipos ── */
 type ContentSlide = {
@@ -103,7 +104,7 @@ export default function Pildora32Page() {
         {slide.kind === "pili2" && <SlidePili2 />}
         {slide.kind === "flora1" && <SlideFlora1 />}
         {slide.kind === "flora2" && <SlideFlora2 />}
-        {slide.kind === "vito1" && <PlaceholderSlide title="De Marta a ti" agent="VITO" desc="Transformar el modelo paso a paso" />}
+        {slide.kind === "vito1" && <SlideVito1 />}
         {slide.kind === "vito2" && <PlaceholderSlide title="Tu correo: 5 bloques" agent="VITO" desc="Writing frame con inicio de cada párrafo" />}
         {slide.kind === "luna1" && <PlaceholderSlide title="¿Has entendido?" agent="LUNA" desc="6 preguntas de comprensión" />}
         {slide.kind === "luna2" && <PlaceholderSlide title="Revisa con tu compañero" agent="LUNA" desc="Checklist de revisión entre pares" />}
