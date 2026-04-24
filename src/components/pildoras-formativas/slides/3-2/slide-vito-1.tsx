@@ -26,17 +26,24 @@ const ROWS: Row[] = [
   { marta: "me gusta mucho la Historia", hint: "tu asignatura favorita", theme: "instituto" },
 ];
 
-const BUBBLES: string[] = [
-  "Vamos a planificar vuestro correo. Marta escribió el suyo. ¡Ahora vosotros!",
-  "Marta dice que su padre trabaja en un hotel. ¿Dónde trabaja VUESTRO padre?",
-  "¿Y vuestra madre? Solo 2-3 palabras: un lugar o un trabajo.",
-  "Marta tiene un hermano de once años. ¿Vosotros? ¿Cómo se llaman?",
-  "Si no tenéis hermanas, escribid: «no tengo hermanas.» ¡También vale!",
-  "¿Quiénes son vuestros amigos en clase? Escribid 2-3 nombres.",
-  "¿Tenéis un compañero nuevo este año? ¿De dónde es?",
-  "¿De qué asignaturas tenéis más deberes?",
-  "¿Cuál es VUESTRA asignatura favorita?",
-  "¡Ya tenéis el plan! Con estos datos vamos a escribir vuestro correo.",
+/* ── Highlight helper ── */
+const C = ({ children }: { children: React.ReactNode }) => (
+  <span className="italic" style={{ color: "var(--color-pf-spark)" }}>
+    {children}
+  </span>
+);
+
+const BUBBLES: React.ReactNode[] = [
+  <>Vamos a <C>planificar</C> el correo. Marta escribió el suyo. ¡Ahora toca escribir uno propio!</>,
+  <>Empieza por aquí: ¿dónde <C>trabajan</C> en tu casa? Completa las dos primeras filas.</>,
+  <>Completa la segunda línea. Si no aplica, escribe lo que quieras.</>,
+  <>Siguiente fila: escribe <C>nombre y edad</C>. Si no tienes, pasa a la siguiente.</>,
+  <>Si no aplica, escribe: «<C>no tengo</C>.» ¡También vale!</>,
+  <>Ahora tus <C>amigos</C>: escribe 2-3 nombres de clase.</>,
+  <>¿Hay alguien <C>nuevo</C> este año? Escribe nombre y de dónde es.</>,
+  <>¿De qué <C>asignaturas</C> tienes más deberes?</>,
+  <>Última fila: ¿cuál es tu asignatura <C>favorita</C>?</>,
+  <>¡Ya está el <C>plan</C>! Con estos datos toca <C>escribir</C> el correo.</>,
 ];
 
 export function SlideVito1() {
@@ -173,7 +180,7 @@ export function SlideVito1() {
         </div>
 
         {/* Personaje */}
-        <CharacterStage bubble={BUBBLES[step] ?? ""} step={step}>
+        <CharacterStage bubble={BUBBLES[step] ?? <></>} step={step}>
           <VitoPill className="w-full h-auto" />
         </CharacterStage>
       </div>
