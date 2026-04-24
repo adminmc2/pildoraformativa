@@ -116,7 +116,7 @@ export function SlideVito2() {
 
   return (
     <div className="w-full h-full flex items-center justify-center overflow-hidden">
-      <div className="w-full max-w-[1400px] grid grid-cols-[1.35fr_1fr] gap-8 items-center">
+      <div className="w-full max-w-[1400px] grid grid-cols-1 md:grid-cols-[1.35fr_1fr] gap-4 md:gap-8 items-center">
         <div className="flex flex-col gap-1.5 min-w-0">
           <div className="flex items-center gap-3">
             <span className="font-[family-name:var(--font-pf-display)] text-[clamp(18px,1.8vh,22px)] text-[var(--color-pf-ink)]">

@@ -1,5 +1,36 @@
 # Changelog
 
+## v0.17 — 2026-04-24
+
+### Píldora 3.2 — Slide #03 (Flora — "¿Qué se queda y qué cambia?")
+- Nueva slide interactiva: descubrimiento de 3 capas del email de Marta
+- Fase 1: identificar estructura Email (saludo, despedida, firma)
+- Fase 2: identificar frases de Tema (intro familia, amigos, instituto)
+- Fase 3: identificar Info. personal (datos específicos de Marta)
+- Fase 4: práctica con alternativas (ciclar datos) + esqueleto final
+- Colores con alto contraste: azul (#1E6091), dorado (#B8860B), magenta (#B5179E)
+- Leyenda prominente con pills grandes, borde activo y sombra
+- Contador discreto debajo de leyenda (sin barra negra duplicada)
+- Diálogos de Flora inductivos, nunca da la respuesta
+- Firma "Marta" en línea separada de la despedida
+
+### Responsive — Todo el proyecto
+- Viewport meta tag añadido en layout.tsx
+- Todos los grids de 2 columnas: `grid-cols-1 md:grid-cols-[...]` (se apilan en móvil)
+- CharacterStage: personaje más pequeño en móvil, burbuja debajo (no al lado)
+- Header/footer compactos en móvil (padding, texto, dots de navegación)
+- `overflow-hidden` → `overflow-y-auto md:overflow-hidden` (permite scroll en móvil)
+- Landing: grid de unidades con `minmax(min(320px, 100%), 1fr)`, botones apilados en móvil
+- Píldoras index: personaje encima del título en móvil
+- Slides 3-1 y 3-2: grids de 5 cols → 3 en móvil, grids internos apilan en móvil
+- Gaps reducidos en móvil: `gap-4 md:gap-8/10/12`
+- 25 archivos modificados
+
+### Accesibilidad visual
+- Todos los textos con clamp ahora tienen mínimo 16px (eliminados clamp(11-15px,...))
+- Iconos aumentados a 18-20px mínimo
+- Corregidos slide-cierre, slide-desafio-b, slide-pili-1, slide-pili-2, slide-flora-1
+
 ## v0.16 — 2026-04-23
 
 ### Píldora 3.2 — Slide #01 (Pili — "¡Escribe a un amigo!")

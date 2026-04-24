@@ -7,6 +7,7 @@ import { SlideOpening } from "@/components/pildoras-formativas/slides/slide-open
 import { SlideCierre } from "@/components/pildoras-formativas/slides/slide-cierre";
 import { SlidePili1 } from "@/components/pildoras-formativas/slides/3-2/slide-pili-1";
 import { SlidePili2 } from "@/components/pildoras-formativas/slides/3-2/slide-pili-2";
+import { SlideFlora1 } from "@/components/pildoras-formativas/slides/3-2/slide-flora-1";
 
 /* ── Tipos ── */
 type ContentSlide = {
@@ -59,11 +60,11 @@ export default function Pildora32Page() {
 
   return (
     <div
-      className="fixed inset-0 flex flex-col overflow-hidden transition-colors duration-500 font-[family-name:var(--font-pf-ui)]"
+      className="fixed inset-0 flex flex-col overflow-y-auto md:overflow-hidden transition-colors duration-500 font-[family-name:var(--font-pf-ui)]"
       style={{ background: slide.bg }}
     >
       {slide.kind !== "opening" && (
-        <header className={`flex-shrink-0 flex items-center justify-between px-8 pt-4 pb-1 ${isDark ? "text-white" : "text-[var(--color-pf-ink)]"}`}>
+        <header className={`flex-shrink-0 flex items-center justify-between px-4 md:px-8 pt-3 md:pt-4 pb-1 ${isDark ? "text-white" : "text-[var(--color-pf-ink)]"}`}>
           <button
             onClick={() => setActive(0)}
             aria-label="Volver al inicio"
@@ -72,11 +73,11 @@ export default function Pildora32Page() {
             <House size={22} weight="bold" />
           </button>
           <div className="text-center leading-tight">
-            <div className="font-[family-name:var(--font-pf-display)] text-xl tracking-wide">
+            <div className="font-[family-name:var(--font-pf-display)] text-sm md:text-xl tracking-wide">
               PÍLDORA FORMATIVA 3.2
             </div>
-            <div className="text-base opacity-70 font-medium tracking-wider uppercase">
-              Un Correo Electrónico Personal · Unidad 3 · v0.1
+            <div className="text-xs md:text-base opacity-70 font-medium tracking-wider uppercase">
+              Un Correo Electrónico Personal · Unidad 3 · v0.2
             </div>
           </div>
           {slide.kind !== "cierre" ? (
@@ -87,7 +88,7 @@ export default function Pildora32Page() {
         </header>
       )}
 
-      <main className="flex-1 min-h-0 flex items-center justify-center px-6 py-1 overflow-hidden">
+      <main className="flex-1 min-h-0 flex items-center justify-center px-3 md:px-6 py-1 overflow-x-hidden overflow-y-auto md:overflow-hidden">
         {slide.kind === "opening" && (
           <SlideOpening
             onStart={next}
@@ -99,7 +100,7 @@ export default function Pildora32Page() {
 
         {slide.kind === "pili1" && <SlidePili1 />}
         {slide.kind === "pili2" && <SlidePili2 />}
-        {slide.kind === "flora1" && <PlaceholderSlide title="¿Verdad o mentira?" agent="FLORA" desc="7 afirmaciones — contrastar con el texto" />}
+        {slide.kind === "flora1" && <SlideFlora1 />}
         {slide.kind === "flora2" && <PlaceholderSlide title="¿Qué se repite?" agent="FLORA" desc="Código de colores: azul (estructura) / rojo (personal)" />}
         {slide.kind === "vito1" && <PlaceholderSlide title="De Marta a ti" agent="VITO" desc="Transformar el modelo paso a paso" />}
         {slide.kind === "vito2" && <PlaceholderSlide title="Tu correo: 5 bloques" agent="VITO" desc="Writing frame con inicio de cada párrafo" />}
@@ -111,21 +112,21 @@ export default function Pildora32Page() {
       </main>
 
       {slide.kind !== "opening" && (
-        <footer className="flex-shrink-0 flex items-center justify-between px-8 pb-4 pt-1">
+        <footer className="flex-shrink-0 flex items-center justify-between px-3 md:px-8 pb-3 md:pb-4 pt-1">
           <button
             onClick={prev}
-            className={`px-6 py-3 rounded-full font-semibold transition ${isDark ? "bg-white/15 text-white hover:bg-white/25" : "bg-white/70 text-[var(--color-pf-ink)] hover:bg-white"}`}
+            className={`px-4 md:px-6 py-2.5 md:py-3 rounded-full text-sm md:text-base font-semibold transition ${isDark ? "bg-white/15 text-white hover:bg-white/25" : "bg-white/70 text-[var(--color-pf-ink)] hover:bg-white"}`}
           >
             ← Anterior
           </button>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-1.5 md:gap-3">
             {SLIDES.map((_, i) => (
               <button
                 key={i}
                 onClick={() => setActive(i)}
                 aria-label={`Slide ${i + 1}`}
-                className="h-2 rounded-full transition-all"
+                className="h-1.5 md:h-2 rounded-full transition-all"
                 style={{
                   width: i === active ? 40 : 12,
                   background: i === active ? (isDark ? "#fff" : "var(--color-pf-ink)") : (isDark ? "rgba(255,255,255,0.3)" : "rgba(10,10,10,0.25)"),
@@ -137,7 +138,7 @@ export default function Pildora32Page() {
           {active < SLIDES.length - 1 ? (
             <button
               onClick={next}
-              className={`px-8 py-3 rounded-full font-semibold transition ${isDark ? "bg-white/90 text-[#1a1a2e] hover:bg-white" : "bg-[var(--color-pf-ink)] text-white hover:opacity-90"}`}
+              className={`px-5 md:px-8 py-2.5 md:py-3 rounded-full text-sm md:text-base font-semibold transition ${isDark ? "bg-white/90 text-[#1a1a2e] hover:bg-white" : "bg-[var(--color-pf-ink)] text-white hover:opacity-90"}`}
             >
               Siguiente →
             </button>

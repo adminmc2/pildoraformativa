@@ -28,7 +28,7 @@ export function SlideOpening({
   ];
 
   return (
-    <div className="relative w-full h-full max-w-[1400px] mx-auto flex flex-col items-center justify-center text-center overflow-hidden">
+    <div className="relative w-full h-full max-w-[1400px] mx-auto flex flex-col items-center justify-center text-center px-4 md:px-8 overflow-x-hidden overflow-y-auto">
       {/* Decorative background shapes */}
       <div aria-hidden className="absolute inset-0 pointer-events-none">
         <div
@@ -107,7 +107,7 @@ export function SlideOpening({
         {titulo}
       </h1>
 
-      <div className="relative mt-[3vh] flex items-end justify-center gap-[clamp(12px,2vw,32px)]">
+      <div className="relative mt-[3vh] flex flex-wrap items-end justify-center gap-[clamp(12px,2vw,32px)]">
         {cast.map((c) => {
           const Comp = c.Comp;
           return (
@@ -126,7 +126,7 @@ export function SlideOpening({
 
       <button
         onClick={onStart}
-        className="relative mt-[3vh] px-14 py-5 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-[clamp(20px,2.4vw,30px)] hover:opacity-90 hover:scale-[1.02] transition"
+        className="relative mt-[3vh] px-8 py-3 md:px-14 md:py-5 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-[clamp(20px,2.4vw,30px)] hover:opacity-90 hover:scale-[1.02] transition"
         style={{ animation: "buttonIn 600ms cubic-bezier(0.2,0.8,0.2,1) 2000ms both, buttonPulse 2.4s ease-in-out 2800ms infinite" }}
       >
         Empezar

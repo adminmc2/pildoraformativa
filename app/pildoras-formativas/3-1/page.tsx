@@ -202,11 +202,11 @@ export default function Pildora31Page() {
 
   return (
     <div
-      className="fixed inset-0 flex flex-col overflow-hidden transition-colors duration-500 font-[family-name:var(--font-pf-ui)]"
+      className="fixed inset-0 flex flex-col overflow-y-auto md:overflow-hidden transition-colors duration-500 font-[family-name:var(--font-pf-ui)]"
       style={{ background: slide.bg }}
     >
       {slide.kind !== "opening" && (
-        <header className={`flex-shrink-0 flex items-center justify-between px-8 pt-4 pb-1 ${isDark ? "text-white" : "text-[var(--color-pf-ink)]"}`}>
+        <header className={`flex-shrink-0 flex items-center justify-between px-4 md:px-8 pt-3 md:pt-4 pb-1 ${isDark ? "text-white" : "text-[var(--color-pf-ink)]"}`}>
           <button
             onClick={() => setActive(0)}
             aria-label="Volver al inicio"
@@ -215,10 +215,10 @@ export default function Pildora31Page() {
             <House size={22} weight="bold" />
           </button>
           <div className="text-center leading-tight">
-            <div className="font-[family-name:var(--font-pf-display)] text-xl tracking-wide">
+            <div className="font-[family-name:var(--font-pf-display)] text-sm md:text-xl tracking-wide">
               PÍLDORA FORMATIVA 3.1
             </div>
-            <div className="text-base opacity-70 font-medium tracking-wider uppercase">
+            <div className="text-xs md:text-base opacity-70 font-medium tracking-wider uppercase">
               Posesivos · Unidad 3 · v0.14
             </div>
           </div>
@@ -230,7 +230,7 @@ export default function Pildora31Page() {
         </header>
       )}
 
-      <main className="flex-1 min-h-0 flex items-center justify-center px-6 py-1 overflow-hidden">
+      <main className="flex-1 min-h-0 flex items-center justify-center px-3 md:px-6 py-1 overflow-x-hidden overflow-y-auto md:overflow-hidden">
         {slide.kind === "opening" && <SlideOpening onStart={next} />}
         {slide.kind === "intro" && <IntroSlideView slide={slide} />}
         {slide.kind === "pilar1" && <SlidePilar1 />}
@@ -250,21 +250,21 @@ export default function Pildora31Page() {
       </main>
 
       {slide.kind !== "opening" && (
-        <footer className="flex-shrink-0 flex items-center justify-between px-8 pb-4 pt-1">
+        <footer className="flex-shrink-0 flex items-center justify-between px-3 md:px-8 pb-3 md:pb-4 pt-1">
           <button
             onClick={prev}
-            className={`px-6 py-3 rounded-full font-semibold transition ${isDark ? "bg-white/15 text-white hover:bg-white/25" : "bg-white/70 text-[var(--color-pf-ink)] hover:bg-white"}`}
+            className={`px-4 md:px-6 py-2.5 md:py-3 rounded-full text-sm md:text-base font-semibold transition ${isDark ? "bg-white/15 text-white hover:bg-white/25" : "bg-white/70 text-[var(--color-pf-ink)] hover:bg-white"}`}
           >
             ← Anterior
           </button>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-1.5 md:gap-3">
             {SLIDES.map((_, i) => (
               <button
                 key={i}
                 onClick={() => setActive(i)}
                 aria-label={`Slide ${i + 1}`}
-                className="h-2 rounded-full transition-all"
+                className="h-1.5 md:h-2 rounded-full transition-all"
                 style={{
                   width: i === active ? 40 : 12,
                   background: i === active ? (isDark ? "#fff" : "var(--color-pf-ink)") : (isDark ? "rgba(255,255,255,0.3)" : "rgba(10,10,10,0.25)"),
@@ -276,7 +276,7 @@ export default function Pildora31Page() {
           {active < SLIDES.length - 1 ? (
             <button
               onClick={next}
-              className={`px-8 py-3 rounded-full font-semibold transition ${isDark ? "bg-white/90 text-[#1a1a2e] hover:bg-white" : "bg-[var(--color-pf-ink)] text-white hover:opacity-90"}`}
+              className={`px-5 md:px-8 py-2.5 md:py-3 rounded-full text-sm md:text-base font-semibold transition ${isDark ? "bg-white/90 text-[#1a1a2e] hover:bg-white" : "bg-[var(--color-pf-ink)] text-white hover:opacity-90"}`}
             >
               Siguiente →
             </button>
@@ -292,7 +292,7 @@ export default function Pildora31Page() {
 function IntroSlideView({ slide }: { slide: IntroSlide }) {
   const Character = slide.Character;
   return (
-    <div className="w-full h-full max-w-[1600px] grid grid-cols-[1fr_1fr] gap-6 items-center overflow-hidden">
+    <div className="w-full h-full max-w-[1600px] grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-4 md:gap-6 items-center overflow-hidden">
       <div className="relative min-h-0 flex flex-col justify-center px-4">
         <div className="mb-4 flex items-center gap-3">
           <span className="font-[family-name:var(--font-pf-display)] text-[clamp(24px,3vw,36px)] text-[var(--color-pf-ink)]">
@@ -319,8 +319,8 @@ function IntroSlideView({ slide }: { slide: IntroSlide }) {
         </p>
       </div>
 
-      <div className="flex items-center justify-center min-h-0 overflow-hidden">
-        <Character className="w-full max-w-[min(48vw,70vh)] h-auto" />
+      <div className="flex items-center justify-center min-h-0 overflow-hidden order-first md:order-none">
+        <Character className="w-full max-w-[40vw] md:max-w-[min(48vw,70vh)] h-auto" />
       </div>
     </div>
   );

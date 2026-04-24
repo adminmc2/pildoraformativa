@@ -23,6 +23,11 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   title: "Píldoras Formativas",
   description: "Material pedagógico proyectable para aulas de ELE — A1.1 adolescentes",
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 5,
+  },
 };
 
 export default function RootLayout({

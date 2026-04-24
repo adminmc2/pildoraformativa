@@ -75,7 +75,7 @@ export function SlidePilar2() {
 
   return (
     <div className="w-full h-full flex items-center justify-center overflow-hidden">
-      <div className="w-full max-w-[1400px] grid grid-cols-[1.6fr_1fr] gap-6 items-center">
+      <div className="w-full max-w-[1400px] px-3 md:px-0 grid grid-cols-1 md:grid-cols-[1.6fr_1fr] gap-6 items-center">
         <div className="flex flex-col min-w-0 h-full" style={{ perspective: "1200px" }}>
           {/* === BLOQUE SUPERIOR === */}
           <div className="flex-shrink-0 flex flex-col gap-2">
@@ -142,7 +142,7 @@ export function SlidePilar2() {
           </div>
 
           {/* Cuadros UNO / VARIOS */}
-          <div className="grid grid-cols-2 gap-4" style={{ minHeight: "clamp(120px, 20vh, 220px)" }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4" style={{ minHeight: "clamp(120px, 20vh, 220px)" }}>
             <motion.button
               onClick={() => place("uno")}
               disabled={allPlaced}
@@ -225,7 +225,7 @@ export function SlidePilar2() {
           {allPlaced && (
             <button
               onClick={reset}
-              className="self-start px-4 py-1.5 rounded-full bg-white/80 text-[var(--color-pf-ink)] text-base font-semibold hover:bg-white transition"
+              className="self-start px-4 py-1.5 rounded-full bg-white/80 text-[var(--color-pf-ink)] text-base font-semibold hover:bg-white transition min-h-11"
             >
               ↺ Reiniciar
             </button>

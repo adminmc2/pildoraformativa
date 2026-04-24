@@ -61,7 +61,7 @@ export function SlideFlora3() {
 
   return (
     <div className="w-full h-full flex items-center justify-center overflow-hidden">
-      <div className="w-full max-w-[1500px] grid grid-cols-[1.5fr_1fr] gap-6 items-center">
+      <div className="w-full max-w-[1500px] grid grid-cols-1 md:grid-cols-[1.5fr_1fr] gap-4 md:gap-6 items-center">
         <div className="flex flex-col gap-2 min-w-0">
           <div className="flex items-center gap-3">
             <span className="font-[family-name:var(--font-pf-display)] text-[clamp(18px,1.8vh,22px)] text-[var(--color-pf-ink)]">
@@ -112,7 +112,7 @@ export function SlideFlora3() {
           {showNuestroCards && !showMorphVuestro && (
             <div>
               <p className="text-[clamp(16px,1.3vw,16px)] font-semibold text-[var(--color-pf-ink)] opacity-50 uppercase tracking-wider mb-2">Nosotros</p>
-              <div className="grid grid-cols-4 gap-2">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
                 {FORM_DETAILS.filter(f => f.group === "nuestro").map((form, i) => (
                   <FormCard key={form.pos} form={form} visible={i < nuestroVisible} />
                 ))}
@@ -124,13 +124,13 @@ export function SlideFlora3() {
           {showVuestroCards && (
             <div>
               <p className="text-[clamp(16px,1.3vw,16px)] font-semibold text-[var(--color-pf-ink)] opacity-50 uppercase tracking-wider mb-1 mt-2">Nosotros</p>
-              <div className="grid grid-cols-4 gap-2 mb-2">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mb-2">
                 {FORM_DETAILS.filter(f => f.group === "nuestro").map((form) => (
                   <FormCard key={form.pos} form={form} visible={true} />
                 ))}
               </div>
               <p className="text-[clamp(16px,1.3vw,16px)] font-semibold text-[var(--color-pf-ink)] opacity-50 uppercase tracking-wider mb-1">Vosotros</p>
-              <div className="grid grid-cols-4 gap-2">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
                 {FORM_DETAILS.filter(f => f.group === "vuestro").map((form, i) => (
                   <FormCard key={form.pos} form={form} visible={i < vuestroVisible} />
                 ))}
@@ -217,12 +217,12 @@ function FormCard({ form, visible }: { form: Form; visible: boolean }) {
       >
         {form.pos}
       </span>
-      <span className="ml-1.5 font-[family-name:var(--font-pf-ui)] text-[clamp(15px,1.6vw,22px)] text-[var(--color-pf-ink)]">
+      <span className="ml-1.5 font-[family-name:var(--font-pf-ui)] text-[clamp(16px,1.6vw,22px)] text-[var(--color-pf-ink)]">
         {form.noun}
       </span>
       <div className="mt-0.5 flex gap-1">
         <span
-          className="text-[clamp(15px,1.1vw,15px)] px-1.5 py-0 rounded text-white font-semibold"
+          className="text-[clamp(16px,1.1vw,16px)] px-1.5 py-0 rounded text-white font-semibold"
           style={{
             background: form.gender === "masculino"
               ? "var(--color-pf-moon)"
@@ -232,7 +232,7 @@ function FormCard({ form, visible }: { form: Form; visible: boolean }) {
           {form.gender === "masculino" ? "masc." : "fem."}
         </span>
         <span
-          className="text-[clamp(15px,1.1vw,15px)] px-1.5 py-0 rounded text-white font-semibold"
+          className="text-[clamp(16px,1.1vw,16px)] px-1.5 py-0 rounded text-white font-semibold"
           style={{
             background: form.number === "singular"
               ? "var(--color-pf-star)"

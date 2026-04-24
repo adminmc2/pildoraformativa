@@ -135,7 +135,7 @@ export function SlidePili1() {
 
   return (
     <div className="w-full h-full flex items-center justify-center overflow-hidden">
-      <div className="w-full max-w-[1400px] grid grid-cols-[1.8fr_1fr] gap-8 items-center">
+      <div className="w-full max-w-[1400px] grid grid-cols-1 md:grid-cols-[1.8fr_1fr] gap-4 md:gap-8 items-center">
         <div className="flex flex-col gap-3 min-w-0">
           {/* Badge */}
           <div className="flex items-center gap-3">
@@ -194,7 +194,7 @@ export function SlidePili1() {
                         <CatIcon size={15} weight="bold" color="white" />
                       </div>
                       <span
-                        className="font-[family-name:var(--font-pf-display)] text-[clamp(15px,1.5vw,18px)] font-bold"
+                        className="font-[family-name:var(--font-pf-display)] text-[clamp(16px,1.5vw,18px)] font-bold"
                         style={{ color: c.color }}
                       >
                         {c.label}
@@ -205,7 +205,7 @@ export function SlidePili1() {
               </div>
 
               {/* Grid de tarjetas */}
-              <div className="grid grid-cols-5 gap-2">
+              <div className="grid grid-cols-3 md:grid-cols-5 gap-2">
                 {ITEMS.map((item, i) => {
                   const correct = isCorrect(item.id, selections);
                   const sel = selections[item.id] || emptySel();
@@ -226,7 +226,7 @@ export function SlidePili1() {
                         weight="duotone"
                         style={{ color: "var(--color-pf-ink)" }}
                       />
-                      <span className="font-[family-name:var(--font-pf-display)] text-[clamp(15px,1.3vw,17px)] leading-tight text-center font-semibold text-[var(--color-pf-ink)]">
+                      <span className="font-[family-name:var(--font-pf-display)] text-[clamp(16px,1.3vw,17px)] leading-tight text-center font-semibold text-[var(--color-pf-ink)]">
                         {item.label}
                       </span>
 
@@ -303,7 +303,7 @@ export function SlidePili1() {
               {/* Header email */}
               <div className="px-5 py-2.5 border-b border-[var(--color-pf-ink)]/10 flex items-center gap-2">
                 <EnvelopeSimple size={20} weight="duotone" className="text-[var(--color-pf-ink)] opacity-60" />
-                <span className="font-[family-name:var(--font-pf-display)] text-[clamp(15px,1.4vw,18px)] text-[var(--color-pf-ink)] tracking-wide">
+                <span className="font-[family-name:var(--font-pf-display)] text-[clamp(16px,1.4vw,18px)] text-[var(--color-pf-ink)] tracking-wide">
                   CORREO DE MARTA
                 </span>
               </div>
@@ -326,7 +326,7 @@ export function SlidePili1() {
                     {/* Etiqueta + texto */}
                     <div className="flex flex-col gap-0.5 min-w-0">
                       <span
-                        className="font-[family-name:var(--font-pf-display)] text-[clamp(11px,1vw,14px)] font-bold tracking-wider uppercase"
+                        className="font-[family-name:var(--font-pf-display)] text-[clamp(16px,1.2vw,16px)] font-bold tracking-wider uppercase"
                         style={{ color: section.color }}
                       >
                         {section.label}
@@ -334,7 +334,7 @@ export function SlidePili1() {
                       {section.lines.map((line, j) => (
                         <span
                           key={j}
-                          className="text-[clamp(14px,min(1.4vw,1.8vh),18px)] leading-snug text-[var(--color-pf-ink)]"
+                          className="text-[clamp(16px,min(1.4vw,1.8vh),18px)] leading-snug text-[var(--color-pf-ink)]"
                         >
                           {line}
                         </span>

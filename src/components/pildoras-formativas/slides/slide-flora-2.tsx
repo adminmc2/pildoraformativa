@@ -78,7 +78,7 @@ export function SlideFlora2() {
 
   return (
     <div className="w-full h-full flex items-center justify-center overflow-hidden">
-      <div className="w-full max-w-[1500px] grid grid-cols-[1.5fr_1fr] gap-8 items-center">
+      <div className="w-full max-w-[1500px] grid grid-cols-1 md:grid-cols-[1.5fr_1fr] gap-4 md:gap-8 items-center">
         <div className="flex flex-col gap-3 min-w-0">
           <div className="flex items-center gap-3">
             <span className="font-[family-name:var(--font-pf-display)] text-[clamp(18px,1.8vh,22px)] text-[var(--color-pf-ink)]">
@@ -104,7 +104,7 @@ export function SlideFlora2() {
           </p>
 
           {/* Cards acumulativas 2x2 */}
-          <div className="grid grid-cols-3 gap-3">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
             <AnimatePresence>
               {OWNERS.map((owner, i) => {
                 const visible = i < cardsVisible;

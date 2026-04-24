@@ -93,7 +93,7 @@ export function SlideLuna2() {
 
   return (
     <div className="w-full h-full flex items-center justify-center overflow-hidden">
-      <div className="w-full max-w-[1400px] grid grid-cols-[1.35fr_1fr] gap-10 items-center">
+      <div className="w-full max-w-[1400px] grid grid-cols-1 md:grid-cols-[1.35fr_1fr] gap-4 md:gap-10 items-center">
         <div className="flex flex-col gap-3 min-w-0">
           <div className="flex items-center gap-3">
             <span className="font-[family-name:var(--font-pf-display)] text-[clamp(18px,1.8vh,22px)] text-[var(--color-pf-ink)]">
@@ -117,7 +117,7 @@ export function SlideLuna2() {
 
           <div className="flex flex-col items-center gap-4">
             {/* Ruleta + resultado en fila */}
-            <div className="flex items-center gap-8 w-full">
+            <div className="flex items-center gap-4 md:gap-8 w-full">
               {/* Ruleta con segmentos de color */}
               <div className="relative flex-shrink-0" style={{ width: "clamp(200px, 24vw, 300px)", height: "clamp(200px, 24vw, 300px)" }}>
                 {/* Flecha indicadora */}

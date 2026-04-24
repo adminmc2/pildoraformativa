@@ -130,7 +130,7 @@ export default function LandingPage() {
       style={{ background: "var(--color-landing-bg)" }}
     >
       {/* ── Hero ── */}
-      <header className="max-w-[1200px] mx-auto px-8 pt-16 pb-4 text-center">
+      <header className="max-w-[1200px] mx-auto px-4 md:px-8 pt-10 md:pt-16 pb-4 text-center">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -174,7 +174,7 @@ export default function LandingPage() {
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5, duration: 0.6, ease }}
-        className="max-w-[1000px] mx-auto px-8 py-8"
+        className="max-w-[1000px] mx-auto px-4 md:px-8 py-6 md:py-8"
       >
         <div
           className="rounded-2xl overflow-hidden"
@@ -219,7 +219,7 @@ export default function LandingPage() {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -30 }}
                 transition={{ duration: 0.3, ease }}
-                className="grid grid-cols-[1fr_1.4fr] min-h-[340px]"
+                className="grid grid-cols-1 md:grid-cols-[1fr_1.4fr] min-h-[240px] md:min-h-[340px]"
               >
                 {/* Left — Character */}
                 <div
@@ -316,12 +316,12 @@ export default function LandingPage() {
       </motion.section>
 
       {/* ── Divider ── */}
-      <div className="max-w-[1200px] mx-auto px-8">
+      <div className="max-w-[1200px] mx-auto px-4 md:px-8">
         <div className="h-px" style={{ background: "var(--color-landing-border)" }} />
       </div>
 
       {/* ── Unidades ── */}
-      <div className="max-w-[1200px] mx-auto px-8 pt-10 pb-20">
+      <div className="max-w-[1200px] mx-auto px-4 md:px-8 pt-8 md:pt-10 pb-12 md:pb-20">
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -334,7 +334,7 @@ export default function LandingPage() {
 
         <div
           className="grid gap-4"
-          style={{ gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))" }}
+          style={{ gridTemplateColumns: "repeat(auto-fill, minmax(min(320px, 100%), 1fr))" }}
         >
           {UNITS.map((u, i) => (
             <motion.div
@@ -402,7 +402,7 @@ export default function LandingPage() {
               </div>
 
               {/* Content */}
-              <div className="p-8">
+              <div className="p-5 md:p-8">
                 <div className="flex items-center gap-3 mb-2">
                   <span
                     className="text-xs font-semibold tracking-wider uppercase"
@@ -425,7 +425,7 @@ export default function LandingPage() {
                 </p>
 
                 {/* Actions */}
-                <div className="flex gap-3">
+                <div className="flex flex-col sm:flex-row gap-3">
                   <Link
                     href={pildora.href}
                     className="flex-1 inline-flex items-center justify-center gap-3 px-6 py-4 rounded-xl text-base font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg font-[family-name:var(--font-landing)]"

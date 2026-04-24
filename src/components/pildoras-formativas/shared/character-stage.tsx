@@ -12,12 +12,10 @@ export function CharacterStage({
   step: number;
 }) {
   return (
-    <div className="relative flex items-center justify-center min-w-0">
+    <div className="relative flex flex-col md:flex-row items-center justify-center min-w-0 gap-3 md:gap-0">
       <div
-        className="relative"
+        className="relative w-[min(50vw,30vh)] md:w-[min(34vw,44vh)] max-w-[400px]"
         style={{
-          width: "min(34vw, 44vh)",
-          maxWidth: 400,
           animation:
             "stageSlideIn 900ms cubic-bezier(0.16,1,0.3,1), stageFloat 5.5s ease-in-out 900ms infinite",
         }}
@@ -28,15 +26,17 @@ export function CharacterStage({
       {bubble && (
         <div
           key={`b-${step}`}
-          className="absolute top-[15%] -right-[20%] bg-white rounded-[24px] px-7 py-4 shadow-[0_18px_48px_-14px_rgba(0,0,0,0.22)] max-w-[280px] z-10"
+          className="relative md:absolute md:top-[15%] md:-right-[20%] bg-white rounded-[24px] px-5 py-3 md:px-7 md:py-4 shadow-[0_18px_48px_-14px_rgba(0,0,0,0.22)] max-w-[90vw] md:max-w-[280px] z-10"
           style={{
             animation: "bubbleIn 560ms cubic-bezier(0.16,1,0.3,1)",
           }}
         >
-          <p className="font-[family-name:var(--font-pf-display)] text-[clamp(18px,2.4vh,30px)] leading-snug text-[var(--color-pf-ink)]">
+          <p className="font-[family-name:var(--font-pf-display)] text-[clamp(16px,2.4vh,30px)] leading-snug text-[var(--color-pf-ink)]">
             {bubble}
           </p>
-          <div className="absolute top-1/2 -left-[10px] -translate-y-1/2 w-[18px] h-[18px] bg-white rotate-45 rounded-[3px]" />
+          {/* Arrow: bottom on mobile, left on desktop */}
+          <div className="hidden md:block absolute top-1/2 -left-[10px] -translate-y-1/2 w-[18px] h-[18px] bg-white rotate-45 rounded-[3px]" />
+          <div className="block md:hidden absolute -top-[10px] left-1/2 -translate-x-1/2 w-[18px] h-[18px] bg-white rotate-45 rounded-[3px]" />
         </div>
       )}
 

@@ -84,7 +84,7 @@ export default function PildorasFormativasPage() {
       className="min-h-screen w-full flex flex-col transition-colors duration-500 font-[family-name:var(--font-pf-ui)]"
       style={{ background: slide.bg }}
     >
-      <header className="flex items-center justify-between px-10 pt-8 text-[var(--color-pf-ink)]">
+      <header className="flex items-center justify-between px-4 md:px-10 pt-6 md:pt-8 text-[var(--color-pf-ink)]">
         <span className="text-lg font-medium opacity-80">{slide.step}</span>
         <span className="font-[family-name:var(--font-pf-display)] text-2xl tracking-wide">
           PÍLDORAS FORMATIVAS
@@ -100,8 +100,8 @@ export default function PildorasFormativasPage() {
         </button>
       </header>
 
-      <main className="flex-1 flex items-center justify-center px-10 pb-4">
-        <div className="w-full max-w-[1400px] grid grid-cols-[1.1fr_1fr] gap-12 items-center">
+      <main className="flex-1 flex items-center justify-center px-4 md:px-10 pb-4">
+        <div className="w-full max-w-[1400px] grid grid-cols-1 md:grid-cols-[1.1fr_1fr] gap-6 md:gap-12 items-center">
           <div className="relative">
             <h1 className="font-[family-name:var(--font-pf-display)] uppercase leading-[0.88] tracking-tight text-[clamp(80px,12vw,200px)] text-[var(--color-pf-ink)]">
               {slide.headline.map((line, i) => (
@@ -111,7 +111,7 @@ export default function PildorasFormativasPage() {
               ))}
             </h1>
             <span
-              className="absolute left-[38%] top-[62%] px-5 py-2 rounded-full text-lg font-semibold"
+              className="absolute left-[38%] top-[62%] px-3 md:px-5 py-1.5 md:py-2 rounded-full text-base md:text-lg font-semibold"
               style={{ background: slide.badgeBg, color: slide.badgeFg }}
             >
               {slide.badge}
@@ -121,13 +121,13 @@ export default function PildorasFormativasPage() {
             </div>
           </div>
 
-          <div className="flex items-center justify-center">
-            <Character className="w-full max-w-[560px] h-auto" />
+          <div className="flex items-center justify-center order-first md:order-none">
+            <Character className="w-full max-w-[200px] md:max-w-[560px] h-auto" />
           </div>
         </div>
       </main>
 
-      <footer className="flex items-center justify-between px-10 pb-10">
+      <footer className="flex items-center justify-between px-4 md:px-10 pb-6 md:pb-10">
         <button
           onClick={prev}
           className="px-6 py-3 rounded-full bg-white/70 text-[var(--color-pf-ink)] font-semibold hover:bg-white transition"
