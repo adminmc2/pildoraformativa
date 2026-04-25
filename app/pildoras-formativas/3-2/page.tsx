@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { House } from "@phosphor-icons/react";
 import { SlideOpening } from "@/components/pildoras-formativas/slides/slide-opening";
 import { SlideCierre } from "@/components/pildoras-formativas/slides/slide-cierre";
@@ -12,6 +11,7 @@ import { SlideFlora2 } from "@/components/pildoras-formativas/slides/3-2/slide-f
 import { SlideVito1 } from "@/components/pildoras-formativas/slides/3-2/slide-vito-1";
 import { SlideVito2 } from "@/components/pildoras-formativas/slides/3-2/slide-vito-2";
 import { SlideLuna1 } from "@/components/pildoras-formativas/slides/3-2/slide-luna-1";
+import { SlideChipi } from "@/components/pildoras-formativas/slides/3-2/slide-chipi";
 
 /* ── Tipos ── */
 type ContentSlide = {
@@ -79,7 +79,7 @@ export default function Pildora32Page() {
               PÍLDORA FORMATIVA 3.2
             </div>
             <div className="text-base md:text-lg opacity-70 font-medium tracking-wider uppercase">
-              Un Correo Electrónico Personal · Unidad 3 · v0.8
+              Un Correo Electrónico Personal · Unidad 3 · v0.9
             </div>
           </div>
           {slide.kind !== "cierre" ? (
@@ -107,7 +107,7 @@ export default function Pildora32Page() {
         {slide.kind === "vito1" && <SlideVito1 />}
         {slide.kind === "vito2" && <SlideVito2 />}
         {slide.kind === "luna1" && <SlideLuna1 />}
-        {slide.kind === "desafio" && <PlaceholderSlide title="¡Corrige el desastre!" agent="CHIPI" desc="Desafío: encuentra los errores en el email de Carlos" dark />}
+        {slide.kind === "desafio" && <SlideChipi />}
 
         {slide.kind === "cierre" && <SlideCierre />}
       </main>
@@ -148,37 +148,6 @@ export default function Pildora32Page() {
           )}
         </footer>
       )}
-    </div>
-  );
-}
-
-/* ── Placeholder para slides pendientes ── */
-function PlaceholderSlide({ title, agent, desc, dark }: { title: string; agent: string; desc: string; dark?: boolean }) {
-  const colors: Record<string, { bg: string; fg: string }> = {
-    PILI: { bg: "var(--color-pf-star-soft)", fg: "#8A6B00" },
-    FLORA: { bg: "var(--color-pf-flower-soft)", fg: "#8A1470" },
-    VITO: { bg: "var(--color-pf-pill-soft)", fg: "#3F6B14" },
-    LUNA: { bg: "var(--color-pf-moon-soft)", fg: "#3B2A8A" },
-    CHIPI: { bg: "var(--color-pf-spark-soft)", fg: "#8A2F10" },
-  };
-  const c = colors[agent] ?? { bg: "#eee", fg: "#333" };
-
-  return (
-    <div className="flex flex-col items-center justify-center gap-6 text-center">
-      <span
-        className="px-4 py-1.5 rounded-full text-base font-bold tracking-wider"
-        style={{ background: c.bg, color: c.fg }}
-      >
-        {agent}
-      </span>
-      <h2
-        className={`font-[family-name:var(--font-pf-display)] text-[clamp(32px,5vw,64px)] uppercase leading-tight ${dark ? "text-white" : "text-[var(--color-pf-ink)]"}`}
-      >
-        {title}
-      </h2>
-      <p className={`text-lg max-w-md ${dark ? "text-white/60" : "text-[var(--color-pf-ink)] opacity-50"}`}>
-        {desc}
-      </p>
     </div>
   );
 }

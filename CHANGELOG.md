@@ -1,5 +1,19 @@
 # Changelog
 
+## v0.24 — 2026-04-25
+
+### Píldora 3.2 — Slide #08 (Chipi — "¡Ordena el desastre!")
+- Juego completamente diferente a píldora 3.1 (no quiz A/B/C)
+- Pool de 16 emails desordenados de personajes ficticios (A1.1, ciudades españolas)
+- Configuración: 2-4 equipos, rondas elegibles (3, 5, 8, 10 o 16)
+- Fase 1: ordenar 7 fragmentos por función (saludo, abre tema, conecta, cuerpo, pregunta, despedida, firma)
+- Timer ascendente con puntuación por tiempo (<30s=30pts, <45s=25, <60s=20, <90s=15, <120s=10)
+- Fase 2: pregunta de comprensión con 30s, rebote si falla
+- Los temas del cuerpo varían entre rondas (no siempre familia→amigos→escuela)
+- Emails seleccionados aleatoriamente del pool
+- Brief actualizado con nueva descripción de Chipi
+- Versión píldora 3.2: v0.8 → v0.9
+
 ## v0.23 — 2026-04-24
 
 ### Píldora 3.2 — Slide #07 (Luna — "Revisa y comparte")

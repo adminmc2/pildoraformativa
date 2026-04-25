@@ -44,7 +44,7 @@
 | 05 | VITO | Planifica: de Marta a ti | 3. Planifica | S13 Graphic organizers; S4 Guided composition |
 | 06 | VITO | Tu correo: elige y conecta | 4. Escribe | S11 Writing frames; S7 Sentence combining |
 | 07 | LUNA | Revisa y comparte | Revisa + Intercambia | S53 COPS checklist; S55 Peer response; E4-E5 |
-| 08 | CHIPI | ¡Corrige el desastre! | Desafío | Gamificación; S74 Consciousness-raising |
+| 08 | CHIPI | ¡Ordena el desastre! | Desafío | Gamificación; S8 Sentence unscrambling |
 | — | PILI | Cierre | — | — |
 
 ---
@@ -300,48 +300,54 @@ Chipi reta, es rápido, da feedback inmediato. Competición por equipos.
 
 ---
 
-#### #08 — ¡Corrige el desastre!
+#### #08 — ¡Ordena el desastre!
 
-**Objetivo:** Consolidación lúdica. El alumno identifica errores en un email mal escrito.
+**Objetivo:** Consolidación lúdica. Los equipos ordenan emails desordenados aplicando todo lo aprendido: estructura del email, conectores, funciones discursivas y coherencia.
 
-**Mecánica:**
-- Se muestra un email "desastroso" escrito por "Carlos" con 8-10 errores:
+**Configuración:**
+- 2-4 equipos
+- Pool de 16 emails diferentes (personajes ficticios, nivel A1.1, ciudades españolas variadas)
+- El profesor elige el número de rondas: 3, 5, 8, 10 o 16
+- Los emails se seleccionan aleatoriamente del pool
 
-```
-mi padre es profesor y mi madre trabajan en un hospital
-me gusta mucho la matematicas. tengo una amiga se llama sara
-es de alemania. no tenemos muchos deberes
-pedro y yo jugamos al futbol todos los dias
+**Cada ronda tiene 2 fases:**
 
-Un saludo desde Madrid!
-carlos
-```
+**Fase 1 — Ordena el email (máx. 2 min):**
+- Se proyecta un email con 7 fragmentos numerados en desorden
+- Cada fragmento tiene una función estructural o discursiva:
+  - SALUDO (¡Hola, ___! ¿Qué tal?)
+  - ABRE TEMA (Hoy te hablo de... / Este curso...)
+  - CUERPO con conectores (Y además... / También...)
+  - PREGUNTA al destinatario (¿Y tú...? / ¿Tú también...?)
+  - DESPEDIDA (¡Un saludo/abrazo desde...!)
+  - FIRMA
+- Los temas del cuerpo varían entre rondas (no siempre familia→amigos→escuela)
+- Todos los equipos ven el mismo email y escriben el orden en papel/pizarrita
+- El primero que termina grita "¡LISTO!" → el profesor pulsa STOP
 
-**Errores a encontrar:**
+**Puntuación por tiempo:**
 
-| # | Error | Tipo |
-|---|-------|------|
-| 1 | No tiene saludo (falta "¡Hola, ___!") | Estructura |
-| 2 | "mi" en minúscula al inicio de frase | Mayúsculas |
-| 3 | "trabajan" → "trabaja" (mi madre = singular) | Verbo |
-| 4 | "la matematicas" → "las matemáticas" (plural + tilde) | Concordancia |
-| 5 | Falta punto después de "hospital" | Puntuación |
-| 6 | "se llama sara" → "Se llama Sara" (mayúscula nombre propio) | Mayúsculas |
-| 7 | "alemania" → "Alemania" (mayúscula país) | Mayúsculas |
-| 8 | "no tenemos" → incoherencia (no encaja con el tono) | Contenido |
-| 9 | Párrafos no separados por temas | Estructura |
-| 10 | Falta "¿Qué tal estás?" o pregunta al destinatario | Estructura |
+| Tiempo | Puntos |
+|--------|--------|
+| < 30s | 30 |
+| < 45s | 25 |
+| < 60s | 20 |
+| < 90s | 15 |
+| < 120s | 10 |
 
-- Mecánica competitiva:
-  - Temporizador configurable: 5 / 8 / 10 segundos por error
-  - 2-4 equipos
-  - Cada error encontrado = 1 punto
-  - Bonus por racha (×2 al 3er acierto, ×3 al 5o)
-  - Al pulsar un error → Chipi da feedback rápido: "¡Bien! 'Sara' es un nombre propio → mayúscula." o "¡No! Eso está bien, busca en otro sitio."
+- Se comprueba: correcto → puntos según tiempo / incorrecto → 0
 
-- Al terminar: Chipi muestra el email CORREGIDO al lado del original. "¡Comparad! ¿Veis la diferencia?"
+**Fase 2 — Pregunta de comprensión (30s):**
+- Una pregunta sobre el contenido del email (datos personales del personaje)
+- El equipo ganador de fase 1 tiene prioridad
+- Si falla → rebote al siguiente equipo
+- Acierto = +10 puntos
 
-**Personaje:** ChipiChip — rápido, retador, feedback inmediato con puntuación
+**Resultado final:**
+- Marcador acumulado tras todas las rondas
+- Chipi reacciona según resultado
+
+**Personaje:** ChipiSpark — retador, feedback rápido
 
 ---
 
@@ -365,8 +371,8 @@ PORTADA → #01 PILI → #02 PILI → #03 FLORA → #04 FLORA
 Planifica tus datos       →  Elige tarjetas y conecta
 (de Marta a ti)               (email coherente)
         ↓                          ↓
-Revisa y comparte         →  ¡Corrige el desastre!
-(autoevaluación + peer)       (desafío)
+Revisa y comparte         →  ¡Ordena el desastre!
+(autoevaluación + peer)       (desafío por equipos)
 ```
 
 ## Correspondencia con la tarjeta de estrategia
@@ -378,7 +384,7 @@ Revisa y comparte         →  ¡Corrige el desastre!
 | 3. Planifica | #05 (VITO: tabla Marta vs. Tú) |
 | 4. Escribe | #06 (VITO: tarjetas encadenables con conectores) |
 | Revisa tu email | #07 (LUNA: autoevaluación + peer review) |
-| Desafío extra | #08 (CHIPI: corrige el desastre) |
+| Desafío extra | #08 (CHIPI: ordena el desastre) |
 
 ## Correspondencia con Protocolo E
 
