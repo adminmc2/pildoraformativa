@@ -173,3 +173,25 @@
 **Pregunta (V/F):** "El profesor de Matemáticas es mayor y aburrido."
 - A) Verdadero
 - B) **Falso** ✓ *(Roberto es joven y sus clases son divertidas)*
+
+---
+
+## Email 9 — Lucía → Anna (Salamanca) · familia (hermana mayor) · conector "y"
+
+**Fragmentos (8):**
+1. ¡Hola, Anna! ¿Qué tal?
+2. Hoy te hablo de mi hermana Sara.
+3. Sara tiene veinte años.
+4. Estudia Medicina en la universidad
+5. y
+6. vive en otra ciudad.
+7. ¿Tu hermana también estudia?
+8. ¡Un abrazo desde Salamanca! Lucía
+
+**EMAIL_PARAGRAPHS:** [[0],[1],[2],[3,4,5],[6],[7]]
+**LINKED_PAIRS:** [[3,4],[4,5]]
+
+**Pregunta (MC):** ¿Qué estudia Sara, la hermana de Lucía?
+- A) Inglés
+- B) Matemáticas
+- C) **Medicina** ✓

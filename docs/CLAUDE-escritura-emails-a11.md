@@ -96,13 +96,16 @@ Si el contenido de la lección cambia, actualizar esta lista antes de redactar.
 
 ## Vocabulario y estructuras A1.1
 
-- Verbos: ser, estar, tener, llamarse, gustar, vivir, trabajar, jugar, estudiar, hacer
+- **Verbos permitidos** (los únicos que conocen): ser, estar, tener, llamarse, gustar, vivir, trabajar, jugar, estudiar
+- ❌ NO usar: `venir`, `visitar`, `salir`, `volver`, `traer`, `llevar` y otros verbos de movimiento/transferencia (no son A1.1 inicial)
 - Tiempo: presente simple
 - ❌ Evitar: subjuntivo, perífrasis (estar + gerundio frecuente), idiomas, expresiones complejas
 - ❌ Pronombres preposicionales contraídos: `conmigo`, `contigo`, `consigo` (no son A1.1)
 - ✅ Alternativas: `con nosotros`, `con mis amigos`, frases sin pronombre
 - ❌ `un poco + adjetivo` (`Este curso es un poco difícil`) → estructura no asumida en este nivel
 - ✅ Alternativas: `Este curso tengo muchos deberes.` / `Hoy te hablo de mi instituto: ...`
+- ❌ Pronombres átonos de objeto directo/indirecto: `la veo`, `lo conozco`, `le digo` — no son A1.1
+- ✅ Alternativas: repetir el nombre o usar el sustantivo (`Sara viene a casa`, `veo a Sara`)
 - Frases simples y directas
 
 ## Preguntas de comprensión
@@ -157,7 +160,16 @@ Yo aquí en Sevilla, muy contenta.
 ```
 **Problema:** "también" sin paralelismo real (lista de amigos vs especificación de una concreta). Mejor: "Mi mejor amiga se llama Sofía. También está en mi clase."
 
-### Contraejemplo 6 — Email tipo "mensaje" (demasiado corto, sin estructura completa)
+### Contraejemplo 6 — Estereotipos absurdos (siesta, flamenco, paella, toros)
+```
+Mateo va al colegio por las mañanas.
+También duerme la siesta todos los días.
+```
+**Problema:** "siesta todos los días" es un estereotipo cliché de España — absurdo, no refleja realidad de un niño moderno. Refuerza el tópico. Lo mismo con flamenco, paella, toros, fiesta como elementos definitorios.
+
+**Lista a evitar:** siesta diaria, flamenco como afición, paella como comida, toros, fiesta nocturna como rutina, "España soleada todo el año".
+
+### Contraejemplo 7-prev — Email tipo "mensaje" (demasiado corto, sin estructura completa)
 ```
 ¡Hola, Julie! ¿Tienes hermanas?
 Yo tengo una hermana mayor.

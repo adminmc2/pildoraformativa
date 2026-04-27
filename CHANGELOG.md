@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.30 — 2026-04-27
+
+### Píldora 3.2 — Slide #08 (Chipi) — Email 9 aprobado
+- Email 9 (Lucía→Anna, Salamanca, hermana mayor universitaria Sara)
+- Guía: lista de verbos A1.1 permitidos, prohibido pronombres átonos, prohibidos estereotipos (siesta, etc.)
+
 ## v0.29 — 2026-04-27
 
 ### Píldora 3.2 — Slide #08 (Chipi) — Email 8 aprobado
