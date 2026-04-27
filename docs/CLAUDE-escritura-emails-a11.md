@@ -1,0 +1,114 @@
+# Guía de escritura — Emails personales A1.1 (píldora 3.2)
+
+> Este documento es **solo sobre redacción de emails A1.1** (estilo, registro, vocabulario, naturalidad). NO mezclar con reglas de gramática general del proyecto.
+
+## Estructura obligatoria del email
+
+1. **Saludo + pregunta inicial** simple al destinatario
+   - ✅ `¡Hola, X! ¿Qué tal?`
+   - ✅ `¡Hola, X! ¿Cómo estás?`
+   - ❌ `¿Qué tal estás? ¿Cómo va el nuevo curso?` (dos preguntas seguidas, idiomático)
+   - ❌ `¿Sigues con tus clases de baile?` (vocabulario fuera de A1.1)
+   - ❌ `¿Hace mucho frío por allí?` ("por allí" idiomático)
+
+2. **Abre tema** — usar las expresiones enseñadas en Flora-2:
+   - ✅ `Hoy te hablo de mi familia:`
+   - ✅ `Y en el instituto, ¿qué tal el nuevo curso?`
+   - ✅ `Este curso es un poco más difícil.`
+   - ❌ Saltar del saludo directamente a "Mi padre es X" sin abre tema
+
+3. **Cuerpo** — 1 o 2 temas máximo, con conector si encaja natural
+
+4. **Pregunta final** paralela a un tema tratado (concreta, no abstracta)
+   - ✅ `¿Y tú? ¿Cuántos hermanos tienes?` (paralela a familia)
+   - ✅ `¿Y tú? ¿En qué trabajan tus padres?` (paralela a profesiones)
+   - ❌ `¿Cómo es tu familia?` (abstracta)
+   - ❌ `¿Cómo es la ciudad donde vives?` (abstracta)
+
+5. **Despedida + firma**: `¡Un abrazo desde X! Nombre` o `¡Un saludo! Nombre`
+
+## Conectores admitidos (los únicos)
+
+Solo dos, los enseñados en la lección:
+
+### "y"
+- minúscula
+- frase anterior **sin punto final**
+- frase siguiente **en minúscula**
+- al componer fluye inline: *"...una oficina **y** mi madre es profesora..."*
+- solo entre **elementos paralelos reales** (padre↔madre, sujeto↔sujeto, atributo↔atributo)
+
+### "también"
+- mayúscula al inicio (nueva oración)
+- frase anterior **con punto final**
+- frase siguiente en minúscula tras el conector
+- requiere **paralelismo claro** del mismo verbo o categoría
+  - ✅ "Tengo un hermano. También tengo una hermana."
+  - ✅ "Mi mejor amigo se llama Lucas. También está en mi clase."
+  - ❌ "Tengo muchos amigos: Ana, Luis y Sara. También una mejor amiga." (no paralelo)
+
+### Reglas duras de conectores
+- **Nunca**: además, por lo tanto, sin embargo, pero (no están en la lección)
+- **Nunca** "Y" para abrir tema al inicio de oración (uso oral, no escrito A1.1)
+- **No forzar** dos conectores si solo uno encaja natural
+- El conector va como **fragmento aislado** (selección independiente en el puzzle), pero al componer queda inline en el mismo párrafo visual que la frase siguiente
+
+## Aperturas de tema
+
+- **UN solo complemento** por predicación
+- ✅ "Hoy te hablo de mi familia: ..."
+- ✅ "Este curso me gusta mucho."
+- ✅ "En clase tengo muchos amigos."
+- ❌ "En el instituto este curso me gusta mucho" (dos complementos chocando)
+- ❌ "En clase mi mejor amigo es Lucas" → mejor "Mi mejor amigo se llama Lucas. También está en mi clase."
+
+## Vocabulario y estructuras A1.1
+
+- Verbos: ser, estar, tener, llamarse, gustar, vivir, trabajar, jugar, estudiar, hacer
+- Tiempo: presente simple
+- ❌ Evitar: subjuntivo, perífrasis (estar + gerundio frecuente), idiomas, expresiones complejas
+- Frases simples y directas
+
+## Preguntas de comprensión
+
+- Deben testear **comprensión real**, no recuerdo directo de un dato suelto
+- ❌ "¿Cuántos años tiene la hermana?" → solo memoria, demasiado directo
+- ✅ Formato Verdadero/Falso que obligue a distinguir relaciones:
+  - "El padre de Laura trabaja en un hospital." → Falso (es la madre)
+  - "Lucas y Carlos están en clases diferentes." → Falso (están juntos)
+- ✅ Multiple choice solo si las opciones obligan a contrastar varios datos del email
+
+## Contraejemplos (qué NO hacer)
+
+### Contraejemplo 1 — Salto abrupto sin abre tema
+```
+¡Hola, Marco! ¿Qué tal estás?
+Mi padre se llama Antonio y es profesor.   ← salto sin abre tema
+...
+```
+**Problema:** falta el "Hoy te hablo de mi familia:" enseñado en la lección.
+
+### Contraejemplo 2 — Pregunta inicial fuera de nivel
+```
+¡Hola, Marco! ¿Qué tal estás? ¿Cómo va el nuevo curso?
+Yo aquí en Sevilla, muy contenta.
+```
+**Problema:** dos preguntas seguidas + "Yo aquí en X, muy contenta" forzado y no natural en A1.1.
+
+### Contraejemplo 3 — Pregunta final abstracta
+```
+¿Y tú? ¿Cómo es tu familia?
+```
+**Problema:** abstracta, no apunta a un dato concreto del email. Mejor `¿Cuántos hermanos tienes?` o `¿En qué trabajan tus padres?`.
+
+### Contraejemplo 4 — Pregunta de comprensión trivial
+```
+¿Cuántos años tiene la hermana de Laura? → Seis
+```
+**Problema:** solo memoria de un número. Mejor V/F que obligue a distinguir relaciones.
+
+### Contraejemplo 5 — Conector forzado
+```
+"Tengo muchos amigos: Ana, Luis y Sara. También una mejor amiga: Sofía."
+```
+**Problema:** "también" sin paralelismo real (lista de amigos vs especificación de una concreta). Mejor: "Mi mejor amiga se llama Sofía. También está en mi clase."

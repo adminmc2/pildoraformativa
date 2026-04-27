@@ -47,7 +47,7 @@ const SLIDES: Slide[] = [
   // ── LUNA — Verificación ──
   { kind: "luna1", step: "#07", bg: "var(--color-pf-moon-soft)" },
   // ── CHIPI — Desafío ──
-  { kind: "desafio", step: "#08", bg: "#2d1508" },
+  { kind: "desafio", step: "#08", bg: "#FAF6EC" },
   // ── CIERRE ──
   { kind: "cierre", step: "#09", bg: "#FAF6EC" },
 ];
@@ -58,7 +58,7 @@ export default function Pildora32Page() {
 
   const next = () => setActive((active + 1) % SLIDES.length);
   const prev = () => setActive((active - 1 + SLIDES.length) % SLIDES.length);
-  const isDark = slide.kind === "desafio";
+  const isDark = false;
 
   return (
     <div
@@ -79,7 +79,7 @@ export default function Pildora32Page() {
               PÍLDORA FORMATIVA 3.2
             </div>
             <div className="text-base md:text-lg opacity-70 font-medium tracking-wider uppercase">
-              Un Correo Electrónico Personal · Unidad 3 · v0.9
+              Un Correo Electrónico Personal · Unidad 3 · v0.10
             </div>
           </div>
           {slide.kind !== "cierre" ? (

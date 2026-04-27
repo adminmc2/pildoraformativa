@@ -1,5 +1,16 @@
 # Changelog
 
+## v0.25 — 2026-04-27
+
+### Píldora 3.2 — Slide #08 (Chipi) — Refactor de emails A1.1
+- Aumentado el tamaño de letra del email en vista play/check y vista pregunta (mejor legibilidad)
+- Iniciado refactor de los 16 emails con estructura natural A1.1 (saludo + abre tema + cuerpo con conectores y/también + pregunta paralela + despedida)
+- Aprobados emails 1 (Laura→Marco, Sevilla) y 2 (Carlos→Pierre, Madrid) con nueva estructura
+- Preguntas de comprensión migradas a formato Verdadero/Falso que testean comprensión real (no recuerdo directo)
+- Documentación: nueva guía `docs/CLAUDE-escritura-emails-a11.md` con reglas de redacción A1.1, conectores admitidos, contraejemplos
+- Documentación: registro de emails aprobados en `docs/chipi-emails-aprobados.md`
+- Versión píldora 3.2: v0.9 → v0.10
+
 ## v0.24 — 2026-04-25
 
 ### Píldora 3.2 — Slide #08 (Chipi — "¡Ordena el desastre!")
