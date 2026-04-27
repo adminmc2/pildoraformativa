@@ -1,5 +1,15 @@
 # Changelog
 
+## v0.35 — 2026-04-27
+
+### Píldora 3.2 — Slide #08 (Chipi) — Implementación de los 12 emails A1.1
+- Reemplazada toda la data `EMAILS` con los 12 emails aprobados (Laura, Carlos, Ana, Pablo, Sofía, Diego, Elena, Marcos, Lucía, Javier, María, Daniel)
+- `LINKED_PAIRS` y `EMAIL_PARAGRAPHS` regenerados para los nuevos fragmentos
+- Tipo `options` ahora `string[]` (acepta 2 opciones para V/F y 3 para MC)
+- Preguntas de comprensión variadas: V/F en mayoría, MC en algunos
+- Configuración variada por email: posición de conector, presencia/ausencia de pregunta inicial/final, número de fragmentos (8-11)
+- Versión píldora 3.2: v0.10 → v0.11
+
 ## v0.34 — 2026-04-27
 
 ### Píldora 3.2 — Slide #08 (Chipi) — Reducción pool 16→12 propagada en todas las refs

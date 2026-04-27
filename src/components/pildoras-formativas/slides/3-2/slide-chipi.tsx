@@ -17,281 +17,210 @@ type Email = {
   fragments: string[];
   shuffle: number[];
   question: string;
-  options: [string, string, string];
+  options: string[];
   correct: number;
 };
 
 const EMAILS: Email[] = [
   {
-    author: "Laura", recipient: "Marco", city: "Sevilla", subject: "¡Noticias desde Sevilla!",
+    author: "Laura", recipient: "Marco", city: "Sevilla", subject: "Hola desde Sevilla",
     fragments: [
-      "¡Hola, Marco! ¿Qué tal estás?",
-      "Hoy te hablo de mi escuela: este curso es muy divertido.",
-      "Y además,",
-      "tengo deberes de Ciencias y Música.",
-      "Yo este año tengo muchos amigos: Ana, Luis, Sara...",
-      "Mi mejor amiga se llama Sofía.",
-      "¿Tú también tienes muchos amigos en tu clase?",
-      "¡Un abrazo desde Sevilla!",
-      "Laura",
+      "¡Hola, Marco! ¿Qué tal?",
+      "Hoy te hablo de mi familia: mi padre se llama Antonio y es profesor.",
+      "Mi madre se llama Carmen",
+      "y",
+      "trabaja en un hospital.",
+      "Tengo una hermana: se llama Eva y tiene seis años.",
+      "¿Y tú? ¿Cuántos hermanos tienes?",
+      "¡Un abrazo desde Sevilla! Laura",
     ],
-    shuffle: [5, 2, 7, 4, 0, 8, 1, 6, 3],
-    question: "¿De qué asignaturas tiene deberes Laura?",
-    options: ["Inglés y Música", "Ciencias y Música", "Ciencias y Matemáticas"], correct: 1,
+    shuffle: [3, 5, 1, 7, 0, 4, 2, 6],
+    question: "El padre de Laura trabaja en un hospital.",
+    options: ["Verdadero", "Falso"], correct: 1,
   },
   {
-    author: "Carlos", recipient: "Pierre", city: "Madrid", subject: "¡Hola desde Madrid!",
+    author: "Carlos", recipient: "Pierre", city: "Madrid", subject: "Saludos desde Madrid",
     fragments: [
       "¡Hola, Pierre! ¿Qué tal?",
-      "Hoy te hablo de mi familia: mi padre trabaja en un banco.",
-      "Y además,",
-      "mi madre trabaja en un colegio. Mi hermano Marcos tiene ocho años.",
-      "Este curso tengo deberes de Inglés y Matemáticas.",
-      "A mí me gusta mucho la Música. ¿Y a ti?",
-      "¡Un saludo desde Madrid!",
-      "Carlos",
-    ],
-    shuffle: [4, 7, 2, 6, 0, 5, 1, 3],
-    question: "¿Dónde trabaja el padre de Carlos?",
-    options: ["En un hospital", "En un banco", "En un colegio"], correct: 1,
-  },
-  {
-    author: "Ana", recipient: "Lisa", city: "Barcelona", subject: "Mi vida en Barcelona",
-    fragments: [
-      "¡Hola, Lisa! ¿Qué tal estás?",
-      "Yo este año tengo una amiga nueva: se llama Claudia.",
+      "Hoy te hablo de mi familia: mi padre es médico",
+      "y",
+      "mi madre trabaja en una tienda.",
+      "Tengo un hermano: se llama Marcos y tiene ocho años.",
+      "Mi mejor amigo se llama Lucas.",
       "También",
-      "tengo muchos amigos en mi clase: Pedro, Marta, Lucas...",
-      "Hoy te hablo de mi familia: mi madre trabaja en una tienda.",
-      "Y mi padre, en un restaurante. Soy hija única.",
-      "¿Y tú, tienes hermanos?",
-      "¡Un abrazo desde Barcelona!",
-      "Ana",
+      "está en mi clase.",
+      "¿Y tú? ¿En qué trabajan tus padres?",
+      "¡Un saludo desde Madrid! Carlos",
     ],
-    shuffle: [6, 4, 8, 2, 0, 7, 1, 5, 3],
-    question: "¿Tiene hermanos Ana?",
-    options: ["Sí, tiene un hermano", "No, es hija única", "Sí, tiene una hermana"], correct: 1,
+    shuffle: [2, 5, 8, 1, 6, 0, 9, 3, 7, 4],
+    question: "Lucas y Carlos están en clases diferentes.",
+    options: ["Verdadero", "Falso"], correct: 1,
   },
   {
-    author: "Pablo", recipient: "Thomas", city: "Valencia", subject: "Noticias de Valencia",
+    author: "Ana", recipient: "Lisa", city: "Barcelona", subject: "Mi nuevo curso",
+    fragments: [
+      "¡Hola, Lisa! ¿Qué tal?",
+      "Este curso me gusta mucho.",
+      "Tengo deberes de Lengua y Matemáticas.",
+      "Mi asignatura favorita es Arte.",
+      "Me gusta mucho dibujar.",
+      "También",
+      "me gusta la Música.",
+      "¿Y tú? ¿Cuál es tu asignatura favorita?",
+      "¡Un abrazo desde Barcelona! Ana",
+    ],
+    shuffle: [4, 7, 2, 0, 5, 8, 1, 6, 3],
+    question: "Ana tiene deberes de Música.",
+    options: ["Verdadero", "Falso"], correct: 1,
+  },
+  {
+    author: "Pablo", recipient: "Thomas", city: "Valencia", subject: "Mis amigos del cole",
     fragments: [
       "¡Hola, Thomas! ¿Qué tal?",
-      "Este curso es un poco difícil.",
-      "Y además,",
-      "tengo muchos deberes de Tecnología y Ciencias.",
-      "Hoy te hablo de mi familia: mi madre trabaja en un hospital.",
-      "Mi hermana Lucía tiene cinco años.",
-      "¿Tú también tienes muchos deberes?",
-      "¡Un saludo desde Valencia!",
-      "Pablo",
+      "Este curso tengo muchos amigos nuevos en mi clase.",
+      "Mi mejor amigo se llama Jorge",
+      "y",
+      "tiene once años.",
+      "Tengo otro amigo: se llama Mateo y es muy simpático.",
+      "¿Y tú? ¿Cómo se llama tu mejor amigo?",
+      "¡Un saludo desde Valencia! Pablo",
     ],
-    shuffle: [5, 7, 3, 8, 0, 6, 4, 1, 2],
-    question: "¿Cuántos años tiene la hermana de Pablo?",
-    options: ["Ocho años", "Once años", "Cinco años"], correct: 2,
+    shuffle: [3, 6, 0, 5, 2, 7, 1, 4],
+    question: "El mejor amigo de Pablo se llama Mateo.",
+    options: ["Verdadero", "Falso"], correct: 1,
   },
   {
-    author: "Sofía", recipient: "Emma", city: "Bilbao", subject: "¡Hola desde Bilbao!",
+    author: "Sofía", recipient: "Emma", city: "Bilbao", subject: "Mis hermanos",
     fragments: [
-      "¡Hola, Emma! ¿Qué tal estás?",
-      "Hoy te hablo de mi familia: mi padre es profesor.",
-      "Y además,",
-      "mi madre es médica. Mi hermano Iker tiene doce años.",
-      "Yo este año tengo muchos amigos: Leire, Jon, Ane...",
-      "Mi mejor amigo se llama Jon. Es muy simpático.",
-      "¿Y tú, cómo es tu clase?",
-      "¡Un abrazo desde Bilbao!",
-      "Sofía",
+      "¡Hola, Emma! ¿Qué tal?",
+      "Hoy te hablo de mis hermanos.",
+      "Mi hermano mayor se llama Iker.",
+      "También",
+      "tengo una hermana: se llama Lara.",
+      "Iker tiene quince años y Lara tiene siete.",
+      "¿Y tú? ¿Cuántos hermanos tienes?",
+      "¡Un abrazo desde Bilbao! Sofía",
     ],
-    shuffle: [4, 6, 0, 7, 8, 3, 1, 5, 2],
-    question: "¿Cómo se llama el hermano de Sofía?",
-    options: ["Jon", "Iker", "Leire"], correct: 1,
+    shuffle: [4, 0, 6, 2, 7, 1, 5, 3],
+    question: "Sofía tiene un hermano pequeño.",
+    options: ["Verdadero", "Falso"], correct: 1,
   },
   {
-    author: "Diego", recipient: "Lucas", city: "Granada", subject: "Mi curso en Granada",
+    author: "Diego", recipient: "Lucas", city: "Granada", subject: "Mi instituto",
     fragments: [
       "¡Hola, Lucas! ¿Qué tal?",
-      "Yo este año tengo un amigo nuevo: se llama Rafa.",
-      "También",
-      "tengo muchos amigos en mi clase: Sara, Inés, Martín...",
-      "Este curso tengo muchos deberes de Matemáticas y Lengua.",
-      "A mí me gusta mucho la Educación Física.",
-      "¿Tú también tienes deberes este año?",
-      "¡Un saludo desde Granada!",
-      "Diego",
+      "Hoy te hablo de mi instituto: tengo muchas asignaturas.",
+      "Tengo deberes de Tecnología",
+      "y",
+      "de Ciencias Naturales.",
+      "Mi asignatura favorita es Educación Física.",
+      "¿Y tú? ¿Tienes muchos deberes este curso?",
+      "¡Un saludo desde Granada! Diego",
     ],
-    shuffle: [7, 3, 5, 8, 0, 2, 1, 6, 4],
-    question: "¿Qué asignatura le gusta a Diego?",
-    options: ["Matemáticas", "Lengua", "Educación Física"], correct: 2,
+    shuffle: [2, 5, 0, 7, 3, 6, 1, 4],
+    question: "¿Cuál es la asignatura favorita de Diego?",
+    options: ["Tecnología", "Ciencias Naturales", "Educación Física"], correct: 2,
   },
   {
-    author: "Elena", recipient: "Julie", city: "Málaga", subject: "Noticias desde Málaga",
+    author: "Elena", recipient: "Julie", city: "Málaga", subject: "Un amigo nuevo",
     fragments: [
-      "¡Hola, Julie! ¿Qué tal estás?",
-      "Este curso es muy divertido. Tengo deberes de Arte y Música.",
+      "¡Hola, Julie!",
+      "Hoy te hablo de un amigo nuevo en mi clase.",
+      "Se llama Bruno.",
+      "Bruno es muy simpático.",
       "También",
-      "me gusta mucho el Arte.",
-      "Yo este año tengo muchos amigos nuevos: Lucía, Pablo, Alba...",
-      "Mi mejor amiga se llama Lucía. Es de Sevilla.",
-      "¿Y tú, qué asignaturas te gustan?",
-      "¡Un abrazo desde Málaga!",
-      "Elena",
+      "es muy gracioso.",
+      "¿Tienes amigos nuevos este curso?",
+      "¡Un saludo desde Málaga! Elena",
     ],
-    shuffle: [3, 6, 7, 4, 8, 0, 2, 1, 5],
-    question: "¿De dónde es Lucía, la amiga de Elena?",
-    options: ["De Málaga", "De Sevilla", "De Granada"], correct: 1,
+    shuffle: [4, 1, 6, 0, 3, 7, 2, 5],
+    question: "Bruno es un amigo de toda la vida de Elena.",
+    options: ["Verdadero", "Falso"], correct: 1,
   },
   {
-    author: "Marcos", recipient: "Hans", city: "Zaragoza", subject: "¡Hola desde Zaragoza!",
+    author: "Marcos", recipient: "Hans", city: "Zaragoza", subject: "Mi profesor de Matemáticas",
     fragments: [
       "¡Hola, Hans! ¿Qué tal?",
-      "Hoy te hablo de mi familia: mi madre trabaja en una farmacia.",
-      "Y además,",
-      "mi padre trabaja en una oficina. Mi hermana Sara tiene siete años.",
-      "Este curso tengo muchos deberes, especialmente de Ciencias.",
-      "A mí me gusta mucho la Historia.",
-      "¿Tú también tienes muchos deberes este año?",
-      "¡Un saludo desde Zaragoza!",
-      "Marcos",
+      "Y en el instituto, ¿qué tal el nuevo curso?",
+      "Yo este año tengo un profesor nuevo de Matemáticas.",
+      "Se llama Roberto",
+      "y",
+      "es muy joven.",
+      "Sus clases son muy divertidas.",
+      "¡Un saludo desde Zaragoza! Marcos",
     ],
-    shuffle: [5, 0, 7, 8, 4, 2, 6, 1, 3],
-    question: "¿Dónde trabaja la madre de Marcos?",
-    options: ["En una oficina", "En un hospital", "En una farmacia"], correct: 2,
+    shuffle: [4, 0, 5, 2, 7, 1, 6, 3],
+    question: "El profesor de Matemáticas es mayor y aburrido.",
+    options: ["Verdadero", "Falso"], correct: 1,
   },
   {
-    author: "Lucía", recipient: "Anna", city: "Salamanca", subject: "Mi familia y amigos",
+    author: "Lucía", recipient: "Anna", city: "Salamanca", subject: "Mi hermana mayor",
     fragments: [
-      "¡Hola, Anna! ¿Qué tal estás?",
-      "Yo este año tengo muchos amigos: Mario, Elena, Carlos...",
-      "También,",
-      "mi mejor amigo se llama Mario. Es muy divertido.",
-      "Hoy te hablo de mi familia: mi padre trabaja en una universidad.",
-      "Y mi madre es enfermera. Mi hermano Miguel tiene nueve años.",
-      "¿Y tú, cuántos hermanos tienes?",
-      "¡Un abrazo desde Salamanca!",
-      "Lucía",
+      "¡Hola, Anna! ¿Qué tal?",
+      "Hoy te hablo de mi hermana Sara.",
+      "Sara tiene veinte años.",
+      "Estudia Medicina en la universidad",
+      "y",
+      "vive en otra ciudad.",
+      "¿Tu hermana también estudia?",
+      "¡Un abrazo desde Salamanca! Lucía",
     ],
-    shuffle: [4, 7, 8, 0, 6, 5, 2, 1, 3],
-    question: "¿Cuántos años tiene el hermano de Lucía?",
-    options: ["Siete años", "Nueve años", "Doce años"], correct: 1,
+    shuffle: [3, 6, 1, 4, 0, 7, 2, 5],
+    question: "¿Qué estudia Sara, la hermana de Lucía?",
+    options: ["Inglés", "Matemáticas", "Medicina"], correct: 2,
   },
   {
-    author: "Javier", recipient: "Paul", city: "Toledo", subject: "Noticias de Toledo",
+    author: "Javier", recipient: "Paul", city: "Toledo", subject: "Mi horario",
     fragments: [
       "¡Hola, Paul! ¿Qué tal?",
-      "Este curso es un poco más difícil. Tengo deberes de Inglés y Ciencias.",
-      "Además,",
-      "me gusta mucho la Tecnología.",
-      "Hoy te hablo de mi familia: mi padre es cocinero.",
-      "Mi madre trabaja en un supermercado. Soy hijo único.",
-      "¿Y tú, tienes hermanos?",
-      "¡Un saludo desde Toledo!",
-      "Javier",
+      "Hoy te hablo de mi instituto.",
+      "Voy a clase a las ocho de la mañana",
+      "y",
+      "estoy en clase hasta las tres de la tarde.",
+      "Tengo seis asignaturas todos los días.",
+      "¿A qué hora vas al instituto?",
+      "¡Un saludo desde Toledo! Javier",
     ],
-    shuffle: [6, 3, 7, 0, 8, 5, 4, 1, 2],
-    question: "¿Cuál es la profesión del padre de Javier?",
-    options: ["Profesor", "Cocinero", "Médico"], correct: 1,
+    shuffle: [3, 0, 5, 2, 7, 1, 6, 4],
+    question: "Javier tiene clases por la noche.",
+    options: ["Verdadero", "Falso"], correct: 1,
   },
   {
-    author: "María", recipient: "Sophie", city: "Córdoba", subject: "¡Hola desde Córdoba!",
+    author: "María", recipient: "Sophie", city: "Córdoba", subject: "Mi mejor amiga",
     fragments: [
-      "¡Hola, Sophie! ¿Qué tal estás?",
-      "Hoy te hablo de mi familia: mi padre trabaja en un hotel.",
-      "Y además,",
-      "mi madre es profesora. Mi hermana Eva tiene diez años.",
-      "Yo este año tengo una amiga nueva: se llama Claudia.",
-      "También tengo muchos amigos: Raúl, Nerea, Tomás...",
-      "¿Tú también tienes muchos amigos en tu clase?",
-      "¡Un abrazo desde Córdoba!",
-      "María",
+      "¡Hola, Sophie! ¿Qué tal?",
+      "Hoy te hablo de mi mejor amiga.",
+      "Se llama Carla",
+      "y",
+      "tiene doce años.",
+      "Carla juega al baloncesto.",
+      "También",
+      "estudia inglés los miércoles.",
+      "¿Cómo se llama tu mejor amiga?",
+      "¡Un abrazo desde Córdoba! María",
     ],
-    shuffle: [5, 7, 3, 8, 0, 6, 4, 2, 1],
-    question: "¿Cuántos años tiene la hermana de María?",
-    options: ["Cinco años", "Diez años", "Ocho años"], correct: 1,
+    shuffle: [3, 6, 1, 8, 0, 5, 9, 2, 4, 7],
+    question: "Carla estudia inglés todos los días.",
+    options: ["Verdadero", "Falso"], correct: 1,
   },
   {
-    author: "Daniel", recipient: "Leo", city: "Alicante", subject: "Mi vida en Alicante",
+    author: "Daniel", recipient: "Leo", city: "Alicante", subject: "Mi familia y mis amigos",
     fragments: [
       "¡Hola, Leo! ¿Qué tal?",
-      "Yo este año tengo muchos amigos en mi clase: Víctor, Carla, Nuria...",
-      "También,",
-      "mi mejor amiga se llama Carla. Es de Murcia.",
-      "Este curso tengo deberes de Matemáticas y Lengua.",
-      "A mí me gusta mucho la Música. Y además toco la guitarra.",
-      "¿Y a ti, qué asignaturas te gustan?",
-      "¡Un saludo desde Alicante!",
-      "Daniel",
+      "Hoy te hablo de mi familia: mi padre es electricista",
+      "y",
+      "mi madre es enfermera.",
+      "Tengo un hermano: se llama Hugo y tiene catorce años.",
+      "En el instituto mi asignatura favorita es Inglés.",
+      "Mi mejor amigo se llama Pedro.",
+      "También",
+      "está en mi clase de Inglés.",
+      "¿Cómo se llama tu mejor amigo?",
+      "¡Un saludo desde Alicante! Daniel",
     ],
-    shuffle: [7, 4, 8, 0, 6, 2, 5, 1, 3],
-    question: "¿Qué instrumento toca Daniel?",
-    options: ["El piano", "La guitarra", "La flauta"], correct: 1,
-  },
-  {
-    author: "Clara", recipient: "Marie", city: "Burgos", subject: "Noticias desde Burgos",
-    fragments: [
-      "¡Hola, Marie! ¿Qué tal estás?",
-      "Este curso me gusta mucho. Tengo deberes de Arte y Ciencias.",
-      "También,",
-      "tengo muchos amigos en clase: Luis, Marta, Andrés...",
-      "Hoy te hablo de mi familia: mi madre es veterinaria.",
-      "Y mi padre trabaja en un banco. Mi hermano Adrián tiene seis años.",
-      "¿Tú también tienes hermanos?",
-      "¡Un abrazo desde Burgos!",
-      "Clara",
-    ],
-    shuffle: [6, 4, 8, 0, 5, 2, 7, 1, 3],
-    question: "¿Cuál es la profesión de la madre de Clara?",
-    options: ["Profesora", "Enfermera", "Veterinaria"], correct: 2,
-  },
-  {
-    author: "Hugo", recipient: "Jan", city: "Santander", subject: "¡Hola desde Santander!",
-    fragments: [
-      "¡Hola, Jan! ¿Qué tal?",
-      "Hoy te hablo de mi familia: mi madre trabaja en un hospital.",
-      "Y además,",
-      "mi padre es ingeniero. Mi hermana Paula tiene once años.",
-      "Este curso es muy difícil. Tengo deberes de Tecnología y Matemáticas.",
-      "Además, me gusta mucho la Educación Física.",
-      "¿Qué asignaturas te gustan a ti?",
-      "¡Un saludo desde Santander!",
-      "Hugo",
-    ],
-    shuffle: [5, 7, 3, 6, 8, 0, 4, 2, 1],
-    question: "¿Cuántos años tiene la hermana de Hugo?",
-    options: ["Seis años", "Nueve años", "Once años"], correct: 2,
-  },
-  {
-    author: "Irene", recipient: "Lena", city: "León", subject: "Mi familia en León",
-    fragments: [
-      "¡Hola, Lena! ¿Qué tal estás?",
-      "Yo este año tengo una compañera nueva: se llama Berta.",
-      "También,",
-      "tengo muchos amigos: Sergio, Alba, Óscar...",
-      "Hoy te hablo de mi familia: mi padre es mecánico.",
-      "Mi madre trabaja en una escuela. Mi hermano David tiene trece años.",
-      "¿Y tú, cómo es tu familia?",
-      "¡Un abrazo desde León!",
-      "Irene",
-    ],
-    shuffle: [6, 4, 0, 7, 8, 5, 2, 1, 3],
-    question: "¿Cuál es la profesión del padre de Irene?",
-    options: ["Ingeniero", "Mecánico", "Cocinero"], correct: 1,
-  },
-  {
-    author: "Tomás", recipient: "Max", city: "Cádiz", subject: "Noticias de Cádiz",
-    fragments: [
-      "¡Hola, Max! ¿Qué tal?",
-      "Este curso tengo muchos deberes de Lengua y Ciencias.",
-      "También,",
-      "tengo muchos amigos en clase: Iván, Rosa, Álex...",
-      "Hoy te hablo de mi familia: mi padre trabaja en un puerto.",
-      "Y mi madre es dentista. Soy hijo único.",
-      "¿Tú también tienes muchos amigos?",
-      "¡Un saludo desde Cádiz!",
-      "Tomás",
-    ],
-    shuffle: [5, 7, 2, 8, 4, 0, 6, 1, 3],
-    question: "¿Tiene hermanos Tomás?",
-    options: ["Sí, tiene un hermano", "Sí, tiene una hermana", "No, es hijo único"], correct: 2,
+    shuffle: [2, 7, 4, 0, 8, 5, 10, 1, 6, 3, 9],
+    question: "¿Quién es Hugo?",
+    options: ["El mejor amigo de Daniel", "El hermano de Daniel", "El padre de Daniel"], correct: 1,
   },
 ];
 
@@ -303,22 +232,18 @@ const EMAILS: Email[] = [
    ══════════════════════════════════════════════════════════════ */
 
 const LINKED_PAIRS: [number, number][][] = [
-  [[1, 2], [2, 3], [4, 5], [7, 8]],   // 0  Laura (9):  escuela→"Y además,"→deberes; amigos+mejor amiga; despedida+nombre
-  [[1, 2], [2, 3], [4, 5], [6, 7]],   // 1  Carlos (8): familia→"Y además,"→madre; deberes+música; despedida+nombre
-  [[1, 2], [2, 3], [4, 5], [7, 8]],   // 2  Ana (9):    amiga→"También"→amigos; familia+padre; despedida+nombre
-  [[1, 2], [2, 3], [4, 5], [7, 8]],   // 3  Pablo (9):  curso→"Y además,"→deberes; familia+hermana; despedida+nombre
-  [[1, 2], [2, 3], [4, 5], [7, 8]],   // 4  Sofía (9):  familia→"Y además,"→madre; amigos+mejor amigo; despedida+nombre
-  [[1, 2], [2, 3], [4, 5], [7, 8]],   // 5  Diego (9):  amigo→"También"→amigos; deberes+E.Física; despedida+nombre
-  [[1, 2], [2, 3], [4, 5], [7, 8]],   // 6  Elena (9):  deberes→"También"→Arte; amigos+mejor amiga; despedida+nombre
-  [[1, 2], [2, 3], [4, 5], [7, 8]],   // 7  Marcos (9): familia→"Y además,"→padre; deberes+Historia; despedida+nombre
-  [[1, 2], [2, 3], [4, 5], [7, 8]],   // 8  Lucía (9):  amigos→"También,"→mejor amigo; familia+madre; despedida+nombre
-  [[1, 2], [2, 3], [4, 5], [7, 8]],   // 9  Javier (9): deberes→"Además,"→Tecnología; familia+madre; despedida+nombre
-  [[1, 2], [2, 3], [4, 5], [7, 8]],   // 10 María (9):  familia→"Y además,"→madre; amiga+amigos; despedida+nombre
-  [[1, 2], [2, 3], [4, 5], [7, 8]],   // 11 Daniel (9): amigos→"También,"→mejor amiga; deberes+música; despedida+nombre
-  [[1, 2], [2, 3], [4, 5], [7, 8]],   // 12 Clara (9):  escuela→"También,"→amigos; familia+padre; despedida+nombre
-  [[1, 2], [2, 3], [4, 5], [7, 8]],   // 13 Hugo (9):   familia→"Y además,"→padre; deberes+E.Física; despedida+nombre
-  [[1, 2], [2, 3], [4, 5], [7, 8]],   // 14 Irene (9):  compañera→"También,"→amigos; familia+madre; despedida+nombre
-  [[1, 2], [2, 3], [4, 5], [7, 8]],   // 15 Tomás (9):  deberes→"También,"→amigos; familia+madre; despedida+nombre
+  [[2, 3], [3, 4]],                       // 0  Laura (8):  Mi madre→"y"→trabaja
+  [[1, 2], [2, 3], [5, 6], [6, 7]],       // 1  Carlos (10): padre→"y"→madre; amigo→"También"→clase
+  [[4, 5], [5, 6]],                       // 2  Ana (9):    dibujar→"También"→Música
+  [[2, 3], [3, 4]],                       // 3  Pablo (8):  Jorge→"y"→11 años
+  [[2, 3], [3, 4]],                       // 4  Sofía (8):  Iker→"También"→hermana Lara
+  [[2, 3], [3, 4]],                       // 5  Diego (8):  Tecnología→"y"→Ciencias Naturales
+  [[3, 4], [4, 5]],                       // 6  Elena (8):  simpático→"También"→gracioso
+  [[3, 4], [4, 5]],                       // 7  Marcos (8): Roberto→"y"→joven
+  [[3, 4], [4, 5]],                       // 8  Lucía (8):  Medicina→"y"→otra ciudad
+  [[2, 3], [3, 4]],                       // 9  Javier (8): 8 mañana→"y"→3 tarde
+  [[2, 3], [3, 4], [5, 6], [6, 7]],       // 10 María (10): Carla→"y"→12; baloncesto→"También"→inglés
+  [[1, 2], [2, 3], [6, 7], [7, 8]],       // 11 Daniel (11): padre→"y"→madre; Pedro→"También"→clase Inglés
 ];
 
 /* ══════════════════════════════════════════════════════════════
@@ -328,22 +253,18 @@ const LINKED_PAIRS: [number, number][][] = [
    ══════════════════════════════════════════════════════════════ */
 
 const EMAIL_PARAGRAPHS: number[][][] = [
-  [[0], [1, 2, 3], [4, 5], [6], [7, 8]],   // 0  Laura
-  [[0], [1, 2, 3], [4, 5], [6, 7]],         // 1  Carlos (8 frags)
-  [[0], [1, 2, 3], [4, 5], [6], [7, 8]],   // 2  Ana
-  [[0], [1, 2, 3], [4, 5], [6], [7, 8]],   // 3  Pablo
-  [[0], [1, 2, 3], [4, 5], [6], [7, 8]],   // 4  Sofía
-  [[0], [1, 2, 3], [4, 5], [6], [7, 8]],   // 5  Diego
-  [[0], [1, 2, 3], [4, 5], [6], [7, 8]],   // 6  Elena
-  [[0], [1, 2, 3], [4, 5], [6], [7, 8]],   // 7  Marcos
-  [[0], [1, 2, 3], [4, 5], [6], [7, 8]],   // 8  Lucía
-  [[0], [1, 2, 3], [4, 5], [6], [7, 8]],   // 9  Javier
-  [[0], [1, 2, 3], [4, 5], [6], [7, 8]],   // 10 María
-  [[0], [1, 2, 3], [4, 5], [6], [7, 8]],   // 11 Daniel
-  [[0], [1, 2, 3], [4, 5], [6], [7, 8]],   // 12 Clara
-  [[0], [1, 2, 3], [4, 5], [6], [7, 8]],   // 13 Hugo
-  [[0], [1, 2, 3], [4, 5], [6], [7, 8]],   // 14 Irene
-  [[0], [1, 2, 3], [4, 5], [6], [7, 8]],   // 15 Tomás
+  [[0], [1, 2, 3, 4], [5], [6], [7]],          // 0  Laura (8)
+  [[0], [1, 2, 3], [4], [5, 6, 7], [8], [9]],  // 1  Carlos (10)
+  [[0], [1], [2], [3], [4, 5, 6], [7], [8]],   // 2  Ana (9)
+  [[0], [1], [2, 3, 4], [5], [6], [7]],        // 3  Pablo (8)
+  [[0], [1], [2, 3, 4], [5], [6], [7]],        // 4  Sofía (8)
+  [[0], [1], [2, 3, 4], [5], [6], [7]],        // 5  Diego (8)
+  [[0], [1], [2], [3, 4, 5], [6], [7]],        // 6  Elena (8)
+  [[0], [1], [2], [3, 4, 5], [6], [7]],        // 7  Marcos (8)
+  [[0], [1], [2], [3, 4, 5], [6], [7]],        // 8  Lucía (8)
+  [[0], [1], [2, 3, 4], [5], [6], [7]],        // 9  Javier (8)
+  [[0], [1], [2, 3, 4], [5, 6, 7], [8], [9]],  // 10 María (10)
+  [[0], [1, 2, 3], [4], [5], [6, 7, 8], [9], [10]], // 11 Daniel (11)
 ];
 
 /** Comprueba si un orden dado es coherente para un email */
