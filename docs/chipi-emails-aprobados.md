@@ -127,3 +127,26 @@
 - A) Tecnología
 - B) Ciencias Naturales
 - C) **Educación Física** ✓
+
+---
+
+## Email 7 — Elena → Julie (Málaga) · amigos (un amigo nuevo) · conector "también"
+
+**Fragmentos (8):**
+1. ¡Hola, Julie!
+2. Hoy te hablo de un amigo nuevo en mi clase.
+3. Se llama Bruno.
+4. Bruno es muy simpático.
+5. También
+6. es muy gracioso.
+7. ¿Tienes amigos nuevos este curso?
+8. ¡Un saludo desde Málaga! Elena
+
+**EMAIL_PARAGRAPHS:** [[0],[1],[2],[3,4,5],[6],[7]]
+**LINKED_PAIRS:** [[3,4],[4,5]]
+
+**Variación de configuración:** sin pregunta inicial `¿Qué tal?` tras el saludo; solo conector `también` (no `y`); despedida `¡Un saludo!`.
+
+**Pregunta (V/F):** "Bruno es un amigo de toda la vida de Elena."
+- A) Verdadero
+- B) **Falso** ✓ *(es un amigo nuevo)*

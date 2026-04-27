@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.28 — 2026-04-27
+
+### Píldora 3.2 — Slide #08 (Chipi) — Email 7 aprobado
+- Email 7 (Elena→Julie, Málaga, amigo nuevo Bruno) con configuración distinta: sin pregunta inicial tras el saludo, solo conector `también`
+- Guía: añadida regla de variación obligatoria en CONFIGURACIÓN (no en temas)
+
 ## v0.27 — 2026-04-27
 
 ### Píldora 3.2 — Slide #08 (Chipi) — Email 6 aprobado

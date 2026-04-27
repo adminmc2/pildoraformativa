@@ -62,6 +62,21 @@ Solo dos, los enseñados en la lección:
 - ❌ "En el instituto este curso me gusta mucho" (dos complementos chocando)
 - ❌ "En clase mi mejor amigo es Lucas" → mejor "Mi mejor amigo se llama Lucas. También está en mi clase."
 
+## Variedad estructural obligatoria
+
+Los 16 emails NO pueden seguir todos el mismo patrón "Hoy te hablo de... → padre/madre con y → pregunta". El alumno se aburre y deja de comprender, solo memoriza el patrón.
+
+**Variar entre los 16 (CONFIGURACIÓN, no temas):**
+- **Temas SIEMPRE iguales**: familia / escuela / amigos (no inventar otros como juegos, ciudad, mascotas)
+- **Lo que SÍ varía** = la **configuración**:
+  - **Foco**: a veces padres, a veces UN hermano descrito en detalle, a veces UN amigo concreto, a veces asignaturas
+  - **Conector**: a veces solo `y`, a veces solo `también`, a veces ambos, a veces ninguno (no forzar `y` en TODOS)
+  - **Posición pregunta inicial**: NO siempre `¡Hola, X! ¿Qué tal?` al principio. A veces solo saludo `¡Hola, X!` y la pregunta al destinatario va dentro del cuerpo o sustituye a la pregunta final
+  - **Posición pregunta final**: NO siempre al final con `¿Y tú?` repetido. Puede ser pregunta directa al destinatario sin `¿Y tú?`, o pregunta intermedia entre dos sub-temas, o ausente si la pregunta inicial ya conduce el diálogo
+  - **Conector único o ausente**: NO siempre `y`. A veces solo `también`, a veces ambos, a veces ninguno
+  - **Foco del conector**: a veces entre dos sujetos paralelos (padre↔madre), a veces entre dos predicados del mismo sujeto (Hugo: alto + juega bien), a veces entre dos atributos
+  - **Tipo de pregunta de comprensión**: V/F, MC, ¿Quién...?, contraste de afirmaciones
+
 ## Temas válidos para emails (píldora 3.2)
 
 Solo temas trabajados en la lección. **NO inventar temas externos.**
@@ -141,3 +156,22 @@ Yo aquí en Sevilla, muy contenta.
 "Tengo muchos amigos: Ana, Luis y Sara. También una mejor amiga: Sofía."
 ```
 **Problema:** "también" sin paralelismo real (lista de amigos vs especificación de una concreta). Mejor: "Mi mejor amiga se llama Sofía. También está en mi clase."
+
+### Contraejemplo 6 — Email tipo "mensaje" (demasiado corto, sin estructura completa)
+```
+¡Hola, Julie! ¿Tienes hermanas?
+Yo tengo una hermana mayor.
+Se llama Marta y tiene quince años.
+Marta estudia en mi mismo instituto.
+¡Un abrazo desde Málaga! Elena
+```
+**Problema:** parece un SMS/mensaje, no un email. Falta el saludo + pregunta inicial conversacional separada del tema, falta el abre tema "Hoy te hablo de…", falta la pregunta final paralela. Eliminar componentes estructurales NO es válido como variedad.
+
+**Estructura mínima obligatoria de un email** (no se puede recortar):
+1. Saludo + pregunta inicial conversacional (`¡Hola, X! ¿Qué tal?`)
+2. Abre tema
+3. Cuerpo (1-2 temas)
+4. Pregunta final paralela
+5. Despedida + firma
+
+**La variedad viene del CONTENIDO** (datos, focos, paralelismos del conector, tipo de pregunta), NO de eliminar componentes.
