@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.29 — 2026-04-27
+
+### Píldora 3.2 — Slide #08 (Chipi) — Email 8 aprobado
+- Email 8 (Marcos→Hans, Zaragoza, profesor nuevo Roberto)
+- Configuración: pregunta integrada en el abre tema, sin pregunta final separada
+
 ## v0.28 — 2026-04-27
 
 ### Píldora 3.2 — Slide #08 (Chipi) — Email 7 aprobado

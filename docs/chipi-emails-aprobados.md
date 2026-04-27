@@ -150,3 +150,26 @@
 **Pregunta (V/F):** "Bruno es un amigo de toda la vida de Elena."
 - A) Verdadero
 - B) **Falso** ✓ *(es un amigo nuevo)*
+
+---
+
+## Email 8 — Marcos → Hans (Zaragoza) · escuela (profesor nuevo) · conector "y"
+
+**Fragmentos (8):**
+1. ¡Hola, Hans! ¿Qué tal?
+2. Y en el instituto, ¿qué tal el nuevo curso?
+3. Yo este año tengo un profesor nuevo de Matemáticas.
+4. Se llama Roberto
+5. y
+6. es muy joven.
+7. Sus clases son muy divertidas.
+8. ¡Un saludo desde Zaragoza! Marcos
+
+**EMAIL_PARAGRAPHS:** [[0],[1],[2],[3,4,5],[6],[7]]
+**LINKED_PAIRS:** [[3,4],[4,5]]
+
+**Variación de configuración:** pregunta al destinatario integrada en el abre tema (`Y en el instituto, ¿qué tal el nuevo curso?`) — sin pregunta final separada.
+
+**Pregunta (V/F):** "El profesor de Matemáticas es mayor y aburrido."
+- A) Verdadero
+- B) **Falso** ✓ *(Roberto es joven y sus clases son divertidas)*
