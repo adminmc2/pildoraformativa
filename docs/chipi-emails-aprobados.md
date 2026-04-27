@@ -105,3 +105,25 @@
 **Pregunta (V/F):** "Sofía tiene un hermano pequeño."
 - A) Verdadero
 - B) **Falso** ✓ *(Iker es el hermano mayor; la hermana pequeña es Lara)*
+
+---
+
+## Email 6 — Diego → Lucas (Granada) · escuela · conector "y"
+
+**Fragmentos (8):**
+1. ¡Hola, Lucas! ¿Qué tal?
+2. Hoy te hablo de mi instituto: tengo muchas asignaturas.
+3. Tengo deberes de Tecnología
+4. y
+5. de Ciencias Naturales.
+6. Mi asignatura favorita es Educación Física.
+7. ¿Y tú? ¿Tienes muchos deberes este curso?
+8. ¡Un saludo desde Granada! Diego
+
+**EMAIL_PARAGRAPHS:** [[0],[1],[2,3,4],[5],[6],[7]]
+**LINKED_PAIRS:** [[2,3],[3,4]]
+
+**Pregunta (MC):** ¿Cuál es la asignatura favorita de Diego?
+- A) Tecnología
+- B) Ciencias Naturales
+- C) **Educación Física** ✓

@@ -86,6 +86,8 @@ Si el contenido de la lección cambia, actualizar esta lista antes de redactar.
 - ❌ Evitar: subjuntivo, perífrasis (estar + gerundio frecuente), idiomas, expresiones complejas
 - ❌ Pronombres preposicionales contraídos: `conmigo`, `contigo`, `consigo` (no son A1.1)
 - ✅ Alternativas: `con nosotros`, `con mis amigos`, frases sin pronombre
+- ❌ `un poco + adjetivo` (`Este curso es un poco difícil`) → estructura no asumida en este nivel
+- ✅ Alternativas: `Este curso tengo muchos deberes.` / `Hoy te hablo de mi instituto: ...`
 - Frases simples y directas
 
 ## Preguntas de comprensión

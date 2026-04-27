@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.27 — 2026-04-27
+
+### Píldora 3.2 — Slide #08 (Chipi) — Email 6 aprobado
+- Email 6 (Diego→Lucas, Granada, escuela)
+- Guía: prohibida estructura `un poco + adjetivo` (no A1.1)
+
 ## v0.26 — 2026-04-27
 
 ### Píldora 3.2 — Slide #08 (Chipi) — Refactor emails A1.1 (continúa)
