@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.38 — 2026-04-27
+
+### Footer global (3.1 y 3.2) — Botón "Anterior diapositiva"
+- Botón "Anterior diapositiva" ahora con fondo negro (ink) + texto blanco — mismo estilo que el botón "Siguiente diapositiva" para mejor contraste y simetría
+- Píldora 3.1: v0.15 → v0.16
+- Píldora 3.2: v0.13 → v0.14
+
 ## v0.37 — 2026-04-27
 
 ### Píldora 3.2 — Slide #01 (Pili 1) — Auditoría a11y + reescritura

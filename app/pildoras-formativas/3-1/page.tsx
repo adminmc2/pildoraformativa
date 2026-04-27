@@ -219,7 +219,7 @@ export default function Pildora31Page() {
               PÍLDORA FORMATIVA 3.1
             </div>
             <div className="text-base md:text-lg opacity-70 font-medium tracking-wider uppercase">
-              Posesivos · Unidad 3 · v0.15
+              Posesivos · Unidad 3 · v0.16
             </div>
           </div>
           {slide.kind !== "cierre" ? (
@@ -253,7 +253,7 @@ export default function Pildora31Page() {
         <footer className="flex-shrink-0 flex flex-wrap md:flex-nowrap items-center justify-between gap-2 md:gap-4 px-3 md:px-8 pb-3 md:pb-4 pt-2">
           <button
             onClick={prev}
-            className={`px-4 md:px-6 py-2.5 md:py-3 rounded-full text-base font-bold transition ${isDark ? "bg-white/15 text-white hover:bg-white/25" : "bg-white/70 text-[var(--color-pf-ink)] hover:bg-white"}`}
+            className={`px-4 md:px-6 py-2.5 md:py-3 rounded-full text-base font-bold transition ${isDark ? "bg-white/90 text-[#1a1a2e] hover:bg-white" : "bg-[var(--color-pf-ink)] text-white hover:opacity-90"}`}
           >
             ← Anterior diapositiva
           </button>
