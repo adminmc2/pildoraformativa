@@ -1,5 +1,30 @@
 # Changelog
 
+## v0.37 — 2026-04-27
+
+### Píldora 3.2 — Slide #01 (Pili 1) — Auditoría a11y + reescritura
+- Mini-botones de categoría: 28→36px (+focus-visible, disabled state visible)
+- Badge "Anfitriona": 16px → clamp(18-20px)
+- Verde Chat: #16A34A → #15803D (mejor contraste)
+- Foco visible en todos los botones, prefers-reduced-motion respetado
+- Eliminada fase 0 (slide arranca directamente con contenido)
+- Botón "Siguiente" siempre visible, deshabilitado hasta completar
+- Enunciado: 20-24px → 24-32px (cumple criterio enunciados)
+- Retroalimentación añadida en burbujas (acierto/error con nombre de ítem)
+- Reescritos diálogos: "email" → "correo electrónico" en toda la diapositiva
+- Componente highlight: cursiva eliminada (solo naranja+bold para destacar; cursiva queda solo para citas gramaticales)
+
+### Documentación
+- Nuevas reglas en CLAUDE.md root sobre uso de `<P>` (cita gramatical, cursiva+naranja) vs `<V>` (énfasis, solo naranja sin cursiva)
+
+### Footer global (3.1 y 3.2)
+- Botones "Anterior" / "Siguiente" en **bold** (mejor contraste visual)
+- Texto: "← Anterior diapositiva" / "Siguiente diapositiva →" para distinguir de otros botones internos de los slides
+
+### Versiones
+- Píldora 3.1: v0.14 → v0.15
+- Píldora 3.2: v0.12 → v0.13
+
 ## v0.36 — 2026-04-27
 
 ### Accesibilidad y responsive — auditoría diapositiva 1 (SlideOpening)

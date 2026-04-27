@@ -23,12 +23,26 @@ Resumen rápido — texto mínimo proyectable:
 
 Guía dedicada: **`docs/CLAUDE-escritura-emails-a11.md`** (estructura, conectores `y`/`también`, vocabulario A1.1, contraejemplos).
 
-## Coherencia visual en diálogos
+## Coherencia visual en diálogos — dos casos distintos
 
-Cuando un personaje **cita un posesivo** (o cualquier elemento gramatical diana) dentro de su burbuja de diálogo:
-- Se muestra en **cursiva + color** usando el componente `<P>` (ver `slide-flora-1.tsx` como referencia): `<span className="italic" style={{ color: "var(--color-pf-spark)" }}>`
-- Nunca como texto plano (ej: ~~"¡su! Correcto."~~ → `<>¡<P>su</P>! Correcto.</>`)
-- Las burbujas que citan posesivos deben ser `ReactNode[]`, no `string[]`
+### Caso A — CITA de elemento gramatical diana (cursiva + naranja)
+Solo cuando el personaje **cita literalmente** un elemento gramatical estudiado (posesivo, conector, etc.) en su burbuja:
+- **Cursiva + naranja** usando el componente `<P>` (ver `slide-flora-1.tsx` como referencia):
+  ```tsx
+  const P = ({ children }) => <span className="italic font-semibold" style={{ color: "var(--color-pf-spark)" }}>{children}</span>
+  ```
+- Ejemplo: `<>¿Qué significa <P>su</P>?</>` (cita el posesivo *su*)
+- Las burbujas que citan deben ser `ReactNode[]`, no `string[]`
+
+### Caso B — DESTACABLE / énfasis (solo naranja, SIN cursiva)
+Para destacar palabras importantes que NO son citas gramaticales (palabras clave, instrucciones, énfasis):
+- **Solo naranja + bold**, sin cursiva, usando el componente `<V>`:
+  ```tsx
+  const V = ({ children }) => <span className="font-semibold" style={{ color: "var(--color-pf-spark)" }}>{children}</span>
+  ```
+- Ejemplo: `<>¿Sabéis qué cosas tiene un <V>email</V>?</>` (destaca *email*, no es cita gramatical)
+
+**Regla mnemónica:** cursiva = cita literal de gramática · sin cursiva = solo énfasis. **Nunca usar cursiva para énfasis genérico.**
 
 ## Coherencia de colores de género
 

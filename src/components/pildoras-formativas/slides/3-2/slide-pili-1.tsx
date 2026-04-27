@@ -25,8 +25,8 @@ import {
 
 /* ── Categorías ── */
 const CATS = {
-  email: { label: "Email", Icon: EnvelopeSimple, color: "#2563EB", soft: "#DBEAFE" },
-  chat: { label: "Chat", Icon: ChatCircle, color: "#16A34A", soft: "#DCFCE7" },
+  email: { label: "Correo electrónico", Icon: EnvelopeSimple, color: "#2563EB", soft: "#DBEAFE" },
+  chat: { label: "Chat", Icon: ChatCircle, color: "#15803D", soft: "#DCFCE7" },
   post: { label: "Post", Icon: Image, color: "#9333EA", soft: "#F3E8FF" },
 } as const;
 
@@ -54,7 +54,7 @@ const ITEMS: { id: string; label: string; Icon: React.ComponentType<any>; cats: 
 
 const CAT_KEYS = Object.keys(CATS) as Cat[];
 
-/* ── Secciones del email de Marta (fase 2) ── */
+/* ── Secciones del correo de Marta (fase 2) ── */
 const EMAIL_PARTS = [
   { label: "DE / PARA", color: "var(--color-pf-ink)", lines: ["De: marta@correo.es", "Para: pierre@correo.fr"] },
   { label: "ASUNTO", color: "var(--color-pf-star)", lines: ["¡Hola desde Cádiz!"] },
@@ -73,9 +73,9 @@ const EMAIL_PARTS = [
   { label: "FIRMA", color: "var(--color-pf-moon)", lines: ["Marta"] },
 ];
 
-/* ── Highlight helper ── */
-const C = ({ children }: { children: React.ReactNode }) => (
-  <span className="italic" style={{ color: "var(--color-pf-spark)" }}>
+/* ── Highlight helper (énfasis, no cita gramatical → solo naranja, sin cursiva) ── */
+const V = ({ children }: { children: React.ReactNode }) => (
+  <span className="font-semibold" style={{ color: "var(--color-pf-spark)" }}>
     {children}
   </span>
 );
@@ -96,8 +96,10 @@ function isCorrect(itemId: string, selections: Record<string, Record<Cat, boolea
 
 /* ── Componente ── */
 export function SlidePili1() {
-  const [phase, setPhase] = useState<0 | 1 | 2>(0);
+  const [phase, setPhase] = useState<1 | 2>(1);
   const [selections, setSelections] = useState<Record<string, Record<Cat, boolean>>>({});
+  const [lastTouched, setLastTouched] = useState<string | null>(null);
+  const [feedbackId, setFeedbackId] = useState(0);
 
   const correctCount = ITEMS.filter((item) => isCorrect(item.id, selections)).length;
   const allDone = correctCount === ITEMS.length;
@@ -109,29 +111,49 @@ export function SlidePili1() {
       const itemSel = prev[itemId] || emptySel();
       return { ...prev, [itemId]: { ...itemSel, [cat]: !itemSel[cat] } };
     });
+    setLastTouched(itemId);
+    setFeedbackId((n) => n + 1);
   };
 
-  /* ── Bubble ── */
-  const bubble =
-    phase === 0 ? (
+  /* ── Bubble (con retroalimentación) ── */
+  const lastItem = lastTouched ? ITEMS.find((i) => i.id === lastTouched) : null;
+  const lastCorrect = lastTouched ? isCorrect(lastTouched, selections) : false;
+  const lastHasAny = lastTouched ? CAT_KEYS.some((c) => selections[lastTouched]?.[c]) : false;
+
+  let bubble: React.ReactNode;
+  if (phase === 2) {
+    bubble = (
       <>
-        ¿Sabéis qué cosas tiene un <C>email</C> y qué cosas NO?
-      </>
-    ) : phase === 1 && !allDone ? (
-      <>
-        Pulsad los colores en cada tarjeta. <C>¡Algunos van en más de una!</C>
-      </>
-    ) : phase === 1 && allDone ? (
-      <>
-        ¡Muy bien! Ahora mirad cómo se ven estas partes en el <C>correo de Marta</C>.
-      </>
-    ) : (
-      <>
-        ¡Así es un <C>email</C>! Tiene partes muy claras: saludo, cuerpo, despedida y firma.
+        ¡Así es un <V>correo electrónico</V>! Tiene partes muy claras: saludo, cuerpo, despedida y firma.
       </>
     );
+  } else if (allDone) {
+    bubble = (
+      <>
+        ¡Muy bien! Ahora mirad cómo se ven estas partes en el <V>correo de Marta</V>.
+      </>
+    );
+  } else if (lastTouched && lastCorrect) {
+    bubble = (
+      <>
+        ¡<V>Correcto</V>! «{lastItem?.label}» va ahí. Sigue.
+      </>
+    );
+  } else if (lastTouched && lastHasAny && !lastCorrect) {
+    bubble = (
+      <>
+        Mmm, <V>«{lastItem?.label}»</V> no encaja del todo. Vuelve a mirar.
+      </>
+    );
+  } else {
+    bubble = (
+      <>
+        ¿Qué usamos en un <V>correo electrónico</V>? Elige dónde lo usamos: correo electrónico, chat o post.
+      </>
+    );
+  }
 
-  const stepKey = phase * 100 + correctCount;
+  const stepKey = phase * 1000 + correctCount * 10 + (feedbackId % 10);
 
   return (
     <div className="w-full h-full flex items-center justify-center overflow-hidden">
@@ -143,7 +165,7 @@ export function SlidePili1() {
               PILI
             </span>
             <span
-              className="px-3 py-1 rounded-full text-base font-semibold"
+              className="px-3 py-1 rounded-full text-[clamp(18px,min(1.6vw,2vh),20px)] font-semibold"
               style={{ background: "var(--color-pf-star-soft)", color: "#8A6B00" }}
             >
               Anfitriona
@@ -152,30 +174,15 @@ export function SlidePili1() {
 
           {/* Título */}
           <h1 className="font-[family-name:var(--font-pf-display)] uppercase leading-[0.88] tracking-tight text-[clamp(36px,min(5.5vw,7vh),72px)] text-[var(--color-pf-ink)]">
-            {phase < 2 ? "¿Email, chat o post?" : "El correo de Marta"}
+            {phase < 2 ? "¿Correo electrónico, chat o post?" : "El correo de Marta"}
           </h1>
 
           {/* Instrucción */}
-          <p className="text-[clamp(20px,min(2vw,2.5vh),24px)] font-semibold text-white bg-[var(--color-pf-ink)] w-fit px-5 py-2 rounded-full">
-            {phase === 0
-              ? "¿Qué cosas son de un email?"
-              : phase === 1
-                ? `Clasifica cada elemento. ${correctCount} / ${ITEMS.length}`
-                : "Estas son las partes de un email."}
+          <p className="text-[clamp(24px,min(2.4vw,3vh),32px)] font-semibold text-white bg-[var(--color-pf-ink)] w-fit px-5 py-2 rounded-full">
+            {phase === 1
+              ? `Clasifica cada elemento. ${correctCount} / ${ITEMS.length}`
+              : "Estas son las partes de un correo electrónico."}
           </p>
-
-          {/* ── FASE 0: Intro ── */}
-          {phase === 0 && (
-            <div className="mt-4">
-              <button
-                onClick={() => setPhase(1)}
-                className="px-10 py-4 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)] hover:scale-[1.02] transition"
-                style={{ animation: "btnPulse 2s ease-in-out infinite" }}
-              >
-                SIGUIENTE
-              </button>
-            </div>
-          )}
 
           {/* ── FASE 1: Clasificación con mini-botones ── */}
           {phase === 1 && (
@@ -244,7 +251,7 @@ export function SlidePili1() {
                                 handleToggle(item.id, cat);
                               }}
                               disabled={correct}
-                              className="w-7 h-7 rounded-full flex items-center justify-center transition-all hover:scale-110 active:scale-90 disabled:hover:scale-100"
+                              className="w-9 h-9 rounded-full flex items-center justify-center transition-all hover:scale-110 active:scale-90 disabled:hover:scale-100 disabled:opacity-50 disabled:cursor-not-allowed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:ring-[var(--color-pf-spark)]"
                               style={{
                                 background: toggled ? c.color : "rgba(10,10,10,0.05)",
                                 border: `2px solid ${toggled ? c.color : "rgba(10,10,10,0.1)"}`,
@@ -279,28 +286,27 @@ export function SlidePili1() {
                 })}
               </div>
 
-              {/* Botón completar */}
-              {allDone && (
-                <div className="mt-3">
-                  <button
-                    onClick={() => setPhase(2)}
-                    className="px-8 py-3 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)] hover:scale-[1.02] transition"
-                    style={{ animation: "btnPulse 2s ease-in-out infinite" }}
-                  >
-                    VER EN EL CORREO DE MARTA
-                  </button>
-                </div>
-              )}
+              {/* Botón siguiente — siempre visible, se activa al completar */}
+              <div className="mt-3">
+                <button
+                  onClick={() => setPhase(2)}
+                  disabled={!allDone}
+                  className="px-8 py-3 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)] hover:scale-[1.02] transition focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[var(--color-pf-spark)] focus-visible:ring-offset-2 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100"
+                  style={allDone ? { animation: "btnPulse 2s ease-in-out infinite" } : undefined}
+                >
+                  {allDone ? "VER EN EL CORREO DE MARTA" : "SIGUIENTE"}
+                </button>
+              </div>
             </div>
           )}
 
-          {/* ── FASE 2: Email de Marta con partes etiquetadas ── */}
+          {/* ── FASE 2: Correo de Marta con partes etiquetadas ── */}
           {phase === 2 && (
             <div
               className="rounded-[20px] bg-white shadow-[0_14px_40px_-16px_rgba(0,0,0,0.14)] overflow-hidden"
               style={{ animation: "cardIn 500ms cubic-bezier(0.2,0.8,0.2,1)" }}
             >
-              {/* Header email */}
+              {/* Header correo */}
               <div className="px-5 py-2.5 border-b border-[var(--color-pf-ink)]/10 flex items-center gap-2">
                 <EnvelopeSimple size={20} weight="duotone" className="text-[var(--color-pf-ink)] opacity-60" />
                 <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)] text-[var(--color-pf-ink)] tracking-wide">
@@ -366,13 +372,16 @@ export function SlidePili1() {
           60% { transform: scale(1.3); }
           100% { transform: scale(1); }
         }
-        @keyframes cardPulse {
-          0%, 100% { transform: scale(1); box-shadow: 0 4px 16px -6px rgba(0,0,0,0.08); }
-          50% { transform: scale(1.03); box-shadow: 0 6px 24px -6px rgba(0,0,0,0.15); }
-        }
         @keyframes btnPulse {
           0%, 100% { box-shadow: 0 0 0 0 rgba(10, 10, 10, 0.28); }
           50% { box-shadow: 0 0 0 18px rgba(10, 10, 10, 0); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          *, *::before, *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+          }
         }
       `}</style>
     </div>
