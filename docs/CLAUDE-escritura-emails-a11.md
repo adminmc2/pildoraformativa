@@ -62,21 +62,48 @@ Solo dos, los enseñados en la lección:
 - ❌ "En el instituto este curso me gusta mucho" (dos complementos chocando)
 - ❌ "En clase mi mejor amigo es Lucas" → mejor "Mi mejor amigo se llama Lucas. También está en mi clase."
 
+## Temas válidos para emails (píldora 3.2)
+
+Solo temas trabajados en la lección. **NO inventar temas externos.**
+
+- ✅ **Familia** (padre, madre, hermanos: nombre, edad, profesión)
+- ✅ **Instituto / escuela / curso** (asignaturas, deberes, asignatura favorita, dificultad del curso)
+- ✅ **Amigos / compañeros de clase** (nombre, mejor amigo/a, descripción simple)
+
+**NO usar como tema:**
+- ❌ Ciudad / monumentos / clima
+- ❌ Mascotas
+- ❌ Deportes o aficiones como tema standalone (sí se pueden mencionar dentro de "amigos" o "instituto")
+- ❌ Música, instrumentos, lectura, cocina, viajes
+- ❌ Tiempo libre / fines de semana como tema principal
+
+Si el contenido de la lección cambia, actualizar esta lista antes de redactar.
+
 ## Vocabulario y estructuras A1.1
 
 - Verbos: ser, estar, tener, llamarse, gustar, vivir, trabajar, jugar, estudiar, hacer
 - Tiempo: presente simple
 - ❌ Evitar: subjuntivo, perífrasis (estar + gerundio frecuente), idiomas, expresiones complejas
+- ❌ Pronombres preposicionales contraídos: `conmigo`, `contigo`, `consigo` (no son A1.1)
+- ✅ Alternativas: `con nosotros`, `con mis amigos`, frases sin pronombre
 - Frases simples y directas
 
 ## Preguntas de comprensión
 
 - Deben testear **comprensión real**, no recuerdo directo de un dato suelto
 - ❌ "¿Cuántos años tiene la hermana?" → solo memoria, demasiado directo
-- ✅ Formato Verdadero/Falso que obligue a distinguir relaciones:
-  - "El padre de Laura trabaja en un hospital." → Falso (es la madre)
-  - "Lucas y Carlos están en clases diferentes." → Falso (están juntos)
-- ✅ Multiple choice solo si las opciones obligan a contrastar varios datos del email
+- **Variar el tipo de pregunta entre los 16 emails** (no usar siempre el mismo formato)
+
+**Formatos válidos a alternar:**
+1. **Verdadero/Falso** que obligue a distinguir relaciones
+   - "El padre de Laura trabaja en un hospital." → Falso (es la madre)
+2. **Multiple choice** con opciones que obligan a contrastar varios datos
+   - "¿Quién trabaja en un hospital?" → A) el padre · B) la madre ✓ · C) la hermana
+3. **"¿Quién...?"** identificación de persona
+4. **"¿Cuál de estas frases es correcta?"** con 3 afirmaciones, una verdadera
+5. **Pregunta abierta cerrada** sobre un dato concreto (con 3 opciones)
+
+Alternar entre formatos para que los 16 emails no tengan todos el mismo tipo de pregunta.
 
 ## Contraejemplos (qué NO hacer)
 

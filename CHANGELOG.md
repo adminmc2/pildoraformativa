@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.26 — 2026-04-27
+
+### Píldora 3.2 — Slide #08 (Chipi) — Refactor emails A1.1 (continúa)
+- Aprobados emails 3 (Ana→Lisa, Barcelona, asignaturas), 4 (Pablo→Thomas, Valencia, amigos), 5 (Sofía→Emma, Bilbao, hermanos)
+- Guía de escritura: añadidos temas válidos (familia/escuela/amigos), prohibidos `conmigo/contigo` (no A1.1), variedad obligatoria de tipos de pregunta de comprensión
+- Versión píldora 3.2 → v0.10 (sin cambio, solo docs)
+
 ## v0.25 — 2026-04-27
 
 ### Píldora 3.2 — Slide #08 (Chipi) — Refactor de emails A1.1
