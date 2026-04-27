@@ -106,6 +106,9 @@ Si el contenido de la lección cambia, actualizar esta lista antes de redactar.
 - ✅ Alternativas: `Este curso tengo muchos deberes.` / `Hoy te hablo de mi instituto: ...`
 - ❌ Pronombres átonos de objeto directo/indirecto: `la veo`, `lo conozco`, `le digo` — no son A1.1
 - ✅ Alternativas: repetir el nombre o usar el sustantivo (`Sara viene a casa`, `veo a Sara`)
+- ❌ Adverbios de modo plurales: `juntos`, `juntas` — no son A1.1
+- ✅ Alternativas: usar verbo en plural (`Pedro y yo vamos al instituto`) o repetir nombres
+- ❌ Locuciones preposicionales complejas: `cerca de tu casa`, `lejos de + sustantivo` — preferir `en tu calle`, `en mi instituto` (lugar concreto)
 - Frases simples y directas
 
 ## Preguntas de comprensión

@@ -239,3 +239,35 @@
 **Pregunta (V/F):** "Carla estudia inglés todos los días."
 - A) Verdadero
 - B) **Falso** ✓ *(solo los miércoles)*
+
+---
+
+## Email 12 — Daniel → Leo (Alicante) · 3 temas (familia + escuela + amigo) · conectores "y" + "también"
+
+**Fragmentos (11):**
+1. ¡Hola, Leo! ¿Qué tal?
+2. Hoy te hablo de mi familia: mi padre es electricista
+3. y
+4. mi madre es enfermera.
+5. Tengo un hermano: se llama Hugo y tiene catorce años.
+6. En el instituto mi asignatura favorita es Inglés.
+7. Mi mejor amigo se llama Pedro.
+8. También
+9. está en mi clase de Inglés.
+10. ¿Cómo se llama tu mejor amigo?
+11. ¡Un saludo desde Alicante! Daniel
+
+**EMAIL_PARAGRAPHS:** [[0],[1,2,3],[4],[5],[6,7,8],[9],[10]]
+**LINKED_PAIRS:** [[1,2],[2,3],[6,7],[7,8]]
+
+**Pregunta (MC):** ¿Quién es Hugo?
+- A) El mejor amigo de Daniel
+- B) **El hermano de Daniel** ✓
+- C) El padre de Daniel
+
+---
+
+# Notas finales
+
+- Total: **12 emails** (originalmente 16, reducido a 12 tras revisión exhaustiva con todas las reglas A1.1).
+- Los 12 emails están aprobados y listos para implementar en `slide-chipi.tsx`.

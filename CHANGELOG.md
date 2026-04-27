@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.33 — 2026-04-27
+
+### Píldora 3.2 — Slide #08 (Chipi) — Email 12 (último) aprobado · pool reducido a 12
+
+- Email 12 (Daniel→Leo, Alicante) integra 3 temas (familia + escuela + amigo) con dos conectores
+- **Decisión: pool reducido de 16 a 12 emails** tras revisión exhaustiva con reglas A1.1 (vocabulario, conectores naturales, sin estereotipos, configuración variada)
+- 12 emails aprobados y listos para implementar en `slide-chipi.tsx`
+
 ## v0.32 — 2026-04-27
 
 ### Píldora 3.2 — Slide #08 (Chipi) — Email 11 aprobado
