@@ -76,14 +76,14 @@ export function SlideOpening({
       </div>
 
       <p
-        className="relative text-base font-semibold tracking-[0.35em] text-[var(--color-pf-ink)] opacity-60 uppercase"
+        className="relative text-[clamp(18px,1.4vw,22px)] font-semibold tracking-[0.35em] text-[var(--color-pf-ink)] opacity-70 uppercase"
         style={{ animation: "fadeInDown 600ms ease-out 0ms both" }}
       >
         · Nuevo Compañeros 1 ·
       </p>
 
       <div
-        className="relative mt-2 px-5 py-1.5 rounded-full bg-white/80 text-[var(--color-pf-ink)] text-base font-semibold tracking-wider uppercase shadow-[0_4px_16px_-8px_rgba(0,0,0,0.2)]"
+        className="relative mt-2 px-5 py-1.5 rounded-full bg-white/80 text-[var(--color-pf-ink)] text-[clamp(18px,1.6vw,22px)] font-semibold tracking-wider uppercase shadow-[0_4px_16px_-8px_rgba(0,0,0,0.2)]"
         style={{ animation: "fadeInDown 600ms ease-out 150ms both" }}
       >
         {unidad}
@@ -97,7 +97,7 @@ export function SlideOpening({
       </div>
 
       <h1
-        className={`relative mt-1 font-[family-name:var(--font-pf-display)] uppercase leading-[0.88] text-[var(--color-pf-ink)] ${
+        className={`relative mt-1 font-[family-name:var(--font-pf-display)] uppercase leading-[1.15] text-[var(--color-pf-ink)] ${
           titulo.length > 20
             ? "text-[clamp(36px,8vw,120px)]"
             : "text-[clamp(56px,11vw,200px)]"
@@ -126,7 +126,7 @@ export function SlideOpening({
 
       <button
         onClick={onStart}
-        className="relative mt-[3vh] px-8 py-3 md:px-14 md:py-5 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-[clamp(22px,min(2.6vw,3.2vh),32px)] hover:opacity-90 hover:scale-[1.02] transition"
+        className="relative mt-[3vh] px-8 py-3 md:px-14 md:py-5 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-[clamp(22px,min(2.6vw,3.2vh),32px)] hover:opacity-90 hover:scale-[1.02] transition focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[var(--color-pf-spark)] focus-visible:ring-offset-2"
         style={{ animation: "buttonIn 600ms cubic-bezier(0.2,0.8,0.2,1) 2000ms both, buttonPulse 2.4s ease-in-out 2800ms infinite" }}
       >
         Empezar
@@ -190,6 +190,13 @@ export function SlideOpening({
         @keyframes spin {
           from { transform: rotate(0deg); }
           to { transform: rotate(360deg); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          *, *::before, *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+          }
         }
       `}</style>
     </div>

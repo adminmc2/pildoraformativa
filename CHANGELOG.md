@@ -1,5 +1,15 @@
 # Changelog
 
+## v0.36 — 2026-04-27
+
+### Accesibilidad y responsive — auditoría diapositiva 1 (SlideOpening)
+- Nueva guía `docs/CLAUDE-responsive-accesibilidad.md` con criterios para laptop/TV/proyector
+- Referenciada desde CLAUDE.md root
+- SlideOpening: subido tamaño de preheader y badge a `clamp(18-22px)` (cumple mín 18px proyectable)
+- SlideOpening: añadido `focus-visible` ring al botón "Empezar"
+- SlideOpening: añadido bloque `prefers-reduced-motion` para apagar animaciones decorativas
+- Versión píldora 3.2: v0.11 → v0.12
+
 ## v0.35 — 2026-04-27
 
 ### Píldora 3.2 — Slide #08 (Chipi) — Implementación de los 12 emails A1.1

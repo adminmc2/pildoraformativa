@@ -79,7 +79,7 @@ export default function Pildora32Page() {
               PÍLDORA FORMATIVA 3.2
             </div>
             <div className="text-base md:text-lg opacity-70 font-medium tracking-wider uppercase">
-              Un Correo Electrónico Personal · Unidad 3 · v0.11
+              Un Correo Electrónico Personal · Unidad 3 · v0.12
             </div>
           </div>
           {slide.kind !== "cierre" ? (
