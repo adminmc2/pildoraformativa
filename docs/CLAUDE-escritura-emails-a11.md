@@ -64,9 +64,9 @@ Solo dos, los enseñados en la lección:
 
 ## Variedad estructural obligatoria
 
-Los 16 emails NO pueden seguir todos el mismo patrón "Hoy te hablo de... → padre/madre con y → pregunta". El alumno se aburre y deja de comprender, solo memoriza el patrón.
+Los 12 emails NO pueden seguir todos el mismo patrón "Hoy te hablo de... → padre/madre con y → pregunta". El alumno se aburre y deja de comprender, solo memoriza el patrón.
 
-**Variar entre los 16 (CONFIGURACIÓN, no temas):**
+**Variar entre los 12 (CONFIGURACIÓN, no temas):**
 - **Temas SIEMPRE iguales**: familia / escuela / amigos (no inventar otros como juegos, ciudad, mascotas)
 - **Lo que SÍ varía** = la **configuración**:
   - **Foco**: a veces padres, a veces UN hermano descrito en detalle, a veces UN amigo concreto, a veces asignaturas
@@ -115,7 +115,7 @@ Si el contenido de la lección cambia, actualizar esta lista antes de redactar.
 
 - Deben testear **comprensión real**, no recuerdo directo de un dato suelto
 - ❌ "¿Cuántos años tiene la hermana?" → solo memoria, demasiado directo
-- **Variar el tipo de pregunta entre los 16 emails** (no usar siempre el mismo formato)
+- **Variar el tipo de pregunta entre los 12 emails** (no usar siempre el mismo formato)
 
 **Formatos válidos a alternar:**
 1. **Verdadero/Falso** que obligue a distinguir relaciones
@@ -126,7 +126,7 @@ Si el contenido de la lección cambia, actualizar esta lista antes de redactar.
 4. **"¿Cuál de estas frases es correcta?"** con 3 afirmaciones, una verdadera
 5. **Pregunta abierta cerrada** sobre un dato concreto (con 3 opciones)
 
-Alternar entre formatos para que los 16 emails no tengan todos el mismo tipo de pregunta.
+Alternar entre formatos para que los 12 emails no tengan todos el mismo tipo de pregunta.
 
 ## Contraejemplos (qué NO hacer)
 

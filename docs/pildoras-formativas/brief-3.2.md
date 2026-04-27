@@ -306,8 +306,8 @@ Chipi reta, es rápido, da feedback inmediato. Competición por equipos.
 
 **Configuración:**
 - 2-4 equipos
-- Pool de 16 emails diferentes (personajes ficticios, nivel A1.1, ciudades españolas variadas)
-- El profesor elige el número de rondas: 3, 5, 8, 10 o 16
+- Pool de 12 emails diferentes (personajes ficticios, nivel A1.1, ciudades españolas variadas)
+- El profesor elige el número de rondas: 3, 5, 8, 10 o 12
 - Los emails se seleccionan aleatoriamente del pool
 
 **Cada ronda tiene 2 fases:**

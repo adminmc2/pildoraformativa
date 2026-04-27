@@ -6,7 +6,7 @@ import { CharacterStage } from "@/components/pildoras-formativas/shared/characte
 import { EnvelopeSimple, Timer, Trophy, Lightning } from "@phosphor-icons/react";
 
 /* ══════════════════════════════════════════════════════════════
-   DATA — 16 emails variados (A1.1)
+   DATA — 12 emails variados (A1.1)
    ══════════════════════════════════════════════════════════════ */
 
 type Email = {
@@ -668,7 +668,7 @@ export function SlideChipi() {
               {/* Rondas */}
               <div className="flex items-center gap-2">
                 <span className="font-[family-name:var(--font-pf-display)] text-[clamp(18px,min(1.6vw,2vh),20px)] text-[var(--color-pf-ink)] opacity-60">RONDAS</span>
-                {[3, 5, 8, 10, 16].map((n) => (
+                {[3, 5, 8, 10, 12].map((n) => (
                   <button key={n} onClick={() => setNumRounds(n)}
                     className="px-3 h-12 rounded-full font-[family-name:var(--font-pf-display)] text-base transition active:scale-90"
                     style={{

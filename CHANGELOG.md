@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.34 — 2026-04-27
+
+### Píldora 3.2 — Slide #08 (Chipi) — Reducción pool 16→12 propagada en todas las refs
+- `slide-chipi.tsx`: comentario "DATA — 12 emails" + opciones de rondas `[3,5,8,10,12]`
+- `brief-3.2.md`: pool 12, opciones rondas 12
+- `CLAUDE-escritura-emails-a11.md`: referencias actualizadas a 12 emails
+
 ## v0.33 — 2026-04-27
 
 ### Píldora 3.2 — Slide #08 (Chipi) — Email 12 (último) aprobado · pool reducido a 12
