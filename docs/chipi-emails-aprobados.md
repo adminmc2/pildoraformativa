@@ -216,3 +216,26 @@
 **Pregunta (V/F):** "Javier tiene clases por la noche."
 - A) Verdadero
 - B) **Falso** ✓ *(va de las ocho de la mañana a las tres de la tarde)*
+
+---
+
+## Email 11 — María → Sophie (Córdoba) · amigos (mejor amiga Carla) · conectores "y" + "también"
+
+**Fragmentos (10):**
+1. ¡Hola, Sophie! ¿Qué tal?
+2. Hoy te hablo de mi mejor amiga.
+3. Se llama Carla
+4. y
+5. tiene doce años.
+6. Carla juega al baloncesto.
+7. También
+8. estudia inglés los miércoles.
+9. ¿Cómo se llama tu mejor amiga?
+10. ¡Un abrazo desde Córdoba! María
+
+**EMAIL_PARAGRAPHS:** [[0],[1],[2,3,4],[5,6,7],[8],[9]]
+**LINKED_PAIRS:** [[2,3],[3,4],[5,6],[6,7]]
+
+**Pregunta (V/F):** "Carla estudia inglés todos los días."
+- A) Verdadero
+- B) **Falso** ✓ *(solo los miércoles)*

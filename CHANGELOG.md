@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.32 — 2026-04-27
+
+### Píldora 3.2 — Slide #08 (Chipi) — Email 11 aprobado
+- Email 11 (María→Sophie, Córdoba, mejor amiga Carla con dos conectores)
+
 ## v0.31 — 2026-04-27
 
 ### Píldora 3.2 — Slide #08 (Chipi) — Email 10 aprobado
