@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.31 — 2026-04-27
+
+### Píldora 3.2 — Slide #08 (Chipi) — Email 10 aprobado
+- Email 10 (Javier→Paul, Toledo, horario instituto)
+
 ## v0.30 — 2026-04-27
 
 ### Píldora 3.2 — Slide #08 (Chipi) — Email 9 aprobado

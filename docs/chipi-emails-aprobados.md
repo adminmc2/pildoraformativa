@@ -195,3 +195,24 @@
 - A) Inglés
 - B) Matemáticas
 - C) **Medicina** ✓
+
+---
+
+## Email 10 — Javier → Paul (Toledo) · escuela (horario) · conector "y"
+
+**Fragmentos (8):**
+1. ¡Hola, Paul! ¿Qué tal?
+2. Hoy te hablo de mi instituto.
+3. Voy a clase a las ocho de la mañana
+4. y
+5. estoy en clase hasta las tres de la tarde.
+6. Tengo seis asignaturas todos los días.
+7. ¿A qué hora vas al instituto?
+8. ¡Un saludo desde Toledo! Javier
+
+**EMAIL_PARAGRAPHS:** [[0],[1],[2,3,4],[5],[6],[7]]
+**LINKED_PAIRS:** [[2,3],[3,4]]
+
+**Pregunta (V/F):** "Javier tiene clases por la noche."
+- A) Verdadero
+- B) **Falso** ✓ *(va de las ocho de la mañana a las tres de la tarde)*
