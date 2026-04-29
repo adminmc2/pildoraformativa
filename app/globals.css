@@ -24,10 +24,8 @@
   --color-pf-cream: #F5F5F5;
   --color-pf-paper: #FFFFFF;
 
-  /* OpenDyslexic como fuente principal (accesibilidad para alumnos con dislexia).
-     Fallbacks: Archivo Black / Inter (cargadas vía next/font) y sans-serif. */
-  --font-pf-display: "OpenDyslexic", var(--font-pf-display-fallback), sans-serif;
-  --font-pf-ui: "OpenDyslexic", var(--font-pf-ui-fallback), sans-serif;
+  --font-pf-display: var(--font-pf-display);
+  --font-pf-ui: var(--font-pf-ui);
   --font-landing: var(--font-landing);
 
   /* Landing page palette (Strategos-inspired) */
@@ -38,6 +36,14 @@
   --color-landing-blue: #2175A5;
   --color-landing-green: #78B042;
   --color-landing-muted: #6B7B8D;
+}
+
+/* Modo dislexia — sobrescribe las variables de fuente con OpenDyslexic.
+   Se activa añadiendo la clase .dyslexia-mode al contenedor de la presentación.
+   Persistencia en localStorage gestionada por DyslexiaToggle. */
+.dyslexia-mode,
+.dyslexia-mode * {
+  font-family: "OpenDyslexic", var(--font-pf-ui), system-ui, sans-serif !important;
 }
 
 /* NeonGradientCard animation */

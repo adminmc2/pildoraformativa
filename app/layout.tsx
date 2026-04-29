@@ -5,13 +5,13 @@ import "@fontsource/opendyslexic/700.css";
 import "./globals.css";
 
 const archivoBlack = Archivo_Black({
-  variable: "--font-pf-display-fallback",
+  variable: "--font-pf-display",
   subsets: ["latin"],
   weight: ["400"],
 });
 
 const inter = Inter({
-  variable: "--font-pf-ui-fallback",
+  variable: "--font-pf-ui",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });

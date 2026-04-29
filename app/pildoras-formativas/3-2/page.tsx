@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { House } from "@phosphor-icons/react";
+import { DyslexiaToggle } from "@/components/pildoras-formativas/shared/dyslexia-toggle";
 import { SlideOpening } from "@/components/pildoras-formativas/slides/slide-opening";
 import { SlideCierre } from "@/components/pildoras-formativas/slides/slide-cierre";
 import { SlidePili1 } from "@/components/pildoras-formativas/slides/3-2/slide-pili-1";
@@ -67,19 +68,22 @@ export default function Pildora32Page() {
     >
       {slide.kind !== "opening" && (
         <header className={`flex-shrink-0 flex items-center justify-between px-4 md:px-8 pt-3 md:pt-4 pb-1 ${isDark ? "text-white" : "text-[var(--color-pf-ink)]"}`}>
-          <button
-            onClick={() => setActive(0)}
-            aria-label="Volver al inicio"
-            className="w-9 h-9 flex items-center justify-center rounded-full hover:bg-white/60 transition"
-          >
-            <House size={22} weight="bold" />
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => setActive(0)}
+              aria-label="Volver al inicio"
+              className="w-9 h-9 flex items-center justify-center rounded-full hover:bg-white/60 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-pf-spark)] focus-visible:ring-offset-2"
+            >
+              <House size={22} weight="bold" />
+            </button>
+            <DyslexiaToggle isDark={isDark} />
+          </div>
           <div className="text-center leading-tight">
             <div className="font-[family-name:var(--font-pf-display)] text-base sm:text-lg md:text-xl tracking-wide">
               PÍLDORA FORMATIVA 3.2
             </div>
             <div className="text-base md:text-lg opacity-70 font-medium tracking-wider uppercase">
-              Un Correo Electrónico Personal · Unidad 3 · v0.17
+              Un Correo Electrónico Personal · Unidad 3 · v0.18
             </div>
           </div>
           {slide.kind !== "cierre" ? (

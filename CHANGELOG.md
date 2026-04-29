@@ -1,5 +1,16 @@
 # Changelog
 
+## v0.42 — 2026-04-29
+
+### Accesibilidad — Toggle de modo dislexia (revertido global, ahora opt-in)
+- Revertido cambio global de fuente a Archivo Black + Inter (apariencia anterior preservada)
+- Nuevo componente `DyslexiaToggle` (icono `TextAa` al lado del botón Home)
+- Al activarlo, añade clase `.dyslexia-mode` al shell y aplica OpenDyslexic
+- Estado persistido en `localStorage` (`pf-dyslexia-mode`)
+- Botón con `aria-pressed`, `aria-label` y focus-visible accesibles
+- Aplicado en píldoras 3.1 y 3.2 (mismo botón, mismo comportamiento)
+- 3.1 v0.17 → v0.18, 3.2 v0.17 → v0.18
+
 ## v0.41 — 2026-04-29
 
 ### Accesibilidad — Fuente OpenDyslexic global
