@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.46 — 2026-04-29
+
+### Accesibilidad — Dislexia: normalizar tamaños con font-size-adjust
+- Lexend tiene mayor x-height que Inter, lo que hacía que los clamp() ya validados se vieran sobredimensionados en modo dislexia (rompía layouts y burbujas de personajes)
+- Añadido `font-size-adjust: 0.46` en `.dyslexia-mode *` → normaliza la x-height visual a la de Inter, así los criterios de tamaño se mantienen válidos sin tocar slides individuales
+- Aplica a TODO el proyecto (todos los slides, todas las píldoras) sin ediciones por slide
+- 3.1 v0.21 → v0.22, 3.2 v0.21 → v0.22
+
 ## v0.45 — 2026-04-29
 
 ### Accesibilidad — Dislexia: anular all-caps en modo dislexia
