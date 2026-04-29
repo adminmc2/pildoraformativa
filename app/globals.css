@@ -49,10 +49,6 @@ html.dyslexia-mode {
 html.dyslexia-mode,
 html.dyslexia-mode * {
   font-family: var(--font-pf-dyslexia), system-ui, sans-serif !important;
-  /* Normaliza x-height: Lexend tiene letras más altas que Inter, así
-     los clamp() calibrados para Inter siguen siendo válidos visualmente.
-     0.46 es la x-height aproximada de Inter (referencia base). */
-  font-size-adjust: 0.46;
   /* Espaciado de letras según BDA: amplía 5-10% el letter-spacing */
   letter-spacing: 0.02em;
   /* Sin cursiva (BDA: la cursiva entorpece la lectura en dislexia) */

@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.47 — 2026-04-29
+
+### Accesibilidad — Dislexia: revertido font-size-adjust (encogía Lexend)
+- El `font-size-adjust: 0.46` añadido en v0.46 estaba reduciendo Lexend al ~85% de su tamaño natural (Lexend tiene x-height mayor que la referencia, así que el adjust lo encogía)
+- Eliminado el ajuste — Lexend ahora renderiza a su tamaño natural, ligeramente mayor que Inter, lo cual mejora la legibilidad en dislexia (deseable)
+- 3.1 v0.22 → v0.23, 3.2 v0.22 → v0.23
+
 ## v0.46 — 2026-04-29
 
 ### Accesibilidad — Dislexia: normalizar tamaños con font-size-adjust
