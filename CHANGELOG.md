@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.48 — 2026-04-29
+
+### Portada — Botón "Empezar" mucho más grande y prominente
+- Tamaño texto: `clamp(22-32px)` → `clamp(32-56px)`
+- Padding: `px-8 py-3 md:px-14 md:py-5` → `px-12 py-4 md:px-20 md:py-6`
+- Aplica a las dos píldoras (3.1 y 3.2 usan SlideOpening compartido)
+- 3.1 v0.23 → v0.24, 3.2 v0.23 → v0.24
+
 ## v0.47 — 2026-04-29
 
 ### Accesibilidad — Dislexia: revertido font-size-adjust (encogía Lexend)
