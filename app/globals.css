@@ -24,8 +24,10 @@
   --color-pf-cream: #F5F5F5;
   --color-pf-paper: #FFFFFF;
 
-  --font-pf-display: var(--font-pf-display);
-  --font-pf-ui: var(--font-pf-ui);
+  /* OpenDyslexic como fuente principal (accesibilidad para alumnos con dislexia).
+     Fallbacks: Archivo Black / Inter (cargadas vía next/font) y sans-serif. */
+  --font-pf-display: "OpenDyslexic", var(--font-pf-display-fallback), sans-serif;
+  --font-pf-ui: "OpenDyslexic", var(--font-pf-ui-fallback), sans-serif;
   --font-landing: var(--font-landing);
 
   /* Landing page palette (Strategos-inspired) */

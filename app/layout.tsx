@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
 import { Archivo_Black, Inter, Space_Grotesk } from "next/font/google";
+import "@fontsource/opendyslexic/400.css";
+import "@fontsource/opendyslexic/700.css";
 import "./globals.css";
 
 const archivoBlack = Archivo_Black({
-  variable: "--font-pf-display",
+  variable: "--font-pf-display-fallback",
   subsets: ["latin"],
   weight: ["400"],
 });
 
 const inter = Inter({
-  variable: "--font-pf-ui",
+  variable: "--font-pf-ui-fallback",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });

@@ -1,5 +1,14 @@
 # Changelog
 
+## v0.41 — 2026-04-29
+
+### Accesibilidad — Fuente OpenDyslexic global
+- Instalado `@fontsource/opendyslexic` (peso 400 + 700)
+- `--font-pf-display` y `--font-pf-ui` ahora usan OpenDyslexic como primaria, con Archivo Black / Inter como fallback
+- Aplica a TODAS las píldoras y al shell de presentación (sin tocar slides individuales — usan las CSS variables)
+- Píldora 3.1: v0.16 → v0.17
+- Píldora 3.2: v0.16 → v0.17
+
 ## v0.40 — 2026-04-27
 
 ### Píldora 3.2 — Slide #01 (Pili 1) — Email completo + regla tipográfica
