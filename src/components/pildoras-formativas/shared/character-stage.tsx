@@ -21,7 +21,10 @@ export function CharacterStage({
             animation: "bubbleIn 560ms cubic-bezier(0.16,1,0.3,1)",
           }}
         >
-          <p className="font-[family-name:var(--font-pf-display)] text-[clamp(24px,min(3vw,3.8vh),38px)] leading-[1.2] text-[var(--color-pf-ink)]">
+          <p
+            className="font-[family-name:var(--font-pf-display)] leading-[1.2] text-[var(--color-pf-ink)]"
+            style={{ fontSize: "clamp(24px, 1.8vw, 38px)" }}
+          >
             {bubble}
           </p>
           {/* Arrow: points down to the character */}

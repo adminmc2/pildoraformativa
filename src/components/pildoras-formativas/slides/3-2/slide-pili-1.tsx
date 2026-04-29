@@ -207,7 +207,10 @@ export function SlidePili1() {
           </h1>
 
           {/* Instrucción */}
-          <p className="text-[clamp(24px,min(2.4vw,3vh),32px)] font-semibold text-white bg-[var(--color-pf-ink)] w-fit px-5 py-2 rounded-full">
+          <p
+            className="font-semibold text-white bg-[var(--color-pf-ink)] w-fit px-5 py-2 rounded-full"
+            style={{ fontSize: "clamp(24px, 1.6vw, 32px)" }}
+          >
             {phase === 1
               ? `Clasifica cada elemento. ${correctCount} / ${ITEMS.length}`
               : "Estas son las partes de un correo electrónico."}
@@ -332,19 +335,19 @@ export function SlidePili1() {
           {/* ── FASE 2: Correo de Marta con partes etiquetadas ── */}
           {phase === 2 && (
             <div
-              className="rounded-[20px] bg-white shadow-[0_14px_40px_-16px_rgba(0,0,0,0.14)] overflow-hidden"
+              className="rounded-[20px] bg-white shadow-[0_14px_40px_-16px_rgba(0,0,0,0.14)] overflow-hidden flex flex-col max-h-[62vh]"
               style={{ animation: "cardIn 500ms cubic-bezier(0.2,0.8,0.2,1)" }}
             >
-              {/* Header correo */}
-              <div className="px-5 py-2.5 border-b border-[var(--color-pf-ink)]/10 flex items-center gap-2">
+              {/* Header correo (fijo) */}
+              <div className="flex-shrink-0 px-5 py-2.5 border-b border-[var(--color-pf-ink)]/10 flex items-center gap-2">
                 <EnvelopeSimple size={22} weight="duotone" className="text-[var(--color-pf-ink)] opacity-60" aria-hidden />
                 <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)] text-[var(--color-pf-ink)] tracking-wide font-semibold">
                   CORREO DE MARTA
                 </span>
               </div>
 
-              {/* Cuerpo del correo con etiquetas al lado (formato correo) */}
-              <div className="px-5 py-3 grid grid-cols-[auto_1fr] gap-x-4 gap-y-3 items-start">
+              {/* Cuerpo del correo con etiquetas al lado (formato correo) — scrollable */}
+              <div className="email-scroll flex-1 min-h-0 overflow-y-auto px-5 py-3 grid grid-cols-[auto_1fr] gap-x-7 gap-y-3 items-start">
                 {EMAIL_PARTS.map((section, i) => (
                   <React.Fragment key={section.label}>
                     {/* Etiqueta lateral */}
@@ -403,6 +406,26 @@ export function SlidePili1() {
         @keyframes btnPulse {
           0%, 100% { box-shadow: 0 0 0 0 rgba(10, 10, 10, 0.28); }
           50% { box-shadow: 0 0 0 18px rgba(10, 10, 10, 0); }
+        }
+        /* Scrollbar visible y siempre presente en el cuerpo del correo */
+        .email-scroll {
+          scrollbar-width: auto;
+          scrollbar-color: rgba(10, 10, 10, 0.4) transparent;
+          scrollbar-gutter: stable;
+        }
+        .email-scroll::-webkit-scrollbar {
+          width: 12px;
+        }
+        .email-scroll::-webkit-scrollbar-track {
+          background: rgba(10, 10, 10, 0.05);
+          border-radius: 6px;
+        }
+        .email-scroll::-webkit-scrollbar-thumb {
+          background: rgba(10, 10, 10, 0.4);
+          border-radius: 6px;
+        }
+        .email-scroll::-webkit-scrollbar-thumb:hover {
+          background: rgba(10, 10, 10, 0.6);
         }
         @media (prefers-reduced-motion: reduce) {
           *, *::before, *::after {

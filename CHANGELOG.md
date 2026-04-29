@@ -1,5 +1,14 @@
 # Changelog
 
+## v0.51 — 2026-04-29
+
+### slide-pili-1 (3.2) — Email: separación etiquetas y altura máxima
+- `gap-x-4` → `gap-x-7` (16px → 28px): más separación entre etiquetas DE/PARA/ASUNTO y contenido del correo
+- `max-h-[68vh]` → `max-h-[62vh]`: altura máxima reducida ~6vh para que el email no se extienda tanto
+- Contenedor con scroll: `flex flex-col`, header `flex-shrink-0`, cuerpo `flex-1 overflow-y-auto` con scrollbar personalizada
+- `character-stage.tsx`: font-size a inline style para evitar conflictos con Turbopack (`clamp(24px, 1.8vw, 38px)`)
+- 3.1 v0.26 → v0.27, 3.2 v0.26 → v0.27
+
 ## v0.50 — 2026-04-29
 
 ### Portada (SlideOpening / slide 0) — bloqueada
