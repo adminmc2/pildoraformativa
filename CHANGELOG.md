@@ -1,5 +1,20 @@
 # Changelog
 
+## v0.52 — 2026-04-29
+
+### slide-pili-1 (3.2) — Bloqueada
+- Añadido comentario de bloqueo al inicio del archivo: no modificar sin permiso explícito
+
+### slide-pili-2 (3.2) — Accesibilidad y responsive completo
+- Todos los `text-[clamp(X,min(Y,Z),W)]` de Tailwind convertidos a inline `style={{ fontSize }}` (patrón Turbopack-safe)
+- Enunciado instrucción: `clamp(24px, 1.8vw, 32px)` (mín 24px según guía)
+- Título h1: `clamp(40px, 4.5vw, 72px)`
+- Botón SIGUIENTE: `clamp(22px, 1.6vw, 28px)`
+- Labels email/piezas: `clamp(20px, 1.5vw, 26px)`
+- Preview (secundario): `clamp(18px, 1.3vw, 22px)`
+- Número de posición: `w-8 h-8` (32px) en lugar de `w-6 h-6` (24px)
+- 3.1 v0.27 → v0.28, 3.2 v0.27 → v0.28
+
 ## v0.51 — 2026-04-29
 
 ### slide-pili-1 (3.2) — Email: separación etiquetas y altura máxima

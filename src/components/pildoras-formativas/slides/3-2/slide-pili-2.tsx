@@ -127,24 +127,33 @@ export function SlidePili2() {
         <div className="flex flex-col gap-3 min-w-0">
           {/* Badge */}
           <div className="flex items-center gap-3">
-            <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)] text-[var(--color-pf-ink)]">
+            <span
+              className="font-[family-name:var(--font-pf-display)] text-[var(--color-pf-ink)]"
+              style={{ fontSize: "clamp(18px, 1.4vw, 22px)" }}
+            >
               PILI
             </span>
             <span
-              className="px-3 py-1 rounded-full text-base font-semibold"
-              style={{ background: "var(--color-pf-star-soft)", color: "#8A6B00" }}
+              className="px-3 py-1 rounded-full font-semibold"
+              style={{ background: "var(--color-pf-star-soft)", color: "#8A6B00", fontSize: "clamp(16px, 1.2vw, 20px)" }}
             >
               Anfitriona
             </span>
           </div>
 
           {/* Título */}
-          <h1 className="font-[family-name:var(--font-pf-display)] uppercase leading-[0.88] tracking-tight text-[clamp(36px,min(5.5vw,7vh),72px)] text-[var(--color-pf-ink)]">
+          <h1
+            className="font-[family-name:var(--font-pf-display)] uppercase leading-[0.88] tracking-tight text-[var(--color-pf-ink)]"
+            style={{ fontSize: "clamp(40px, 4.5vw, 72px)" }}
+          >
             {allDone ? "¡Ordenado!" : "Ordena el email"}
           </h1>
 
           {/* Instrucción */}
-          <p className="text-[clamp(20px,min(2vw,2.5vh),24px)] font-semibold text-white bg-[var(--color-pf-ink)] w-fit px-5 py-2 rounded-full">
+          <p
+            className="font-semibold text-white bg-[var(--color-pf-ink)] w-fit px-5 py-2 rounded-full"
+            style={{ fontSize: "clamp(24px, 1.8vw, 32px)" }}
+          >
             {phase === 0
               ? "Las partes del email están desordenadas."
               : allDone
@@ -157,7 +166,8 @@ export function SlidePili2() {
             <div className="mt-4">
               <button
                 onClick={() => setPhase(1)}
-                className="px-10 py-4 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)] hover:scale-[1.02] transition"
+                className="px-10 py-4 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] hover:scale-[1.02] transition"
+                style={{ fontSize: "clamp(22px, 1.6vw, 28px)" }}
                 style={{ animation: "btnPulse 2s ease-in-out infinite" }}
               >
                 SIGUIENTE
@@ -180,7 +190,10 @@ export function SlidePili2() {
                     weight="duotone"
                     className="text-[var(--color-pf-ink)] opacity-60"
                   />
-                  <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)] text-[var(--color-pf-ink)] tracking-wide">
+                  <span
+                    className="font-[family-name:var(--font-pf-display)] text-[var(--color-pf-ink)] tracking-wide"
+                    style={{ fontSize: "clamp(20px, 1.5vw, 26px)" }}
+                  >
                     EMAIL
                   </span>
                 </div>
@@ -222,7 +235,8 @@ export function SlidePili2() {
                       >
                         {/* Número de posición */}
                         <span
-                          className="w-6 h-6 rounded-full flex items-center justify-center text-base font-bold flex-shrink-0"
+                          className="w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0"
+                          style={{ fontSize: "clamp(16px, 1.2vw, 20px)", minWidth: "2rem" }}
                           style={{
                             background: filledBlock ? filledBlock.color : "rgba(10,10,10,0.08)",
                             color: filledBlock ? "white" : "rgba(10,10,10,0.3)",
@@ -240,12 +254,15 @@ export function SlidePili2() {
                             />
                             <div className="flex flex-col min-w-0 flex-1">
                               <span
-                                className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)] font-bold tracking-wider uppercase"
-                                style={{ color: filledBlock.color }}
+                                className="font-[family-name:var(--font-pf-display)] font-bold tracking-wider uppercase"
+                                style={{ color: filledBlock.color, fontSize: "clamp(20px, 1.5vw, 26px)" }}
                               >
                                 {filledBlock.label}
                               </span>
-                              <span className="text-[clamp(20px,min(2vw,2.5vh),24px)] leading-snug text-[var(--color-pf-ink)] opacity-70 truncate">
+                              <span
+                                className="leading-snug text-[var(--color-pf-ink)] opacity-70"
+                                style={{ fontSize: "clamp(18px, 1.3vw, 22px)" }}
+                              >
                                 {filledBlock.preview}
                               </span>
                             </div>
@@ -260,7 +277,10 @@ export function SlidePili2() {
                             />
                           </>
                         ) : (
-                          <span className="text-[clamp(20px,min(2vw,2.5vh),24px)] text-[var(--color-pf-ink)] opacity-20 font-semibold">
+                          <span
+                            className="text-[var(--color-pf-ink)] opacity-20 font-semibold"
+                            style={{ fontSize: "clamp(20px, 1.5vw, 26px)" }}
+                          >
                             {selected ? "¿Va aquí?" : "· · ·"}
                           </span>
                         )}
@@ -272,7 +292,10 @@ export function SlidePili2() {
 
               {/* Columna derecha: banco de piezas sueltas */}
               <div className="flex flex-col gap-1.5">
-                <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)] text-[var(--color-pf-ink)] opacity-50 tracking-wide">
+                <span
+                  className="font-[family-name:var(--font-pf-display)] text-[var(--color-pf-ink)] opacity-50 tracking-wide"
+                  style={{ fontSize: "clamp(18px, 1.4vw, 22px)" }}
+                >
                   PIEZAS
                 </span>
                 {SCRAMBLED.map((block, i) => {
@@ -290,7 +313,10 @@ export function SlidePili2() {
                           className="w-[3px] rounded-full flex-shrink-0 self-stretch"
                           style={{ background: "rgba(10,10,10,0.1)" }}
                         />
-                        <span className="text-[clamp(20px,min(2vw,2.5vh),24px)] text-[var(--color-pf-ink)] line-through">
+                        <span
+                          className="text-[var(--color-pf-ink)] line-through"
+                          style={{ fontSize: "clamp(20px, 1.5vw, 26px)" }}
+                        >
                           {block.label}
                         </span>
                       </div>
@@ -321,12 +347,15 @@ export function SlidePili2() {
                         style={{ background: block.color }}
                       />
                       <span
-                        className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)] font-bold tracking-wide uppercase"
-                        style={{ color: block.color }}
+                        className="font-[family-name:var(--font-pf-display)] font-bold tracking-wide uppercase"
+                        style={{ color: block.color, fontSize: "clamp(20px, 1.5vw, 26px)" }}
                       >
                         {block.label}
                       </span>
-                      <span className="text-[clamp(20px,min(2vw,2.5vh),24px)] leading-snug text-[var(--color-pf-ink)] opacity-60 truncate min-w-0">
+                      <span
+                        className="leading-snug text-[var(--color-pf-ink)] opacity-60 truncate min-w-0"
+                        style={{ fontSize: "clamp(18px, 1.3vw, 22px)" }}
+                      >
                         {block.preview}
                       </span>
                     </button>

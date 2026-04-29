@@ -1,3 +1,8 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// SLIDE BLOQUEADA — slide-pili-1 (#01)
+// No modificar sin permiso explícito del usuario.
+// Última revisión: v0.51 (2026-04-29)
+// ─────────────────────────────────────────────────────────────────────────────
 "use client";
 
 import React, { useState } from "react";
