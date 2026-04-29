@@ -71,7 +71,7 @@ Basado en recomendaciones de British Dyslexia Association (BDA) e International 
 | AC-DX5 | Word-spacing generoso (gap natural; no comprimir) |
 | AC-DX6 | **Nunca cursiva** (la cursiva entorpece la lectura en dislexia) |
 | AC-DX7 | Pesos `regular` o `bold` (evitar `light` o `thin`) |
-| AC-DX8 | Evitar `text-transform: uppercase` en bloques largos (sí en títulos cortos) |
+| AC-DX8 | **NUNCA all-caps en modo dislexia** (BDA Style Guide 2018: "Avoid text in uppercase/capital letters which can be less familiar to the reader and harder to read"). Razón: en mayúsculas todas las letras son rectángulos uniformes → no hay "forma de palabra" → lectura más lenta. En modo dislexia, el CSS fuerza `text-transform: none !important` para anular cualquier `uppercase` decorativo (títulos, badges, etc.) |
 | AC-DX9 | Fondo NO blanco puro: usar crema/off-white (#FAF6EC ✓ en este proyecto) |
 | AC-DX10 | Texto NO negro puro sobre fondo blanco puro (fatiga visual). Mejor gris oscuro #1a1a1a sobre crema |
 | AC-DX11 | Líneas cortas: 60-70 caracteres por línea |

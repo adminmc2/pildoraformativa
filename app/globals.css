@@ -49,10 +49,12 @@ html.dyslexia-mode {
 html.dyslexia-mode,
 html.dyslexia-mode * {
   font-family: var(--font-pf-dyslexia), system-ui, sans-serif !important;
-  /* Espaciado de letras y palabras según BDA: amplía 5-10% el letter-spacing */
+  /* Espaciado de letras según BDA: amplía 5-10% el letter-spacing */
   letter-spacing: 0.02em;
-  /* Sin cursiva (recomendación BDA: la cursiva es difícil de leer en dislexia) */
+  /* Sin cursiva (BDA: la cursiva entorpece la lectura en dislexia) */
   font-style: normal !important;
+  /* Sin mayúsculas decorativas (BDA: ALL CAPS oculta la forma de palabra) */
+  text-transform: none !important;
 }
 html.dyslexia-mode p,
 html.dyslexia-mode span,

@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.45 — 2026-04-29
+
+### Accesibilidad — Dislexia: anular all-caps en modo dislexia
+- BDA Style Guide 2018 advierte: las mayúsculas dificultan la lectura en dislexia (todas las letras son rectángulos uniformes, sin "forma de palabra")
+- CSS `.dyslexia-mode` ahora añade `text-transform: none !important` (anula cualquier `uppercase` decorativo de títulos, badges, etc.)
+- Reforzada regla AC-DX8 en `docs/CLAUDE-responsive-accesibilidad.md` con cita textual de BDA
+- 3.1 v0.20 → v0.21, 3.2 v0.20 → v0.21
+
 ## v0.44 — 2026-04-29
 
 ### Accesibilidad — Dislexia: OpenDyslexic → Lexend + principios BDA
