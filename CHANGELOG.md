@@ -1,5 +1,16 @@
 # Changelog
 
+## v0.39 — 2026-04-27
+
+### Píldora 3.2 — Slide #01 (Pili 1) — Refinamiento bocadillos + email
+- Lógica de feedback con 3 estados (correcto / parcial / wrong) en lugar de binario
+- Bocadillo parcial sin indicar número de categorías que faltan
+- Bocadillos sin nombre de ítem (más naturales)
+- Email de Marta (fase 2) con formato correo: etiquetas al lado de cada sección
+- Email body text: 20-24px → 22-28px (más legible en proyector)
+- Etiquetas laterales: 16-18px → 18-22px, con textColor accesible (≥4.5:1)
+- Píldora 3.2: v0.14 → v0.15
+
 ## v0.38 — 2026-04-27
 
 ### Footer global (3.1 y 3.2) — Botón "Anterior diapositiva"

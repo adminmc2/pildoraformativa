@@ -54,14 +54,17 @@ const ITEMS: { id: string; label: string; Icon: React.ComponentType<any>; cats: 
 
 const CAT_KEYS = Object.keys(CATS) as Cat[];
 
-/* ── Secciones del correo de Marta (fase 2) ── */
+/* ── Secciones del correo de Marta (fase 2) ──
+   barColor = color decorativo de la barra lateral (vivo)
+   textColor = variante oscura accesible para el label sobre blanco (≥4.5:1) */
 const EMAIL_PARTS = [
-  { label: "DE / PARA", color: "var(--color-pf-ink)", lines: ["De: marta@correo.es", "Para: pierre@correo.fr"] },
-  { label: "ASUNTO", color: "var(--color-pf-star)", lines: ["¡Hola desde Cádiz!"] },
-  { label: "SALUDO", color: "var(--color-pf-pill)", lines: ["¡Hola, Pierre! ¿Qué tal estás?"] },
+  { label: "DE / PARA", barColor: "var(--color-pf-ink)", textColor: "var(--color-pf-ink)", lines: ["De: marta@correo.es", "Para: pierre@correo.fr"] },
+  { label: "ASUNTO", barColor: "var(--color-pf-star)", textColor: "#8A6B00", lines: ["¡Hola desde Cádiz!"] },
+  { label: "SALUDO", barColor: "var(--color-pf-pill)", textColor: "#3F6B14", lines: ["¡Hola, Pierre! ¿Qué tal estás?"] },
   {
     label: "CUERPO",
-    color: "var(--color-pf-flower)",
+    barColor: "var(--color-pf-flower)",
+    textColor: "#8A1470",
     lines: [
       "Hoy te hablo de mi familia: mi padre trabaja en un hotel y mi madre en un hospital...",
       "Yo este año tengo muchos amigos en mi clase: Emilio, Elena, Santiago...",
@@ -69,8 +72,8 @@ const EMAIL_PARTS = [
       "¿Tú también tienes muchos deberes este año?",
     ],
   },
-  { label: "DESPEDIDA", color: "var(--color-pf-spark)", lines: ["¡Un saludo desde Cádiz!"] },
-  { label: "FIRMA", color: "var(--color-pf-moon)", lines: ["Marta"] },
+  { label: "DESPEDIDA", barColor: "var(--color-pf-spark)", textColor: "#8A2F10", lines: ["¡Un saludo desde Cádiz!"] },
+  { label: "FIRMA", barColor: "var(--color-pf-moon)", textColor: "#3B2A8A", lines: ["Marta"] },
 ];
 
 /* ── Highlight helper (énfasis, no cita gramatical → solo naranja, sin cursiva) ── */
@@ -94,6 +97,21 @@ function isCorrect(itemId: string, selections: Record<string, Record<Cat, boolea
   );
 }
 
+type Status = "empty" | "wrong" | "partial" | "correct";
+
+function getStatus(itemId: string, selections: Record<string, Record<Cat, boolean>>): { status: Status; wrongCat?: Cat } {
+  const item = ITEMS.find((i) => i.id === itemId);
+  if (!item) return { status: "empty" };
+  const sel = selections[itemId];
+  if (!sel) return { status: "empty" };
+  const selected = CAT_KEYS.filter((c) => sel[c]);
+  if (selected.length === 0) return { status: "empty" };
+  const wrong = selected.find((c) => !item.cats.includes(c));
+  if (wrong) return { status: "wrong", wrongCat: wrong };
+  if (selected.length === item.cats.length) return { status: "correct" };
+  return { status: "partial" };
+}
+
 /* ── Componente ── */
 export function SlidePili1() {
   const [phase, setPhase] = useState<1 | 2>(1);
@@ -115,10 +133,9 @@ export function SlidePili1() {
     setFeedbackId((n) => n + 1);
   };
 
-  /* ── Bubble (con retroalimentación) ── */
+  /* ── Bubble (3 estados de retroalimentación: parcial ≠ error) ── */
   const lastItem = lastTouched ? ITEMS.find((i) => i.id === lastTouched) : null;
-  const lastCorrect = lastTouched ? isCorrect(lastTouched, selections) : false;
-  const lastHasAny = lastTouched ? CAT_KEYS.some((c) => selections[lastTouched]?.[c]) : false;
+  const lastInfo = lastTouched ? getStatus(lastTouched, selections) : { status: "empty" as Status };
 
   let bubble: React.ReactNode;
   if (phase === 2) {
@@ -133,16 +150,22 @@ export function SlidePili1() {
         ¡Muy bien! Ahora mirad cómo se ven estas partes en el <V>correo de Marta</V>.
       </>
     );
-  } else if (lastTouched && lastCorrect) {
+  } else if (lastInfo.status === "correct") {
     bubble = (
       <>
-        ¡<V>Correcto</V>! «{lastItem?.label}» va ahí. Sigue.
+        ¡<V>Correcto</V>! Sigue con los demás.
       </>
     );
-  } else if (lastTouched && lastHasAny && !lastCorrect) {
+  } else if (lastInfo.status === "wrong" && lastInfo.wrongCat) {
     bubble = (
       <>
-        Mmm, <V>«{lastItem?.label}»</V> no encaja del todo. Vuelve a mirar.
+        Mmm, eso no se usa en <V>{CATS[lastInfo.wrongCat].label.toLowerCase()}</V>. Inténtalo otra vez.
+      </>
+    );
+  } else if (lastInfo.status === "partial") {
+    bubble = (
+      <>
+        ¡Bien! Pero <V>todavía falta</V>. Sigue.
       </>
     );
   } else {
@@ -308,45 +331,44 @@ export function SlidePili1() {
             >
               {/* Header correo */}
               <div className="px-5 py-2.5 border-b border-[var(--color-pf-ink)]/10 flex items-center gap-2">
-                <EnvelopeSimple size={20} weight="duotone" className="text-[var(--color-pf-ink)] opacity-60" />
-                <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)] text-[var(--color-pf-ink)] tracking-wide">
+                <EnvelopeSimple size={22} weight="duotone" className="text-[var(--color-pf-ink)] opacity-60" aria-hidden />
+                <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)] text-[var(--color-pf-ink)] tracking-wide font-semibold">
                   CORREO DE MARTA
                 </span>
               </div>
 
-              {/* Secciones etiquetadas */}
-              <div className="px-5 py-3 flex flex-col gap-2">
+              {/* Cuerpo del correo con etiquetas al lado (formato correo) */}
+              <div className="px-5 py-3 grid grid-cols-[auto_1fr] gap-x-4 gap-y-3 items-start">
                 {EMAIL_PARTS.map((section, i) => (
-                  <div
-                    key={section.label}
-                    className="flex gap-3 items-start"
-                    style={{
-                      animation: `cardIn 400ms cubic-bezier(0.2,0.8,0.2,1) ${i * 80}ms both`,
-                    }}
-                  >
-                    {/* Barra de color */}
+                  <React.Fragment key={section.label}>
+                    {/* Etiqueta lateral */}
+                    <span
+                      className="font-[family-name:var(--font-pf-display)] text-[clamp(18px,min(1.6vw,2vh),22px)] font-bold tracking-wider uppercase whitespace-nowrap pt-1"
+                      style={{
+                        color: section.textColor,
+                        animation: `cardIn 400ms cubic-bezier(0.2,0.8,0.2,1) ${i * 80}ms both`,
+                      }}
+                    >
+                      {section.label}
+                    </span>
+                    {/* Contenido del correo */}
                     <div
-                      className="w-[4px] rounded-full flex-shrink-0 self-stretch"
-                      style={{ background: section.color }}
-                    />
-                    {/* Etiqueta + texto */}
-                    <div className="flex flex-col gap-0.5 min-w-0">
-                      <span
-                        className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)] font-bold tracking-wider uppercase"
-                        style={{ color: section.color }}
-                      >
-                        {section.label}
-                      </span>
+                      className="flex flex-col gap-0.5 min-w-0 border-l-[3px] pl-3"
+                      style={{
+                        borderColor: section.barColor,
+                        animation: `cardIn 400ms cubic-bezier(0.2,0.8,0.2,1) ${i * 80}ms both`,
+                      }}
+                    >
                       {section.lines.map((line, j) => (
                         <span
                           key={j}
-                          className="text-[clamp(20px,min(2vw,2.5vh),24px)] leading-snug text-[var(--color-pf-ink)]"
+                          className="text-[clamp(22px,min(2.2vw,2.8vh),28px)] leading-snug text-[var(--color-pf-ink)]"
                         >
                           {line}
                         </span>
                       ))}
                     </div>
-                  </div>
+                  </React.Fragment>
                 ))}
               </div>
             </div>
