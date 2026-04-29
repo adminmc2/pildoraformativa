@@ -1,5 +1,14 @@
 # Changelog
 
+## v0.43 — 2026-04-29
+
+### Accesibilidad — DyslexiaToggle: visible en portada + cascada efectiva
+- Toggle ahora añade clase `.dyslexia-mode` a `<html>` (cascada total, prioridad sobre Tailwind)
+- CSS: redefine variables `--font-pf-display` y `--font-pf-ui` cuando el modo está activo
+- Variante `fixed` del toggle (posición absoluta arriba-izquierda) para slides sin header (portada)
+- Aplicado en píldoras 3.1 y 3.2 — el botón aparece desde slide 0
+- 3.1 v0.18 → v0.19, 3.2 v0.18 → v0.19
+
 ## v0.42 — 2026-04-29
 
 ### Accesibilidad — Toggle de modo dislexia (revertido global, ahora opt-in)

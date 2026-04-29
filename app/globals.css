@@ -38,12 +38,17 @@
   --color-landing-muted: #6B7B8D;
 }
 
-/* Modo dislexia — sobrescribe las variables de fuente con OpenDyslexic.
-   Se activa añadiendo la clase .dyslexia-mode al contenedor de la presentación.
-   Persistencia en localStorage gestionada por DyslexiaToggle. */
-.dyslexia-mode,
-.dyslexia-mode * {
-  font-family: "OpenDyslexic", var(--font-pf-ui), system-ui, sans-serif !important;
+/* Modo dislexia — sobrescribe las fuentes con OpenDyslexic en toda la cascada.
+   Se activa añadiendo la clase .dyslexia-mode a <html> (DyslexiaToggle).
+   Las variables --font-pf-display y --font-pf-ui se redefinen también para
+   superar utility classes de Tailwind tipo font-[family-name:var(...)]. */
+html.dyslexia-mode {
+  --font-pf-display: "OpenDyslexic", system-ui, sans-serif;
+  --font-pf-ui: "OpenDyslexic", system-ui, sans-serif;
+}
+html.dyslexia-mode,
+html.dyslexia-mode * {
+  font-family: "OpenDyslexic", system-ui, sans-serif !important;
 }
 
 /* NeonGradientCard animation */

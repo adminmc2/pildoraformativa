@@ -66,6 +66,9 @@ export default function Pildora32Page() {
       className="pf-presentation-shell fixed inset-0 flex flex-col overflow-y-auto overflow-x-hidden transition-colors duration-500 font-[family-name:var(--font-pf-ui)]"
       style={{ background: slide.bg }}
     >
+      {/* Toggle de dislexia siempre visible (también en portada) */}
+      {slide.kind === "opening" && <DyslexiaToggle fixed />}
+
       {slide.kind !== "opening" && (
         <header className={`flex-shrink-0 flex items-center justify-between px-4 md:px-8 pt-3 md:pt-4 pb-1 ${isDark ? "text-white" : "text-[var(--color-pf-ink)]"}`}>
           <div className="flex items-center gap-2">
@@ -83,7 +86,7 @@ export default function Pildora32Page() {
               PÍLDORA FORMATIVA 3.2
             </div>
             <div className="text-base md:text-lg opacity-70 font-medium tracking-wider uppercase">
-              Un Correo Electrónico Personal · Unidad 3 · v0.18
+              Un Correo Electrónico Personal · Unidad 3 · v0.19
             </div>
           </div>
           {slide.kind !== "cierre" ? (

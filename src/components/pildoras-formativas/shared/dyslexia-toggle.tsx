@@ -7,10 +7,19 @@ const STORAGE_KEY = "pf-dyslexia-mode";
 
 /**
  * Botón de accesibilidad que activa/desactiva el modo dislexia.
- * Añade/quita la clase `.dyslexia-mode` al contenedor padre con clase `.pf-presentation-shell`.
+ * Añade/quita la clase `.dyslexia-mode` al elemento <html> (cascada total).
  * Persiste el estado en localStorage.
+ *
+ * Variante "inline" (por defecto): para usar dentro del header, sin posicionamiento.
+ * Variante "fixed": posición fija arriba-izquierda — útil en slides sin header (portada).
  */
-export function DyslexiaToggle({ isDark = false }: { isDark?: boolean }) {
+export function DyslexiaToggle({
+  isDark = false,
+  fixed = false,
+}: {
+  isDark?: boolean;
+  fixed?: boolean;
+}) {
   const [active, setActive] = useState(false);
 
   // Carga inicial desde localStorage
@@ -18,19 +27,18 @@ export function DyslexiaToggle({ isDark = false }: { isDark?: boolean }) {
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved === "1") {
       setActive(true);
-      document.querySelector(".pf-presentation-shell")?.classList.add("dyslexia-mode");
+      document.documentElement.classList.add("dyslexia-mode");
     }
   }, []);
 
   const toggle = () => {
     const next = !active;
     setActive(next);
-    const shell = document.querySelector(".pf-presentation-shell");
     if (next) {
-      shell?.classList.add("dyslexia-mode");
+      document.documentElement.classList.add("dyslexia-mode");
       localStorage.setItem(STORAGE_KEY, "1");
     } else {
-      shell?.classList.remove("dyslexia-mode");
+      document.documentElement.classList.remove("dyslexia-mode");
       localStorage.removeItem(STORAGE_KEY);
     }
   };
@@ -42,8 +50,10 @@ export function DyslexiaToggle({ isDark = false }: { isDark?: boolean }) {
       aria-pressed={active}
       title={active ? "Modo dislexia activado" : "Activar fuente OpenDyslexic"}
       className={`w-9 h-9 flex items-center justify-center rounded-full transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-pf-spark)] focus-visible:ring-offset-2 ${
+        fixed ? "fixed top-3 left-4 z-50 bg-white/90 shadow-md backdrop-blur" : ""
+      } ${
         active
-          ? "bg-[var(--color-pf-spark)] text-white"
+          ? "!bg-[var(--color-pf-spark)] text-white"
           : isDark
             ? "hover:bg-white/15"
             : "hover:bg-white/60"
