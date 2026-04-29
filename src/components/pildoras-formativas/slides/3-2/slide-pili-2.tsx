@@ -63,9 +63,16 @@ const SCRAMBLED = SCRAMBLED_IDS.map((id) => BLOCKS.find((b) => b.id === id)!);
 /* Slots del esqueleto (orden correcto 1-6) */
 const SLOTS = BLOCKS.map((b) => ({ order: b.order, label: b.label }));
 
-/* ── Highlight helper ── */
-const C = ({ children }: { children: React.ReactNode }) => (
-  <span className="italic" style={{ color: "var(--color-pf-spark)" }}>
+/* ── Highlight helpers ── */
+/* P: cita literal de gramática → cursiva + naranja */
+const P = ({ children }: { children: React.ReactNode }) => (
+  <span className="italic font-semibold" style={{ color: "var(--color-pf-spark)" }}>
+    {children}
+  </span>
+);
+/* V: énfasis genérico → solo naranja bold, sin cursiva */
+const V = ({ children }: { children: React.ReactNode }) => (
+  <span className="font-semibold" style={{ color: "var(--color-pf-spark)" }}>
     {children}
   </span>
 );
@@ -102,25 +109,25 @@ export function SlidePili2() {
   const bubble =
     phase === 0 ? (
       <>
-        ¿Recordáis las partes del email? ¡Están <C>desordenadas</C>! Colocadlas en su sitio.
+        ¿Recordáis las partes del email? ¡Están <V>desordenadas</V>! Colocadlas en su sitio.
       </>
     ) : allDone ? (
       <>
-        ¡<C>Perfecto</C>! Un email siempre sigue este orden. Ahora <C>Flora</C> os va a enseñar algo
+        ¡<V>Perfecto</V>! Un email siempre sigue este orden. Ahora <V>Flora</V> os va a enseñar algo
         importante.
       </>
     ) : selected ? (
       <>
-        Bien, habéis elegido <C>{BLOCKS.find((b) => b.id === selected)!.label}</C>. ¿En qué posición
+        Bien, habéis elegido <V>{BLOCKS.find((b) => b.id === selected)!.label}</V>. ¿En qué posición
         va?
       </>
     ) : placed.size === 0 ? (
       <>
-        Primero pulsad una <C>pieza</C> y luego el <C>hueco</C> donde va.
+        Primero pulsad una <V>pieza</V> y luego el <V>hueco</V> donde va.
       </>
     ) : (
       <>
-        ¡Bien! Elegid la siguiente <C>pieza</C> y colocadla.
+        ¡Bien! Elegid la siguiente <V>pieza</V> y colocadla.
       </>
     );
 
@@ -186,7 +193,7 @@ export function SlidePili2() {
               style={{ animation: "cardIn 400ms cubic-bezier(0.2,0.8,0.2,1)" }}
             >
               {/* Columna izquierda: esqueleto del email */}
-              <div className="rounded-[20px] bg-white shadow-[0_10px_30px_-12px_rgba(0,0,0,0.12)] overflow-hidden">
+              <div className="rounded-[20px] bg-white shadow-[0_10px_30px_-12px_rgba(0,0,0,0.12)] overflow-hidden flex flex-col" style={{ maxHeight: "48vh" }}>
                 {/* Header */}
                 <div className="px-4 py-2 border-b border-[var(--color-pf-ink)]/10 flex items-center gap-2">
                   <EnvelopeSimple
@@ -203,7 +210,7 @@ export function SlidePili2() {
                 </div>
 
                 {/* Slots */}
-                <div className="px-3 py-2 flex flex-col gap-1.5">
+                <div className="px-3 py-2 flex flex-col gap-1.5 overflow-y-auto flex-1">
                   {SLOTS.map((slot, i) => {
                     const filledId = placed.get(slot.order);
                     const filledBlock = filledId
@@ -264,12 +271,17 @@ export function SlidePili2() {
                               >
                                 {filledBlock.label}
                               </span>
-                              <span
-                                className="leading-snug text-[var(--color-pf-ink)] opacity-70"
-                                style={{ fontSize: "clamp(20px, 1.6vw, 24px)" }}
-                              >
-                                {filledBlock.lines[0]}{filledBlock.lines.length > 1 ? " …" : ""}
-                              </span>
+                              <div className="flex flex-col gap-1.5">
+                                {filledBlock.lines.map((line, li) => (
+                                  <span
+                                    key={li}
+                                    className="leading-snug text-[var(--color-pf-ink)] opacity-70"
+                                    style={{ fontSize: "clamp(20px, 1.6vw, 24px)" }}
+                                  >
+                                    {line}
+                                  </span>
+                                ))}
+                              </div>
                             </div>
                             <CheckCircle
                               size={16}

@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.54 — 2026-04-29
+
+### slide-pili-2 (3.2) — Texto CUERPO completo + scroll en EMAIL + fix cursiva burbujas
+- Slot EMAIL: muestra todas las `lines[]` del bloque colocado (no solo `lines[0] + "…"`)
+- Columna EMAIL: `maxHeight: 48vh` + `overflow-y-auto` — scroll aparece solo cuando el contenido desborda; header fijo, slots scrollean
+- Burbujas de Pili: `<C>` renombrado a `<P>` (cursiva + naranja, solo para citas gramaticales); añadido `<V>` (naranja bold sin cursiva) para énfasis genérico; todas las burbujas de pili-2 usan `<V>`
+- 3.1 v0.29 → v0.30, 3.2 v0.29 → v0.30
+
 ## v0.53 — 2026-04-29
 
 ### slide-pili-2 (3.2) — Layout responsive: scroll solo en PIEZAS
