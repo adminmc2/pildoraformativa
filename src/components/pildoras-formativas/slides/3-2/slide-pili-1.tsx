@@ -66,9 +66,9 @@ const EMAIL_PARTS = [
     barColor: "var(--color-pf-flower)",
     textColor: "#8A1470",
     lines: [
-      "Hoy te hablo de mi familia: mi padre trabaja en un hotel y mi madre en un hospital...",
-      "Yo este año tengo muchos amigos en mi clase: Emilio, Elena, Santiago...",
-      "Este curso es un poco más difícil. Tres días a la semana salimos a las 15:30...",
+      "Hoy te hablo de mi familia: mi padre trabaja en un hotel y mi madre en un hospital. Mi hermano Mario tiene once años y mi hermana Ana tiene seis. ¿Y tú, cuántos hermanos tienes?",
+      "Y en el instituto, ¿qué tal el nuevo curso? Yo este año tengo muchos amigos en mi clase: Emilio, Elena, Santiago... y también tengo una compañera nueva: se llama Bárbara.",
+      "Este curso es un poco más difícil. Tres días a la semana salimos a las 15:30 y tenemos muchos deberes de Tecnología y Matemáticas. A mí me gusta mucho la Historia.",
       "¿Tú también tienes muchos deberes este año?",
     ],
   },
@@ -85,6 +85,12 @@ const V = ({ children }: { children: React.ReactNode }) => (
 
 /* ── Helpers ── */
 const emptySel = (): Record<Cat, boolean> => ({ email: false, chat: false, post: false });
+
+/** Evita que conjunciones monosílabas (y, o, u, e) queden al final de línea
+    al hacer wrap. Reemplaza el espacio después por non-breaking space. */
+function noOrphanY(text: string): string {
+  return text.replace(/(^|[\s¿¡])([yYoOuUeE]) /g, "$1$2 ");
+}
 
 function isCorrect(itemId: string, selections: Record<string, Record<Cat, boolean>>): boolean {
   const item = ITEMS.find((i) => i.id === itemId);
@@ -364,7 +370,7 @@ export function SlidePili1() {
                           key={j}
                           className="text-[clamp(22px,min(2.2vw,2.8vh),28px)] leading-snug text-[var(--color-pf-ink)]"
                         >
-                          {line}
+                          {noOrphanY(line)}
                         </span>
                       ))}
                     </div>

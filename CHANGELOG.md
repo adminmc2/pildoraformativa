@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.40 — 2026-04-27
+
+### Píldora 3.2 — Slide #01 (Pili 1) — Email completo + regla tipográfica
+- Email de Marta restaurado al modelo Flora-2 completo (familia, instituto, curso, pregunta)
+- Helper `noOrphanY`: aplica non-breaking space tras conjunciones (y, o, u, e) para que nunca queden al final de línea al hacer wrap
+- Píldora 3.2: v0.15 → v0.16
+
 ## v0.39 — 2026-04-27
 
 ### Píldora 3.2 — Slide #01 (Pili 1) — Refinamiento bocadillos + email
