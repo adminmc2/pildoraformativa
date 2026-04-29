@@ -1,5 +1,14 @@
 # Changelog
 
+## v0.53 — 2026-04-29
+
+### slide-pili-2 (3.2) — Layout responsive: scroll solo en PIEZAS
+- Revertido `height: calc(100vh - 80px)` de columna izquierda: layout vuelve a comportamiento natural centrado (igual que slide-pili-1)
+- `BLOCKS.preview` → `BLOCKS.lines[]`: CUERPO con 4 párrafos completos reales del email de Marta
+- Columna PIEZAS: `maxHeight: 48vh` + `overflow-y-auto`; scroll aparece solo cuando el contenido (CUERPO) desborda
+- EMAIL y personaje Pili no tienen restricciones de altura; se centran verticalmente de forma natural
+- 3.1 v0.28 → v0.29, 3.2 v0.28 → v0.29
+
 ## v0.52 — 2026-04-29
 
 ### slide-pili-1 (3.2) — Bloqueada

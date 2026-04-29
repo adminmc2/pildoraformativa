@@ -11,42 +11,47 @@ const BLOCKS = [
     id: "de-para",
     label: "DE / PARA",
     color: "var(--color-pf-ink)",
-    preview: "De: marta@correo.es — Para: pierre@correo.fr",
+    lines: ["De: marta@correo.es — Para: pierre@correo.fr"],
     order: 1,
   },
   {
     id: "asunto",
     label: "ASUNTO",
     color: "var(--color-pf-star)",
-    preview: "¡Hola desde Cádiz!",
+    lines: ["¡Hola desde Cádiz!"],
     order: 2,
   },
   {
     id: "saludo",
     label: "SALUDO",
     color: "var(--color-pf-pill)",
-    preview: "¡Hola, Pierre! ¿Qué tal estás?",
+    lines: ["¡Hola, Pierre! ¿Qué tal estás?"],
     order: 3,
   },
   {
     id: "cuerpo",
     label: "CUERPO",
     color: "var(--color-pf-flower)",
-    preview: "Hoy te hablo de mi familia... Tengo muchos amigos... Este curso...",
+    lines: [
+      "Hoy te hablo de mi familia: mi padre trabaja en un hotel y mi madre en un hospital. Mi hermano Mario tiene once años y mi hermana Ana tiene seis. ¿Y tú, cuántos hermanos tienes?",
+      "Y en el instituto, ¿qué tal el nuevo curso? Yo este año tengo muchos amigos en mi clase: Emilio, Elena, Santiago... y también tengo una compañera nueva: se llama Bárbara.",
+      "Este curso es un poco más difícil. Tres días a la semana salimos a las 15:30 y tenemos muchos deberes de Tecnología y Matemáticas. A mí me gusta mucho la Historia.",
+      "¿Tú también tienes muchos deberes este año?",
+    ],
     order: 4,
   },
   {
     id: "despedida",
     label: "DESPEDIDA",
     color: "var(--color-pf-spark)",
-    preview: "¡Un saludo desde Cádiz!",
+    lines: ["¡Un saludo desde Cádiz!"],
     order: 5,
   },
   {
     id: "firma",
     label: "FIRMA",
     color: "var(--color-pf-moon)",
-    preview: "Marta",
+    lines: ["Marta"],
     order: 6,
   },
 ];
@@ -167,8 +172,7 @@ export function SlidePili2() {
               <button
                 onClick={() => setPhase(1)}
                 className="px-10 py-4 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] hover:scale-[1.02] transition"
-                style={{ fontSize: "clamp(22px, 1.6vw, 28px)" }}
-                style={{ animation: "btnPulse 2s ease-in-out infinite" }}
+                style={{ fontSize: "clamp(22px, 1.6vw, 28px)", animation: "btnPulse 2s ease-in-out infinite" }}
               >
                 SIGUIENTE
               </button>
@@ -192,7 +196,7 @@ export function SlidePili2() {
                   />
                   <span
                     className="font-[family-name:var(--font-pf-display)] text-[var(--color-pf-ink)] tracking-wide"
-                    style={{ fontSize: "clamp(20px, 1.5vw, 26px)" }}
+                    style={{ fontSize: "clamp(22px, 1.8vw, 28px)" }}
                   >
                     EMAIL
                   </span>
@@ -236,8 +240,9 @@ export function SlidePili2() {
                         {/* Número de posición */}
                         <span
                           className="w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0"
-                          style={{ fontSize: "clamp(16px, 1.2vw, 20px)", minWidth: "2rem" }}
                           style={{
+                            fontSize: "clamp(16px, 1.2vw, 20px)",
+                            minWidth: "2rem",
                             background: filledBlock ? filledBlock.color : "rgba(10,10,10,0.08)",
                             color: filledBlock ? "white" : "rgba(10,10,10,0.3)",
                           }}
@@ -255,15 +260,15 @@ export function SlidePili2() {
                             <div className="flex flex-col min-w-0 flex-1">
                               <span
                                 className="font-[family-name:var(--font-pf-display)] font-bold tracking-wider uppercase"
-                                style={{ color: filledBlock.color, fontSize: "clamp(20px, 1.5vw, 26px)" }}
+                                style={{ color: filledBlock.color, fontSize: "clamp(22px, 1.8vw, 28px)" }}
                               >
                                 {filledBlock.label}
                               </span>
                               <span
                                 className="leading-snug text-[var(--color-pf-ink)] opacity-70"
-                                style={{ fontSize: "clamp(18px, 1.3vw, 22px)" }}
+                                style={{ fontSize: "clamp(20px, 1.6vw, 24px)" }}
                               >
-                                {filledBlock.preview}
+                                {filledBlock.lines[0]}{filledBlock.lines.length > 1 ? " …" : ""}
                               </span>
                             </div>
                             <CheckCircle
@@ -279,7 +284,7 @@ export function SlidePili2() {
                         ) : (
                           <span
                             className="text-[var(--color-pf-ink)] opacity-20 font-semibold"
-                            style={{ fontSize: "clamp(20px, 1.5vw, 26px)" }}
+                            style={{ fontSize: "clamp(22px, 1.8vw, 28px)" }}
                           >
                             {selected ? "¿Va aquí?" : "· · ·"}
                           </span>
@@ -290,11 +295,11 @@ export function SlidePili2() {
                 </div>
               </div>
 
-              {/* Columna derecha: banco de piezas sueltas */}
-              <div className="flex flex-col gap-1.5">
+              {/* Columna derecha: banco de piezas sueltas — scroll propio */}
+              <div className="flex flex-col gap-2 overflow-y-auto" style={{ maxHeight: "48vh" }}>
                 <span
                   className="font-[family-name:var(--font-pf-display)] text-[var(--color-pf-ink)] opacity-50 tracking-wide"
-                  style={{ fontSize: "clamp(18px, 1.4vw, 22px)" }}
+                  style={{ fontSize: "clamp(20px, 1.6vw, 24px)" }}
                 >
                   PIEZAS
                 </span>
@@ -315,7 +320,7 @@ export function SlidePili2() {
                         />
                         <span
                           className="text-[var(--color-pf-ink)] line-through"
-                          style={{ fontSize: "clamp(20px, 1.5vw, 26px)" }}
+                          style={{ fontSize: "clamp(22px, 1.8vw, 28px)" }}
                         >
                           {block.label}
                         </span>
@@ -346,18 +351,25 @@ export function SlidePili2() {
                         className="w-[3px] rounded-full flex-shrink-0 self-stretch"
                         style={{ background: block.color }}
                       />
-                      <span
-                        className="font-[family-name:var(--font-pf-display)] font-bold tracking-wide uppercase"
-                        style={{ color: block.color, fontSize: "clamp(20px, 1.5vw, 26px)" }}
-                      >
-                        {block.label}
-                      </span>
-                      <span
-                        className="leading-snug text-[var(--color-pf-ink)] opacity-60 truncate min-w-0"
-                        style={{ fontSize: "clamp(18px, 1.3vw, 22px)" }}
-                      >
-                        {block.preview}
-                      </span>
+                      <div className="flex flex-col min-w-0 flex-1">
+                        <span
+                          className="font-[family-name:var(--font-pf-display)] font-bold tracking-wide uppercase"
+                          style={{ color: block.color, fontSize: "clamp(22px, 1.8vw, 28px)" }}
+                        >
+                          {block.label}
+                        </span>
+                        <div className="flex flex-col gap-1.5">
+                          {block.lines.map((line, li) => (
+                            <p
+                              key={li}
+                              className="leading-snug text-[var(--color-pf-ink)] opacity-70 m-0"
+                              style={{ fontSize: "clamp(20px, 1.6vw, 24px)" }}
+                            >
+                              {line}
+                            </p>
+                          ))}
+                        </div>
+                      </div>
                     </button>
                   );
                 })}
