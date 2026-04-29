@@ -60,6 +60,25 @@
 | AC9 | Animaciones de entrada cortas (<800 ms), no bloqueantes |
 | AC10 | Respetar `prefers-reduced-motion` (apagar animaciones decorativas) |
 
+### Dislexia (modo opcional, toggle en cabecera)
+
+Basado en recomendaciones de British Dyslexia Association (BDA) e International Dyslexia Association (IDA).
+
+| AC-DX1 | Fuente: **Lexend** (validada empíricamente) — sans-serif diseñada para fluidez lectora. Soporta acentos del español completos |
+| AC-DX2 | NO usar OpenDyslexic: tiene problemas con acentos y la evidencia científica es débil |
+| AC-DX3 | Letter-spacing: +5-10% (`letter-spacing: 0.02em`) |
+| AC-DX4 | Line-height: **1.5×** mínimo |
+| AC-DX5 | Word-spacing generoso (gap natural; no comprimir) |
+| AC-DX6 | **Nunca cursiva** (la cursiva entorpece la lectura en dislexia) |
+| AC-DX7 | Pesos `regular` o `bold` (evitar `light` o `thin`) |
+| AC-DX8 | Evitar `text-transform: uppercase` en bloques largos (sí en títulos cortos) |
+| AC-DX9 | Fondo NO blanco puro: usar crema/off-white (#FAF6EC ✓ en este proyecto) |
+| AC-DX10 | Texto NO negro puro sobre fondo blanco puro (fatiga visual). Mejor gris oscuro #1a1a1a sobre crema |
+| AC-DX11 | Líneas cortas: 60-70 caracteres por línea |
+| AC-DX12 | Alineación a la izquierda (NUNCA justificado — crea ríos blancos) |
+| AC-DX13 | Estructura clara: encabezados, listas, iconos de apoyo |
+| AC-DX14 | El modo dislexia se activa con el botón TextAa de la cabecera (junto al Home). Estado persistido en `localStorage` |
+
 ### Lenguaje y semántica
 
 | AC11 | Vocabulario A1.1 (ver `docs/CLAUDE-escritura-emails-a11.md`) |

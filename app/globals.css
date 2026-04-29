@@ -38,17 +38,28 @@
   --color-landing-muted: #6B7B8D;
 }
 
-/* Modo dislexia — sobrescribe las fuentes con OpenDyslexic en toda la cascada.
+/* Modo dislexia — aplica Lexend + ajustes tipográficos recomendados por la
+   British Dyslexia Association (espaciado, peso, sin cursiva).
    Se activa añadiendo la clase .dyslexia-mode a <html> (DyslexiaToggle).
-   Las variables --font-pf-display y --font-pf-ui se redefinen también para
-   superar utility classes de Tailwind tipo font-[family-name:var(...)]. */
+   Lexend tiene soporte completo de acentos (á, é, í, ó, ú, ñ, ¿, ¡). */
 html.dyslexia-mode {
-  --font-pf-display: "OpenDyslexic", system-ui, sans-serif;
-  --font-pf-ui: "OpenDyslexic", system-ui, sans-serif;
+  --font-pf-display: var(--font-pf-dyslexia), system-ui, sans-serif;
+  --font-pf-ui: var(--font-pf-dyslexia), system-ui, sans-serif;
 }
 html.dyslexia-mode,
 html.dyslexia-mode * {
-  font-family: "OpenDyslexic", system-ui, sans-serif !important;
+  font-family: var(--font-pf-dyslexia), system-ui, sans-serif !important;
+  /* Espaciado de letras y palabras según BDA: amplía 5-10% el letter-spacing */
+  letter-spacing: 0.02em;
+  /* Sin cursiva (recomendación BDA: la cursiva es difícil de leer en dislexia) */
+  font-style: normal !important;
+}
+html.dyslexia-mode p,
+html.dyslexia-mode span,
+html.dyslexia-mode div,
+html.dyslexia-mode li {
+  /* Line-height generoso (recomendación BDA: 1.5x) */
+  line-height: 1.5;
 }
 
 /* NeonGradientCard animation */

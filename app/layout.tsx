@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
-import { Archivo_Black, Inter, Space_Grotesk } from "next/font/google";
-import "@fontsource/opendyslexic/400.css";
-import "@fontsource/opendyslexic/700.css";
+import { Archivo_Black, Inter, Lexend, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
 const archivoBlack = Archivo_Black({
@@ -14,6 +12,13 @@ const inter = Inter({
   variable: "--font-pf-ui",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+});
+
+const lexend = Lexend({
+  variable: "--font-pf-dyslexia",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
 const spaceGrotesk = Space_Grotesk({
@@ -40,7 +45,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body
-        className={`${archivoBlack.variable} ${inter.variable} ${spaceGrotesk.variable} antialiased`}
+        className={`${archivoBlack.variable} ${inter.variable} ${lexend.variable} ${spaceGrotesk.variable} antialiased`}
         suppressHydrationWarning
       >
         {children}

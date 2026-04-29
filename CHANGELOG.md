@@ -1,5 +1,17 @@
 # Changelog
 
+## v0.44 — 2026-04-29
+
+### Accesibilidad — Dislexia: OpenDyslexic → Lexend + principios BDA
+- **Reemplazado OpenDyslexic por Lexend** (Google Fonts vía next/font): soporte completo de acentos del español, validación empírica más sólida
+- Desinstalado `@fontsource/opendyslexic`
+- CSS `.dyslexia-mode`: añadidos ajustes según British Dyslexia Association
+  - `letter-spacing: 0.02em` (+5-10%)
+  - `line-height: 1.5` en p, span, div, li
+  - `font-style: normal !important` (anula cursivas)
+- Nueva sección "Dislexia" en `docs/CLAUDE-responsive-accesibilidad.md` con 14 reglas (AC-DX1..14): tipografía, color, layout, alineación, estructura
+- 3.1 v0.19 → v0.20, 3.2 v0.19 → v0.20
+
 ## v0.43 — 2026-04-29
 
 ### Accesibilidad — DyslexiaToggle: visible en portada + cascada efectiva
