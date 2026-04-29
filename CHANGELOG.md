@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.50 — 2026-04-29
+
+### Portada (SlideOpening / slide 0) — bloqueada
+- Botón "Empezar" finalizado: `fontSize: clamp(26px, 3vw, 40px)`, padding `px-10 py-3.5 md:px-16 md:py-5`
+- **Slide 0 (portada) bloqueada**: no se modifica sin permiso explícito del usuario
+- Memoria del proyecto actualizada con la nueva regla de bloqueo
+- 3.1 v0.25 → v0.26, 3.2 v0.25 → v0.26
+
 ## v0.49 — 2026-04-29
 
 ### Portada — Fix botón Empezar (Tailwind no procesaba clamp anidado)
