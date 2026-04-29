@@ -126,8 +126,11 @@ export function SlideOpening({
 
       <button
         onClick={onStart}
-        className="relative mt-[3vh] px-12 py-4 md:px-20 md:py-6 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-[clamp(32px,min(4vw,5vh),56px)] hover:opacity-90 hover:scale-[1.02] transition focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[var(--color-pf-spark)] focus-visible:ring-offset-2"
-        style={{ animation: "buttonIn 600ms cubic-bezier(0.2,0.8,0.2,1) 2000ms both, buttonPulse 2.4s ease-in-out 2800ms infinite" }}
+        className="relative mt-[3vh] px-12 py-4 md:px-20 md:py-6 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] hover:opacity-90 hover:scale-[1.02] transition focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[var(--color-pf-spark)] focus-visible:ring-offset-2"
+        style={{
+          fontSize: "clamp(32px, 4vw, 56px)",
+          animation: "buttonIn 600ms cubic-bezier(0.2,0.8,0.2,1) 2000ms both, buttonPulse 2.4s ease-in-out 2800ms infinite",
+        }}
       >
         Empezar
       </button>

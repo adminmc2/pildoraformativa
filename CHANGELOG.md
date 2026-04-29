@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.49 — 2026-04-29
+
+### Portada — Fix botón Empezar (Tailwind no procesaba clamp anidado)
+- Tailwind `text-[clamp(32px,min(4vw,5vh),56px)]` no se compilaba con Turbopack en algunos casos (clamp con min anidado)
+- Cambiado a inline `style={{ fontSize: "clamp(32px, 4vw, 56px)" }}` — funciona siempre
+- 3.1 v0.24 → v0.25, 3.2 v0.24 → v0.25
+
 ## v0.48 — 2026-04-29
 
 ### Portada — Botón "Empezar" mucho más grande y prominente
