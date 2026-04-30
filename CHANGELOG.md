@@ -1,5 +1,14 @@
 # Changelog
 
+## v0.59 — 2026-04-30
+
+### slide-flora-2 (3.2 #04) — Auditoría feedback según convención global
+- **Fase 1 progreso**: conteo seco `"X de Y... ¡Seguid!"` → acks variados según items que faltan (`¡Casi!`, `¡Bien!`, `¡Vais bien!` + número que falta)
+- **Fase 1 cierre**: `"¿Y si las quitamos?"` (confuso) → `"Ahora veréis lo que pasa sin ellas."` (claro)
+- **Fase 2 error función distinta**: REVELABA la función correcta del hueco → ahora cuestiona sin revelar (`"...pero este hueco pide otra cosa. Buscad otro hueco."`)
+- **Fase 2 error misma función**: ligero refinamiento `"Sí es..."` → `"Es..."`
+- 3.1 v0.33 → v0.34, 3.2 v0.33 → v0.34
+
 ## v0.58 — 2026-04-30
 
 ### Convención global de feedback de personajes

@@ -179,20 +179,29 @@ export function SlideFlora2() {
     );
   } else if (phase === 1) {
     if (!allClassified) {
+      const left = UNIQUE_GK.length - doneCount;
       bubble =
         doneCount === 0 ? (
           <>
             Pulsad una frase subrayada y decidid su <V>función</V>.
           </>
+        ) : left === 1 ? (
+          <>
+            ¡Casi! Falta <V>una</V>.
+          </>
+        ) : doneCount === 1 ? (
+          <>
+            ¡Bien! Faltan <V>{left}</V>. Seguid.
+          </>
         ) : (
           <>
-            {doneCount} de {UNIQUE_GK.length}... ¡Seguid!
+            ¡Vais bien! Faltan <V>{left}</V>.
           </>
         );
     } else {
       bubble = (
         <>
-          ¡Todas identificadas! ¿Y si las <V>quitamos</V>?
+          ¡Todas identificadas! Ahora veréis lo que pasa <V>sin ellas</V>.
         </>
       );
     }
@@ -202,17 +211,17 @@ export function SlideFlora2() {
       const pieceSeg = ALL_FUNC.find((s) => gk(s) === wrongAttempt.piece)!;
       const gapSeg = ALL_FUNC.find((s) => gk(s) === wrongAttempt.gap)!;
       if (pieceSeg.func === gapSeg.func) {
-        /* Misma función, distinto sitio */
+        /* Misma función, distinto sitio — cuestiona contexto sin revelar */
         bubble = (
           <>
-            Sí es <V>{FUNCS[pieceSeg.func].label}</V>, pero leed el contexto: ¿tiene sentido aquí?
+            Es <V>{FUNCS[pieceSeg.func].label}</V>, pero leed el contexto: ¿encaja aquí?
           </>
         );
       } else {
-        /* Funciones distintas */
+        /* Funciones distintas — cuestiona sin revelar la función correcta del hueco */
         bubble = (
           <>
-            «{pieceSeg.content}» <V>{FUNC_ROLE[pieceSeg.func]}</V>, pero este hueco necesita una frase que <V>{FUNC_ROLE[gapSeg.func]}</V>.
+            «{pieceSeg.content}» <V>{FUNC_ROLE[pieceSeg.func]}</V>, pero este hueco pide otra cosa. Buscad otro hueco.
           </>
         );
       }
