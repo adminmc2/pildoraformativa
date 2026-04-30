@@ -1,5 +1,18 @@
 # Changelog
 
+## v0.57 — 2026-04-30
+
+### Píldora 3.2 — slide-flora-2 (#04): accesibilidad + V/P + tamaño texto email
+- **Tailwind clamp → inline `style={{ fontSize }}`**: todos los `text-[clamp(...)]` convertidos (badge FLORA, leyenda, email, barra respuesta, contadores, dots huecos, botones)
+- **Badge "Observadora"**: `text-base` (16px) → `clamp(18px, 1.3vw, 20px)` — cumple mínimo accesibilidad
+- **h1**: `clamp(30px,min(...))` → `clamp(36px, 4.5vw, 56px)` — igual que flora-1
+- **`<C>` → `<V>`**: componente redefinido (naranja bold sin cursiva); 18 usos en PIECE_HINT, CORRECT_FB y bubble
+- **Botones `min-h-[44px]`**: EMPEZAR, CONTINUAR, funciones (×3), banco piezas
+- **`@media (prefers-reduced-motion: reduce)`** añadido a `<style jsx>`
+- **Texto email**: `clamp(20px, 1.6vw, 24px)` → `clamp(23px, 1.9vw, 28px)` — coherente con slide-flora-1
+- slide-flora-1: font size email subido a `clamp(23px, 1.9vw, 28px)` (intermedio entre versiones anteriores)
+- 3.1 v0.31 → v0.32, 3.2 v0.31 → v0.32
+
 ## v0.56 — 2026-04-30
 
 ### Píldora 3.2 — Slides #01, #02, #03 BLOQUEADAS

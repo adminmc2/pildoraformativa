@@ -67,10 +67,9 @@ const FUNC_GK: Record<FuncId, string[]> = {
 /* Piezas para Fase 2 en orden desordenado */
 const PIECE_KEYS = ["ytambien", "hoy", "deberes", "curso", "hermanos", "y", "instituto"];
 
-const C = ({ children }: { children: React.ReactNode }) => (
-  <span className="italic" style={{ color: "var(--color-pf-spark)" }}>
-    {children}
-  </span>
+/* V: énfasis genérico → solo naranja bold, sin cursiva */
+const V = ({ children }: { children: React.ReactNode }) => (
+  <span className="font-semibold" style={{ color: "var(--color-pf-spark)" }}>{children}</span>
 );
 
 /* ── Feedback rico de Flora (Fase 2) ── */
@@ -81,23 +80,23 @@ const FUNC_ROLE: Record<FuncId, string> = {
 };
 
 const PIECE_HINT: Record<string, React.ReactNode> = {
-  hoy: <>«Hoy te hablo de mi familia:» — esta frase <C>presenta</C> algo nuevo... ¿dónde empieza a hablar de la familia?</>,
-  y: <>«y» — una palabra pequeña que <C>une</C> dos ideas. ¿Qué partes necesitan conectarse?</>,
-  hermanos: <>«¿Y tú, cuántos hermanos tienes?» — Marta quiere <C>saber algo</C> de Pierre... ¿después de qué información?</>,
-  instituto: <>«Y en el instituto, ¿qué tal?» — aquí se <C>cambia de tema</C>... ¿dónde empieza a hablar del cole?</>,
-  ytambien: <>«y también» — <C>añade</C> algo más a la lista. ¿Dónde suma información?</>,
-  curso: <>«Este curso es un poco más difícil.» — <C>abre</C> una idea nueva sobre el instituto...</>,
-  deberes: <>«¿Tú también tienes muchos deberes?» — <C>pregunta</C> a Pierre algo personal... ¿tras qué información?</>,
+  hoy: <>«Hoy te hablo de mi familia:» — esta frase <V>presenta</V> algo nuevo... ¿dónde empieza a hablar de la familia?</>,
+  y: <>«y» — una palabra pequeña que <V>une</V> dos ideas. ¿Qué partes necesitan conectarse?</>,
+  hermanos: <>«¿Y tú, cuántos hermanos tienes?» — Marta quiere <V>saber algo</V> de Pierre... ¿después de qué información?</>,
+  instituto: <>«Y en el instituto, ¿qué tal?» — aquí se <V>cambia de tema</V>... ¿dónde empieza a hablar del cole?</>,
+  ytambien: <>«y también» — <V>añade</V> algo más a la lista. ¿Dónde suma información?</>,
+  curso: <>«Este curso es un poco más difícil.» — <V>abre</V> una idea nueva sobre el instituto...</>,
+  deberes: <>«¿Tú también tienes muchos deberes?» — <V>pregunta</V> a Pierre algo personal... ¿tras qué información?</>,
 };
 
 const CORRECT_FB: Record<string, React.ReactNode> = {
-  hoy: <>¡Sí! <C>Abre el tema</C> principal del correo electrónico: la familia.</>,
-  y: <>¡Bien! <C>«y» conecta</C> dos ideas paralelas: une lo de antes con lo de después.</>,
-  hermanos: <>¡Eso es! Después de hablar de sus hermanos, Marta <C>pregunta</C> a Pierre por los suyos.</>,
-  instituto: <>¡Exacto! <C>Abre un tema nuevo</C>: la vida en el instituto.</>,
-  ytambien: <>¡Correcto! <C>«y también» suma</C> información: hay más compañeros en la lista.</>,
-  curso: <>¡Bien visto! <C>Abre un nuevo aspecto</C> del instituto: la dificultad del curso.</>,
-  deberes: <>¡Eso es! Marta cierra <C>preguntando</C> a Pierre sobre sus deberes. Así mantiene el diálogo.</>,
+  hoy: <>¡Sí! <V>Abre el tema</V> principal del correo electrónico: la familia.</>,
+  y: <>¡Bien! <V>«y» conecta</V> dos ideas paralelas: une lo de antes con lo de después.</>,
+  hermanos: <>¡Eso es! Después de hablar de sus hermanos, Marta <V>pregunta</V> a Pierre por los suyos.</>,
+  instituto: <>¡Exacto! <V>Abre un tema nuevo</V>: la vida en el instituto.</>,
+  ytambien: <>¡Correcto! <V>«y también» suma</V> información: hay más compañeros en la lista.</>,
+  curso: <>¡Bien visto! <V>Abre un nuevo aspecto</V> del instituto: la dificultad del curso.</>,
+  deberes: <>¡Eso es! Marta cierra <V>preguntando</V> a Pierre sobre sus deberes. Así mantiene el diálogo.</>,
 };
 
 /* ── Componente ── */
@@ -175,7 +174,7 @@ export function SlideFlora2() {
   if (phase === 0) {
     bubble = (
       <>
-        Cada frase del correo electrónico tiene una <C>función</C>. ¿Cuál es?
+        Cada frase del correo electrónico tiene una <V>función</V>. ¿Cuál es?
       </>
     );
   } else if (phase === 1) {
@@ -183,7 +182,7 @@ export function SlideFlora2() {
       bubble =
         doneCount === 0 ? (
           <>
-            Pulsad una frase subrayada y decidid su <C>función</C>.
+            Pulsad una frase subrayada y decidid su <V>función</V>.
           </>
         ) : (
           <>
@@ -193,7 +192,7 @@ export function SlideFlora2() {
     } else {
       bubble = (
         <>
-          ¡Todas identificadas! ¿Y si las <C>quitamos</C>?
+          ¡Todas identificadas! ¿Y si las <V>quitamos</V>?
         </>
       );
     }
@@ -206,43 +205,43 @@ export function SlideFlora2() {
         /* Misma función, distinto sitio */
         bubble = (
           <>
-            Sí es <C>{FUNCS[pieceSeg.func].label}</C>, pero leed el contexto: ¿tiene sentido aquí?
+            Sí es <V>{FUNCS[pieceSeg.func].label}</V>, pero leed el contexto: ¿tiene sentido aquí?
           </>
         );
       } else {
         /* Funciones distintas */
         bubble = (
           <>
-            «{pieceSeg.content}» <C>{FUNC_ROLE[pieceSeg.func]}</C>, pero este hueco necesita una frase que <C>{FUNC_ROLE[gapSeg.func]}</C>.
+            «{pieceSeg.content}» <V>{FUNC_ROLE[pieceSeg.func]}</V>, pero este hueco necesita una frase que <V>{FUNC_ROLE[gapSeg.func]}</V>.
           </>
         );
       }
     } else if (lastCorrect && !allPlaced) {
       /* Acaba de colocar bien → feedback explicativo */
       bubble = CORRECT_FB[lastCorrect] ?? (
-        <>¡Bien! Esa frase <C>encaja</C> perfectamente ahí.</>
+        <>¡Bien! Esa frase <V>encaja</V> perfectamente ahí.</>
       );
     } else if (allPlaced) {
       bubble = (
         <>
-          ¡Perfecto! Cada <C>función</C> tiene su papel en el correo electrónico: abrir temas, conectar ideas y preguntar al lector.
+          ¡Perfecto! Cada <V>función</V> tiene su papel en el correo electrónico: abrir temas, conectar ideas y preguntar al lector.
         </>
       );
     } else if (selectedPiece) {
       /* Pieza seleccionada → pista contextual */
       bubble = PIECE_HINT[selectedPiece] ?? (
-        <>¿Dónde va esa frase? Pulsad el <C>hueco</C> correcto.</>
+        <>¿Dónde va esa frase? Pulsad el <V>hueco</V> correcto.</>
       );
     } else if (placed.size === 0) {
       bubble = (
         <>
-          Sin sus <C>funciones</C>, el correo electrónico está roto. Elegid una pieza del banco.
+          Sin sus <V>funciones</V>, el correo electrónico está roto. Elegid una pieza del banco.
         </>
       );
     } else {
       bubble = (
         <>
-          {placed.size} de {UNIQUE_GK.length}... ¡Elegid otra <C>pieza</C>!
+          {placed.size} de {UNIQUE_GK.length}... ¡Elegid otra <V>pieza</V>!
         </>
       );
     }
@@ -288,8 +287,8 @@ export function SlideFlora2() {
             }}
           >
             <span
-              style={{ color: isTargetable ? `${f.color}80` : `${f.color}40` }}
-              className="text-[clamp(20px,min(2vw,2.5vh),24px)] select-none"
+              style={{ color: isTargetable ? `${f.color}80` : `${f.color}40`, fontSize: "clamp(23px, 1.9vw, 28px)" }}
+              className="select-none"
             >
               ···
             </span>
@@ -352,12 +351,13 @@ export function SlideFlora2() {
         <div className="flex flex-col gap-2 min-w-0">
           {/* Badge */}
           <div className="flex items-center gap-3">
-            <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)] text-[var(--color-pf-ink)]">
+            <span className="font-[family-name:var(--font-pf-display)] text-[var(--color-pf-ink)]" style={{ fontSize: "clamp(20px, 1.6vw, 24px)" }}>
               FLORA
             </span>
             <span
-              className="px-3 py-1 rounded-full text-base font-semibold"
+              className="px-3 py-1 rounded-full font-semibold"
               style={{
+                fontSize: "clamp(18px, 1.3vw, 20px)",
                 background: "var(--color-pf-flower-soft)",
                 color: "#8A1470",
               }}
@@ -367,7 +367,7 @@ export function SlideFlora2() {
           </div>
 
           {/* Título */}
-          <h1 className="font-[family-name:var(--font-pf-display)] uppercase leading-[0.88] tracking-tight text-[clamp(30px,min(4.5vw,6vh),56px)] text-[var(--color-pf-ink)]">
+          <h1 className="font-[family-name:var(--font-pf-display)] uppercase leading-[0.88] tracking-tight text-[var(--color-pf-ink)]" style={{ fontSize: "clamp(36px, 4.5vw, 56px)" }}>
             {phase === 0 && "¿Para qué sirve cada frase?"}
             {phase === 1 && (allClassified ? "¡Bien visto!" : "¿Para qué sirve cada frase?")}
             {phase === 2 && (allPlaced ? "¡Correo electrónico completo!" : "Recoloca las funciones")}
@@ -386,8 +386,9 @@ export function SlideFlora2() {
                   return (
                     <div
                       key={id}
-                      className="flex items-center gap-2 px-5 py-2 rounded-full font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)] transition-all"
+                      className="flex items-center gap-2 px-5 py-2 rounded-full font-[family-name:var(--font-pf-display)] transition-all"
                       style={{
+                        fontSize: "clamp(20px, 1.6vw, 24px)",
                         background: catDone ? f.soft : "rgba(10,10,10,0.04)",
                         color: catDone ? f.color : "var(--color-pf-ink)",
                         border: `2.5px solid ${catDone ? f.color : "rgba(10,10,10,0.1)"}`,
@@ -396,7 +397,7 @@ export function SlideFlora2() {
                       {catDone && <CheckCircle size={22} weight="fill" />}
                       {f.label}
                       {!catDone && (
-                        <span className="opacity-60 text-[clamp(20px,min(2vw,2.5vh),24px)]">
+                        <span className="opacity-60" style={{ fontSize: "clamp(20px, 1.6vw, 24px)" }}>
                           {gDone}/{gTotal}
                         </span>
                       )}
@@ -408,8 +409,9 @@ export function SlideFlora2() {
                 return (
                   <div
                     key={id}
-                    className="flex items-center gap-2 px-5 py-2 rounded-full font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)]"
+                    className="flex items-center gap-2 px-5 py-2 rounded-full font-[family-name:var(--font-pf-display)]"
                     style={{
+                      fontSize: "clamp(20px, 1.6vw, 24px)",
                       background: f.soft,
                       color: f.color,
                       border: `2.5px solid ${f.color}`,
@@ -436,7 +438,8 @@ export function SlideFlora2() {
                 {EMAIL.map((segs, pIdx) => (
                   <div
                     key={pIdx}
-                    className="text-[clamp(20px,min(2vw,2.5vh),24px)] leading-relaxed text-[var(--color-pf-ink)]"
+                    className="leading-relaxed text-[var(--color-pf-ink)]"
+                    style={{ fontSize: "clamp(23px, 1.9vw, 28px)" }}
                   >
                     {segs.map(renderSeg)}
                   </div>
@@ -451,7 +454,7 @@ export function SlideFlora2() {
               className="mt-2 px-4 py-3 rounded-xl bg-white shadow-md border border-gray-100 flex flex-col gap-2"
               style={{ animation: "cardIn 200ms ease-out" }}
             >
-              <span className="text-[clamp(20px,min(2vw,2.5vh),24px)] text-[var(--color-pf-ink)]">
+              <span className="text-[var(--color-pf-ink)]" style={{ fontSize: "clamp(23px, 1.9vw, 28px)" }}>
                 «{activeContent}» — ¿Qué función tiene?
               </span>
               <div className="flex flex-wrap gap-2">
@@ -461,8 +464,9 @@ export function SlideFlora2() {
                     <button
                       key={fId}
                       onClick={() => handlePick(fId)}
-                      className="px-6 py-2.5 rounded-full font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)] transition-all hover:scale-105 active:scale-95"
+                      className="px-6 py-2.5 rounded-full font-[family-name:var(--font-pf-display)] transition-all hover:scale-105 active:scale-95 min-h-[44px]"
                       style={{
+                        fontSize: "clamp(20px, 1.6vw, 24px)",
                         background: f.soft,
                         color: f.color,
                         border: `2.5px solid ${f.color}`,
@@ -481,8 +485,8 @@ export function SlideFlora2() {
             <div className="mt-3">
               <button
                 onClick={() => setPhase(1)}
-                className="px-10 py-3 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)] hover:scale-[1.02] transition"
-                style={{ animation: "btnPulse 2s ease-in-out infinite" }}
+                className="px-10 py-3 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] hover:scale-[1.02] transition min-h-[44px]"
+                style={{ fontSize: "clamp(20px, 1.6vw, 24px)", animation: "btnPulse 2s ease-in-out infinite" }}
               >
                 EMPEZAR
               </button>
@@ -492,14 +496,14 @@ export function SlideFlora2() {
           {/* Fase 1: contador + CONTINUAR */}
           {phase === 1 && !active && (
             <div className="mt-2 flex items-center gap-4">
-              <span className="text-[clamp(20px,min(2vw,2.5vh),24px)] font-semibold opacity-60 text-[var(--color-pf-ink)]">
+              <span className="font-semibold opacity-60 text-[var(--color-pf-ink)]" style={{ fontSize: "clamp(20px, 1.6vw, 24px)" }}>
                 {doneCount} / {UNIQUE_GK.length}
               </span>
               {allClassified && (
                 <button
                   onClick={() => setPhase(2)}
-                  className="px-8 py-2.5 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)] hover:scale-[1.02] transition"
-                  style={{ animation: "btnPulse 2s ease-in-out infinite" }}
+                  className="px-8 py-2.5 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] hover:scale-[1.02] transition min-h-[44px]"
+                  style={{ fontSize: "clamp(20px, 1.6vw, 24px)", animation: "btnPulse 2s ease-in-out infinite" }}
                 >
                   CONTINUAR
                 </button>
@@ -521,8 +525,9 @@ export function SlideFlora2() {
                   <button
                     key={g}
                     onClick={() => handleSelectPiece(g)}
-                    className="px-5 py-2.5 rounded-xl font-semibold text-[clamp(20px,min(2vw,2.5vh),24px)] transition-all hover:scale-105 active:scale-95 shadow-sm"
+                    className="px-5 py-2.5 rounded-xl font-semibold transition-all hover:scale-105 active:scale-95 shadow-sm min-h-[44px]"
                     style={{
+                      fontSize: "clamp(20px, 1.6vw, 24px)",
                       background: isSelected ? f.color : f.soft,
                       color: isSelected ? "white" : f.color,
                       border: `2.5px solid ${f.color}`,
@@ -540,7 +545,7 @@ export function SlideFlora2() {
           {/* Fase 2: contador */}
           {phase === 2 && (
             <div className="mt-1">
-              <span className="text-[clamp(20px,min(2vw,2.5vh),24px)] font-semibold opacity-60 text-[var(--color-pf-ink)]">
+              <span className="font-semibold opacity-60 text-[var(--color-pf-ink)]" style={{ fontSize: "clamp(20px, 1.6vw, 24px)" }}>
                 {placed.size} / {UNIQUE_GK.length}
               </span>
             </div>
@@ -618,6 +623,9 @@ export function SlideFlora2() {
           50% {
             opacity: 1;
           }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          * { animation: none !important; }
         }
       `}</style>
     </div>
