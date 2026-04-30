@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.64 — 2026-04-30
+
+### Píldora 3.2 — Slide #04 BLOQUEADA
+- slide-flora-2 marcada como bloqueada en memoria del proyecto
+- No se modifica sin permiso explícito del usuario
+
 ## v0.63 — 2026-04-30
 
 ### slide-flora-2 (3.2 #04) — 3 fixes según revisión
