@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.56 — 2026-04-30
+
+### Píldora 3.2 — Slides #01, #02, #03 BLOQUEADAS
+- slide-pili-1, slide-pili-2 y slide-flora-1 marcadas como bloqueadas en memoria del proyecto
+- No se modifican sin permiso explícito del usuario
+- Cualquier auditoría/refactor que afecte a estos slides requiere confirmación previa
+
 ## v0.55 — 2026-04-30
 
 ### Píldora 3.2 — slide-flora-1: feedback adaptativo + "email" → "correo electrónico" en toda la presentación
