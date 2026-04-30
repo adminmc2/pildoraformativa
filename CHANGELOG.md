@@ -1,5 +1,18 @@
 # Changelog
 
+## v0.65 — 2026-05-01
+
+### slide-vito-1 (3.2 #05) — Auditoría a11y + responsive según convención
+- `<C>` → `<V>` (componente + 7 BUBBLES) — coherente con convención global
+- Todos los `text-[clamp(...)]` Tailwind → inline `style={{ fontSize }}` (Turbopack-safe)
+- Badge "Método": 16px → `clamp(18px, 1.3vw, 20px)`
+- h1: `clamp(30,...,56)` → `clamp(36px, 4.5vw, 56px)` (mín título 36)
+- Instrucción: subida a `clamp(24px, 1.8vw, 32px)` (mín enunciado 24)
+- Botones nav: `text-base` → `clamp(20px, 1.6vw, 24px)` + `min-h-[44px]` en SIGUIENTE + `focus-visible:ring`
+- Tabla: `overflow-hidden` → `overflow-y-auto` + `maxHeight: 52vh` (patrón flora-1/2, evita desbordamiento en proyector 1280×720)
+- `prefers-reduced-motion` añadido a `<style jsx>`
+- 3.1 v0.38 → v0.39, 3.2 v0.38 → v0.39
+
 ## v0.64 — 2026-04-30
 
 ### Píldora 3.2 — Slide #04 BLOQUEADA
