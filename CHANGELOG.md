@@ -1,5 +1,18 @@
 # Changelog
 
+## v0.63 — 2026-04-30
+
+### slide-flora-2 (3.2 #04) — 3 fixes según revisión
+1. **Layout (crítico)**: email card con `maxHeight: 52vh` + `overflow-y-auto` (mismo patrón que slide-flora-1) → en proyector 1280×720 con fase 2 ya no desborda; el banco de piezas y CONTINUAR siempre visibles
+2. **Accesibilidad**: añadido `onKeyDown` (Enter/Space) en segmentos clicables (fase 1) y huecos (fase 2) — alumnos con teclado ahora pueden interactuar
+3. **Pedagógico**: CORRECT_FB recortados a ~10 palabras máx para A1.1
+   - `y`: 14→7 palabras
+   - `hermanos`: 15→8
+   - `ytambien`: 11→8
+   - `curso`: 12→8
+   - `deberes`: 15→8
+- 3.1 v0.37 → v0.38, 3.2 v0.37 → v0.38
+
 ## v0.62 — 2026-04-30
 
 ### slide-flora-2 (3.2 #04) — Correcciones de feedback

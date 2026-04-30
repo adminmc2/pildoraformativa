@@ -110,14 +110,15 @@ const WRONG_HINT_L2: Record<string, React.ReactNode> = {
   deberes: <>Está casi al <V>final</V>, con «?».</>,
 };
 
+/* CORRECT_FB: máx. ~10 palabras (A1.1, proyectable) */
 const CORRECT_FB: Record<string, React.ReactNode> = {
   hoy: <>¡Sí! Esta frase <V>abre el tema</V> de la familia.</>,
-  y: <>¡Bien! <V>«y» conecta</V> dos ideas paralelas: une lo de antes con lo de después.</>,
-  hermanos: <>¡Eso es! Después de hablar de sus hermanos, Marta <V>pregunta</V> a Pierre por los suyos.</>,
+  y: <>¡Bien! «y» <V>une</V> dos ideas paralelas.</>,
+  hermanos: <>¡Eso es! Marta <V>pregunta</V> a Pierre por sus hermanos.</>,
   instituto: <>¡Exacto! <V>Abre un tema nuevo</V>: la vida en el instituto.</>,
-  ytambien: <>¡Correcto! <V>«y también» suma</V> información: hay más compañeros en la lista.</>,
-  curso: <>¡Bien visto! <V>Abre un nuevo aspecto</V> del instituto: la dificultad del curso.</>,
-  deberes: <>¡Eso es! Marta cierra <V>preguntando</V> a Pierre sobre sus deberes. Así mantiene el diálogo.</>,
+  ytambien: <>¡Correcto! «y también» <V>suma</V> una compañera más.</>,
+  curso: <>¡Bien visto! <V>Abre el tema</V> del curso difícil.</>,
+  deberes: <>¡Eso es! Marta cierra <V>preguntando</V> por sus deberes.</>,
 };
 
 /* ── Componente ── */
@@ -344,6 +345,12 @@ export function SlideFlora2() {
             role={isTargetable ? "button" : undefined}
             tabIndex={isTargetable ? 0 : undefined}
             onClick={() => handleGapClick(groupKey)}
+            onKeyDown={(e) => {
+              if (isTargetable && (e.key === "Enter" || e.key === " ")) {
+                e.preventDefault();
+                handleGapClick(groupKey);
+              }
+            }}
             className="inline-flex items-center rounded px-1.5 py-0.5 transition-all duration-200"
             style={{
               border: `2px dashed ${isTargetable ? f.color : f.color + "50"}`,
@@ -393,6 +400,12 @@ export function SlideFlora2() {
         role={!isDone && phase === 1 ? "button" : undefined}
         tabIndex={!isDone && phase === 1 ? 0 : undefined}
         onClick={() => handlePhraseClick(seg.id)}
+        onKeyDown={(e) => {
+          if (!isDone && phase === 1 && (e.key === "Enter" || e.key === " ")) {
+            e.preventDefault();
+            handlePhraseClick(seg.id);
+          }
+        }}
         className="inline rounded transition-all duration-200"
         style={{
           background: isDone ? f.soft : isActive ? "rgba(10,10,10,0.06)" : undefined,
@@ -504,7 +517,7 @@ export function SlideFlora2() {
                   : undefined,
             }}
           >
-            <div className="rounded-[16px] bg-white shadow-[0_10px_30px_-12px_rgba(0,0,0,0.12)] overflow-hidden">
+            <div className="rounded-[16px] bg-white shadow-[0_10px_30px_-12px_rgba(0,0,0,0.12)] overflow-y-auto" style={{ maxHeight: "52vh" }}>
               <div className="px-4 py-3 flex flex-col gap-1.5">
                 {EMAIL.map((segs, pIdx) => (
                   <div
