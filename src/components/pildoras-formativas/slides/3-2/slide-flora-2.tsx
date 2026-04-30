@@ -111,7 +111,7 @@ const WRONG_HINT_L2: Record<string, React.ReactNode> = {
 };
 
 const CORRECT_FB: Record<string, React.ReactNode> = {
-  hoy: <>¡Sí! <V>Abre el tema</V> principal del correo electrónico: la familia.</>,
+  hoy: <>¡Sí! Esta frase <V>abre el tema</V> de la familia.</>,
   y: <>¡Bien! <V>«y» conecta</V> dos ideas paralelas: une lo de antes con lo de después.</>,
   hermanos: <>¡Eso es! Después de hablar de sus hermanos, Marta <V>pregunta</V> a Pierre por los suyos.</>,
   instituto: <>¡Exacto! <V>Abre un tema nuevo</V>: la vida en el instituto.</>,
@@ -147,10 +147,10 @@ export function SlideFlora2() {
   const handlePhraseClick = (id: string) => {
     if (assigned[id] || phase !== 1) return;
     setActive(active === id ? null : id);
-    // Cambiar de frase resetea feedback de error/acierto
+    // Cambiar de frase resetea solo el feedback de ERROR (el de acierto persiste
+    // hasta el siguiente intento para no perder la explicación pedagógica)
     setWrongPick(null);
     setWrongCountP1(0);
-    setLastCorrectP1(null);
   };
 
   /* Fase 1: elegir función */
@@ -208,7 +208,7 @@ export function SlideFlora2() {
   if (phase === 0) {
     bubble = (
       <>
-        Cada frase del correo electrónico tiene una <V>función</V>. ¿Cuál es?
+        Cada parte del correo electrónico tiene una <V>función</V>. ¿Cuál es?
       </>
     );
   } else if (phase === 1) {
@@ -225,9 +225,9 @@ export function SlideFlora2() {
       const isL2 = wrongCountP1 >= 2;
       const hint = isL2 ? WRONG_HINT_L2[wrongGk] : WRONG_HINT_L1[wrongGk];
       bubble = hint ?? (isL2 ? (
-        <>Mmm, leed la frase otra vez. ¿Qué <V>hace</V> en el correo?</>
+        <>Mmm, leedla otra vez. ¿Qué <V>hace</V> en el correo?</>
       ) : (
-        <>Mmm, esa frase no es <V>{FUNCS[wrongPick.picked].label}</V>. Inténtalo otra vez.</>
+        <>Mmm, esa parte no es <V>{FUNCS[wrongPick.picked].label}</V>. Inténtalo otra vez.</>
       ));
     } else if (lastCorrectP1) {
       // Acierto: usa CORRECT_FB (cita + explicación) + ack progresivo si quedan
@@ -240,18 +240,23 @@ export function SlideFlora2() {
         if (doneCount === 1) return <>¡Correcto! Faltan <V>{left}</V>. Seguid.</>;
         return <>¡Vais bien! Faltan <V>{left}</V>.</>;
       })();
+    } else if (active) {
+      bubble = (
+        <>
+          ¿Qué <V>función</V> tiene?
+        </>
+      );
     } else if (doneCount === 0) {
       bubble = (
         <>
-          Pulsad una frase subrayada y decidid su <V>función</V>.
+          Pulsad una parte <V>subrayada</V> y decidid su función.
         </>
       );
     } else {
-      const left = UNIQUE_GK.length - doneCount;
-      bubble = left === 1 ? (
-        <>¡Casi! Falta <V>una</V>.</>
-      ) : (
-        <>Faltan <V>{left}</V>. Seguid.</>
+      bubble = (
+        <>
+          Pulsad otra parte <V>subrayada</V>.
+        </>
       );
     }
   } else {
@@ -277,7 +282,7 @@ export function SlideFlora2() {
     } else if (lastCorrect && !allPlaced) {
       /* Acaba de colocar bien → feedback explicativo */
       bubble = CORRECT_FB[lastCorrect] ?? (
-        <>¡Bien! Esa frase <V>encaja</V> perfectamente ahí.</>
+        <>¡Bien! Esa parte <V>encaja</V> perfectamente ahí.</>
       );
     } else if (allPlaced) {
       bubble = (
@@ -288,7 +293,7 @@ export function SlideFlora2() {
     } else if (selectedPiece) {
       /* Pieza seleccionada → pista contextual */
       bubble = PIECE_HINT[selectedPiece] ?? (
-        <>¿Dónde va esa frase? Pulsad el <V>hueco</V> correcto.</>
+        <>¿Dónde va? Pulsad el <V>hueco</V> correcto.</>
       );
     } else if (placed.size === 0) {
       bubble = (
@@ -434,8 +439,8 @@ export function SlideFlora2() {
 
           {/* Título */}
           <h1 className="font-[family-name:var(--font-pf-display)] uppercase leading-[0.88] tracking-tight text-[var(--color-pf-ink)]" style={{ fontSize: "clamp(36px, 4.5vw, 56px)" }}>
-            {phase === 0 && "¿Para qué sirve cada frase?"}
-            {phase === 1 && (allClassified ? "¡Bien visto!" : "¿Para qué sirve cada frase?")}
+            {phase === 0 && "¿Para qué sirve cada parte?"}
+            {phase === 1 && (allClassified ? "¡Bien visto!" : "¿Para qué sirve cada parte?")}
             {phase === 2 && (allPlaced ? "¡Correo electrónico completo!" : "Recoloca las funciones")}
           </h1>
 

@@ -1,5 +1,17 @@
 # Changelog
 
+## v0.62 — 2026-04-30
+
+### slide-flora-2 (3.2 #04) — Correcciones de feedback
+- "Hoy te hablo de mi familia:" CORRECT_FB: eliminada referencia incorrecta a "tema principal" (hay 3 temas, no es el principal). Ahora dice solo: *"¡Sí! Esta frase abre el tema de la familia."*
+- `lastCorrectP1` ya no se resetea al cambiar de frase → CORRECT_FB rico (cita + explicación) persiste hasta el siguiente intento
+- Eliminado fallback genérico `"Faltan X. Seguid."` (era confuso). Ahora cuando el usuario selecciona otra frase tras acertar:
+  - Si tiene activa una parte: *"¿Qué función tiene?"*
+  - Si no: *"Pulsad otra parte subrayada."*
+- Generalización "frase" → "parte" en textos genéricos (porque "y", "y también" son palabras/conectores, NO frases). Las referencias específicas a segmentos que sí son frases (Hoy te hablo de…, ¿Y tú…?) mantienen "frase".
+- Título del slide: "¿Para qué sirve cada frase?" → "¿Para qué sirve cada parte?"
+- 3.1 v0.36 → v0.37, 3.2 v0.36 → v0.37
+
 ## v0.61 — 2026-04-30
 
 ### slide-flora-2 (3.2 #04) — Feedback fase 1 personalizado por segmento
