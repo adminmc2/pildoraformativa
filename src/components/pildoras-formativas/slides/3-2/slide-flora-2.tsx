@@ -89,6 +89,27 @@ const PIECE_HINT: Record<string, React.ReactNode> = {
   deberes: <>«¿Tú también tienes muchos deberes?» — <V>pregunta</V> a Pierre algo personal... ¿tras qué información?</>,
 };
 
+/* ── Hints de error en fase 1: L1 (cita + pregunta contrastiva) y L2 (pista estructural) ── */
+const WRONG_HINT_L1: Record<string, React.ReactNode> = {
+  hoy: <>Mirad: «Hoy te hablo de mi familia:». ¿<V>Pregunta</V> o <V>presenta</V>?</>,
+  y: <>«y» es una palabra pequeña. ¿<V>Une</V> dos cosas o <V>presenta</V> un tema?</>,
+  hermanos: <>Esa frase tiene «?». ¿<V>Pregunta</V> o <V>conecta</V>?</>,
+  instituto: <>Aquí Marta pasa de la familia al instituto. ¿<V>Une</V> o <V>cambia de tema</V>?</>,
+  ytambien: <>«y también» añade más. ¿<V>Une</V> o <V>pregunta</V>?</>,
+  curso: <>Habla del curso por primera vez. ¿<V>Conecta</V> o <V>abre</V> algo nuevo?</>,
+  deberes: <>Frase con «?» al final. ¿<V>Une</V> dos cosas o <V>pregunta</V>?</>,
+};
+
+const WRONG_HINT_L2: Record<string, React.ReactNode> = {
+  hoy: <>Es la <V>primera frase</V> del bloque sobre la familia.</>,
+  y: <>Mirad <V>antes y después</V> de «y».</>,
+  hermanos: <>Tiene un signo <V>«?»</V> al final.</>,
+  instituto: <>Va al <V>inicio</V> de un bloque nuevo.</>,
+  ytambien: <>Mirad <V>antes y después</V> de «y también».</>,
+  curso: <>Va al <V>inicio</V> del bloque del curso.</>,
+  deberes: <>Está casi al <V>final</V>, con «?».</>,
+};
+
 const CORRECT_FB: Record<string, React.ReactNode> = {
   hoy: <>¡Sí! <V>Abre el tema</V> principal del correo electrónico: la familia.</>,
   y: <>¡Bien! <V>«y» conecta</V> dos ideas paralelas: une lo de antes con lo de después.</>,
@@ -198,29 +219,27 @@ export function SlideFlora2() {
         </>
       );
     } else if (wrongPick) {
-      // Error: cuestiona elección sin revelar la función correcta
-      const pickedLabel = FUNCS[wrongPick.picked].label;
-      bubble = wrongCountP1 >= 2 ? (
-        <>
-          Mmm, leed la frase otra vez. ¿Qué <V>hace</V> en el correo?
-        </>
+      // Error: usa hint per-segmento (cita + pregunta L1, pista estructural L2)
+      const wrongSeg = ALL_FUNC.find((s) => s.id === wrongPick.id);
+      const wrongGk = wrongSeg ? gk(wrongSeg) : wrongPick.id;
+      const isL2 = wrongCountP1 >= 2;
+      const hint = isL2 ? WRONG_HINT_L2[wrongGk] : WRONG_HINT_L1[wrongGk];
+      bubble = hint ?? (isL2 ? (
+        <>Mmm, leed la frase otra vez. ¿Qué <V>hace</V> en el correo?</>
       ) : (
-        <>
-          Mmm, esa frase no es <V>{pickedLabel}</V>. Inténtalo otra vez.
-        </>
-      );
+        <>Mmm, esa frase no es <V>{FUNCS[wrongPick.picked].label}</V>. Inténtalo otra vez.</>
+      ));
     } else if (lastCorrectP1) {
-      // Acierto progreso: ack variado por avance
-      const left = UNIQUE_GK.length - doneCount;
-      bubble = left === 0 ? (
-        <>¡Correcto!</>
-      ) : left === 1 ? (
-        <>¡Casi! Falta <V>una</V>.</>
-      ) : doneCount === 1 ? (
-        <>¡Correcto! Faltan <V>{left}</V>. Seguid.</>
-      ) : (
-        <>¡Vais bien! Faltan <V>{left}</V>.</>
-      );
+      // Acierto: usa CORRECT_FB (cita + explicación) + ack progresivo si quedan
+      const lastSeg = ALL_FUNC.find((s) => s.id === lastCorrectP1);
+      const lastGk = lastSeg ? gk(lastSeg) : lastCorrectP1;
+      bubble = CORRECT_FB[lastGk] ?? (() => {
+        const left = UNIQUE_GK.length - doneCount;
+        if (left === 0) return <>¡Correcto!</>;
+        if (left === 1) return <>¡Casi! Falta <V>una</V>.</>;
+        if (doneCount === 1) return <>¡Correcto! Faltan <V>{left}</V>. Seguid.</>;
+        return <>¡Vais bien! Faltan <V>{left}</V>.</>;
+      })();
     } else if (doneCount === 0) {
       bubble = (
         <>

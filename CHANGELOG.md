@@ -1,5 +1,16 @@
 # Changelog
 
+## v0.61 — 2026-04-30
+
+### slide-flora-2 (3.2 #04) — Feedback fase 1 personalizado por segmento
+- Errores en fase 1 ahora citan la frase del alumno y formulan pregunta contrastiva o pista estructural
+  - **WRONG_HINT_L1** (1er fallo): cita la frase + pregunta entre 2 funciones (sin revelar)
+  - **WRONG_HINT_L2** (2º+ fallo): pista estructural/posicional (signo «?», inicio del bloque, antes/después de «y»)
+- Aciertos en fase 1 reutilizan **CORRECT_FB** existente (cita + explicación pedagógica)
+- 7 hints L1 + 7 hints L2 + 7 CORRECT_FB, uno por cada grupo de segmento (hoy, y, hermanos, instituto, ytambien, curso, deberes)
+- Fallback genérico si el segmento no tiene hint específico
+- 3.1 v0.35 → v0.36, 3.2 v0.35 → v0.36
+
 ## v0.60 — 2026-04-30
 
 ### slide-flora-2 (3.2 #04) — Retroalimentación correcta/incorrecta en fase 1
