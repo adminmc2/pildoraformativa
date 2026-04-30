@@ -1,5 +1,18 @@
 # Changelog
 
+## v0.60 — 2026-04-30
+
+### slide-flora-2 (3.2 #04) — Retroalimentación correcta/incorrecta en fase 1
+- Antes: al elegir función incorrecta solo había shake visual, la burbuja no reaccionaba
+- Ahora: feedback inmediato pili-style en la burbuja, según convención global
+  - **Acierto**: `¡Correcto! Faltan {N}. Seguid.` / `¡Casi! Falta una.` / `¡Vais bien! Faltan {N}.`
+  - **Error L1**: `Mmm, esa frase no es {función elegida}. Inténtalo otra vez.` (sin revelar la correcta)
+  - **Error L2+**: `Mmm, leed la frase otra vez. ¿Qué hace en el correo?` (cuestiona)
+- Estados nuevos: `wrongPick`, `wrongCountP1`, `lastCorrectP1`
+- `handlePhraseClick` resetea estos estados al cambiar de frase
+- `stepKey` actualizado para que la burbuja se anime con cada interacción
+- 3.1 v0.34 → v0.35, 3.2 v0.34 → v0.35
+
 ## v0.59 — 2026-04-30
 
 ### slide-flora-2 (3.2 #04) — Auditoría feedback según convención global

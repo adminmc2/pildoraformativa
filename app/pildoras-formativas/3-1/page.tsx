@@ -226,7 +226,7 @@ export default function Pildora31Page() {
               PÍLDORA FORMATIVA 3.1
             </div>
             <div className="text-base md:text-lg opacity-70 font-medium tracking-wider uppercase">
-              Posesivos · Unidad 3 · v0.34
+              Posesivos · Unidad 3 · v0.35
             </div>
           </div>
           {slide.kind !== "cierre" ? (

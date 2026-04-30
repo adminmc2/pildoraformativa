@@ -106,6 +106,9 @@ export function SlideFlora2() {
   const [active, setActive] = useState<string | null>(null);
   const [assigned, setAssigned] = useState<Record<string, FuncId>>({});
   const [shaking, setShaking] = useState<string | null>(null);
+  const [wrongPick, setWrongPick] = useState<{ id: string; picked: FuncId } | null>(null);
+  const [wrongCountP1, setWrongCountP1] = useState(0);
+  const [lastCorrectP1, setLastCorrectP1] = useState<string | null>(null);
   /* Fase 2 */
   const [placed, setPlaced] = useState<Set<string>>(new Set());
   const [selectedPiece, setSelectedPiece] = useState<string | null>(null);
@@ -123,6 +126,10 @@ export function SlideFlora2() {
   const handlePhraseClick = (id: string) => {
     if (assigned[id] || phase !== 1) return;
     setActive(active === id ? null : id);
+    // Cambiar de frase resetea feedback de error/acierto
+    setWrongPick(null);
+    setWrongCountP1(0);
+    setLastCorrectP1(null);
   };
 
   /* Fase 1: elegir función */
@@ -138,10 +145,16 @@ export function SlideFlora2() {
         });
         return next;
       });
+      setLastCorrectP1(active);
+      setWrongPick(null);
+      setWrongCountP1(0);
       setActive(null);
     } else {
       setShaking(active);
       setTimeout(() => setShaking(null), 500);
+      setWrongPick({ id: active, picked: pickedFunc });
+      setWrongCountP1((prev) => prev + 1);
+      setLastCorrectP1(null);
     }
   };
 
@@ -178,31 +191,48 @@ export function SlideFlora2() {
       </>
     );
   } else if (phase === 1) {
-    if (!allClassified) {
-      const left = UNIQUE_GK.length - doneCount;
-      bubble =
-        doneCount === 0 ? (
-          <>
-            Pulsad una frase subrayada y decidid su <V>función</V>.
-          </>
-        ) : left === 1 ? (
-          <>
-            ¡Casi! Falta <V>una</V>.
-          </>
-        ) : doneCount === 1 ? (
-          <>
-            ¡Bien! Faltan <V>{left}</V>. Seguid.
-          </>
-        ) : (
-          <>
-            ¡Vais bien! Faltan <V>{left}</V>.
-          </>
-        );
-    } else {
+    if (allClassified) {
       bubble = (
         <>
           ¡Todas identificadas! Ahora veréis lo que pasa <V>sin ellas</V>.
         </>
+      );
+    } else if (wrongPick) {
+      // Error: cuestiona elección sin revelar la función correcta
+      const pickedLabel = FUNCS[wrongPick.picked].label;
+      bubble = wrongCountP1 >= 2 ? (
+        <>
+          Mmm, leed la frase otra vez. ¿Qué <V>hace</V> en el correo?
+        </>
+      ) : (
+        <>
+          Mmm, esa frase no es <V>{pickedLabel}</V>. Inténtalo otra vez.
+        </>
+      );
+    } else if (lastCorrectP1) {
+      // Acierto progreso: ack variado por avance
+      const left = UNIQUE_GK.length - doneCount;
+      bubble = left === 0 ? (
+        <>¡Correcto!</>
+      ) : left === 1 ? (
+        <>¡Casi! Falta <V>una</V>.</>
+      ) : doneCount === 1 ? (
+        <>¡Correcto! Faltan <V>{left}</V>. Seguid.</>
+      ) : (
+        <>¡Vais bien! Faltan <V>{left}</V>.</>
+      );
+    } else if (doneCount === 0) {
+      bubble = (
+        <>
+          Pulsad una frase subrayada y decidid su <V>función</V>.
+        </>
+      );
+    } else {
+      const left = UNIQUE_GK.length - doneCount;
+      bubble = left === 1 ? (
+        <>¡Casi! Falta <V>una</V>.</>
+      ) : (
+        <>Faltan <V>{left}</V>. Seguid.</>
       );
     }
   } else {
@@ -256,7 +286,15 @@ export function SlideFlora2() {
     }
   }
 
-  const stepKey = phase * 100 + doneCount + placed.size * 10 + (wrongAttempt ? 1 : 0) + (selectedPiece ? 2 : 0) + (lastCorrect ? 4 : 0);
+  const stepKey =
+    phase * 1000 +
+    doneCount * 100 +
+    placed.size * 10 +
+    (wrongAttempt ? 1 : 0) +
+    (selectedPiece ? 2 : 0) +
+    (lastCorrect ? 4 : 0) +
+    wrongCountP1 * 7 +
+    (lastCorrectP1 ? 8 : 0);
   const activeContent = active
     ? ALL_FUNC.find((s) => s.id === active)?.content ?? ""
     : "";
