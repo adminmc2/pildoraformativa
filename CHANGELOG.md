@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.58 — 2026-04-30
+
+### Convención global de feedback de personajes
+- Nueva sección "Convención de feedback de personajes" en `CLAUDE.md` root: estructura por estado, vocabulario obligatorio (imperativo plural), acks positivos/negativos, resaltado `<V>`, adaptatividad por progreso, reglas duras de contenido pedagógico
+- `slide-flora-1.tsx` declarado **referencia canónica** de implementación adaptativa
+- slide-flora-1: imperativo singular `Mira` → plural `Mirad` (7 ocurrencias) — coherente con pili-1/pili-2 (closed slides)
+- 3.1 v0.32 → v0.33, 3.2 v0.32 → v0.33
+
 ## v0.57 — 2026-04-30
 
 ### Píldora 3.2 — slide-flora-2 (#04): accesibilidad + V/P + tamaño texto email

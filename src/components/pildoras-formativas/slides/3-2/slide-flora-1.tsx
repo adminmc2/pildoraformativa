@@ -150,16 +150,16 @@ export function SlideFlora1() {
 
     // Solo falta una → orienta a esa específicamente
     if (m.length === 1) {
-      if (missSal) return isL2 ? <>Mira el principio.</> : <>Falta empezar el correo electrónico.</>;
-      if (missDes) return isL2 ? <>Mira el final.</> : <>Falta cerrar el correo electrónico.</>;
+      if (missSal) return isL2 ? <>Mirad el principio.</> : <>Falta empezar el correo electrónico.</>;
+      if (missDes) return isL2 ? <>Mirad el final.</> : <>Falta cerrar el correo electrónico.</>;
       if (missFir) return isL2 ? <>Tras la despedida.</> : <>¿<V>Quién</V> escribe el correo electrónico?</>;
     }
     // 2-3 faltan → cuestiona elección
     if (isL2) {
-      if (missDes && missFir && !missSal) return <>Mira al final del correo electrónico.</>;
-      if (missSal && missFir && !missDes) return <>Mira el principio y el final.</>;
+      if (missDes && missFir && !missSal) return <>Mirad al final del correo electrónico.</>;
+      if (missSal && missFir && !missDes) return <>Mirad el principio y el final.</>;
       if (missSal && missDes && !missFir) return <>Al principio y al final.</>;
-      return <>Mira el principio y el final.</>;
+      return <>Mirad el principio y el final.</>;
     }
     // L1 con 2-3 missing → pregunta que cuestiona
     return <>¿Eso está en <V>TODOS</V> los correos electrónicos?</>;
@@ -173,7 +173,7 @@ export function SlideFlora1() {
     // Última que falta
     if (m === 1) {
       return isL2 ? (
-        <>Mira la idea sin marcar.</>
+        <>Mirad la idea sin marcar.</>
       ) : (
         <>Falta <V>una</V>. ¿Cuál presenta tema?</>
       );
@@ -181,7 +181,7 @@ export function SlideFlora1() {
     // Todo aún por encontrar
     if (m === total) {
       return isL2 ? (
-        <>Mira al inicio de cada idea.</>
+        <>Mirad al inicio de cada idea.</>
       ) : (
         <>Tema = frase que <V>presenta</V> una idea.</>
       );

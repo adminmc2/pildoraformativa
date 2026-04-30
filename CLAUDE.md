@@ -60,3 +60,50 @@ Cuando se muestra una respuesta rellenada (pill dentro de una frase):
   - Luna = verificadora (comprueba si el alumno lo sabe)
   - Chipi = desafío (reta, da feedback rápido)
 - Vocabulario coherente entre diapositivas: usar "¿Singular o plural?" (no "¿uno o varios?"), "¿De quién es?" (no "dueño"), evitar "cosa" (puede ser persona)
+
+## Convención de feedback de personajes (estilo unificado del proyecto)
+
+**Todos los slides interactivos** (cualquier personaje) deben aplicar este patrón de retroalimentación en la burbuja del personaje. Esto unifica la experiencia del alumno en toda la presentación.
+
+### Estructura de burbuja según estado del alumno
+
+| Estado | Cuándo | Patrón |
+|---|---|---|
+| **Inicial** | Sin acciones aún | Pregunta o instrucción que orienta. Usa `<V>` para destacar concepto clave. |
+| **Acierto progreso** | Acción correcta, faltan más | Ack positivo + progreso (cuántos faltan o "sigue") |
+| **Acierto cierre** | Categoría/fase completa | Ack positivo + síntesis pedagógica del concepto aprendido |
+| **Error nivel 1** | 1er fallo en la elección actual | Pregunta que **cuestiona la elección** sin revelar respuesta. Adapta a lo que falta. |
+| **Error nivel 2+** | 2º+ fallo seguido | Pista **espacial o concreta** hacia lo que falta, sin revelar el contenido exacto. |
+
+### Vocabulario y formas obligatorias
+
+**Imperativo plural (vosotros)** — la presentación se proyecta a un grupo:
+- ✅ `Mirad`, `Buscad`, `Pulsad`, `Elegid`, `Colocadlas`, `Encontrad`
+- ❌ `Mira`, `Busca` (singular tú) — solo aceptable si el slide se diseña 1-a-1
+
+**Acks positivos** (intercambiables, varía para no repetir):
+- `¡Bien!`, `¡Eso!`, `¡Casi!`, `¡Correcto!`, `¡Perfecto!`, `¡Vais bien!`, `¡Sigue!`, `¡Eso es!`
+
+**Acks negativos gentiles** (cuando aplica, pili-style):
+- `Mmm,` + explicación + `Inténtalo otra vez` (más Pili — anfitriona)
+- Pregunta directa sin "Mmm" (más Flora — observadora)
+
+**Cierre de error**:
+- `Buscad otra` / `Inténtalo otra vez` / `Sigue buscando` (con vosotros)
+
+### Resaltado de palabras en burbujas
+- `<V>` (naranja + bold, sin cursiva) — palabras clave, conceptos, números, categorías
+- `<P>` (italic + naranja + bold) — SOLO citas literales de gramática diana (raro en feedback)
+- Resalta el **concepto** (`<V>tres</V> partes fijas`, `¿<V>Quién</V> escribe?`) pero NUNCA el contenido de la respuesta correcta sin descubrir.
+
+### Adaptatividad en errores
+- El feedback de error **debe depender** de qué items ha encontrado YA el alumno (no repetir orientación a lo ya hecho).
+- Niveles L1/L2 distintos según `wrongCount`.
+- Ver `slide-flora-1.tsx` (3.2 #03) como **referencia canónica** de implementación adaptativa.
+
+### Reglas duras de contenido pedagógico
+- ❌ **Nunca revelar** un fragmento de respuesta correcta aún no encontrado
+- ❌ **Nunca repetir** el mismo criterio de búsqueda que ya falló (cambia de ángulo)
+- ❌ **No dar conteo** como única ayuda en error (mejor pregunta que cuestiona elección)
+- ✅ Cambiar enfoque entre L1 (interrogativo) y L2 (espacial)
+- ✅ Vocabulario A1.1 estricto · máximo ~10 palabras por burbuja
