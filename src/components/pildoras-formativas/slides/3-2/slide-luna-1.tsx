@@ -90,7 +90,7 @@ const BUBBLES_SELF: React.ReactNode[] = [
 ];
 
 const BUBBLES_DONE: React.ReactNode[] = [
-  <>¡Tu email está <V>listo</V>! Ahora toca intercambiar.</>,
+  <>¡Tu correo electrónico está <V>listo</V>! Ahora toca intercambiar.</>,
   <>Corrige lo que falta y <V>vuelve a comprobar</V>.</>,
 ];
 
@@ -166,9 +166,9 @@ export function SlideLuna1() {
             {phase === "self"
               ? allAnswered
                 ? allYes
-                  ? "¡Email completo!"
-                  : "Revisa tu correo"
-                : "¿Tu email está completo?"
+                  ? "¡Correo electrónico completo!"
+                  : "Revisa tu correo electrónico"
+                : "¿Tu correo electrónico está completo?"
               : "Revisa con tu compañero"}
           </h1>
 

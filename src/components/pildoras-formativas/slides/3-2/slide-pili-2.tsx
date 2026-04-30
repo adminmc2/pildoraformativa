@@ -1,3 +1,8 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// SLIDE BLOQUEADA — slide-pili-2 (#02)
+// No modificar sin permiso explícito del usuario.
+// Última revisión: v0.54 (2026-04-29)
+// ─────────────────────────────────────────────────────────────────────────────
 "use client";
 
 import React, { useState } from "react";
@@ -109,11 +114,11 @@ export function SlidePili2() {
   const bubble =
     phase === 0 ? (
       <>
-        ¿Recordáis las partes del email? ¡Están <V>desordenadas</V>! Colocadlas en su sitio.
+        ¿Recordáis las partes del correo electrónico? ¡Están <V>desordenadas</V>! Colocadlas en su sitio.
       </>
     ) : allDone ? (
       <>
-        ¡<V>Perfecto</V>! Un email siempre sigue este orden. Ahora <V>Flora</V> os va a enseñar algo
+        ¡<V>Perfecto</V>! Un correo electrónico siempre sigue este orden. Ahora <V>Flora</V> os va a enseñar algo
         importante.
       </>
     ) : selected ? (
@@ -158,7 +163,7 @@ export function SlidePili2() {
             className="font-[family-name:var(--font-pf-display)] uppercase leading-[0.88] tracking-tight text-[var(--color-pf-ink)]"
             style={{ fontSize: "clamp(40px, 4.5vw, 72px)" }}
           >
-            {allDone ? "¡Ordenado!" : "Ordena el email"}
+            {allDone ? "¡Ordenado!" : "Ordena el correo electrónico"}
           </h1>
 
           {/* Instrucción */}
@@ -167,9 +172,9 @@ export function SlidePili2() {
             style={{ fontSize: "clamp(24px, 1.8vw, 32px)" }}
           >
             {phase === 0
-              ? "Las partes del email están desordenadas."
+              ? "Las partes del correo electrónico están desordenadas."
               : allDone
-                ? "Un email siempre tiene este orden."
+                ? "Un correo electrónico siempre tiene este orden."
                 : `Pieza → hueco. ${placed.size} / ${BLOCKS.length}`}
           </p>
 

@@ -7,7 +7,7 @@ import { CheckCircle, ArrowsClockwise, PencilSimple } from "@phosphor-icons/reac
 
 /* ── Categorías (3 capas) ── */
 const CATS = {
-  email: { label: "Email", color: "#1E6091", soft: "#D6EAF8" },
+  email: { label: "Correo electrónico", color: "#1E6091", soft: "#D6EAF8" },
   tema: { label: "Tema", color: "#B8860B", soft: "#FFF3CD" },
   personal: { label: "Info. personal", color: "#B5179E", soft: "#F8D7F0" },
 } as const;
@@ -75,9 +75,16 @@ const ALTERNATIVES: Record<string, string[]> = {
 
 const PERSONAL_IDS = SEGMENTS.filter((s) => s.cat === "personal").map((s) => s.id);
 
-/* ── Highlight helper ── */
-const C = ({ children }: { children: React.ReactNode }) => (
-  <span className="italic" style={{ color: "var(--color-pf-spark)" }}>
+/* ── Highlight helpers ── */
+/* P: cita literal de gramática → cursiva + naranja + bold */
+const P = ({ children }: { children: React.ReactNode }) => (
+  <span className="italic font-semibold" style={{ color: "var(--color-pf-spark)" }}>
+    {children}
+  </span>
+);
+/* V: énfasis genérico → solo naranja bold, sin cursiva */
+const V = ({ children }: { children: React.ReactNode }) => (
+  <span className="font-semibold" style={{ color: "var(--color-pf-spark)" }}>
     {children}
   </span>
 );
@@ -91,6 +98,7 @@ export function SlideFlora1() {
   const [altIndex, setAltIndex] = useState<Record<string, number>>({});
   const [interacted, setInteracted] = useState<Set<string>>(new Set());
   const [showSkeleton, setShowSkeleton] = useState(false);
+  const [wrongCount, setWrongCount] = useState(0);
 
   const currentCat = PHASE_CAT[phase] ?? null;
   const catTotal = currentCat ? SEGMENTS.filter((s) => s.cat === currentCat).length : 0;
@@ -108,9 +116,11 @@ export function SlideFlora1() {
     const seg = SEGMENTS.find((s) => s.id === id)!;
     if (seg.cat === currentCat) {
       setIdentified((prev) => new Set(prev).add(id));
+      setWrongCount(0);
     } else {
       setShaking(id);
       setTimeout(() => setShaking(null), 500);
+      setWrongCount((prev) => prev + 1);
     }
   };
 
@@ -122,47 +132,139 @@ export function SlideFlora1() {
     setInteracted((prev) => new Set(prev).add(id));
   };
 
+  /* ── Adaptive feedback: detecta qué falta por identificar ── */
+  const phase1Items = ["saludo", "despedida", "firma"];
+  const phase2Items = SEGMENTS.filter((s) => s.cat === "tema").map((s) => s.id);
+  const missingPhase1 = phase1Items.filter((id) => !identified.has(id));
+  const missingPhase2 = phase2Items.filter((id) => !identified.has(id));
+
+  /* Adaptativo de ERROR: cuestiona la elección o da pista espacial.
+     L1 (1er fallo) → pregunta que invita a evaluar la elección
+     L2 (2º+ fallo) → pista espacial concreta hacia lo que falta */
+  const adaptivePhase1 = (): React.ReactNode => {
+    const m = missingPhase1;
+    const missSal = m.includes("saludo");
+    const missDes = m.includes("despedida");
+    const missFir = m.includes("firma");
+    const isL2 = wrongCount >= 2;
+
+    // Solo falta una → orienta a esa específicamente
+    if (m.length === 1) {
+      if (missSal) return isL2 ? <>Mira el principio.</> : <>Falta empezar el correo electrónico.</>;
+      if (missDes) return isL2 ? <>Mira el final.</> : <>Falta cerrar el correo electrónico.</>;
+      if (missFir) return isL2 ? <>Tras la despedida.</> : <>¿<V>Quién</V> escribe el correo electrónico?</>;
+    }
+    // 2-3 faltan → cuestiona elección
+    if (isL2) {
+      if (missDes && missFir && !missSal) return <>Mira al final del correo electrónico.</>;
+      if (missSal && missFir && !missDes) return <>Mira el principio y el final.</>;
+      if (missSal && missDes && !missFir) return <>Al principio y al final.</>;
+      return <>Mira el principio y el final.</>;
+    }
+    // L1 con 2-3 missing → pregunta que cuestiona
+    return <>¿Eso está en <V>TODOS</V> los correos electrónicos?</>;
+  };
+
+  const adaptivePhase2 = (): React.ReactNode => {
+    const m = missingPhase2.length;
+    const total = phase2Items.length;
+    const isL2 = wrongCount >= 2;
+
+    // Última que falta
+    if (m === 1) {
+      return isL2 ? (
+        <>Mira la idea sin marcar.</>
+      ) : (
+        <>Falta <V>una</V>. ¿Cuál presenta tema?</>
+      );
+    }
+    // Todo aún por encontrar
+    if (m === total) {
+      return isL2 ? (
+        <>Mira al inicio de cada idea.</>
+      ) : (
+        <>Tema = frase que <V>presenta</V> una idea.</>
+      );
+    }
+    // 2-4 faltan → cuestiona elección
+    return isL2 ? (
+      <>En las ideas que aún faltan.</>
+    ) : (
+      <>¿Esa <V>presenta</V> un tema?</>
+    );
+  };
+
+  /* ── Feedback positivo: mensaje según fase + progreso ── */
+  const positivePhase1 = (): React.ReactNode => {
+    if (catCount === 1) return <>¡Eso! Faltan <V>dos</V> partes fijas.</>;
+    if (catCount === 2) return <>¡Casi! Falta <V>una</V> parte fija.</>;
+    return <>¡Bien!</>;
+  };
+  const positivePhase2 = (): React.ReactNode => {
+    const left = catTotal - catCount;
+    if (left === 4) return <>¡Bien! Faltan <V>cuatro</V> temas.</>;
+    if (left === 3) return <>¡Vais bien! Faltan <V>tres</V>.</>;
+    if (left === 2) return <>¡Sigue! Faltan <V>dos</V>.</>;
+    if (left === 1) return <>¡Casi! Falta <V>uno</V>.</>;
+    return <>¡Bien!</>;
+  };
+  const positivePhase3 = (): React.ReactNode => {
+    if (catCount === 1) return <>¡Eso! <V>Información personal</V>. Hay más.</>;
+    if (catCount === 2) return <>¡Casi! Falta <V>una</V> más.</>;
+    return <>¡Bien!</>;
+  };
+
   /* ── Bubble ── */
   const bubble =
     phase === 0 ? (
       <>
-        Este email tiene un secreto: <C>no todas las partes son iguales</C>. ¿Lo descubrimos?
-      </>
-    ) : phase === 1 && !catDone ? (
-      <>
-        ¿Qué partes tiene <C>TODOS</C> los emails? Buscad.
+        Este correo electrónico tiene un secreto: <V>no todas las partes son iguales</V>. ¿Lo descubrimos?
       </>
     ) : phase === 1 && catDone ? (
       <>
-        ¡Eso! Saludo, despedida, firma. <C>Todos</C> los emails.
+        ¡Eso! Saludo, despedida, firma. <V>Todos</V> los correos electrónicos.
       </>
-    ) : phase === 2 && !catDone ? (
+    ) : phase === 1 && wrongCount >= 1 ? (
+      adaptivePhase1()
+    ) : phase === 1 && catCount > 0 ? (
+      positivePhase1()
+    ) : phase === 1 ? (
       <>
-        Marta habla de 3 temas. ¿Qué frases los <C>presentan</C>?
+        ¿Qué partes tienen <V>todos</V> los correos electrónicos? Buscad.
       </>
     ) : phase === 2 && catDone ? (
       <>
-        Familia, amigos, instituto. Otros temas → <C>otras frases</C>.
+        Estas frases presentan el tema. Si el tema cambia, la frase cambia.
       </>
-    ) : phase === 3 && !catDone ? (
+    ) : phase === 2 && wrongCount >= 1 ? (
+      adaptivePhase2()
+    ) : phase === 2 && catCount > 0 ? (
+      positivePhase2()
+    ) : phase === 2 ? (
       <>
-        ¿Y lo que queda? <C>¿Es igual para todos?</C>
+        Marta habla de varios temas. ¿Qué frases los <V>presentan</V>?
       </>
     ) : phase === 3 && catDone ? (
       <>
-        Estos datos son solo de Marta. <C>¡Los vuestros serán diferentes!</C>
+        Estos datos son solo de Marta. <V>¡Los vuestros serán diferentes!</V>
+      </>
+    ) : phase === 3 && catCount > 0 ? (
+      positivePhase3()
+    ) : phase === 3 ? (
+      <>
+        ¿Y lo que queda? <V>¿Es igual para todos?</V>
       </>
     ) : phase === 4 && !showSkeleton ? (
       <>
-        ¿Y si cambiamos los datos? <C>¡Pulsad los rosas!</C>
+        ¿Y si cambiamos los datos? <V>¡Pulsad los rosas!</V>
       </>
     ) : (
       <>
-        ¿Veis? El email funciona con <C>otros datos</C>.
+        ¿Veis? El correo electrónico funciona con <V>otros datos</V>.
       </>
     );
 
-  const stepKey = phase * 100 + identified.size + (showSkeleton ? 50 : 0);
+  const stepKey = phase * 100 + identified.size + (showSkeleton ? 50 : 0) + Math.min(wrongCount, 2) * 10000;
 
   return (
     <div className="w-full h-full flex items-center justify-center overflow-hidden">
@@ -170,20 +272,26 @@ export function SlideFlora1() {
         <div className="flex flex-col gap-2 min-w-0">
           {/* Badge */}
           <div className="flex items-center gap-3">
-            <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)] text-[var(--color-pf-ink)]">
+            <span
+              className="font-[family-name:var(--font-pf-display)] text-[var(--color-pf-ink)]"
+              style={{ fontSize: "clamp(20px, 1.6vw, 24px)" }}
+            >
               FLORA
             </span>
             <span
-              className="px-3 py-1 rounded-full text-base font-semibold"
-              style={{ background: "var(--color-pf-flower-soft)", color: "#8A1470" }}
+              className="px-3 py-1 rounded-full font-semibold"
+              style={{ background: "var(--color-pf-flower-soft)", color: "#8A1470", fontSize: "clamp(18px, 1.3vw, 20px)" }}
             >
               Observadora
             </span>
           </div>
 
           {/* Título */}
-          <h1 className="font-[family-name:var(--font-pf-display)] uppercase leading-[0.88] tracking-tight text-[clamp(30px,min(4.5vw,6vh),56px)] text-[var(--color-pf-ink)]">
-            {showSkeleton ? "¡El esqueleto del email!" : "¿Qué se queda y qué cambia?"}
+          <h1
+            className="font-[family-name:var(--font-pf-display)] uppercase leading-[0.88] tracking-tight text-[var(--color-pf-ink)]"
+            style={{ fontSize: "clamp(36px, 4.5vw, 56px)" }}
+          >
+            {showSkeleton ? "¡El esqueleto del correo electrónico!" : "¿Qué se queda y qué cambia?"}
           </h1>
 
           {/* ── Email interactivo (fase 0-4) ── */}
@@ -201,8 +309,9 @@ export function SlideFlora1() {
                     return (
                       <div
                         key={cat}
-                        className="flex items-center gap-2 px-5 py-2 rounded-full font-[family-name:var(--font-pf-display)] transition-all text-[clamp(20px,min(2vw,2.5vh),24px)]"
+                        className="flex items-center gap-2 px-5 py-2 rounded-full font-[family-name:var(--font-pf-display)] transition-all"
                         style={{
+                          fontSize: "clamp(20px, 1.6vw, 24px)",
                           background: isDone || isActive || phase === 4 ? c.soft : "rgba(255,255,255,0.6)",
                           color: isDone || isActive || phase === 4 ? c.color : "rgba(10,10,10,0.2)",
                           border: `3px solid ${isActive ? c.color : isDone ? c.color + "60" : "transparent"}`,
@@ -217,7 +326,10 @@ export function SlideFlora1() {
                 </div>
                 {/* Contador */}
                 {currentCat && phase >= 1 && phase <= 3 && (
-                  <span className="text-[clamp(20px,min(2vw,2.5vh),24px)] font-semibold opacity-60 text-[var(--color-pf-ink)]">
+                  <span
+                    className="font-semibold opacity-60 text-[var(--color-pf-ink)]"
+                    style={{ fontSize: "clamp(20px, 1.6vw, 24px)" }}
+                  >
                     {catCount} / {catTotal}
                   </span>
                 )}
@@ -225,14 +337,15 @@ export function SlideFlora1() {
             )}
 
             {/* Email card */}
-            <div className="rounded-[16px] bg-white shadow-[0_10px_30px_-12px_rgba(0,0,0,0.12)] overflow-hidden">
+            <div className="rounded-[16px] bg-white shadow-[0_10px_30px_-12px_rgba(0,0,0,0.12)] overflow-y-auto" style={{ maxHeight: "52vh" }}>
               <div className="px-4 py-3 flex flex-col gap-1.5">
                 {PARAGRAPH_INDICES.map((pIdx) => {
                   const segs = SEGMENTS.filter((s) => s.p === pIdx);
                   return (
                     <div
                       key={pIdx}
-                      className="text-[clamp(20px,min(2vw,2.5vh),24px)] leading-relaxed text-[var(--color-pf-ink)]"
+                      className="leading-relaxed text-[var(--color-pf-ink)]"
+                      style={{ fontSize: "clamp(23px, 1.9vw, 28px)" }}
                     >
                       {segs.map((seg, i) => {
                         const isId = identified.has(seg.id);
@@ -260,8 +373,8 @@ export function SlideFlora1() {
                                   style={{ color: cat.color }}
                                 />
                                 <span
-                                  style={{ color: cat.color }}
-                                  className="font-semibold text-[clamp(20px,min(2vw,2.5vh),24px)]"
+                                  style={{ color: cat.color, fontSize: "clamp(23px, 1.9vw, 28px)" }}
+                                  className="font-semibold"
                                 >
                                   tu información
                                 </span>
@@ -282,6 +395,20 @@ export function SlideFlora1() {
                             <span
                               role={isClickable || isPractice ? "button" : undefined}
                               tabIndex={isClickable || isPractice ? 0 : undefined}
+                              aria-label={
+                                isClickable
+                                  ? `Marcar como ${CATS[seg.cat].label}: ${seg.text}`
+                                  : isPractice && hasAlts
+                                  ? `Cambiar ejemplo: ${displayText}`
+                                  : undefined
+                              }
+                              onKeyDown={(e) => {
+                                if (e.key === "Enter" || e.key === " ") {
+                                  e.preventDefault();
+                                  if (isPractice && hasAlts) handleCycle(seg.id);
+                                  else if (isClickable) handleSegmentClick(seg.id);
+                                }
+                              }}
                               onClick={() => {
                                 if (isPractice && hasAlts) handleCycle(seg.id);
                                 else if (isClickable) handleSegmentClick(seg.id);
@@ -298,9 +425,18 @@ export function SlideFlora1() {
                                     : undefined,
                                 cursor:
                                   isClickable || isPractice ? "pointer" : undefined,
+                                outline: "none",
+                                boxShadow: undefined,
                                 animation: isShakingSeg
                                   ? "shake 400ms ease-in-out"
                                   : undefined,
+                              }}
+                              onFocus={(e) => {
+                                if (isClickable || isPractice)
+                                  (e.currentTarget as HTMLElement).style.outline = `2px solid ${cat.color}`;
+                              }}
+                              onBlur={(e) => {
+                                (e.currentTarget as HTMLElement).style.outline = "none";
                               }}
                             >
                               {displayText}
@@ -329,10 +465,10 @@ export function SlideFlora1() {
             {phase === 0 && (
               <div className="mt-3">
                 <button
-                  onClick={() => setPhase(1)}
-                  className="px-10 py-3 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)] hover:scale-[1.02] transition"
-                  style={{ animation: "btnPulse 2s ease-in-out infinite" }}
-                >
+                    onClick={() => { setPhase(1); setWrongCount(0); }}
+                    className="px-10 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] hover:scale-[1.02] transition min-h-[44px]"
+                    style={{ fontSize: "clamp(20px, 1.6vw, 24px)", animation: "btnPulse 2s ease-in-out infinite" }}
+                  >
                   EMPEZAR
                 </button>
               </div>
@@ -342,10 +478,10 @@ export function SlideFlora1() {
             {catDone && phase >= 1 && phase <= 3 && (
               <div className="mt-3">
                 <button
-                  onClick={() => setPhase((phase + 1) as 2 | 3 | 4)}
-                  className="px-8 py-3 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)] hover:scale-[1.02] transition"
-                  style={{ animation: "btnPulse 2s ease-in-out infinite" }}
-                >
+                    onClick={() => { setPhase((phase + 1) as 2 | 3 | 4); setWrongCount(0); }}
+                    className="px-8 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] hover:scale-[1.02] transition min-h-[44px]"
+                    style={{ fontSize: "clamp(20px, 1.6vw, 24px)", animation: "btnPulse 2s ease-in-out infinite" }}
+                  >
                   SIGUIENTE
                 </button>
               </div>
@@ -355,10 +491,10 @@ export function SlideFlora1() {
             {phase === 4 && !showSkeleton && allInteracted && (
               <div className="mt-3">
                 <button
-                  onClick={() => setShowSkeleton(true)}
-                  className="px-8 py-3 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)] hover:scale-[1.02] transition"
-                  style={{ animation: "btnPulse 2s ease-in-out infinite" }}
-                >
+                    onClick={() => setShowSkeleton(true)}
+                    className="px-8 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] hover:scale-[1.02] transition min-h-[44px]"
+                    style={{ fontSize: "clamp(20px, 1.6vw, 24px)", animation: "btnPulse 2s ease-in-out infinite" }}
+                  >
                   VER ESQUELETO
                 </button>
               </div>
@@ -387,6 +523,9 @@ export function SlideFlora1() {
           40% { transform: translateX(6px); }
           60% { transform: translateX(-4px); }
           80% { transform: translateX(4px); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          * { animation: none !important; transition: none !important; }
         }
       `}</style>
     </div>

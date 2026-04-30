@@ -1,5 +1,20 @@
 # Changelog
 
+## v0.55 — 2026-04-30
+
+### Píldora 3.2 — slide-flora-1: feedback adaptativo + "email" → "correo electrónico" en toda la presentación
+- **slide-flora-1**:
+  - Feedback adaptativo de error (L1 cuestiona elección, L2 pista espacial) según items que faltan por identificar
+  - Feedback positivo diferenciado por progreso (cuántos llevan, cuántos faltan)
+  - Solo falta firma → "¿Quién escribe el correo electrónico?" (antes "Falta el nombre del autor")
+  - Etiqueta de categoría: "Email" → "Correo electrónico"
+  - Todas las burbujas: "email/emails" → "correo electrónico/correos electrónicos"
+- **slide-pili-2**: burbujas, título, instrucciones — "email" → "correo electrónico"
+- **slide-flora-2**: burbujas — "email" → "correo electrónico"
+- **slide-luna-1**: burbujas, título — "email" → "correo electrónico"
+- **slide-chipi**: instrucciones de juego y badge — "email" → "correo electrónico" / "correos"
+- 3.1 v0.30 → v0.31, 3.2 v0.30 → v0.31
+
 ## v0.54 — 2026-04-29
 
 ### slide-pili-2 (3.2) — Texto CUERPO completo + scroll en EMAIL + fix cursiva burbujas

@@ -91,7 +91,7 @@ const PIECE_HINT: Record<string, React.ReactNode> = {
 };
 
 const CORRECT_FB: Record<string, React.ReactNode> = {
-  hoy: <>¡Sí! <C>Abre el tema</C> principal del email: la familia.</>,
+  hoy: <>¡Sí! <C>Abre el tema</C> principal del correo electrónico: la familia.</>,
   y: <>¡Bien! <C>«y» conecta</C> dos ideas paralelas: une lo de antes con lo de después.</>,
   hermanos: <>¡Eso es! Después de hablar de sus hermanos, Marta <C>pregunta</C> a Pierre por los suyos.</>,
   instituto: <>¡Exacto! <C>Abre un tema nuevo</C>: la vida en el instituto.</>,
@@ -175,7 +175,7 @@ export function SlideFlora2() {
   if (phase === 0) {
     bubble = (
       <>
-        Cada frase del email tiene una <C>función</C>. ¿Cuál es?
+        Cada frase del correo electrónico tiene una <C>función</C>. ¿Cuál es?
       </>
     );
   } else if (phase === 1) {
@@ -225,7 +225,7 @@ export function SlideFlora2() {
     } else if (allPlaced) {
       bubble = (
         <>
-          ¡Perfecto! Cada <C>función</C> tiene su papel en el email: abrir temas, conectar ideas y preguntar al lector.
+          ¡Perfecto! Cada <C>función</C> tiene su papel en el correo electrónico: abrir temas, conectar ideas y preguntar al lector.
         </>
       );
     } else if (selectedPiece) {
@@ -236,7 +236,7 @@ export function SlideFlora2() {
     } else if (placed.size === 0) {
       bubble = (
         <>
-          Sin sus <C>funciones</C>, el email está roto. Elegid una pieza del banco.
+          Sin sus <C>funciones</C>, el correo electrónico está roto. Elegid una pieza del banco.
         </>
       );
     } else {
@@ -370,7 +370,7 @@ export function SlideFlora2() {
           <h1 className="font-[family-name:var(--font-pf-display)] uppercase leading-[0.88] tracking-tight text-[clamp(30px,min(4.5vw,6vh),56px)] text-[var(--color-pf-ink)]">
             {phase === 0 && "¿Para qué sirve cada frase?"}
             {phase === 1 && (allClassified ? "¡Bien visto!" : "¿Para qué sirve cada frase?")}
-            {phase === 2 && (allPlaced ? "¡Email completo!" : "Recoloca las funciones")}
+            {phase === 2 && (allPlaced ? "¡Correo electrónico completo!" : "Recoloca las funciones")}
           </h1>
 
           {/* Leyenda */}

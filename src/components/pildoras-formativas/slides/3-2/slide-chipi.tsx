@@ -540,7 +540,7 @@ export function SlideChipi() {
                 ¿Cómo se juega?
               </p>
               <ol className="list-decimal list-inside space-y-1 text-[clamp(20px,min(2vw,2.5vh),24px)] text-[var(--color-pf-ink)] leading-snug">
-                <li>Vais a ver un <strong>email desordenado</strong> en 8 o 9 fragmentos.</li>
+                <li>Vais a ver un <strong>correo electrónico desordenado</strong> en 8 o 9 fragmentos.</li>
                 <li>Escribid en vuestro cuaderno, hoja o en la pizarra el <strong>orden correcto</strong> (ej: 3-1-5-9-7-2-6-8-4) lo más rápido posible.</li>
                 <li>El primer equipo en terminar dice <strong>¡Listo!</strong> y paramos el cronómetro.</li>
                 <li>Comprobamos en pantalla: si es correcto, ganáis <strong>puntos de orden + bonus de rapidez</strong>. Si no, otro equipo puede intentarlo (solo puntos de orden).</li>
@@ -552,7 +552,7 @@ export function SlideChipi() {
             <div className="flex flex-wrap items-center gap-3">
               <span className="text-[clamp(20px,min(2vw,2.5vh),24px)] font-semibold text-white bg-[var(--color-pf-ink)] px-4 py-1.5 rounded-full flex items-center gap-2">
                 <EnvelopeSimple size={22} weight="bold" />
-                {EMAILS.length} emails
+                {EMAILS.length} correos
               </span>
               <span className="px-3 py-1.5 rounded-full text-[clamp(20px,min(2vw,2.5vh),24px)] font-semibold"
                 style={{ background: "#E8F5E0", color: "#3F6B14" }}>
