@@ -234,7 +234,7 @@ export function SlideFlora1() {
       </>
     ) : phase === 2 && catDone ? (
       <>
-        Estas frases presentan el tema. Si el tema cambia, la frase cambia.
+        Estas frases presentan el <V>tema</V>. Si el <V>tema</V> cambia, la frase cambia.
       </>
     ) : phase === 2 && wrongCount >= 1 ? (
       adaptivePhase2()
