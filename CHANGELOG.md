@@ -1,5 +1,25 @@
 # Changelog
 
+## v0.65 — 2026-04-30
+
+### Píldora 3.2 — slide-vito-1 (#05): accesibilidad + V/P + Tailwind clamp inline
+
+- **`<C>` → `<V>`**: componente renombrado a convención del proyecto (naranja bold, sin cursiva); 7 usos en BUBBLES actualizados
+- **Tailwind clamp → inline style**: todos los `text-[clamp(20px,min(...))]` y `text-[clamp(30px,...)]` convertidos a `style={{ fontSize: "clamp(...)" }}` (compatibilidad Turbopack)
+- **Badge "Método"**: `text-base` (16px) → `clamp(18px, 1.3vw, 20px)`
+- **h1**: `clamp(30px,min(...),56px)` → `clamp(36px, 4.5vw, 56px)` inline — igual que flora-1/flora-2
+- **Instrucción `<p>`**: Tailwind clamp → `clamp(20px, 1.6vw, 24px)` inline
+- **Cabecera tabla** (×2): Tailwind clamp → `clamp(20px, 1.6vw, 24px)` inline
+- **Filas tabla** (marta + hint): Tailwind clamp → `clamp(20px, 1.6vw, 24px)` inline + `opacity-70` en hint
+- **Theme label**: Tailwind clamp → `clamp(20px, 1.6vw, 24px)` inline
+- **Botón atrás**: `text-base` → `clamp(20px, 1.6vw, 24px)` inline + `aria-label`
+- **Botón SIGUIENTE**: `text-base` + `py-2.5` → `clamp(20px, 1.6vw, 24px)` inline + `min-h-[44px]`
+- **Contador**: `text-base` → `clamp(20px, 1.6vw, 24px)` inline
+- **Layout columna izquierda**: `height: calc(100vh - 80px)` — igual que flora-1/flora-2
+- **Tabla scroll**: `flex-1 min-h-0 overflow-y-auto` — tabla crece sin empujar botones nav
+- **`@media (prefers-reduced-motion: reduce)`** + `btnPulse` añadidos a `<style jsx>`
+- 3.1 v0.38 → v0.39, 3.2 v0.38 → v0.39
+
 ## v0.64 — 2026-04-30
 
 ### Píldora 3.2 — Slide #04 BLOQUEADA
