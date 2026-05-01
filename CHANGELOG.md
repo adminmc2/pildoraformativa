@@ -1,5 +1,30 @@
 # Changelog
 
+## v0.71 — 2026-05-01
+
+### slide-vito-2 (3.2 #06) — Reestructuración pedagógica + UX
+**Pedagógico:**
+- FAMILIA dividida en 2 pasos: TUS PADRES (3 tarjetas) + TUS HERMANOS (3 tarjetas + cierre ¿Y tú?) — reduce carga cognitiva A1.1
+- Total pasos: 6 → 7 (+ conclusión)
+- Tarjeta `¿Y tú?` separada visualmente como "SIEMPRE incluir" (borde dashed + badge naranja "SIEMPRE")
+- Burbuja conclusión sintetiza los conectores aprendidos: *"¡Habéis escrito un correo con los conectores: Hoy te hablo de, y, también, Este curso..."*
+
+**Tarjetas:**
+- Títulos limpiados: SALUDO/DESPEDIDA sin título (redundantes con label de grupo)
+- TUS PADRES/HERMANOS: títulos descriptivos ("Si vives con padre y madre", "Si tienes más de uno/a")
+- AMIGOS/ESCUELA: títulos más claros ("Tu mejor amigo/a", "Pregunta a tu amigo")
+
+**Instrucción + leyenda agrupadas:**
+- Bloque negro único con instrucción + leyenda explicativa: `___ = tus datos · naranja = cópialo tal cual` (24-32 + 22-28)
+- Mejor contraste (blanco sobre ink) y agrupación visual
+
+**Estado final:**
+- Bloque de celebración con icono SealCheck + título "¡Has terminado!" (44-64px)
+- Solo botón ← atrás visible
+- Animaciones celebrateIn + checkPop
+
+- 3.1 v0.42 → v0.43, 3.2 v0.42 → v0.43
+
 ## v0.70 — 2026-05-01
 
 ### slide-vito-2 (3.2 #06) — Auditoría a11y + responsive completa

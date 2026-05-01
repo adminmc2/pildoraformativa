@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { VitoPill } from "@/components/pildoras-formativas/characters/vito-pill";
 import { CharacterStage } from "@/components/pildoras-formativas/shared/character-stage";
-import { PencilSimple } from "@phosphor-icons/react";
+import { PencilSimple, SealCheck } from "@phosphor-icons/react";
 
 /* ── Tarjetas encadenables con conectores ──
    Cada tarjeta lleva su conector integrado.
@@ -19,13 +19,15 @@ const V = ({ children }: { children: React.ReactNode }) => (
 );
 
 /* ── Datos ── */
-type Card = { title: string; phrase: React.ReactNode };
+type Card = { title?: string; phrase: React.ReactNode };
 type Group = {
   label: string;
   color: string;
   soft: string;
   hint: string;
   cards: Card[];
+  /** Tarjeta de cierre que SIEMPRE se incluye (visualmente separada) */
+  closing?: { phrase: React.ReactNode; note: string };
 };
 
 const GROUPS: Group[] = [
@@ -35,23 +37,31 @@ const GROUPS: Group[] = [
     soft: "#E8F5E0",
     hint: "Todos empiezan igual",
     cards: [
-      { title: "Saludo", phrase: <>¡Hola, ___! ¿Qué tal estás?</> },
+      { phrase: <>¡Hola, ___! ¿Qué tal estás?</> },
     ],
   },
   {
-    label: "FAMILIA",
+    label: "TUS PADRES",
     color: "#C0392B",
     soft: "#FADBD8",
-    hint: "Elige las tarjetas que necesites",
+    hint: "Elige la opción que encaja contigo",
     cards: [
-      { title: "Padre y madre", phrase: <><V>Hoy te hablo de mi familia:</V> mi padre trabaja en ___ <V>y</V> mi madre en ___.</> },
-      { title: "Solo con madre", phrase: <><V>Hoy te hablo de mi familia:</V> vivo con mi madre. Trabaja en ___.</> },
-      { title: "Solo con padre", phrase: <><V>Hoy te hablo de mi familia:</V> vivo con mi padre. Trabaja en ___.</> },
-      { title: "Con hermano/a", phrase: <>Mi hermano/a ___ tiene ___ años.</> },
-      { title: "Más hermanos", phrase: <><V>Y</V> mi hermana/o ___ tiene ___.</> },
-      { title: "Sin hermanos", phrase: <>Soy hijo/a único/a.</> },
-      { title: "Pregunta", phrase: <><V>¿Y tú?</V></> },
+      { title: "Si vives con padre y madre", phrase: <><V>Hoy te hablo de mi familia:</V> mi padre trabaja en ___ <V>y</V> mi madre en ___.</> },
+      { title: "Si solo vives con tu madre", phrase: <><V>Hoy te hablo de mi familia:</V> vivo con mi madre. Trabaja en ___.</> },
+      { title: "Si solo vives con tu padre", phrase: <><V>Hoy te hablo de mi familia:</V> vivo con mi padre. Trabaja en ___.</> },
     ],
+  },
+  {
+    label: "TUS HERMANOS",
+    color: "#C0392B",
+    soft: "#FADBD8",
+    hint: "Elige según tu caso",
+    cards: [
+      { title: "Para cada hermano/a", phrase: <>Mi hermano/a ___ tiene ___ años.</> },
+      { title: "Si tienes más de uno/a", phrase: <><V>Y</V> mi hermana/o ___ tiene ___.</> },
+      { title: "Si eres hijo/a único/a", phrase: <>Soy hijo/a único/a.</> },
+    ],
+    closing: { phrase: <V>¿Y tú?</V>, note: "Incluye SIEMPRE al final" },
   },
   {
     label: "AMIGOS",
@@ -59,8 +69,8 @@ const GROUPS: Group[] = [
     soft: "#FEF5E7",
     hint: "Elige una o las dos",
     cards: [
-      { title: "Muchos amigos", phrase: <><V>Yo este año</V> tengo muchos amigos: ___…</> },
-      { title: "Mejor amigo/a", phrase: <>Mi mejor amigo/a se llama ___.</> },
+      { title: "Tus amigos de clase", phrase: <><V>Yo este año</V> tengo muchos amigos: ___…</> },
+      { title: "Tu mejor amigo/a", phrase: <>Mi mejor amigo/a se llama ___.</> },
     ],
   },
   {
@@ -69,9 +79,9 @@ const GROUPS: Group[] = [
     soft: "#D6EAF8",
     hint: "Copia las que quieras",
     cards: [
-      { title: "Deberes", phrase: <><V>Este curso</V> tengo deberes de ___ y ___.</> },
-      { title: "Me gusta", phrase: <><V>A mí</V> me gusta mucho ___.</> },
-      { title: "Pregunta", phrase: <><V>¿Tú también</V> tienes muchos deberes?</> },
+      { title: "Tus deberes", phrase: <><V>Este curso</V> tengo deberes de ___ y ___.</> },
+      { title: "Tu asignatura favorita", phrase: <><V>A mí</V> me gusta mucho ___.</> },
+      { title: "Pregunta a tu amigo", phrase: <><V>¿Tú también</V> tienes muchos deberes?</> },
     ],
   },
   {
@@ -80,8 +90,8 @@ const GROUPS: Group[] = [
     soft: "#EDEBFF",
     hint: "Todos terminan igual",
     cards: [
-      { title: "Despedida", phrase: <>¡Un saludo desde ___!</> },
-      { title: "Firma", phrase: <>Tu nombre</> },
+      { phrase: <>¡Un saludo desde ___!</> },
+      { phrase: <>Tu nombre</> },
     ],
   },
 ];
@@ -89,11 +99,12 @@ const GROUPS: Group[] = [
 const BUBBLES: React.ReactNode[] = [
   <>Ahora toca <V>escribir</V> el correo. Elige las tarjetas que necesites y cópialas en orden.</>,
   <>Empieza con el <V>saludo</V>. Es igual para todos.</>,
-  <>Elige las tarjetas de <V>familia</V> que encajan contigo. El texto naranja son los conectores: cópialos tal cual.</>,
+  <>Habla de tus <V>padres</V>. Elige la opción que encaja contigo.</>,
+  <>Habla de tus <V>hermanos</V>. Después acaba siempre con <V>¿Y tú?</V> para preguntar a tu amigo.</>,
   <>Elige una o dos tarjetas de <V>amigos</V>.</>,
   <>Escribe sobre la <V>escuela</V>. Copia los conectores en naranja.</>,
   <>Termina con la <V>despedida</V> y firma con tu nombre.</>,
-  <>¡Correo <V>terminado</V>! Lee en voz alta lo que has escrito.</>,
+  <>¡Habéis escrito un correo con los conectores: <V>Hoy te hablo de</V>, <V>y</V>, <V>también</V>, <V>Este curso</V>...! Leedlo en voz alta.</>,
 ];
 
 export function SlideVito2() {
@@ -136,14 +147,67 @@ export function SlideVito2() {
             {step < totalSteps ? "Tu correo: elige y conecta" : "¡Correo listo!"}
           </h1>
 
-          {/* Instrucción */}
-          <p
-            className="font-semibold text-white bg-[var(--color-pf-ink)] px-5 py-1.5 rounded-full w-fit flex items-center gap-2"
-            style={{ fontSize: "clamp(24px, 1.8vw, 32px)" }}
-          >
-            <PencilSimple size={22} weight="bold" />
-            Elige tarjetas, copia en orden
-          </p>
+          {/* Instrucción + leyenda en un solo bloque (ocultas en estado final) */}
+          {step < totalSteps && (
+            <div
+              className="bg-[var(--color-pf-ink)] text-white rounded-[20px] px-5 py-3 w-fit flex flex-col gap-1.5"
+            >
+              <p
+                className="font-semibold flex items-center gap-2"
+                style={{ fontSize: "clamp(24px, 1.8vw, 32px)" }}
+              >
+                <PencilSimple size={22} weight="bold" />
+                Elige tarjetas, copia en orden
+              </p>
+              <p
+                className="font-medium"
+                style={{ fontSize: "clamp(22px, 1.8vw, 28px)" }}
+              >
+                <span className="font-bold">___</span> = tus datos
+                <span className="mx-3 opacity-50">·</span>
+                <V>naranja</V> = cópialo tal cual
+              </p>
+            </div>
+          )}
+
+          {/* Celebración final */}
+          {step === totalSteps && (
+            <div
+              className="flex flex-col items-start gap-4 mt-2"
+              style={{ animation: "celebrateIn 600ms cubic-bezier(0.2,0.8,0.2,1)" }}
+            >
+              <div
+                className="flex items-center gap-4 px-6 py-4 rounded-[24px]"
+                style={{
+                  background: "var(--color-pf-pill-soft)",
+                  border: "3px solid #3F6B14",
+                }}
+              >
+                <SealCheck
+                  size={72}
+                  weight="fill"
+                  style={{
+                    color: "#3F6B14",
+                    animation: "checkPop 700ms cubic-bezier(0.2,0.8,0.2,1)",
+                  }}
+                />
+                <div className="flex flex-col gap-1">
+                  <span
+                    className="font-[family-name:var(--font-pf-display)] uppercase tracking-wider leading-[0.95]"
+                    style={{ fontSize: "clamp(44px, 4vw, 64px)", color: "#3F6B14" }}
+                  >
+                    ¡Has terminado!
+                  </span>
+                  <span
+                    className="text-[var(--color-pf-ink)] opacity-80"
+                    style={{ fontSize: "clamp(20px, 1.6vw, 24px)" }}
+                  >
+                    Lee en voz alta lo que has escrito.
+                  </span>
+                </div>
+              </div>
+            </div>
+          )}
 
           {/* Tarjetas del grupo actual */}
           {visibleIdx >= 0 && visibleIdx < GROUPS.length && (
@@ -153,19 +217,19 @@ export function SlideVito2() {
               style={{ animation: "cardIn 400ms cubic-bezier(0.2,0.8,0.2,1)" }}
             >
               {/* Etiqueta del grupo */}
-              <div className="flex items-center gap-2 mb-2 flex-shrink-0">
+              <div className="flex flex-wrap items-baseline gap-2 mb-2 flex-shrink-0">
                 <span
                   className="font-[family-name:var(--font-pf-display)] tracking-wider"
                   style={{
-                    fontSize: "clamp(20px, 1.6vw, 24px)",
+                    fontSize: "clamp(24px, 2vw, 32px)",
                     color: GROUPS[visibleIdx].color,
                   }}
                 >
                   {GROUPS[visibleIdx].label}
                 </span>
                 <span
-                  className="opacity-80"
-                  style={{ fontSize: "clamp(18px, 1.3vw, 20px)" }}
+                  className="opacity-80 font-medium"
+                  style={{ fontSize: "clamp(22px, 1.8vw, 28px)" }}
                 >
                   — {GROUPS[visibleIdx].hint}
                 </span>
@@ -180,22 +244,27 @@ export function SlideVito2() {
                   {GROUPS[visibleIdx].cards.map((card, j) => (
                     <div
                       key={j}
-                      className="flex-1 min-w-[200px] max-w-[340px] rounded-[14px] border-2 p-3"
+                      className="flex-1 rounded-[14px] border-2 p-3"
                       style={{
+                        minWidth: "240px",
+                        maxWidth: "340px",
+                        flexBasis: "240px",
                         borderColor: GROUPS[visibleIdx].color,
                         background: GROUPS[visibleIdx].soft,
                         animation: `rowIn ${300 + j * 80}ms ease-out`,
                       }}
                     >
-                      <span
-                        className="font-[family-name:var(--font-pf-display)] tracking-wide block mb-1"
-                        style={{
-                          fontSize: "clamp(18px, 1.3vw, 20px)",
-                          color: GROUPS[visibleIdx].color,
-                        }}
-                      >
-                        {card.title}
-                      </span>
+                      {card.title && (
+                        <span
+                          className="font-[family-name:var(--font-pf-display)] tracking-wide block mb-1"
+                          style={{
+                            fontSize: "clamp(18px, 1.3vw, 20px)",
+                            color: GROUPS[visibleIdx].color,
+                          }}
+                        >
+                          {card.title}
+                        </span>
+                      )}
                       <p
                         className="leading-snug text-[var(--color-pf-ink)]"
                         style={{ fontSize: "clamp(26px, 2.2vw, 36px)" }}
@@ -205,6 +274,43 @@ export function SlideVito2() {
                     </div>
                   ))}
                 </div>
+
+                {/* Tarjeta de cierre — siempre incluir (visualmente separada) */}
+                {GROUPS[visibleIdx].closing && (
+                  <div
+                    className="mt-3 rounded-[14px] border-2 border-dashed p-3 flex items-center gap-3"
+                    style={{
+                      borderColor: GROUPS[visibleIdx].color,
+                      background: "white",
+                      animation: "rowIn 600ms ease-out",
+                    }}
+                  >
+                    <span
+                      className="font-[family-name:var(--font-pf-display)] tracking-wider px-3 py-1 rounded-full flex-shrink-0"
+                      style={{
+                        fontSize: "clamp(16px, 1.2vw, 18px)",
+                        background: GROUPS[visibleIdx].color,
+                        color: "white",
+                      }}
+                    >
+                      SIEMPRE
+                    </span>
+                    <div className="flex flex-col gap-0.5 min-w-0">
+                      <p
+                        className="leading-snug text-[var(--color-pf-ink)]"
+                        style={{ fontSize: "clamp(26px, 2.2vw, 36px)" }}
+                      >
+                        {GROUPS[visibleIdx].closing!.phrase}
+                      </p>
+                      <span
+                        className="opacity-70 italic"
+                        style={{ fontSize: "clamp(16px, 1.2vw, 18px)" }}
+                      >
+                        {GROUPS[visibleIdx].closing!.note}
+                      </span>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           )}
@@ -220,21 +326,19 @@ export function SlideVito2() {
             >
               ←
             </button>
-            <button
-              onClick={() => canNext && setStep(step + 1)}
-              disabled={!canNext}
-              className="px-7 py-2.5 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] disabled:opacity-40 hover:opacity-90 transition min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-pf-spark)] focus-visible:ring-offset-2"
-              style={{
-                fontSize: "clamp(20px, 1.6vw, 24px)",
-                animation: step === 0 ? "btnPulse 2s ease-in-out infinite" : undefined,
-              }}
-            >
-              {step === 0
-                ? "EMPEZAR"
-                : step === totalSteps
-                  ? "COMPLETADO"
-                  : "SIGUIENTE"}
-            </button>
+            {step < totalSteps && (
+              <button
+                onClick={() => canNext && setStep(step + 1)}
+                disabled={!canNext}
+                className="px-7 py-2.5 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] disabled:opacity-40 hover:opacity-90 transition min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-pf-spark)] focus-visible:ring-offset-2"
+                style={{
+                  fontSize: "clamp(20px, 1.6vw, 24px)",
+                  animation: step === 0 ? "btnPulse 2s ease-in-out infinite" : undefined,
+                }}
+              >
+                {step === 0 ? "EMPEZAR" : "SIGUIENTE"}
+              </button>
+            )}
             <span
               className="text-[var(--color-pf-ink)] font-semibold opacity-70"
               style={{ fontSize: "clamp(18px, 1.3vw, 20px)" }}
@@ -262,6 +366,15 @@ export function SlideVito2() {
         @keyframes btnPulse {
           0%, 100% { box-shadow: 0 0 0 0 rgba(10, 10, 10, 0.28); }
           50% { box-shadow: 0 0 0 18px rgba(10, 10, 10, 0); }
+        }
+        @keyframes celebrateIn {
+          0% { opacity: 0; transform: translateY(20px) scale(0.95); }
+          100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        @keyframes checkPop {
+          0% { transform: scale(0) rotate(-10deg); }
+          60% { transform: scale(1.15) rotate(5deg); }
+          100% { transform: scale(1) rotate(0); }
         }
         /* Scrollbar visible siempre en el wrapper de tarjetas */
         .cards-scroll {
