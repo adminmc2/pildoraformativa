@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.67 — 2026-05-01
+
+### Píldora 3.2 — Slide #05 BLOQUEADA
+- slide-vito-1 marcada como bloqueada en memoria del proyecto
+- No se modifica sin permiso explícito del usuario
+
 ## v0.66 — 2026-05-01
 
 ### slide-vito-1 (3.2 #05) — Tabla: tamaño + cabecera fija + scrollbar
