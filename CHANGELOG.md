@@ -1,6 +1,13 @@
 # Changelog
 
-## v0.68 — 2026-05-01
+## v0.69 — 2026-05-01
+
+### slide-vito-1 (#05) — 3 fixes menores
+- **Hint `opacity-60` → `opacity-80`**: columna "TÚ ESCRIBES…" más legible en proyector con luz ambiental (contraste ≥3:1)
+- **`btnPulse` en botón EMPEZAR**: animación de pulso cuando `step === 0`, consistente con vito-2 y el resto del proyecto
+- **Burbuja final (paso 6)**: puente explícito a la siguiente slide — `¡Ya está el plan! En la siguiente diapositiva escribimos el correo paso a paso.`
+- Eliminado keyframe `@keyframes btnPulse` duplicado en `<style jsx>`
+- 3.1 v0.40 → v0.41, 3.2 v0.40 → v0.41
 
 ### Guía de accesibilidad — Nueva categoría "Contenido protagonista de actividad"
 - Añadida fila a la tabla de tamaños de texto en `docs/CLAUDE-responsive-accesibilidad.md`

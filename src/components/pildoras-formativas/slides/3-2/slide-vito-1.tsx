@@ -40,7 +40,7 @@ const BUBBLES: React.ReactNode[] = [
   <>Ahora tus <V>amigos</V>: escribe 2-3 nombres de clase.</>,
   <>¿De qué <V>asignaturas</V> tienes más deberes?</>,
   <>Última fila: ¿cuál es tu asignatura <V>favorita</V>?</>,
-  <>¡Ya está el <V>plan</V>! En la siguiente diapositiva escribimos el correo paso a paso.</>,
+  <>¡Ya está el <V>plan</V>! En la siguiente diapositiva <V>escribimos</V> el correo paso a paso.</>,
 ];
 
 export function SlideVito1() {
