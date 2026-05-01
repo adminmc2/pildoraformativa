@@ -1,5 +1,19 @@
 # Changelog
 
+## v0.68 — 2026-05-01
+
+### Guía de accesibilidad — Nueva categoría "Contenido protagonista de actividad"
+- Añadida fila a la tabla de tamaños de texto en `docs/CLAUDE-responsive-accesibilidad.md`
+- Categoría: contenido principal que el alumno debe leer activamente (tablas, modelos de lectura, ejemplos a copiar)
+- Rango: mín 24px, recomendado **26-36px**
+- Justificación: en proyector a 3-5m el contenido focal de la actividad necesita más cuerpo que texto general (que es 22-24px). No tan grande como diana (que es para gramática estudiada). El tamaño actual de la tabla `Marta dice / Tú escribes` (26-36px) entra en esta categoría.
+
+### slide-vito-1 (3.2 #05) — 3 ajustes finales
+- Hint column: `opacity-60` → `opacity-80` (mejor contraste en proyector)
+- Botón EMPEZAR: añadida animación `btnPulse` cuando `step === 0` (consistencia con resto de slides)
+- Burbuja final: añadido puente explícito a la siguiente diapositiva (vito-2)
+- 3.1 v0.40 → v0.41, 3.2 v0.40 → v0.41
+
 ## v0.67 — 2026-05-01
 
 ### Píldora 3.2 — Slide #05 BLOQUEADA

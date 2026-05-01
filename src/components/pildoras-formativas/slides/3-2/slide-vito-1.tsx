@@ -40,7 +40,7 @@ const BUBBLES: React.ReactNode[] = [
   <>Ahora tus <V>amigos</V>: escribe 2-3 nombres de clase.</>,
   <>¿De qué <V>asignaturas</V> tienes más deberes?</>,
   <>Última fila: ¿cuál es tu asignatura <V>favorita</V>?</>,
-  <>¡Ya está el <V>plan</V>! Con estos datos toca <V>escribir</V> el correo.</>,
+  <>¡Ya está el <V>plan</V>! En la siguiente diapositiva escribimos el correo paso a paso.</>,
 ];
 
 export function SlideVito1() {
@@ -170,7 +170,7 @@ export function SlideVito1() {
                           className="opacity-25 flex-shrink-0"
                         />
                         <span
-                          className="leading-snug text-[var(--color-pf-ink)] opacity-60"
+                          className="leading-snug text-[var(--color-pf-ink)] opacity-80"
                           style={{ fontSize: "clamp(26px, 2.2vw, 36px)" }}
                         >
                           {row.hint}
@@ -198,7 +198,10 @@ export function SlideVito1() {
               onClick={() => canNext && setStep(step + 1)}
               disabled={!canNext}
               className="px-7 py-2.5 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] disabled:opacity-40 hover:opacity-90 transition min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-pf-spark)] focus-visible:ring-offset-2"
-              style={{ fontSize: "clamp(20px, 1.6vw, 24px)" }}
+              style={{
+                fontSize: "clamp(20px, 1.6vw, 24px)",
+                animation: step === 0 ? "btnPulse 2s ease-in-out infinite" : undefined,
+              }}
             >
               {step === 0
                 ? "EMPEZAR"
@@ -241,6 +244,10 @@ export function SlideVito1() {
             opacity: 1;
             transform: translateX(0);
           }
+        }
+        @keyframes btnPulse {
+          0%, 100% { box-shadow: 0 0 0 0 rgba(10, 10, 10, 0.28); }
+          50% { box-shadow: 0 0 0 18px rgba(10, 10, 10, 0); }
         }
         /* Scrollbar visible siempre en la tabla (mismo patrón que slide-pili-1) */
         .table-scroll {

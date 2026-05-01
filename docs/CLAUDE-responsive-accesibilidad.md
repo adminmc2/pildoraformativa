@@ -37,9 +37,12 @@
 | Texto secundario (etiquetas, micro-info) | **18px** | 20px |
 | Texto general (frases, párrafos) | **20px** | 22-24px |
 | Enunciados / preguntas | **24px** | 28-32px |
+| Contenido protagonista de actividad (tabla, modelo de lectura, ejemplo proyectado a copiar) | **24px** | 26-36px |
 | Elemento diana (gramática estudiada) | **28px** | 32-40px (con color + bold) |
 | Títulos de slide | **36px** | 48-64px |
 | Botones de acción | **20px** | 24px |
+
+**Nota:** "Contenido protagonista de actividad" es el contenido principal que el alumno **debe leer activamente** (tabla "Marta dice / Tú escribes" en vito-1, modelo del email de Marta en pili-1, etc.). En proyector a 3-5m, este contenido necesita más cuerpo que texto general porque es el foco visual de la actividad. Para slides con poco contenido y mucho diálogo, usar texto general (22-24px). Para slides con tabla/modelo central, usar este nivel (26-36px).
 
 ### Contraste
 
