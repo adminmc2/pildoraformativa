@@ -1,5 +1,29 @@
 # Changelog
 
+## v0.76 — 2026-05-01
+
+### slide-chipi (3.2 #08) — Tamaños "contenido protagonista" + nombre en línea propia
+
+**Datos de emails (los 12)** — `\n` antes del nombre en el cierre. Ahora "¡Un abrazo desde Salamanca!" y "Lucía" salen en líneas separadas. Render con `whitespace-pre-line` en columna FRAGMENTOS, slot del email center y email reference.
+
+**Email reference (phase=question, columna izquierda)** — antes mostraba cada fragmento en línea propia (incluido "y" solo). Ahora agrupado por `EMAIL_PARAGRAPHS`: conector inline con su frase. Patrón scroll: `flex flex-col + maxHeight 62vh + flex-shrink-0 header + overflow-y-auto body`.
+
+**Sizes subidos a "contenido protagonista de actividad" (clamp 26-32 / 28-40)**:
+- Columna FRAGMENTOS: items `clamp(22-26)` → `clamp(26-32)`, label `clamp(18-20)` → `clamp(20-24)`
+- Email center De/Para/Asunto: `clamp(20-24)` → `clamp(22-26)`; slot text `clamp(22-26)` → `clamp(26-32)`
+- Email reference De/Para/Asunto: `clamp(18-22)` → `clamp(22-28)`; párrafos `clamp(20-24)` → `clamp(26-32)`
+- Pregunta: `clamp(24-32)` → `clamp(28-40)` (enunciado protagonista)
+- Letra A/B/C: `clamp(20-24)` → `clamp(26-32)` + bold; opciones `clamp(20-24)` → `clamp(24-30)`
+- Padding botones de opción: `py-2.5 px-4` → `py-3.5 px-5`
+- "¿Cómo se juega?" label `clamp(24-32)` → `clamp(28-36)`; lista `clamp(22-28)` → `clamp(26-32)`
+- Badges de puntuación (correos, Orden, Rapidez, Comprensión): `clamp(20-24)` → `clamp(24-30)`
+
+**Bug visual fragmentos** — botones se solapaban en flex-col + overflow-y-auto. Causa: faltaba `flex-shrink-0` en cada item. Fix: añadido `flex-shrink-0`, `<p>` → `<span display:block>` para evitar margins de párrafo, `lineHeight: 1.4` explícito, `height: auto`. Gap items `gap-1` → `gap-2`. Padding `py-1.5 px-2.5` → `py-3 px-3`.
+
+**maxHeight 52vh → 62vh** en columna FRAGMENTOS y email center (más aire vertical, scroll solo si excede).
+
+**Versiones**: 3.1 v0.47 → v0.48, 3.2 v0.75 → v0.76.
+
 ## v0.75 — 2026-04-30
 
 ### slide-chipi (3.2 #08) — Auditoría completa de accesibilidad y responsive

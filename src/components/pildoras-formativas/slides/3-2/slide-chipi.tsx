@@ -32,7 +32,7 @@ const EMAILS: Email[] = [
       "trabaja en un hospital.",
       "Tengo una hermana: se llama Eva y tiene seis años.",
       "¿Y tú? ¿Cuántos hermanos tienes?",
-      "¡Un abrazo desde Sevilla! Laura",
+      "¡Un abrazo desde Sevilla!\nLaura",
     ],
     shuffle: [3, 5, 1, 7, 0, 4, 2, 6],
     question: "El padre de Laura trabaja en un hospital.",
@@ -50,7 +50,7 @@ const EMAILS: Email[] = [
       "También",
       "está en mi clase.",
       "¿Y tú? ¿En qué trabajan tus padres?",
-      "¡Un saludo desde Madrid! Carlos",
+      "¡Un saludo desde Madrid!\nCarlos",
     ],
     shuffle: [2, 5, 8, 1, 6, 0, 9, 3, 7, 4],
     question: "Lucas y Carlos están en clases diferentes.",
@@ -67,7 +67,7 @@ const EMAILS: Email[] = [
       "También",
       "me gusta la Música.",
       "¿Y tú? ¿Cuál es tu asignatura favorita?",
-      "¡Un abrazo desde Barcelona! Ana",
+      "¡Un abrazo desde Barcelona!\nAna",
     ],
     shuffle: [4, 7, 2, 0, 5, 8, 1, 6, 3],
     question: "Ana tiene deberes de Música.",
@@ -83,7 +83,7 @@ const EMAILS: Email[] = [
       "tiene once años.",
       "Tengo otro amigo: se llama Mateo y es muy simpático.",
       "¿Y tú? ¿Cómo se llama tu mejor amigo?",
-      "¡Un saludo desde Valencia! Pablo",
+      "¡Un saludo desde Valencia!\nPablo",
     ],
     shuffle: [3, 6, 0, 5, 2, 7, 1, 4],
     question: "El mejor amigo de Pablo se llama Mateo.",
@@ -99,7 +99,7 @@ const EMAILS: Email[] = [
       "tengo una hermana: se llama Lara.",
       "Iker tiene quince años y Lara tiene siete.",
       "¿Y tú? ¿Cuántos hermanos tienes?",
-      "¡Un abrazo desde Bilbao! Sofía",
+      "¡Un abrazo desde Bilbao!\nSofía",
     ],
     shuffle: [4, 0, 6, 2, 7, 1, 5, 3],
     question: "Sofía tiene un hermano pequeño.",
@@ -115,7 +115,7 @@ const EMAILS: Email[] = [
       "de Ciencias Naturales.",
       "Mi asignatura favorita es Educación Física.",
       "¿Y tú? ¿Tienes muchos deberes este curso?",
-      "¡Un saludo desde Granada! Diego",
+      "¡Un saludo desde Granada!\nDiego",
     ],
     shuffle: [2, 5, 0, 7, 3, 6, 1, 4],
     question: "¿Cuál es la asignatura favorita de Diego?",
@@ -131,7 +131,7 @@ const EMAILS: Email[] = [
       "También",
       "es muy gracioso.",
       "¿Tienes amigos nuevos este curso?",
-      "¡Un saludo desde Málaga! Elena",
+      "¡Un saludo desde Málaga!\nElena",
     ],
     shuffle: [4, 1, 6, 0, 3, 7, 2, 5],
     question: "Bruno es un amigo de toda la vida de Elena.",
@@ -147,7 +147,7 @@ const EMAILS: Email[] = [
       "y",
       "es muy joven.",
       "Sus clases son muy divertidas.",
-      "¡Un saludo desde Zaragoza! Marcos",
+      "¡Un saludo desde Zaragoza!\nMarcos",
     ],
     shuffle: [4, 0, 5, 2, 7, 1, 6, 3],
     question: "El profesor de Matemáticas es mayor y aburrido.",
@@ -163,7 +163,7 @@ const EMAILS: Email[] = [
       "y",
       "vive en otra ciudad.",
       "¿Tu hermana también estudia?",
-      "¡Un abrazo desde Salamanca! Lucía",
+      "¡Un abrazo desde Salamanca!\nLucía",
     ],
     shuffle: [3, 6, 1, 4, 0, 7, 2, 5],
     question: "¿Qué estudia Sara, la hermana de Lucía?",
@@ -179,7 +179,7 @@ const EMAILS: Email[] = [
       "estoy en clase hasta las tres de la tarde.",
       "Tengo seis asignaturas todos los días.",
       "¿A qué hora vas al instituto?",
-      "¡Un saludo desde Toledo! Javier",
+      "¡Un saludo desde Toledo!\nJavier",
     ],
     shuffle: [3, 0, 5, 2, 7, 1, 6, 4],
     question: "Javier tiene clases por la noche.",
@@ -197,7 +197,7 @@ const EMAILS: Email[] = [
       "También",
       "estudia inglés los miércoles.",
       "¿Cómo se llama tu mejor amiga?",
-      "¡Un abrazo desde Córdoba! María",
+      "¡Un abrazo desde Córdoba!\nMaría",
     ],
     shuffle: [3, 6, 1, 8, 0, 5, 9, 2, 4, 7],
     question: "Carla estudia inglés todos los días.",
@@ -216,7 +216,7 @@ const EMAILS: Email[] = [
       "También",
       "está en mi clase de Inglés.",
       "¿Cómo se llama tu mejor amigo?",
-      "¡Un saludo desde Alicante! Daniel",
+      "¡Un saludo desde Alicante!\nDaniel",
     ],
     shuffle: [2, 7, 4, 0, 8, 5, 10, 1, 6, 3, 9],
     question: "¿Quién es Hugo?",
@@ -816,11 +816,12 @@ export function SlideChipi() {
         {(phase === "play" || phase === "check") && (
           <div className="w-full max-w-[1800px] grid grid-cols-1 md:grid-cols-[1.2fr_2.5fr_1fr] gap-3 md:gap-5 items-start">
             {/* LEFT: Scrambled fragments — compact list */}
-            <div className="flex flex-col gap-1 min-w-0" style={{ maxHeight: "52vh", overflowY: "auto" }}>
-              <p className="font-[family-name:var(--font-pf-display)] tracking-wider mb-0.5"
-                style={{ fontSize: "clamp(18px, 1.5vw, 20px)", color: "var(--color-pf-spark)" }}>
+            <div className="flex flex-col gap-1 min-w-0 overflow-hidden" style={{ maxHeight: "62vh" }}>
+              <p className="font-[family-name:var(--font-pf-display)] tracking-wider mb-0.5 flex-shrink-0"
+                style={{ fontSize: "clamp(20px, 1.6vw, 24px)", color: "var(--color-pf-spark)" }}>
                 FRAGMENTOS
               </p>
+              <div className="flex flex-col gap-2 overflow-y-auto flex-1 pr-1">
               {email.shuffle.map((fragIdx, displayIdx) => {
                 const displayNum = displayIdx + 1;
                 const isPlaced = phase === "check" && slots.includes(displayNum);
@@ -829,46 +830,49 @@ export function SlideChipi() {
                   <button key={displayIdx}
                     onClick={() => phase === "check" && !verified && selectFragment(displayNum)}
                     disabled={phase !== "check" || verified}
-                    className="flex items-start gap-2 px-2.5 py-1.5 min-h-[44px] rounded-lg text-left transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-pf-spark)] focus-visible:ring-offset-2"
+                    className="flex-shrink-0 flex items-start gap-2 px-3 py-3 rounded-lg text-left transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-pf-spark)] focus-visible:ring-offset-2"
                     style={{
                       background: isSelected ? "var(--color-pf-spark)" : "white",
                       border: isSelected ? "2px solid var(--color-pf-spark)" : "1px solid rgba(0,0,0,0.08)",
                       opacity: isPlaced && !isSelected ? 0.35 : 1,
                       cursor: phase === "check" && !verified ? "pointer" : "default",
                       boxShadow: isSelected ? "0 4px 16px rgba(0,0,0,0.15)" : "none",
+                      lineHeight: 1.4,
+                      height: "auto",
                     }}>
                     <span className="font-[family-name:var(--font-pf-display)] flex-shrink-0 w-7 text-center font-bold"
-                      style={{ fontSize: "clamp(22px, 2.2vw, 26px)", color: isSelected ? "#fff" : "var(--color-pf-spark)" }}>
+                      style={{ fontSize: "clamp(26px, 2.4vw, 32px)", lineHeight: 1.4, color: isSelected ? "#fff" : "var(--color-pf-spark)" }}>
                       {displayNum}
                     </span>
-                    <p className="font-[family-name:var(--font-pf-display)] leading-snug"
-                      style={{ fontSize: "clamp(22px, 2.2vw, 26px)", color: isSelected ? "#fff" : "var(--color-pf-ink)" }}>
+                    <span className="font-[family-name:var(--font-pf-display)] flex-1 min-w-0 break-words whitespace-pre-line"
+                      style={{ fontSize: "clamp(26px, 2.4vw, 32px)", lineHeight: 1.4, color: isSelected ? "#fff" : "var(--color-pf-ink)", display: "block" }}>
                       {email.fragments[fragIdx]}
-                    </p>
+                    </span>
                   </button>
                 );
               })}
+              </div>
             </div>
 
             {/* CENTER: Email template — prominent */}
-            <div className="min-w-0 rounded-2xl overflow-hidden"
-              style={{ background: "#FFFDF7", border: "2px solid rgba(0,0,0,0.12)", boxShadow: "0 6px 28px rgba(0,0,0,0.08)", maxHeight: "52vh", overflowY: "auto" }}>
+            <div className="min-w-0 rounded-2xl overflow-hidden flex flex-col"
+              style={{ background: "#FFFDF7", border: "2px solid rgba(0,0,0,0.12)", boxShadow: "0 6px 28px rgba(0,0,0,0.08)", maxHeight: "62vh" }}>
               {/* Email header */}
-              <div className="px-5 py-3"
+              <div className="px-5 py-3 flex-shrink-0"
                 style={{ background: "#F5F0E8", borderBottom: "1px solid rgba(0,0,0,0.1)" }}>
-                <p className="font-[family-name:var(--font-pf-display)] text-[var(--color-pf-ink)]" style={{ fontSize: "clamp(20px, 2vw, 24px)" }}>
+                <p className="font-[family-name:var(--font-pf-display)] text-[var(--color-pf-ink)]" style={{ fontSize: "clamp(22px, 2vw, 26px)" }}>
                   <span className="opacity-40">De:</span> <span className="font-semibold">{email.author}@correo.es</span>
                 </p>
-                <p className="font-[family-name:var(--font-pf-display)] text-[var(--color-pf-ink)]" style={{ fontSize: "clamp(20px, 2vw, 24px)" }}>
+                <p className="font-[family-name:var(--font-pf-display)] text-[var(--color-pf-ink)]" style={{ fontSize: "clamp(22px, 2vw, 26px)" }}>
                   <span className="opacity-40">Para:</span> <span className="font-semibold">{email.recipient}@correo.com</span>
                 </p>
-                <p className="font-[family-name:var(--font-pf-display)] text-[var(--color-pf-ink)]" style={{ fontSize: "clamp(20px, 2vw, 24px)" }}>
+                <p className="font-[family-name:var(--font-pf-display)] text-[var(--color-pf-ink)]" style={{ fontSize: "clamp(22px, 2vw, 26px)" }}>
                   <span className="opacity-40">Asunto:</span> <span className="font-semibold">{email.subject}</span>
                 </p>
               </div>
 
               {/* Slots — body of the email, agrupados por párrafo */}
-              <div className="flex flex-col gap-4 p-4">
+              <div className="flex flex-col gap-4 p-4 overflow-y-auto flex-1">
                 {EMAIL_PARAGRAPHS[emailIndices[roundIdx] ?? 0].map((slotIdxs, pIdx) => (
                   <div key={pIdx} className="flex flex-wrap items-baseline gap-x-2 gap-y-1.5">
                     {slotIdxs.map((slotIdx) => {
@@ -899,8 +903,8 @@ export function SlideChipi() {
                             }}>
                             {hasValue ? slotVal : "?"}
                           </span>
-                          <span className="font-[family-name:var(--font-pf-display)] leading-snug"
-                            style={{ fontSize: "clamp(22px, 2.2vw, 26px)", color: fragmentText ? "var(--color-pf-ink)" : "rgba(0,0,0,0.3)" }}>
+                          <span className="font-[family-name:var(--font-pf-display)] leading-snug whitespace-pre-line"
+                            style={{ fontSize: "clamp(26px, 2.4vw, 32px)", color: fragmentText ? "var(--color-pf-ink)" : "rgba(0,0,0,0.3)" }}>
                             {fragmentText || (isDropTarget ? "Colocar aquí" : "· · · · · · ·")}
                           </span>
                         </button>
@@ -916,7 +920,7 @@ export function SlideChipi() {
                     {email.fragments.map((frag, i) => {
                       const displayNum = email.shuffle.indexOf(i) + 1;
                       return (
-                        <p key={i} className="font-[family-name:var(--font-pf-display)] leading-snug text-[var(--color-pf-ink)]" style={{ fontSize: "clamp(18px, 1.6vw, 20px)" }}>
+                        <p key={i} className="font-[family-name:var(--font-pf-display)] leading-snug text-[var(--color-pf-ink)] whitespace-pre-line" style={{ fontSize: "clamp(18px, 1.6vw, 20px)" }}>
                           <span className="font-semibold" style={{ color: "#3F6B14" }}>{displayNum}</span> {frag}
                         </p>
                       );
@@ -936,43 +940,50 @@ export function SlideChipi() {
         {/* QUESTION — email visible + pregunta */}
         {phase === "question" && (
           <div className="w-full max-w-[1800px] grid grid-cols-1 md:grid-cols-[1.3fr_1.2fr_1fr] gap-3 md:gap-5 items-start">
-            {/* LEFT: email ordered for reference */}
-            <div className="min-w-0 rounded-2xl overflow-hidden"
-              style={{ background: "#FFFDF7", border: "1px solid rgba(0,0,0,0.1)", boxShadow: "0 2px 12px rgba(0,0,0,0.05)" }}>
-              <div className="px-4 py-2"
+            {/* LEFT: email ordered for reference — agrupado por párrafos */}
+            <div className="min-w-0 rounded-2xl overflow-hidden flex flex-col"
+              style={{ background: "#FFFDF7", border: "1px solid rgba(0,0,0,0.1)", boxShadow: "0 2px 12px rgba(0,0,0,0.05)", maxHeight: "62vh" }}>
+              <div className="px-4 py-2 flex-shrink-0"
                 style={{ background: "#F5F0E8", borderBottom: "1px solid rgba(0,0,0,0.08)" }}>
-                <p className="font-[family-name:var(--font-pf-display)] text-[var(--color-pf-ink)]" style={{ fontSize: "clamp(18px, 1.8vw, 22px)" }}>
+                <p className="font-[family-name:var(--font-pf-display)] text-[var(--color-pf-ink)]" style={{ fontSize: "clamp(22px, 2vw, 28px)" }}>
                   <span className="opacity-40">De:</span> <span className="font-semibold">{email.author}@correo.es</span>
                 </p>
-                <p className="font-[family-name:var(--font-pf-display)] text-[var(--color-pf-ink)]" style={{ fontSize: "clamp(18px, 1.8vw, 22px)" }}>
+                <p className="font-[family-name:var(--font-pf-display)] text-[var(--color-pf-ink)]" style={{ fontSize: "clamp(22px, 2vw, 28px)" }}>
                   <span className="opacity-40">Para:</span> <span className="font-semibold">{email.recipient}@correo.com</span>
                 </p>
-                <p className="font-[family-name:var(--font-pf-display)] text-[var(--color-pf-ink)]" style={{ fontSize: "clamp(18px, 1.8vw, 22px)" }}>
+                <p className="font-[family-name:var(--font-pf-display)] text-[var(--color-pf-ink)]" style={{ fontSize: "clamp(22px, 2vw, 28px)" }}>
                   <span className="opacity-40">Asunto:</span> <span className="font-semibold">{email.subject}</span>
                 </p>
               </div>
-              <div className="px-4 py-3 space-y-1">
-                {email.fragments.map((frag, i) => (
-                  <p key={i} className="font-[family-name:var(--font-pf-display)] leading-snug text-[var(--color-pf-ink)]" style={{ fontSize: "clamp(20px, 2vw, 24px)" }}>
-                    {frag}
-                  </p>
-                ))}
+              <div className="px-4 py-3 flex flex-col gap-3 overflow-y-auto flex-1">
+                {EMAIL_PARAGRAPHS[emailIndices[roundIdx] ?? 0].map((slotIdxs, pIdx) => {
+                  // El array slotIdxs son posiciones en el orden correcto del email (0..n-1)
+                  // email.fragments está en orden correcto, así que indexamos directo.
+                  const inlineText = slotIdxs.map((i) => email.fragments[i]).join(" ");
+                  return (
+                    <p key={pIdx}
+                      className="font-[family-name:var(--font-pf-display)] leading-snug text-[var(--color-pf-ink)] whitespace-pre-line"
+                      style={{ fontSize: "clamp(26px, 2.4vw, 32px)" }}>
+                      {inlineText}
+                    </p>
+                  );
+                })}
               </div>
             </div>
 
             {/* CENTER: question + options */}
-            <div className="flex flex-col gap-3 justify-center">
-              <p className="font-[family-name:var(--font-pf-display)] leading-snug text-[var(--color-pf-ink)] px-2" style={{ fontSize: "clamp(24px, 2.6vw, 32px)" }}>
+            <div className="flex flex-col gap-4 justify-center">
+              <p className="font-[family-name:var(--font-pf-display)] leading-snug text-[var(--color-pf-ink)] px-2" style={{ fontSize: "clamp(28px, 2.8vw, 40px)" }}>
                 {email.question}
               </p>
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-3">
                 {email.options.map((opt, i) => {
                   const isCorrect = qRevealed && i === email.correct;
                   const isWrong = qRevealed && i !== email.correct;
                   return (
                     <button key={i}
                       onClick={() => { if (!qRevealed) { setQRunning(false); setQRevealed(true); setStep((s) => s + 1); setBubble("¡Veamos la respuesta!"); } }}
-                      className="flex items-center gap-3 px-4 py-2.5 min-h-[44px] rounded-xl transition-all w-full text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-pf-spark)] focus-visible:ring-offset-2"
+                      className="flex items-center gap-3 px-5 py-3.5 min-h-[44px] rounded-xl transition-all w-full text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-pf-spark)] focus-visible:ring-offset-2"
                       style={{
                         background: isCorrect ? "#E8F5E0" : "white",
                         border: isCorrect ? "2px solid #3F6B14" : "2px solid rgba(0,0,0,0.08)",
@@ -980,11 +991,11 @@ export function SlideChipi() {
                         boxShadow: isCorrect ? "0 4px 16px rgba(63,107,20,0.2)" : "none",
                         cursor: qRevealed ? "default" : "pointer",
                       }}>
-                      <span className="font-[family-name:var(--font-pf-display)] w-9 text-center"
-                        style={{ fontSize: "clamp(20px, 2vw, 24px)", color: isCorrect ? "#3F6B14" : "var(--color-pf-spark)" }}>
+                      <span className="font-[family-name:var(--font-pf-display)] w-9 text-center font-bold"
+                        style={{ fontSize: "clamp(26px, 2.4vw, 32px)", color: isCorrect ? "#3F6B14" : "var(--color-pf-spark)" }}>
                         {OPTION_LABELS[i]}
                       </span>
-                      <span className="font-[family-name:var(--font-pf-display)] text-[var(--color-pf-ink)]" style={{ fontSize: "clamp(20px, 2vw, 24px)" }}>
+                      <span className="font-[family-name:var(--font-pf-display)] text-[var(--color-pf-ink)]" style={{ fontSize: "clamp(24px, 2.2vw, 30px)" }}>
                         {opt}
                       </span>
                     </button>
