@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.74 — 2026-05-01
+
+### slide-luna-1 (3.2 #07) — Coherencia de tamaños entre fases
+- Instrucción pill: `clamp(24-32)` → `clamp(26-36)` — coherente con la lista que la sigue
+- Hint checklist: `clamp(18-20)` → `clamp(20-24)` — texto general legible
+- Peer step text (fase 2): `clamp(22-28)` → `clamp(26-36)` — mismo tamaño que checklist labels (fase 1) para evitar disparidad visual entre modalidades del slide
+- 3.1 v0.45 → v0.46, 3.2 v0.45 → v0.46
+
 ## v0.73 — 2026-05-01
 
 ### slide-luna-1 (3.2 #07) — Auditoría a11y + responsive completa

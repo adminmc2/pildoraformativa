@@ -184,8 +184,8 @@ export function SlideLuna1() {
 
           {/* Instruccion */}
           <p
-            className="font-semibold text-white bg-[var(--color-pf-ink)] px-5 py-1.5 rounded-full w-fit flex items-center gap-2"
-            style={{ fontSize: "clamp(24px, 1.8vw, 32px)" }}
+            className="font-semibold text-white bg-[var(--color-pf-ink)] px-5 py-2 rounded-full w-fit flex items-center gap-2"
+            style={{ fontSize: "clamp(26px, 2.2vw, 36px)" }}
           >
             {phase === "self" ? (
               <>
@@ -243,13 +243,13 @@ export function SlideLuna1() {
                         <div className="flex-1 min-w-0">
                           <p
                             className="leading-snug text-[var(--color-pf-ink)] font-medium"
-                            style={{ fontSize: "clamp(22px, 1.8vw, 28px)" }}
+                            style={{ fontSize: "clamp(26px, 2.2vw, 36px)" }}
                           >
                             {item.label}
                           </p>
                           <p
                             className="opacity-80 mt-0.5"
-                            style={{ fontSize: "clamp(18px, 1.3vw, 20px)" }}
+                            style={{ fontSize: "clamp(20px, 1.6vw, 24px)" }}
                           >
                             {item.hint}
                           </p>
@@ -355,7 +355,7 @@ export function SlideLuna1() {
                       </div>
                       <p
                         className="leading-snug text-[var(--color-pf-ink)] font-medium"
-                        style={{ fontSize: "clamp(22px, 1.8vw, 28px)" }}
+                        style={{ fontSize: "clamp(26px, 2.2vw, 36px)" }}
                       >
                         {ps.text}
                       </p>
