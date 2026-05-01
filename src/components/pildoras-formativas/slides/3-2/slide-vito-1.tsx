@@ -99,7 +99,7 @@ export function SlideVito1() {
           {/* Tabla */}
           {visibleCount > 0 && (
             <div
-              className="rounded-[16px] bg-white shadow-[0_10px_30px_-12px_rgba(0,0,0,0.12)] overflow-y-auto"
+              className="rounded-[16px] bg-white shadow-[0_10px_30px_-12px_rgba(0,0,0,0.12)] overflow-hidden flex flex-col"
               style={{
                 maxHeight: "52vh",
                 animation:
@@ -108,8 +108,8 @@ export function SlideVito1() {
                     : undefined,
               }}
             >
-              {/* Cabecera */}
-              <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2 px-4 py-2 bg-[var(--color-pf-ink)] text-white">
+              {/* Cabecera (fija arriba) */}
+              <div className="flex-shrink-0 grid grid-cols-[1fr_auto_1fr] items-center gap-2 px-4 py-2 bg-[var(--color-pf-ink)] text-white">
                 <span
                   className="font-[family-name:var(--font-pf-display)]"
                   style={{ fontSize: "clamp(20px, 1.6vw, 24px)" }}
@@ -125,8 +125,8 @@ export function SlideVito1() {
                 </span>
               </div>
 
-              {/* Filas */}
-              <div className="flex flex-col">
+              {/* Filas (scrollable) */}
+              <div className="table-scroll flex-1 min-h-0 overflow-y-auto flex flex-col">
                 {ROWS.slice(0, visibleCount).map((row, i) => {
                   const t = THEMES[row.theme];
                   const isNew = i >= newRowStart;
@@ -158,20 +158,20 @@ export function SlideVito1() {
                         <span
                           className="leading-snug font-medium"
                           style={{
-                            fontSize: "clamp(20px, 1.6vw, 24px)",
+                            fontSize: "clamp(26px, 2.2vw, 36px)",
                             color: t.color,
                           }}
                         >
                           {row.marta}
                         </span>
                         <ArrowRight
-                          size={18}
+                          size={20}
                           weight="bold"
                           className="opacity-25 flex-shrink-0"
                         />
                         <span
-                          className="leading-snug text-[var(--color-pf-ink)] opacity-50 italic"
-                          style={{ fontSize: "clamp(20px, 1.6vw, 24px)" }}
+                          className="leading-snug text-[var(--color-pf-ink)] opacity-60"
+                          style={{ fontSize: "clamp(26px, 2.2vw, 36px)" }}
                         >
                           {row.hint}
                         </span>
@@ -241,6 +241,26 @@ export function SlideVito1() {
             opacity: 1;
             transform: translateX(0);
           }
+        }
+        /* Scrollbar visible siempre en la tabla (mismo patrón que slide-pili-1) */
+        .table-scroll {
+          scrollbar-width: auto;
+          scrollbar-color: rgba(10, 10, 10, 0.4) transparent;
+          scrollbar-gutter: stable;
+        }
+        .table-scroll::-webkit-scrollbar {
+          width: 12px;
+        }
+        .table-scroll::-webkit-scrollbar-track {
+          background: rgba(10, 10, 10, 0.05);
+          border-radius: 6px;
+        }
+        .table-scroll::-webkit-scrollbar-thumb {
+          background: rgba(10, 10, 10, 0.4);
+          border-radius: 6px;
+        }
+        .table-scroll::-webkit-scrollbar-thumb:hover {
+          background: rgba(10, 10, 10, 0.6);
         }
         @media (prefers-reduced-motion: reduce) {
           *, *::before, *::after {

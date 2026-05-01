@@ -1,5 +1,15 @@
 # Changelog
 
+## v0.66 — 2026-05-01
+
+### slide-vito-1 (3.2 #05) — Tabla: tamaño + cabecera fija + scrollbar
+- Filas (texto principal de la actividad): `clamp(20-24)` → `clamp(26-36)` (nivel diana)
+- Hint: eliminada cursiva, opacidad subida 0.5 → 0.6 (legibilidad)
+- Cabecera "MARTA DICE… → TÚ ESCRIBES…" ahora **fija arriba** (`flex-shrink-0`)
+- Filas en bloque scrollable independiente (`flex-1 min-h-0 overflow-y-auto`)
+- Scrollbar custom visible siempre (clase `table-scroll`, mismo patrón que email de slide-pili-1)
+- 3.1 v0.39 → v0.40, 3.2 v0.39 → v0.40
+
 ## v0.65 — 2026-05-01
 
 ### slide-vito-1 (3.2 #05) — Auditoría a11y + responsive según convención
