@@ -1,5 +1,28 @@
 # Changelog
 
+## v0.73 — 2026-05-01
+
+### slide-luna-1 (3.2 #07) — Auditoría a11y + responsive completa
+**A — Tamaños texto Tailwind clamp → inline (6 elementos)**:
+- Badge LUNA, h1, instrucción, label checklist, hint checklist, peer step
+- h1: `clamp(36px, 4.5vw, 56px)`
+- Instrucción: `clamp(24px, 1.8vw, 32px)`
+- Label checklist (contenido protagonista): `clamp(22px, 1.8vw, 28px)`
+- Hint checklist: `clamp(18px, 1.3vw, 20px)` (antes 15-17px, por debajo de mín 18)
+- Peer step: `clamp(22px, 1.8vw, 28px)`
+
+**B — Accesibilidad**:
+- Badge "Revisión": 16px → `clamp(18-20px)` inline
+- Botones SÍ/NO: text-base → `clamp(20-24px)` inline + `min-h-[44px]` (antes ≈36px) + `focus-visible:ring`
+- Botón COMPROBAR DE NUEVO + AHORA CON TU COMPAÑERO + ← CHECKLIST + SIGUIENTE: a `clamp(20-24px)` + `min-h-[44px]` + `focus-visible:ring`
+- Contador `answeredCount/ITEMS.length`: a `clamp(18-20px)`
+- Hint checklist: opacity-60 → opacity-80
+- `prefers-reduced-motion` añadido a `<style jsx>`
+
+**C — Responsive**: wrapper de checklist + peer steps con `maxHeight: 52vh` + `overflow-y-auto` (patrón consistente con flora-1/2, vito-1/2)
+
+- 3.1 v0.44 → v0.45, 3.2 v0.44 → v0.45
+
 ## v0.72 — 2026-05-01
 
 ### slide-vito-2 (3.2 #06) — 4 fixes finales del review

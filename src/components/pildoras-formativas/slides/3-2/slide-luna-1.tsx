@@ -150,19 +150,29 @@ export function SlideLuna1() {
         <div className="flex flex-col gap-1.5 min-w-0">
           {/* Badge */}
           <div className="flex items-center gap-3">
-            <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)] text-[var(--color-pf-ink)]">
+            <span
+              className="font-[family-name:var(--font-pf-display)] text-[var(--color-pf-ink)]"
+              style={{ fontSize: "clamp(20px, 1.6vw, 24px)" }}
+            >
               LUNA
             </span>
             <span
-              className="px-3 py-1 rounded-full text-base font-semibold"
-              style={{ background: "var(--color-pf-moon-soft)", color: "#3B2A8A" }}
+              className="px-3 py-1 rounded-full font-semibold"
+              style={{
+                fontSize: "clamp(18px, 1.3vw, 20px)",
+                background: "var(--color-pf-moon-soft)",
+                color: "#3B2A8A",
+              }}
             >
               Revisión
             </span>
           </div>
 
           {/* Titulo */}
-          <h1 className="font-[family-name:var(--font-pf-display)] uppercase leading-[0.88] tracking-tight text-[clamp(30px,min(4.5vw,6vh),56px)] text-[var(--color-pf-ink)]">
+          <h1
+            className="font-[family-name:var(--font-pf-display)] uppercase leading-[0.88] tracking-tight text-[var(--color-pf-ink)]"
+            style={{ fontSize: "clamp(36px, 4.5vw, 56px)" }}
+          >
             {phase === "self"
               ? allAnswered
                 ? allYes
@@ -173,7 +183,10 @@ export function SlideLuna1() {
           </h1>
 
           {/* Instruccion */}
-          <p className="text-[clamp(20px,min(2vw,2.5vh),24px)] font-semibold text-white bg-[var(--color-pf-ink)] px-5 py-1.5 rounded-full w-fit flex items-center gap-2">
+          <p
+            className="font-semibold text-white bg-[var(--color-pf-ink)] px-5 py-1.5 rounded-full w-fit flex items-center gap-2"
+            style={{ fontSize: "clamp(24px, 1.8vw, 32px)" }}
+          >
             {phase === "self" ? (
               <>
                 <ClipboardText size={22} weight="bold" />
@@ -190,7 +203,10 @@ export function SlideLuna1() {
           {/* ══════ Phase 1: Self-review checklist ══════ */}
           {phase === "self" && (
             <>
-              <div className="flex flex-col gap-2 mt-1">
+              <div
+                className="flex flex-col gap-2 mt-1 overflow-y-auto"
+                style={{ maxHeight: "52vh" }}
+              >
                 {ITEMS.map((item, i) => {
                   const answer = answers[i];
                   const isActive = i === activeIdx && !allAnswered;
@@ -225,10 +241,16 @@ export function SlideLuna1() {
                     >
                       <div className="flex items-center justify-between gap-3">
                         <div className="flex-1 min-w-0">
-                          <p className="text-[clamp(18px,min(1.8vw,2.2vh),22px)] leading-snug text-[var(--color-pf-ink)] font-medium">
+                          <p
+                            className="leading-snug text-[var(--color-pf-ink)] font-medium"
+                            style={{ fontSize: "clamp(22px, 1.8vw, 28px)" }}
+                          >
                             {item.label}
                           </p>
-                          <p className="text-[clamp(15px,min(1.3vw,1.6vh),17px)] opacity-60 mt-0.5">
+                          <p
+                            className="opacity-80 mt-0.5"
+                            style={{ fontSize: "clamp(18px, 1.3vw, 20px)" }}
+                          >
                             {item.hint}
                           </p>
                         </div>
@@ -238,17 +260,19 @@ export function SlideLuna1() {
                             <button
                               onClick={() => choose(i, true)}
                               disabled={!isActive}
-                              className="px-3 py-1.5 rounded-full text-base font-bold bg-[#22C55E] text-white hover:bg-[#16A34A] disabled:opacity-30 transition flex items-center gap-1"
+                              className="px-4 rounded-full font-bold bg-[#22C55E] text-white hover:bg-[#16A34A] disabled:opacity-30 transition flex items-center gap-1 min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-pf-spark)] focus-visible:ring-offset-2"
+                              style={{ fontSize: "clamp(20px, 1.6vw, 24px)" }}
                             >
-                              <CheckCircle size={18} weight="bold" />
+                              <CheckCircle size={20} weight="bold" />
                               SÍ
                             </button>
                             <button
                               onClick={() => choose(i, false)}
                               disabled={!isActive}
-                              className="px-3 py-1.5 rounded-full text-base font-bold bg-[#EF4444] text-white hover:bg-[#DC2626] disabled:opacity-30 transition flex items-center gap-1"
+                              className="px-4 rounded-full font-bold bg-[#EF4444] text-white hover:bg-[#DC2626] disabled:opacity-30 transition flex items-center gap-1 min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-pf-spark)] focus-visible:ring-offset-2"
+                              style={{ fontSize: "clamp(20px, 1.6vw, 24px)" }}
                             >
-                              <XCircle size={18} weight="bold" />
+                              <XCircle size={20} weight="bold" />
                               NO
                             </button>
                           </div>
@@ -268,8 +292,11 @@ export function SlideLuna1() {
               </div>
 
               {/* Footer: contador + botones */}
-              <div className="flex items-center gap-3 mt-1">
-                <span className="text-[var(--color-pf-ink)] font-semibold opacity-70 text-base">
+              <div className="flex items-center gap-3 mt-1 flex-wrap">
+                <span
+                  className="text-[var(--color-pf-ink)] font-semibold opacity-70"
+                  style={{ fontSize: "clamp(18px, 1.3vw, 20px)" }}
+                >
                   {answeredCount} / {ITEMS.length}
                 </span>
                 {allAnswered && !allYes && (
@@ -278,7 +305,8 @@ export function SlideLuna1() {
                       setAnswers(Array(ITEMS.length).fill(null));
                       setActiveIdx(0);
                     }}
-                    className="px-5 py-2 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] text-base hover:opacity-90 transition"
+                    className="px-5 rounded-full bg-[var(--color-pf-ink)] text-white font-[family-name:var(--font-pf-display)] hover:opacity-90 transition min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-pf-spark)] focus-visible:ring-offset-2"
+                    style={{ fontSize: "clamp(20px, 1.6vw, 24px)" }}
                   >
                     COMPROBAR DE NUEVO
                   </button>
@@ -286,7 +314,8 @@ export function SlideLuna1() {
                 {allAnswered && (
                   <button
                     onClick={() => setPhase("peer")}
-                    className="px-5 py-2 rounded-full bg-[var(--color-pf-moon)] text-white font-[family-name:var(--font-pf-display)] text-base hover:opacity-90 transition"
+                    className="px-5 rounded-full bg-[var(--color-pf-moon)] text-white font-[family-name:var(--font-pf-display)] hover:opacity-90 transition min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-pf-spark)] focus-visible:ring-offset-2"
+                    style={{ fontSize: "clamp(20px, 1.6vw, 24px)" }}
                   >
                     AHORA CON TU COMPAÑERO →
                   </button>
@@ -298,37 +327,42 @@ export function SlideLuna1() {
           {/* ══════ Phase 2: Peer review ══════ */}
           {phase === "peer" && (
             <div className="flex flex-col gap-3 mt-1">
-              {PEER_STEPS.map((ps, i) => {
-                const visible = i <= peerStep;
-                if (!visible) return null;
+              <div className="flex flex-col gap-3 overflow-y-auto" style={{ maxHeight: "52vh" }}>
+                {PEER_STEPS.map((ps, i) => {
+                  const visible = i <= peerStep;
+                  if (!visible) return null;
 
-                const isCurrent = i === peerStep;
+                  const isCurrent = i === peerStep;
 
-                return (
-                  <div
-                    key={i}
-                    className="rounded-[14px] border-2 px-5 py-3 flex items-center gap-4 transition-all"
-                    style={{
-                      borderColor: isCurrent ? "var(--color-pf-moon)" : "#D1D5DB",
-                      background: isCurrent ? "var(--color-pf-moon-soft)" : "white",
-                      opacity: isCurrent ? 1 : 0.7,
-                      animation: isCurrent
-                        ? "cardIn 400ms cubic-bezier(0.2,0.8,0.2,1)"
-                        : undefined,
-                    }}
-                  >
+                  return (
                     <div
-                      className="w-11 h-11 flex-shrink-0 rounded-full flex items-center justify-center text-white"
-                      style={{ background: "var(--color-pf-moon)" }}
+                      key={i}
+                      className="rounded-[14px] border-2 px-5 py-3 flex items-center gap-4 transition-all"
+                      style={{
+                        borderColor: isCurrent ? "var(--color-pf-moon)" : "#D1D5DB",
+                        background: isCurrent ? "var(--color-pf-moon-soft)" : "white",
+                        opacity: isCurrent ? 1 : 0.8,
+                        animation: isCurrent
+                          ? "cardIn 400ms cubic-bezier(0.2,0.8,0.2,1)"
+                          : undefined,
+                      }}
                     >
-                      {ps.icon}
+                      <div
+                        className="w-11 h-11 flex-shrink-0 rounded-full flex items-center justify-center text-white"
+                        style={{ background: "var(--color-pf-moon)" }}
+                      >
+                        {ps.icon}
+                      </div>
+                      <p
+                        className="leading-snug text-[var(--color-pf-ink)] font-medium"
+                        style={{ fontSize: "clamp(22px, 1.8vw, 28px)" }}
+                      >
+                        {ps.text}
+                      </p>
                     </div>
-                    <p className="text-[clamp(18px,min(1.8vw,2.2vh),22px)] leading-snug text-[var(--color-pf-ink)] font-medium">
-                      {ps.text}
-                    </p>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
 
               {/* Navigation */}
               <div className="flex items-center gap-3 mt-1">
@@ -337,14 +371,16 @@ export function SlideLuna1() {
                     setPhase("self");
                     setPeerStep(0);
                   }}
-                  className="px-5 py-2 rounded-full bg-white/70 text-[var(--color-pf-ink)] font-[family-name:var(--font-pf-display)] text-base hover:bg-white transition"
+                  className="px-5 rounded-full bg-white/70 text-[var(--color-pf-ink)] font-[family-name:var(--font-pf-display)] hover:bg-white transition min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-pf-spark)] focus-visible:ring-offset-2"
+                  style={{ fontSize: "clamp(20px, 1.6vw, 24px)" }}
                 >
                   ← CHECKLIST
                 </button>
                 {peerStep < PEER_STEPS.length - 1 && (
                   <button
                     onClick={() => setPeerStep((s) => s + 1)}
-                    className="px-5 py-2 rounded-full bg-[var(--color-pf-moon)] text-white font-[family-name:var(--font-pf-display)] text-base hover:opacity-90 transition"
+                    className="px-5 rounded-full bg-[var(--color-pf-moon)] text-white font-[family-name:var(--font-pf-display)] hover:opacity-90 transition min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-pf-spark)] focus-visible:ring-offset-2"
+                    style={{ fontSize: "clamp(20px, 1.6vw, 24px)" }}
                   >
                     SIGUIENTE →
                   </button>
@@ -369,6 +405,13 @@ export function SlideLuna1() {
           100% {
             opacity: 1;
             transform: translateY(0) scale(1);
+          }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          *, *::before, *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
           }
         }
       `}</style>
