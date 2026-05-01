@@ -1,5 +1,30 @@
 # Changelog
 
+## v0.75 — 2026-04-30
+
+### slide-chipi (3.2 #08) — Auditoría completa de accesibilidad y responsive
+
+**Conversión Tailwind→inline (Turbopack-safe)** — todos los `text-[clamp(X,min(Y,Z),W)]` convertidos a `style={{ fontSize: "clamp(X, Yvw, Z)" }}`:
+- Top bar: q-timer `clamp(28-42)`
+- Scores chips: nombre + puntos `clamp(18-20)`
+- Fragmentos: label `clamp(16-18)` → `clamp(18-20)`, ítems `clamp(22-26)`
+- Email center (De/Para/Asunto + slot): `clamp(20-24)` y `clamp(22-26)`
+- Email reference (question phase): cabecera `clamp(18-22)`, párrafos `clamp(20-24)`
+- Pregunta + opciones: enunciado `clamp(22-32)` → `clamp(24-32)` (mínimo enunciado), opciones `clamp(20-24)`
+- Orden correcto (error): label `clamp(18-20)`, ítems `clamp(17-20)` → `clamp(18-20)`
+- Actions bar: ¡LISTO! `clamp(20-28)` → `clamp(22-28)`, COMPROBAR / opciones `clamp(20-24)`, equipos / NADIE `clamp(18-20)`
+- "Selecciona fragmento → coloca…" `clamp(16-18)` → `clamp(18-20)` con opacity 0.50
+
+**Áreas clicables ≥44×44px**: añadido `min-h-[44px]` a botón fragmento, slot del email, opciones de pregunta, ¡LISTO!, COMPROBAR, equipos, NADIE, OTRO EQUIPO, IR A PREGUNTA, MOSTRAR RESPUESTA, SIGUIENTE RONDA.
+
+**Focus visible**: añadido `focus-visible:outline-none focus-visible:ring-2/4 focus-visible:ring-offset-2` a todos los botones interactivos.
+
+**Scroll containment**: `maxHeight: "52vh" + overflowY: auto` en columna de fragmentos y email center (patrón coherente con vito-1, vito-2, luna-1).
+
+**Reducción de movimiento**: añadido `@media (prefers-reduced-motion: reduce)` global y keyframe `btnPulse` listo para uso.
+
+**Versiones**: 3.1 v0.46 → v0.47, 3.2 v0.74 → v0.75.
+
 ## v0.74 — 2026-05-01
 
 ### slide-luna-1 (3.2 #07) — Coherencia de tamaños entre fases

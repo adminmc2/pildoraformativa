@@ -519,27 +519,41 @@ export function SlideChipi() {
           <div className="flex flex-col gap-3 min-w-0">
             {/* Badge */}
             <div className="flex items-center gap-3">
-              <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)] text-[var(--color-pf-ink)]">
+              <span
+                className="font-[family-name:var(--font-pf-display)] text-[var(--color-pf-ink)]"
+                style={{ fontSize: "clamp(20px, 1.6vw, 24px)" }}
+              >
                 CHIPI
               </span>
-              <span className="px-3 py-1 rounded-full text-base font-semibold"
-                style={{ background: "#FFE8D6", color: "#C0392B" }}>
+              <span
+                className="px-3 py-1 rounded-full font-semibold"
+                style={{ fontSize: "clamp(18px, 1.3vw, 20px)", background: "#FFE8D6", color: "#C0392B" }}
+              >
                 Desafío
               </span>
             </div>
 
             {/* Título */}
-            <h1 className="font-[family-name:var(--font-pf-display)] uppercase leading-[0.88] tracking-tight text-[clamp(30px,min(4.5vw,6vh),56px)] text-[var(--color-pf-ink)]">
+            <h1
+              className="font-[family-name:var(--font-pf-display)] uppercase leading-[0.88] tracking-tight text-[var(--color-pf-ink)]"
+              style={{ fontSize: "clamp(36px, 4.5vw, 56px)" }}
+            >
               ¡Ordena el desastre!
             </h1>
 
             {/* Dinámica del juego */}
             <div className="rounded-2xl px-5 py-4 space-y-2"
               style={{ background: "rgba(0,0,0,0.04)", border: "1px solid rgba(0,0,0,0.08)" }}>
-              <p className="font-[family-name:var(--font-pf-display)] text-[clamp(22px,min(2.2vw,2.8vh),26px)] text-[var(--color-pf-ink)] uppercase tracking-wider opacity-70">
+              <p
+                className="font-[family-name:var(--font-pf-display)] text-[var(--color-pf-ink)] uppercase tracking-wider opacity-80"
+                style={{ fontSize: "clamp(28px, 2.6vw, 36px)" }}
+              >
                 ¿Cómo se juega?
               </p>
-              <ol className="list-decimal list-inside space-y-1 text-[clamp(20px,min(2vw,2.5vh),24px)] text-[var(--color-pf-ink)] leading-snug">
+              <ol
+                className="list-decimal list-inside space-y-2 text-[var(--color-pf-ink)] leading-snug"
+                style={{ fontSize: "clamp(26px, 2.4vw, 32px)" }}
+              >
                 <li>Vais a ver un <strong>correo electrónico desordenado</strong> en 8 o 9 fragmentos.</li>
                 <li>Escribid en vuestro cuaderno, hoja o en la pizarra el <strong>orden correcto</strong> (ej: 3-1-5-9-7-2-6-8-4) lo más rápido posible.</li>
                 <li>El primer equipo en terminar dice <strong>¡Listo!</strong> y paramos el cronómetro.</li>
@@ -550,20 +564,29 @@ export function SlideChipi() {
 
             {/* Puntuación — 3 categorías */}
             <div className="flex flex-wrap items-center gap-3">
-              <span className="text-[clamp(20px,min(2vw,2.5vh),24px)] font-semibold text-white bg-[var(--color-pf-ink)] px-4 py-1.5 rounded-full flex items-center gap-2">
-                <EnvelopeSimple size={22} weight="bold" />
+              <span
+                className="font-semibold text-white bg-[var(--color-pf-ink)] px-5 py-2 rounded-full flex items-center gap-2"
+                style={{ fontSize: "clamp(24px, 2.2vw, 30px)" }}
+              >
+                <EnvelopeSimple size={26} weight="bold" />
                 {EMAILS.length} correos
               </span>
-              <span className="px-3 py-1.5 rounded-full text-[clamp(20px,min(2vw,2.5vh),24px)] font-semibold"
-                style={{ background: "#E8F5E0", color: "#3F6B14" }}>
+              <span
+                className="px-4 py-2 rounded-full font-semibold"
+                style={{ fontSize: "clamp(24px, 2.2vw, 30px)", background: "#E8F5E0", color: "#3F6B14" }}
+              >
                 Orden = {ORDER_PTS} pts
               </span>
-              <span className="px-3 py-1.5 rounded-full text-[clamp(20px,min(2vw,2.5vh),24px)] font-semibold"
-                style={{ background: "#FEF5E7", color: "#D68910" }}>
+              <span
+                className="px-4 py-2 rounded-full font-semibold"
+                style={{ fontSize: "clamp(24px, 2.2vw, 30px)", background: "#FEF5E7", color: "#D68910" }}
+              >
                 Rapidez = {SPEED_TIERS[0].pts}–{SPEED_TIERS[SPEED_TIERS.length - 1].pts} pts
               </span>
-              <span className="px-3 py-1.5 rounded-full text-[clamp(20px,min(2vw,2.5vh),24px)] font-semibold"
-                style={{ background: "#D6EAF8", color: "#2E86C1" }}>
+              <span
+                className="px-4 py-2 rounded-full font-semibold"
+                style={{ fontSize: "clamp(24px, 2.2vw, 30px)", background: "#D6EAF8", color: "#2E86C1" }}
+              >
                 Comprensión = {QUESTION_PTS} pts
               </span>
             </div>
@@ -573,11 +596,17 @@ export function SlideChipi() {
               style={{ background: "rgba(0,0,0,0.04)", border: "1px solid rgba(0,0,0,0.08)" }}>
               {/* Equipos */}
               <div className="flex items-center gap-2">
-                <span className="font-[family-name:var(--font-pf-display)] text-[clamp(18px,min(1.6vw,2vh),20px)] text-[var(--color-pf-ink)] opacity-60">EQUIPOS</span>
+                <span
+                  className="font-[family-name:var(--font-pf-display)] text-[var(--color-pf-ink)] opacity-70"
+                  style={{ fontSize: "clamp(18px, 1.3vw, 20px)" }}
+                >
+                  EQUIPOS
+                </span>
                 {[2, 3, 4].map((n) => (
                   <button key={n} onClick={() => setNumTeams(n)}
-                    className="w-12 h-12 rounded-full font-[family-name:var(--font-pf-display)] text-xl transition active:scale-90"
+                    className="w-12 h-12 rounded-full font-[family-name:var(--font-pf-display)] transition active:scale-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-pf-spark)] focus-visible:ring-offset-2"
                     style={{
+                      fontSize: "clamp(20px, 1.6vw, 24px)",
                       background: numTeams === n ? "var(--color-pf-spark)" : "white",
                       color: numTeams === n ? "#fff" : "var(--color-pf-ink)",
                       border: numTeams === n ? "2px solid var(--color-pf-spark)" : "2px solid rgba(0,0,0,0.12)",
@@ -588,11 +617,17 @@ export function SlideChipi() {
               <div className="w-px h-10" style={{ background: "rgba(0,0,0,0.1)" }} />
               {/* Rondas */}
               <div className="flex items-center gap-2">
-                <span className="font-[family-name:var(--font-pf-display)] text-[clamp(18px,min(1.6vw,2vh),20px)] text-[var(--color-pf-ink)] opacity-60">RONDAS</span>
+                <span
+                  className="font-[family-name:var(--font-pf-display)] text-[var(--color-pf-ink)] opacity-70"
+                  style={{ fontSize: "clamp(18px, 1.3vw, 20px)" }}
+                >
+                  RONDAS
+                </span>
                 {[3, 5, 8, 10, 12].map((n) => (
                   <button key={n} onClick={() => setNumRounds(n)}
-                    className="px-3 h-12 rounded-full font-[family-name:var(--font-pf-display)] text-base transition active:scale-90"
+                    className="px-3 h-12 rounded-full font-[family-name:var(--font-pf-display)] transition active:scale-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-pf-spark)] focus-visible:ring-offset-2"
                     style={{
+                      fontSize: "clamp(20px, 1.6vw, 24px)",
                       background: numRounds === n ? "var(--color-pf-spark)" : "white",
                       color: numRounds === n ? "#fff" : "var(--color-pf-ink)",
                       border: numRounds === n ? "2px solid var(--color-pf-spark)" : "2px solid rgba(0,0,0,0.12)",
@@ -604,10 +639,12 @@ export function SlideChipi() {
 
             {/* Start */}
             <button onClick={startGame}
-              className="mt-2 px-14 py-4 rounded-full font-[family-name:var(--font-pf-display)] text-[clamp(24px,min(3vw,3.8vh),38px)] text-white uppercase tracking-wider transition active:scale-95 hover:opacity-90"
+              className="mt-2 px-14 py-4 rounded-full font-[family-name:var(--font-pf-display)] text-white uppercase tracking-wider transition active:scale-95 hover:opacity-90 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[var(--color-pf-spark)] focus-visible:ring-offset-2 min-h-[44px]"
               style={{
+                fontSize: "clamp(28px, 3vw, 44px)",
                 background: "var(--color-pf-spark)",
                 boxShadow: "0 6px 20px rgba(0,0,0,0.2)",
+                animation: "btnPulse 2s ease-in-out infinite",
               }}>
               ¡JUGAR!
             </button>
@@ -633,7 +670,10 @@ export function SlideChipi() {
           <div className="flex flex-col gap-3 min-w-0 items-center md:items-start">
             <div className="flex items-center gap-3">
               <Trophy size={36} weight="fill" style={{ color: "var(--color-pf-spark)" }} />
-              <h1 className="font-[family-name:var(--font-pf-display)] uppercase leading-[0.88] tracking-tight text-[clamp(30px,min(4.5vw,6vh),56px)] text-[var(--color-pf-ink)]">
+              <h1
+                className="font-[family-name:var(--font-pf-display)] uppercase leading-[0.88] tracking-tight text-[var(--color-pf-ink)]"
+                style={{ fontSize: "clamp(36px, 4.5vw, 56px)" }}
+              >
                 ¡Fin del juego!
               </h1>
             </div>
@@ -646,21 +686,39 @@ export function SlideChipi() {
                     border: pos === 0 ? `2px solid ${TEAMS[r.i].color}` : "2px solid rgba(0,0,0,0.06)",
                   }}>
                   <div className="flex items-center gap-3">
-                    <span className="font-[family-name:var(--font-pf-display)] text-3xl w-8" style={{ color: pos === 0 ? TEAMS[r.i].color : "rgba(0,0,0,0.25)" }}>{pos + 1}.</span>
-                    <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)]" style={{ color: TEAMS[r.i].color }}>{TEAMS[r.i].full}</span>
+                    <span
+                      className="font-[family-name:var(--font-pf-display)] w-8"
+                      style={{ fontSize: "clamp(28px, 2.4vw, 36px)", color: pos === 0 ? TEAMS[r.i].color : "rgba(0,0,0,0.25)" }}
+                    >
+                      {pos + 1}.
+                    </span>
+                    <span
+                      className="font-[family-name:var(--font-pf-display)]"
+                      style={{ fontSize: "clamp(22px, 1.8vw, 28px)", color: TEAMS[r.i].color }}
+                    >
+                      {TEAMS[r.i].full}
+                    </span>
                   </div>
-                  <span className="font-[family-name:var(--font-pf-display)] text-[clamp(30px,min(4vw,5vh),48px)] text-[var(--color-pf-ink)]">{r.s}</span>
+                  <span
+                    className="font-[family-name:var(--font-pf-display)] text-[var(--color-pf-ink)]"
+                    style={{ fontSize: "clamp(30px, 3.2vw, 48px)" }}
+                  >
+                    {r.s}
+                  </span>
                 </div>
               ))}
             </div>
 
-            <p className="font-[family-name:var(--font-pf-display)] text-[clamp(24px,min(3vw,3.8vh),36px)] text-[var(--color-pf-ink)] mt-1">
+            <p
+              className="font-[family-name:var(--font-pf-display)] text-[var(--color-pf-ink)] mt-1"
+              style={{ fontSize: "clamp(26px, 2.4vw, 36px)" }}
+            >
               {winners.length === 1 ? `¡Gana ${TEAMS[winners[0].i].full}!` : "¡Empate!"}
             </p>
 
             <button onClick={() => { setPhase("setup"); setStep((s) => s + 1); setBubble(<>¿Quién ordena <V>más rápido</V>?</>); }}
-              className="px-10 py-3 rounded-full font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)] text-white uppercase tracking-wider transition active:scale-95 hover:opacity-90"
-              style={{ background: "var(--color-pf-spark)", boxShadow: "0 4px 14px rgba(0,0,0,0.15)" }}>
+              className="px-10 py-3 rounded-full font-[family-name:var(--font-pf-display)] text-white uppercase tracking-wider transition active:scale-95 hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-pf-spark)] focus-visible:ring-offset-2 min-h-[44px]"
+              style={{ fontSize: "clamp(20px, 1.6vw, 24px)", background: "var(--color-pf-spark)", boxShadow: "0 4px 14px rgba(0,0,0,0.15)" }}>
               ¿OTRA PARTIDA?
             </button>
           </div>
@@ -681,14 +739,28 @@ export function SlideChipi() {
       {/* Top bar */}
       <div className="flex-shrink-0 flex flex-wrap items-center justify-between gap-2 px-4 py-2"
         style={{ borderBottom: "1px solid rgba(0,0,0,0.06)" }}>
-        <div className="flex items-center gap-3">
-          <span className="font-[family-name:var(--font-pf-display)] text-[clamp(18px,min(1.6vw,2vh),20px)] text-[var(--color-pf-ink)] opacity-50">RONDA</span>
-          <span className="font-[family-name:var(--font-pf-display)] text-[clamp(24px,min(3vw,3.8vh),36px)] text-[var(--color-pf-ink)]">
-            {currentRound}<span className="text-base opacity-30">/{totalRounds}</span>
+        <div className="flex items-center gap-3 flex-wrap">
+          <span
+            className="font-[family-name:var(--font-pf-display)] text-[var(--color-pf-ink)] opacity-70"
+            style={{ fontSize: "clamp(18px, 1.3vw, 20px)" }}
+          >
+            RONDA
+          </span>
+          <span
+            className="font-[family-name:var(--font-pf-display)] text-[var(--color-pf-ink)]"
+            style={{ fontSize: "clamp(24px, 2.4vw, 36px)" }}
+          >
+            {currentRound}
+            <span className="opacity-30" style={{ fontSize: "clamp(18px, 1.3vw, 20px)" }}>
+              /{totalRounds}
+            </span>
           </span>
           <div className="flex items-center gap-1.5 px-3 py-1 rounded-full" style={{ background: "rgba(0,0,0,0.04)" }}>
             <EnvelopeSimple size={18} weight="bold" style={{ color: "var(--color-pf-spark)" }} />
-            <span className="font-[family-name:var(--font-pf-display)] text-base text-[var(--color-pf-ink)] opacity-60">
+            <span
+              className="font-[family-name:var(--font-pf-display)] text-[var(--color-pf-ink)] opacity-80"
+              style={{ fontSize: "clamp(18px, 1.3vw, 20px)" }}
+            >
               {email.author} ({email.city})
             </span>
           </div>
@@ -698,13 +770,17 @@ export function SlideChipi() {
         {(phase === "play" || phase === "check") && (
           <div className="flex items-center gap-2">
             <Timer size={22} weight="bold" style={{ color: timerColor }} />
-            <span className="font-[family-name:var(--font-pf-display)] text-[clamp(28px,min(3.5vw,4.5vh),42px)]"
-              style={{ color: timerColor }}>
+            <span
+              className="font-[family-name:var(--font-pf-display)]"
+              style={{ fontSize: "clamp(28px, 3vw, 42px)", color: timerColor }}
+            >
               {elapsed}s
             </span>
             {phase === "check" && (
-              <span className="px-3 py-1 rounded-full font-semibold text-base"
-                style={{ background: "#E8F5E0", color: "#3F6B14" }}>
+              <span
+                className="px-3 py-1 rounded-full font-semibold"
+                style={{ fontSize: "clamp(18px, 1.3vw, 20px)", background: "#E8F5E0", color: "#3F6B14" }}
+              >
                 = {speedPts} pts rapidez
               </span>
             )}
@@ -715,8 +791,8 @@ export function SlideChipi() {
           <div className="flex items-center gap-2">
             <Lightning size={22} weight="fill" style={{ color: "#D68910" }} />
             {!qRevealed && (
-              <span className="font-[family-name:var(--font-pf-display)] text-[clamp(28px,min(3.5vw,4.5vh),42px)]"
-                style={{ color: qTimer <= 10 ? "#C0392B" : "#D68910", animation: qTimer <= 10 ? "pulse 0.5s ease-in-out infinite" : "none" }}>
+              <span className="font-[family-name:var(--font-pf-display)]"
+                style={{ fontSize: "clamp(28px, 3.5vw, 42px)", color: qTimer <= 10 ? "#C0392B" : "#D68910", animation: qTimer <= 10 ? "pulse 0.5s ease-in-out infinite" : "none" }}>
                 {qTimer}s
               </span>
             )}
@@ -728,8 +804,8 @@ export function SlideChipi() {
           {Array.from({ length: numTeams }, (_, i) => (
             <div key={i} className="flex items-center gap-1.5 px-3 py-1 rounded-full"
               style={{ background: TEAMS[i].soft, border: `1px solid ${TEAMS[i].color}30` }}>
-              <span className="font-[family-name:var(--font-pf-display)] text-base font-bold" style={{ color: TEAMS[i].color }}>{TEAMS[i].name}</span>
-              <span className="font-[family-name:var(--font-pf-display)] text-base font-bold text-[var(--color-pf-ink)]">{scores[i]}</span>
+              <span className="font-[family-name:var(--font-pf-display)] font-bold" style={{ fontSize: "clamp(18px, 1.4vw, 20px)", color: TEAMS[i].color }}>{TEAMS[i].name}</span>
+              <span className="font-[family-name:var(--font-pf-display)] font-bold text-[var(--color-pf-ink)]" style={{ fontSize: "clamp(18px, 1.4vw, 20px)" }}>{scores[i]}</span>
             </div>
           ))}
         </div>
@@ -740,9 +816,9 @@ export function SlideChipi() {
         {(phase === "play" || phase === "check") && (
           <div className="w-full max-w-[1800px] grid grid-cols-1 md:grid-cols-[1.2fr_2.5fr_1fr] gap-3 md:gap-5 items-start">
             {/* LEFT: Scrambled fragments — compact list */}
-            <div className="flex flex-col gap-1 min-w-0">
-              <p className="font-[family-name:var(--font-pf-display)] text-[clamp(16px,min(1.4vw,1.8vh),18px)] tracking-wider mb-0.5"
-                style={{ color: "var(--color-pf-spark)" }}>
+            <div className="flex flex-col gap-1 min-w-0" style={{ maxHeight: "52vh", overflowY: "auto" }}>
+              <p className="font-[family-name:var(--font-pf-display)] tracking-wider mb-0.5"
+                style={{ fontSize: "clamp(18px, 1.5vw, 20px)", color: "var(--color-pf-spark)" }}>
                 FRAGMENTOS
               </p>
               {email.shuffle.map((fragIdx, displayIdx) => {
@@ -753,7 +829,7 @@ export function SlideChipi() {
                   <button key={displayIdx}
                     onClick={() => phase === "check" && !verified && selectFragment(displayNum)}
                     disabled={phase !== "check" || verified}
-                    className="flex items-start gap-2 px-2.5 py-1.5 rounded-lg text-left transition-all"
+                    className="flex items-start gap-2 px-2.5 py-1.5 min-h-[44px] rounded-lg text-left transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-pf-spark)] focus-visible:ring-offset-2"
                     style={{
                       background: isSelected ? "var(--color-pf-spark)" : "white",
                       border: isSelected ? "2px solid var(--color-pf-spark)" : "1px solid rgba(0,0,0,0.08)",
@@ -761,12 +837,12 @@ export function SlideChipi() {
                       cursor: phase === "check" && !verified ? "pointer" : "default",
                       boxShadow: isSelected ? "0 4px 16px rgba(0,0,0,0.15)" : "none",
                     }}>
-                    <span className="font-[family-name:var(--font-pf-display)] text-[clamp(22px,min(2.2vw,2.7vh),26px)] flex-shrink-0 w-7 text-center font-bold"
-                      style={{ color: isSelected ? "#fff" : "var(--color-pf-spark)" }}>
+                    <span className="font-[family-name:var(--font-pf-display)] flex-shrink-0 w-7 text-center font-bold"
+                      style={{ fontSize: "clamp(22px, 2.2vw, 26px)", color: isSelected ? "#fff" : "var(--color-pf-spark)" }}>
                       {displayNum}
                     </span>
-                    <p className="font-[family-name:var(--font-pf-display)] text-[clamp(22px,min(2.2vw,2.7vh),26px)] leading-snug"
-                      style={{ color: isSelected ? "#fff" : "var(--color-pf-ink)" }}>
+                    <p className="font-[family-name:var(--font-pf-display)] leading-snug"
+                      style={{ fontSize: "clamp(22px, 2.2vw, 26px)", color: isSelected ? "#fff" : "var(--color-pf-ink)" }}>
                       {email.fragments[fragIdx]}
                     </p>
                   </button>
@@ -776,17 +852,17 @@ export function SlideChipi() {
 
             {/* CENTER: Email template — prominent */}
             <div className="min-w-0 rounded-2xl overflow-hidden"
-              style={{ background: "#FFFDF7", border: "2px solid rgba(0,0,0,0.12)", boxShadow: "0 6px 28px rgba(0,0,0,0.08)" }}>
+              style={{ background: "#FFFDF7", border: "2px solid rgba(0,0,0,0.12)", boxShadow: "0 6px 28px rgba(0,0,0,0.08)", maxHeight: "52vh", overflowY: "auto" }}>
               {/* Email header */}
               <div className="px-5 py-3"
                 style={{ background: "#F5F0E8", borderBottom: "1px solid rgba(0,0,0,0.1)" }}>
-                <p className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)] text-[var(--color-pf-ink)]">
+                <p className="font-[family-name:var(--font-pf-display)] text-[var(--color-pf-ink)]" style={{ fontSize: "clamp(20px, 2vw, 24px)" }}>
                   <span className="opacity-40">De:</span> <span className="font-semibold">{email.author}@correo.es</span>
                 </p>
-                <p className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)] text-[var(--color-pf-ink)]">
+                <p className="font-[family-name:var(--font-pf-display)] text-[var(--color-pf-ink)]" style={{ fontSize: "clamp(20px, 2vw, 24px)" }}>
                   <span className="opacity-40">Para:</span> <span className="font-semibold">{email.recipient}@correo.com</span>
                 </p>
-                <p className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)] text-[var(--color-pf-ink)]">
+                <p className="font-[family-name:var(--font-pf-display)] text-[var(--color-pf-ink)]" style={{ fontSize: "clamp(20px, 2vw, 24px)" }}>
                   <span className="opacity-40">Asunto:</span> <span className="font-semibold">{email.subject}</span>
                 </p>
               </div>
@@ -806,7 +882,7 @@ export function SlideChipi() {
                         <button key={slotIdx}
                           onClick={() => canPlace && placeInSlot(slotIdx)}
                           disabled={!canPlace}
-                          className="inline-flex items-baseline gap-1.5 px-2 py-1 rounded-md transition-all text-left"
+                          className="inline-flex items-baseline gap-1.5 px-2 py-1 min-h-[44px] rounded-md transition-all text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-pf-spark)] focus-visible:ring-offset-2"
                           style={{
                             background: isDropTarget ? "rgba(255,140,50,0.08)" : "transparent",
                             border: isDropTarget
@@ -823,8 +899,8 @@ export function SlideChipi() {
                             }}>
                             {hasValue ? slotVal : "?"}
                           </span>
-                          <span className="font-[family-name:var(--font-pf-display)] text-[clamp(22px,min(2.2vw,2.8vh),26px)] leading-snug"
-                            style={{ color: fragmentText ? "var(--color-pf-ink)" : "rgba(0,0,0,0.3)" }}>
+                          <span className="font-[family-name:var(--font-pf-display)] leading-snug"
+                            style={{ fontSize: "clamp(22px, 2.2vw, 26px)", color: fragmentText ? "var(--color-pf-ink)" : "rgba(0,0,0,0.3)" }}>
                             {fragmentText || (isDropTarget ? "Colocar aquí" : "· · · · · · ·")}
                           </span>
                         </button>
@@ -836,11 +912,11 @@ export function SlideChipi() {
                 {/* Correct order if wrong */}
                 {verified && !verifyCorrect && (
                   <div className="mt-2 px-3 py-2 rounded-xl" style={{ background: "#E8F5E0", border: "1px solid rgba(63,107,20,0.2)" }}>
-                    <p className="font-[family-name:var(--font-pf-display)] text-[18px] mb-1" style={{ color: "#3F6B14" }}>ORDEN CORRECTO:</p>
+                    <p className="font-[family-name:var(--font-pf-display)] mb-1" style={{ fontSize: "clamp(18px, 1.5vw, 20px)", color: "#3F6B14" }}>ORDEN CORRECTO:</p>
                     {email.fragments.map((frag, i) => {
                       const displayNum = email.shuffle.indexOf(i) + 1;
                       return (
-                        <p key={i} className="font-[family-name:var(--font-pf-display)] text-[clamp(17px,min(1.5vw,1.9vh),20px)] leading-snug text-[var(--color-pf-ink)]">
+                        <p key={i} className="font-[family-name:var(--font-pf-display)] leading-snug text-[var(--color-pf-ink)]" style={{ fontSize: "clamp(18px, 1.6vw, 20px)" }}>
                           <span className="font-semibold" style={{ color: "#3F6B14" }}>{displayNum}</span> {frag}
                         </p>
                       );
@@ -865,19 +941,19 @@ export function SlideChipi() {
               style={{ background: "#FFFDF7", border: "1px solid rgba(0,0,0,0.1)", boxShadow: "0 2px 12px rgba(0,0,0,0.05)" }}>
               <div className="px-4 py-2"
                 style={{ background: "#F5F0E8", borderBottom: "1px solid rgba(0,0,0,0.08)" }}>
-                <p className="font-[family-name:var(--font-pf-display)] text-[clamp(18px,min(1.8vw,2.2vh),22px)] text-[var(--color-pf-ink)]">
+                <p className="font-[family-name:var(--font-pf-display)] text-[var(--color-pf-ink)]" style={{ fontSize: "clamp(18px, 1.8vw, 22px)" }}>
                   <span className="opacity-40">De:</span> <span className="font-semibold">{email.author}@correo.es</span>
                 </p>
-                <p className="font-[family-name:var(--font-pf-display)] text-[clamp(18px,min(1.8vw,2.2vh),22px)] text-[var(--color-pf-ink)]">
+                <p className="font-[family-name:var(--font-pf-display)] text-[var(--color-pf-ink)]" style={{ fontSize: "clamp(18px, 1.8vw, 22px)" }}>
                   <span className="opacity-40">Para:</span> <span className="font-semibold">{email.recipient}@correo.com</span>
                 </p>
-                <p className="font-[family-name:var(--font-pf-display)] text-[clamp(18px,min(1.8vw,2.2vh),22px)] text-[var(--color-pf-ink)]">
+                <p className="font-[family-name:var(--font-pf-display)] text-[var(--color-pf-ink)]" style={{ fontSize: "clamp(18px, 1.8vw, 22px)" }}>
                   <span className="opacity-40">Asunto:</span> <span className="font-semibold">{email.subject}</span>
                 </p>
               </div>
               <div className="px-4 py-3 space-y-1">
                 {email.fragments.map((frag, i) => (
-                  <p key={i} className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)] leading-snug text-[var(--color-pf-ink)]">
+                  <p key={i} className="font-[family-name:var(--font-pf-display)] leading-snug text-[var(--color-pf-ink)]" style={{ fontSize: "clamp(20px, 2vw, 24px)" }}>
                     {frag}
                   </p>
                 ))}
@@ -886,7 +962,7 @@ export function SlideChipi() {
 
             {/* CENTER: question + options */}
             <div className="flex flex-col gap-3 justify-center">
-              <p className="font-[family-name:var(--font-pf-display)] text-[clamp(22px,min(2.5vw,3.2vh),32px)] leading-snug text-[var(--color-pf-ink)] px-2">
+              <p className="font-[family-name:var(--font-pf-display)] leading-snug text-[var(--color-pf-ink)] px-2" style={{ fontSize: "clamp(24px, 2.6vw, 32px)" }}>
                 {email.question}
               </p>
               <div className="flex flex-col gap-2">
@@ -896,7 +972,7 @@ export function SlideChipi() {
                   return (
                     <button key={i}
                       onClick={() => { if (!qRevealed) { setQRunning(false); setQRevealed(true); setStep((s) => s + 1); setBubble("¡Veamos la respuesta!"); } }}
-                      className="flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all w-full text-left"
+                      className="flex items-center gap-3 px-4 py-2.5 min-h-[44px] rounded-xl transition-all w-full text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-pf-spark)] focus-visible:ring-offset-2"
                       style={{
                         background: isCorrect ? "#E8F5E0" : "white",
                         border: isCorrect ? "2px solid #3F6B14" : "2px solid rgba(0,0,0,0.08)",
@@ -904,11 +980,11 @@ export function SlideChipi() {
                         boxShadow: isCorrect ? "0 4px 16px rgba(63,107,20,0.2)" : "none",
                         cursor: qRevealed ? "default" : "pointer",
                       }}>
-                      <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)] w-9 text-center"
-                        style={{ color: isCorrect ? "#3F6B14" : "var(--color-pf-spark)" }}>
+                      <span className="font-[family-name:var(--font-pf-display)] w-9 text-center"
+                        style={{ fontSize: "clamp(20px, 2vw, 24px)", color: isCorrect ? "#3F6B14" : "var(--color-pf-spark)" }}>
                         {OPTION_LABELS[i]}
                       </span>
-                      <span className="font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2vw,2.5vh),24px)] text-[var(--color-pf-ink)]">
+                      <span className="font-[family-name:var(--font-pf-display)] text-[var(--color-pf-ink)]" style={{ fontSize: "clamp(20px, 2vw, 24px)" }}>
                         {opt}
                       </span>
                     </button>
@@ -931,21 +1007,21 @@ export function SlideChipi() {
         <div className="flex-1 max-w-[700px]">
           {phase === "play" && (
             <button onClick={stopTimer}
-              className="w-full py-3 rounded-full font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.4vw,3vh),28px)] text-white uppercase tracking-wider transition active:scale-[0.98] hover:opacity-90"
-              style={{ background: "var(--color-pf-spark)", boxShadow: "0 4px 16px rgba(0,0,0,0.15)" }}>
+              className="w-full py-3 min-h-[44px] rounded-full font-[family-name:var(--font-pf-display)] text-white uppercase tracking-wider transition active:scale-[0.98] hover:opacity-90 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[var(--color-pf-spark)]/40"
+              style={{ fontSize: "clamp(22px, 2.4vw, 28px)", background: "var(--color-pf-spark)", boxShadow: "0 4px 16px rgba(0,0,0,0.15)" }}>
               ¡LISTO! PARAR
             </button>
           )}
 
           {phase === "check" && !verified && (
             <div className="flex items-center gap-3">
-              <p className="font-[family-name:var(--font-pf-display)] text-[clamp(16px,min(1.4vw,1.8vh),18px)] text-[var(--color-pf-ink)] opacity-40 flex-shrink-0">
+              <p className="font-[family-name:var(--font-pf-display)] text-[var(--color-pf-ink)] opacity-50 flex-shrink-0" style={{ fontSize: "clamp(18px, 1.4vw, 20px)" }}>
                 Selecciona fragmento → coloca en el email
               </p>
               <button onClick={verifyOrder}
                 disabled={slots.some((s) => s === null)}
-                className="flex-1 py-3 rounded-full font-[family-name:var(--font-pf-display)] text-[clamp(18px,min(2vw,2.5vh),24px)] text-white uppercase tracking-wider transition active:scale-[0.98] hover:opacity-90 disabled:opacity-30"
-                style={{ background: "#3F6B14", boxShadow: "0 4px 16px rgba(63,107,20,0.2)" }}>
+                className="flex-1 py-3 min-h-[44px] rounded-full font-[family-name:var(--font-pf-display)] text-white uppercase tracking-wider transition active:scale-[0.98] hover:opacity-90 disabled:opacity-30 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#3F6B14]/40"
+                style={{ fontSize: "clamp(20px, 2vw, 24px)", background: "#3F6B14", boxShadow: "0 4px 16px rgba(63,107,20,0.2)" }}>
                 COMPROBAR
               </button>
             </div>
@@ -953,17 +1029,17 @@ export function SlideChipi() {
 
           {phase === "check" && verified && verifyCorrect && (
             <div className="flex items-center gap-2 flex-wrap">
-              <span className="font-[family-name:var(--font-pf-display)] text-base text-[var(--color-pf-ink)] opacity-50">¿QUIÉN ACIERTA?</span>
+              <span className="font-[family-name:var(--font-pf-display)] text-[var(--color-pf-ink)] opacity-60" style={{ fontSize: "clamp(18px, 1.4vw, 20px)" }}>¿QUIÉN ACIERTA?</span>
               {Array.from({ length: numTeams }, (_, i) => (
                 <button key={i} onClick={() => awardOrder(i)}
-                  className="px-5 py-2 rounded-full font-[family-name:var(--font-pf-display)] text-[clamp(16px,min(1.6vw,2vh),20px)] text-white transition active:scale-95 hover:opacity-90"
-                  style={{ background: TEAMS[i].color, boxShadow: "0 3px 10px rgba(0,0,0,0.12)" }}>
+                  className="px-5 py-2 min-h-[44px] rounded-full font-[family-name:var(--font-pf-display)] text-white transition active:scale-95 hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+                  style={{ fontSize: "clamp(18px, 1.6vw, 20px)", background: TEAMS[i].color, boxShadow: "0 3px 10px rgba(0,0,0,0.12)" }}>
                   {TEAMS[i].full}
                 </button>
               ))}
               <button onClick={() => awardOrder(null)}
-                className="px-5 py-2 rounded-full font-[family-name:var(--font-pf-display)] text-base text-[var(--color-pf-ink)] opacity-50 transition active:scale-95"
-                style={{ border: "2px solid rgba(0,0,0,0.12)" }}>
+                className="px-5 py-2 min-h-[44px] rounded-full font-[family-name:var(--font-pf-display)] text-[var(--color-pf-ink)] opacity-60 transition active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+                style={{ fontSize: "clamp(18px, 1.6vw, 20px)", border: "2px solid rgba(0,0,0,0.18)" }}>
                 NADIE
               </button>
             </div>
@@ -972,13 +1048,13 @@ export function SlideChipi() {
           {phase === "check" && verified && !verifyCorrect && (
             <div className="flex items-center gap-3">
               <button onClick={retryOrder}
-                className="flex-1 py-3 rounded-full font-[family-name:var(--font-pf-display)] text-[clamp(16px,min(1.6vw,2vh),20px)] uppercase tracking-wider transition active:scale-[0.98] hover:opacity-90"
-                style={{ background: "white", color: "var(--color-pf-spark)", border: "2px solid var(--color-pf-spark)" }}>
+                className="flex-1 py-3 min-h-[44px] rounded-full font-[family-name:var(--font-pf-display)] uppercase tracking-wider transition active:scale-[0.98] hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+                style={{ fontSize: "clamp(18px, 1.6vw, 20px)", background: "white", color: "var(--color-pf-spark)", border: "2px solid var(--color-pf-spark)" }}>
                 OTRO EQUIPO
               </button>
               <button onClick={skipToQuestion}
-                className="flex-1 py-3 rounded-full font-[family-name:var(--font-pf-display)] text-[clamp(16px,min(1.6vw,2vh),20px)] uppercase tracking-wider transition active:scale-[0.98] hover:opacity-90"
-                style={{ background: "#FEF5E7", color: "#D68910", border: "2px solid #D68910" }}>
+                className="flex-1 py-3 min-h-[44px] rounded-full font-[family-name:var(--font-pf-display)] uppercase tracking-wider transition active:scale-[0.98] hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+                style={{ fontSize: "clamp(18px, 1.6vw, 20px)", background: "#FEF5E7", color: "#D68910", border: "2px solid #D68910" }}>
                 IR A PREGUNTA →
               </button>
             </div>
@@ -986,25 +1062,25 @@ export function SlideChipi() {
 
           {phase === "question" && !qRevealed && (
             <button onClick={() => { setQRunning(false); setQRevealed(true); setStep((s) => s + 1); setBubble("¡Veamos la respuesta!"); }}
-              className="w-full py-3 rounded-full font-[family-name:var(--font-pf-display)] text-[clamp(18px,min(2vw,2.5vh),24px)] uppercase tracking-wider transition active:scale-[0.98] hover:opacity-90"
-              style={{ background: "#FEF5E7", color: "#D68910", border: "2px solid #D68910" }}>
+              className="w-full py-3 min-h-[44px] rounded-full font-[family-name:var(--font-pf-display)] uppercase tracking-wider transition active:scale-[0.98] hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+              style={{ fontSize: "clamp(20px, 2vw, 24px)", background: "#FEF5E7", color: "#D68910", border: "2px solid #D68910" }}>
               MOSTRAR RESPUESTA
             </button>
           )}
 
           {phase === "question" && qRevealed && !qAnswered && (
             <div className="flex items-center gap-2 flex-wrap">
-              <span className="font-[family-name:var(--font-pf-display)] text-base text-[var(--color-pf-ink)] opacity-50">¿QUIÉN ACIERTA?</span>
+              <span className="font-[family-name:var(--font-pf-display)] text-[var(--color-pf-ink)] opacity-60" style={{ fontSize: "clamp(18px, 1.4vw, 20px)" }}>¿QUIÉN ACIERTA?</span>
               {Array.from({ length: numTeams }, (_, i) => (
                 <button key={i} onClick={() => awardQuestion(i)}
-                  className="px-4 py-2 rounded-full font-[family-name:var(--font-pf-display)] text-base text-white transition active:scale-95 hover:opacity-90"
-                  style={{ background: TEAMS[i].color }}>
+                  className="px-4 py-2 min-h-[44px] rounded-full font-[family-name:var(--font-pf-display)] text-white transition active:scale-95 hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+                  style={{ fontSize: "clamp(18px, 1.6vw, 20px)", background: TEAMS[i].color }}>
                   {TEAMS[i].name}
                 </button>
               ))}
               <button onClick={() => awardQuestion(null)}
-                className="px-4 py-2 rounded-full font-[family-name:var(--font-pf-display)] text-base text-[var(--color-pf-ink)] opacity-50 transition active:scale-95"
-                style={{ border: "2px solid rgba(0,0,0,0.12)" }}>
+                className="px-4 py-2 min-h-[44px] rounded-full font-[family-name:var(--font-pf-display)] text-[var(--color-pf-ink)] opacity-60 transition active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+                style={{ fontSize: "clamp(18px, 1.6vw, 20px)", border: "2px solid rgba(0,0,0,0.18)" }}>
                 NADIE
               </button>
             </div>
@@ -1012,8 +1088,8 @@ export function SlideChipi() {
 
           {phase === "question" && qAnswered && (
             <button onClick={nextRound}
-              className="w-full py-3 rounded-full font-[family-name:var(--font-pf-display)] text-[clamp(18px,min(2vw,2.5vh),24px)] text-white uppercase tracking-wider transition active:scale-[0.98] hover:opacity-90"
-              style={{ background: "var(--color-pf-spark)", boxShadow: "0 4px 14px rgba(0,0,0,0.15)" }}>
+              className="w-full py-3 min-h-[44px] rounded-full font-[family-name:var(--font-pf-display)] text-white uppercase tracking-wider transition active:scale-[0.98] hover:opacity-90 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[var(--color-pf-spark)]/40"
+              style={{ fontSize: "clamp(20px, 2vw, 24px)", background: "var(--color-pf-spark)", boxShadow: "0 4px 14px rgba(0,0,0,0.15)" }}>
               {roundIdx + 1 >= totalRounds ? "VER RESULTADOS" : "SIGUIENTE RONDA →"}
             </button>
           )}
@@ -1023,6 +1099,14 @@ export function SlideChipi() {
       <style jsx>{`
         @keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.1)} }
         @keyframes bubbleIn { 0%{opacity:0;transform:scale(0.9)} 100%{opacity:1;transform:scale(1)} }
+        @keyframes btnPulse { 0%,100%{box-shadow:0 0 0 0 rgba(255,140,50,0.4)} 50%{box-shadow:0 0 0 8px rgba(255,140,50,0)} }
+        @media (prefers-reduced-motion: reduce) {
+          *, *::before, *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+          }
+        }
       `}</style>
     </div>
   );
