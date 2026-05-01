@@ -1,5 +1,33 @@
 # Changelog
 
+## v0.77 — 2026-05-01
+
+### slide-cierre (compartido 3.1 + 3.2 #09) — Auditoría a11y + responsive + ajustes visuales
+
+**Tailwind clamp roto → inline (Turbopack-safe)**:
+- Burbuja, nombre y badge de personaje (×5 cada): `text-[clamp(X,min(Yvw,Zvh),W)]` → `style fontSize` inline
+- `gap-[clamp(8px,1.8vw,28px)]` → `style gap` inline
+- h1 → inline (consistencia con patrón del proyecto)
+
+**Sizes mínimos ≥18px**: subtítulo "· Nuevo Compañeros 1 ·" y badge unidad de `text-base` (16px) → `clamp(18-20)`.
+
+**Bug de solape entre burbujas**: las burbujas tenían `max-w-[220px]` mientras la columna era `clamp(90-170px)` → invadían columnas vecinas. Fix: bubble `width: max-content + minWidth: 100% + maxWidth: 260px` (crece con el contenido sin invadir).
+
+**Word-break agresivo**: quitado `break-words` (rompía dentro de palabras → "comprobad o!"). Reemplazado por `wordBreak: normal + overflowWrap: normal + hyphens-none` (solo rompe en espacios).
+
+**Layout más limpio**:
+- Eliminadas formas decorativas del fondo (5 círculos + 2 estrellas SVG) y sus keyframes (`driftA`, `driftB`, `spin`, `fadeInSoft`)
+- h1 reducido: `clamp(48-160)` → `clamp(40-120)` (no aplasta el resto)
+- Ancho columna personaje: `clamp(90-170)` → `clamp(130-200)`
+- Gap entre personajes: `clamp(8-28)` → `clamp(32-80)` (intermedio)
+- Texto burbuja: `clamp(22-32)` → `clamp(20-26)`
+
+**Copy**: "¡Gran trabajo, equipo!" → "¡Buen trabajo, equipo!" (Pili).
+
+**Reducción de movimiento**: añadido `@media (prefers-reduced-motion: reduce)` global.
+
+**Versiones**: 3.1 v0.48 → v0.49, 3.2 v0.76 → v0.77.
+
 ## v0.76 — 2026-05-01
 
 ### slide-chipi (3.2 #08) — Tamaños "contenido protagonista" + nombre en línea propia
