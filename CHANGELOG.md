@@ -1,5 +1,27 @@
 # Changelog
 
+## v0.70 — 2026-05-01
+
+### slide-vito-2 (3.2 #06) — Auditoría a11y + responsive completa
+**A — Tamaños de texto (Tailwind clamp → inline)**:
+- Badge VITO, h1, instrucción, etiqueta grupo, hint grupo, título tarjeta, frase tarjeta — todos a inline `style={{ fontSize }}`
+- h1: `clamp(30,...,56)` → `clamp(36px, 4.5vw, 56px)` (mín título 36)
+- Instrucción: → `clamp(24px, 1.8vw, 32px)`
+- Frase tarjeta (contenido protagonista): `clamp(20-24)` → `clamp(26px, 2.2vw, 36px)` (mismo criterio que tabla vito-1)
+- Título tarjeta: `clamp(16-18)` → `clamp(18px, 1.3vw, 20px)`
+- Hint grupo: cursiva eliminada + `opacity-60` → `opacity-80`
+
+**B — Accesibilidad**:
+- Badge "Método": 16px → `clamp(18-20px)` inline
+- Botón atrás + EMPEZAR/SIGUIENTE/COMPLETADO: `text-base` → `clamp(20-24px)` inline + `min-h-[44px]` + `focus-visible:ring`
+- Contador: `text-base` → `clamp(18-20px)` inline
+- `prefers-reduced-motion` añadido a `<style jsx>`
+
+**C — Responsive**: wrapper de tarjetas con `maxHeight: 52vh` + `overflow-y-auto` + scrollbar custom (`cards-scroll`) — patrón flora-1/2/vito-1
+
+**D — Consistencia**: animación `btnPulse` en EMPEZAR cuando `step === 0` + keyframe añadido al `<style jsx>`
+- 3.1 v0.41 → v0.42, 3.2 v0.41 → v0.42
+
 ## v0.69 — 2026-05-01
 
 ### slide-vito-1 (#05) — 3 fixes menores
