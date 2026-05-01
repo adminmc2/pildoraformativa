@@ -1,5 +1,20 @@
 # Changelog
 
+## v0.72 — 2026-05-01
+
+### slide-vito-2 (3.2 #06) — 4 fixes finales del review
+1. **Closing card**: badge "SIEMPRE" + nota subidos a `clamp(18-20px)` (cumplen mín secundario 18px); nota sin cursiva (BDA), opacity 0.7→0.8
+2. **"¡Plan terminado!" → "¡Correo terminado!"** — semántica correcta de vito-2 (escritura, no planificación)
+3. **h1 ya no cambia en estado final** — siempre "Tu correo: elige y conecta"; la caja de celebración con "¡Has terminado!" es la única conclusión (no duplicar)
+4. **Comentario actualizado** `// 0=intro, 1-6=groups, 7=conclusión`
+
+### Lenguaje A1.1 — eliminado futuro simple
+- Burbuja final: `Luna lo revisará` → `vais a revisar con Luna` (ir+a+infinitivo, forma A1.1)
+- Subtítulo caja: `Léelo en parejas. Luna lo revisará` → `Leed el correo en parejas. Después, vais a revisar con Luna`
+- Sin futuro simple · Sin pronombres átonos (lo/la/le) · Solo imperativo + ir+a+infinitivo
+
+- 3.1 v0.43 → v0.44, 3.2 v0.43 → v0.44
+
 ## v0.71 — 2026-05-01
 
 ### slide-vito-2 (3.2 #06) — Reestructuración pedagógica + UX

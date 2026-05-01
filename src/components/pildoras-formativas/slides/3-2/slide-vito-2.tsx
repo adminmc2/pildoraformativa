@@ -104,12 +104,12 @@ const BUBBLES: React.ReactNode[] = [
   <>Elige una o dos tarjetas de <V>amigos</V>.</>,
   <>Escribe sobre la <V>escuela</V>. Copia los conectores en naranja.</>,
   <>Termina con la <V>despedida</V> y firma con tu nombre.</>,
-  <>¡Habéis escrito un correo con los conectores: <V>Hoy te hablo de</V>, <V>y</V>, <V>también</V>, <V>Este curso</V>...! Leedlo en voz alta.</>,
+  <>¡Correo <V>terminado</V>! Ahora <V>leed</V> vuestro correo en parejas. Después, <V>vais a revisar</V> con <V>Luna</V>.</>,
 ];
 
 export function SlideVito2() {
   const [step, setStep] = useState(0);
-  const totalSteps = GROUPS.length + 1; // 0=intro, 1-5=groups, 6=conclusión
+  const totalSteps = GROUPS.length + 1; // 0=intro, 1-6=groups, 7=conclusión
 
   const visibleIdx = step - 1;
   const canNext = step < totalSteps;
@@ -139,12 +139,12 @@ export function SlideVito2() {
             </span>
           </div>
 
-          {/* Título */}
+          {/* Título (constante para no duplicar el cierre con la caja de celebración) */}
           <h1
             className="font-[family-name:var(--font-pf-display)] uppercase leading-[0.88] tracking-tight text-[var(--color-pf-ink)]"
             style={{ fontSize: "clamp(36px, 4.5vw, 56px)" }}
           >
-            {step < totalSteps ? "Tu correo: elige y conecta" : "¡Correo listo!"}
+            Tu correo: elige y conecta
           </h1>
 
           {/* Instrucción + leyenda en un solo bloque (ocultas en estado final) */}
@@ -202,7 +202,7 @@ export function SlideVito2() {
                     className="text-[var(--color-pf-ink)] opacity-80"
                     style={{ fontSize: "clamp(20px, 1.6vw, 24px)" }}
                   >
-                    Lee en voz alta lo que has escrito.
+                    Leed el correo en parejas. Después, vais a revisar con Luna.
                   </span>
                 </div>
               </div>
@@ -288,7 +288,7 @@ export function SlideVito2() {
                     <span
                       className="font-[family-name:var(--font-pf-display)] tracking-wider px-3 py-1 rounded-full flex-shrink-0"
                       style={{
-                        fontSize: "clamp(16px, 1.2vw, 18px)",
+                        fontSize: "clamp(18px, 1.3vw, 20px)",
                         background: GROUPS[visibleIdx].color,
                         color: "white",
                       }}
@@ -303,8 +303,8 @@ export function SlideVito2() {
                         {GROUPS[visibleIdx].closing!.phrase}
                       </p>
                       <span
-                        className="opacity-70 italic"
-                        style={{ fontSize: "clamp(16px, 1.2vw, 18px)" }}
+                        className="opacity-80"
+                        style={{ fontSize: "clamp(18px, 1.3vw, 20px)" }}
                       >
                         {GROUPS[visibleIdx].closing!.note}
                       </span>
