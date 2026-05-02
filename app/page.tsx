@@ -104,6 +104,17 @@ const UNITS = [
         guiaHref: "/pildoras-formativas/3-1/guia",
         preview: "/images/preview-3-1.png",
       },
+      {
+        id: "3-2",
+        num: "3.2",
+        title: "Un Correo Electrónico Personal",
+        desc: "Actividad proyectable de 5-7 min. Los alumnos descubren la estructura de un email personal (saludo, cuerpo, cierre), practican los conectores y/también con vocabulario de familia y rutinas, y consolidan en un desafío por equipos.",
+        pages: "Libro pp. 42-45",
+        slides: 10,
+        href: "/pildoras-formativas/3-2",
+        guiaHref: "/pildoras-formativas/3-2/guia",
+        preview: "/images/preview-3-2.png",
+      },
     ],
   },
   { num: 4, title: "Mi casa", desc: "La casa, las habitaciones y hay/está.", available: false },
@@ -115,14 +126,16 @@ const ease = [0.16, 1, 0.3, 1] as const;
 
 export default function LandingPage() {
   const [active, setActive] = useState(0);
-  const [openUnit, setOpenUnit] = useState<number | null>(null);
+  const [openPildoraId, setOpenPildoraId] = useState<string | null>(null);
   const slide = SLIDES[active];
 
   const next = () => setActive((prev) => (prev + 1) % SLIDES.length);
   const prev = () => setActive((prev) => (prev - 1 + SLIDES.length) % SLIDES.length);
 
-  const openedUnit = UNITS.find((u) => u.num === openUnit && u.available);
-  const pildora = openedUnit?.pildoras?.[0];
+  const pildora = UNITS.flatMap((u) => u.pildoras ?? []).find((p) => p.id === openPildoraId);
+  const openedUnit = pildora
+    ? UNITS.find((u) => u.pildoras?.some((p) => p.id === pildora.id))
+    : undefined;
 
   return (
     <div
@@ -343,13 +356,7 @@ export default function LandingPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.75 + i * 0.06, duration: 0.5, ease }}
             >
-              {u.available ? (
-                <button onClick={() => setOpenUnit(u.num)} className="block w-full text-left group">
-                  <UnitCard unit={u} />
-                </button>
-              ) : (
-                <UnitCard unit={u} />
-              )}
+              <UnitCard unit={u} onPildoraClick={(id) => setOpenPildoraId(id)} />
             </motion.div>
           ))}
         </div>
@@ -365,7 +372,7 @@ export default function LandingPage() {
             transition={{ duration: 0.2 }}
             className="fixed inset-0 z-50 flex items-center justify-center p-6"
             style={{ background: "#000" }}
-            onClick={() => setOpenUnit(null)}
+            onClick={() => setOpenPildoraId(null)}
           >
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
@@ -382,7 +389,7 @@ export default function LandingPage() {
               {/* Close */}
               <div className="relative">
                 <button
-                  onClick={() => setOpenUnit(null)}
+                  onClick={() => setOpenPildoraId(null)}
                   className="absolute top-3 right-3 z-10 w-8 h-8 rounded-full flex items-center justify-center transition-colors"
                   style={{ background: "rgba(255,255,255,0.85)" }}
                 >
@@ -470,13 +477,17 @@ export default function LandingPage() {
   );
 }
 
-function UnitCard({ unit }: { unit: (typeof UNITS)[number] }) {
+function UnitCard({
+  unit,
+  onPildoraClick,
+}: {
+  unit: (typeof UNITS)[number];
+  onPildoraClick: (id: string) => void;
+}) {
   return (
     <div
       className={`rounded-2xl overflow-hidden transition-all duration-300 ${
-        unit.available
-          ? "cursor-pointer group-hover:-translate-y-1 group-hover:shadow-lg"
-          : "opacity-35 cursor-default"
+        unit.available ? "" : "opacity-35"
       }`}
       style={{
         background: "var(--color-landing-surface)",
@@ -510,16 +521,49 @@ function UnitCard({ unit }: { unit: (typeof UNITS)[number] }) {
           </div>
         </div>
 
-        <div className="mt-4 flex items-center justify-between">
-          {unit.available ? (
-            <div className="flex items-center gap-2">
-              <span
-                className="inline-block w-2 h-2 rounded-full"
-                style={{ background: TEJA }}
-              />
-              <span className="text-xs font-semibold" style={{ color: TEJA }}>
-                {unit.pildoras!.map((p) => `${p.num} ${p.title}`).join(" · ")}
-              </span>
+        <div className="mt-4">
+          {unit.available && unit.pildoras ? (
+            <div className="flex flex-col gap-2">
+              {unit.pildoras.map((p) => (
+                <button
+                  key={p.id}
+                  onClick={() => onPildoraClick(p.id)}
+                  className="flex items-center justify-between gap-3 px-4 py-3 rounded-xl text-left transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+                  style={{
+                    background: "color-mix(in srgb, " + TEJA + " 6%, transparent)",
+                    border: `1px solid color-mix(in srgb, ${TEJA} 25%, transparent)`,
+                  }}
+                >
+                  <div className="flex items-center gap-3 min-w-0">
+                    <span
+                      className="inline-flex items-center justify-center w-9 h-9 rounded-lg text-xs font-bold shrink-0 text-white font-[family-name:var(--font-landing)]"
+                      style={{ background: TEJA }}
+                    >
+                      {p.num}
+                    </span>
+                    <span
+                      className="text-sm font-semibold truncate"
+                      style={{ color: "var(--color-landing-navy)" }}
+                    >
+                      {p.title}
+                    </span>
+                  </div>
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="16"
+                    height="16"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    style={{ color: TEJA }}
+                    className="shrink-0"
+                  >
+                    <path d="M9 18l6-6-6-6" />
+                  </svg>
+                </button>
+              ))}
             </div>
           ) : (
             <span
@@ -528,23 +572,6 @@ function UnitCard({ unit }: { unit: (typeof UNITS)[number] }) {
             >
               Próximamente
             </span>
-          )}
-
-          {unit.available && (
-            <svg
-              viewBox="0 0 24 24"
-              width="16"
-              height="16"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="transition-transform group-hover:translate-x-1"
-              style={{ color: TEJA }}
-            >
-              <path d="M9 18l6-6-6-6" />
-            </svg>
           )}
         </div>
       </div>

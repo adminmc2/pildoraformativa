@@ -18,6 +18,17 @@ const PILDORAS = [
     guiaHref: "/pildoras-formativas/3-1/guia",
     preview: "/images/preview-3-1.png",
   },
+  {
+    id: "3-2",
+    num: "3.2",
+    title: "Un Correo Electrónico Personal",
+    desc: "Estructura del email A1.1: saludo, cuerpo, cierre. Conectores y/también, vocabulario familia y rutinas escolares.",
+    pages: "Libro pp. 42-45",
+    slides: 10,
+    href: "/pildoras-formativas/3-2",
+    guiaHref: "/pildoras-formativas/3-2/guia",
+    preview: "/images/preview-3-2.png",
+  },
 ];
 
 const ease = [0.16, 1, 0.3, 1] as const;
