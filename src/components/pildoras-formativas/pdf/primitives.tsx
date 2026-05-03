@@ -2,8 +2,11 @@
  * Primitivos compartidos para generación de PDFs.
  * Colores, estilos base y componentes reutilizables.
  */
-import { Text, View, StyleSheet, Image } from "@react-pdf/renderer";
+import { Text, View, StyleSheet, Image, Font } from "@react-pdf/renderer";
 import type { ReactNode } from "react";
+
+/* ── Desactivar guionado: cada palabra es un chunk indivisible ── */
+Font.registerHyphenationCallback((word) => [word]);
 
 /* ── Colores del proyecto (mismos que globals.css) ── */
 export const C = {
