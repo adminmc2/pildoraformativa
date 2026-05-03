@@ -113,7 +113,7 @@ const UNITS = [
         slides: 10,
         href: "/pildoras-formativas/3-2",
         guiaHref: "/pildoras-formativas/3-2/guia",
-        preview: "/images/preview-3-2.png",
+        preview: "/portada3.2.jpg",
       },
     ],
   },
