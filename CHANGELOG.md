@@ -1,5 +1,26 @@
 # Changelog
 
+## v0.78 — 2026-09-30
+
+### 3.1 Vito 1 + Vito 2 — Método «¿De quién es?» con dueño explícito
+
+**Problema lógico**: el método preguntaba «¿Quién?» y lo resolvía con el sujeto de la frase. El sujeto no decide el posesivo (*Nosotros tenemos nuestras / vuestras / sus mochilas* son todas correctas).
+
+**Vito 2** (propuesta 2 — dueño visual):
+- Frases sin sujeto: *___ mochilas están en la clase.* · *___ libro de español está en la mesa.*
+- Nueva etiqueta de dueño encima de la frase con iconos Phosphor: `UsersThree` (Nosotros), `HandPointing` (Vosotros) + `ArrowRight` hacia la frase
+- Paso 1: «¿Quién?» → «¿De quién es? De nosotros / De vosotros»
+- Burbuja 1: «¿De quién son las mochilas? Mirad la etiqueta.»
+
+**Vito 1**: etiqueta «¿Quién?» → «¿De quién es? De Javier = él» (coherencia de método).
+
+### Mayúsculas
+
+- Respuestas de etiquetas tras pregunta con mayúscula inicial (*Madre = singular*, *Mochilas = plural*…)
+- Posesivo a inicio de frase con mayúscula en opciones, respuesta y resultado: Vito 1 (*→ Su*), Vito 2 (*Nuestros/Nuestras*, *Vuestra/Vuestro*), Desafío rondas 2, 6 y 7
+
+**Versiones**: 3.1 v0.49 → v0.50 (3.2 sin cambios).
+
 ## v0.77 — 2026-05-01
 
 ### slide-cierre (compartido 3.1 + 3.2 #09) — Auditoría a11y + responsive + ajustes visuales

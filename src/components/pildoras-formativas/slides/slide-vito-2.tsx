@@ -2,11 +2,14 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { ArrowRight, HandPointing, UsersThree, type Icon } from "@phosphor-icons/react";
 import { VitoPill } from "@/components/pildoras-formativas/characters/vito-pill";
 import { CharacterStage } from "@/components/pildoras-formativas/shared/character-stage";
 
 type Example = {
   id: string;
+  // Dueño explícito: la frase no tiene sujeto, la etiqueta dice de quién es
+  owner: { label: string; icon: Icon };
   sentence: string;
   steps: { label: string; value: string; color: string }[];
   choices: { text: string; color: string }[];
@@ -19,35 +22,37 @@ type Example = {
 const EXAMPLES: Example[] = [
   {
     id: "mochilas",
-    sentence: "Nosotros tenemos ___ mochilas en la clase.",
+    owner: { label: "Nosotros", icon: UsersThree },
+    sentence: "___ mochilas están en la clase.",
     steps: [
-      { label: "¿Quién?", value: "Nosotros", color: "var(--color-pf-flower-soft)" },
-      { label: "¿Singular o plural?", value: "mochilas = plural", color: "var(--color-pf-star-soft)" },
-      { label: "¿Femenino o masculino?", value: "mochilas = femenino", color: "var(--color-pf-flower-soft)" },
+      { label: "¿De quién es?", value: "De nosotros", color: "var(--color-pf-flower-soft)" },
+      { label: "¿Singular o plural?", value: "Mochilas = plural", color: "var(--color-pf-star-soft)" },
+      { label: "¿Femenino o masculino?", value: "Mochilas = femenino", color: "var(--color-pf-flower-soft)" },
     ],
     choices: [
-      { text: "nuestros", color: "var(--color-pf-moon)" },
-      { text: "nuestras", color: "var(--color-pf-flower)" },
+      { text: "Nuestros", color: "var(--color-pf-moon)" },
+      { text: "Nuestras", color: "var(--color-pf-flower)" },
     ],
     correct: 1,
-    answer: "nuestras",
+    answer: "Nuestras",
     answerColor: "var(--color-pf-flower)",
     wrongHint: "No. Fíjate: femenino.",
   },
   {
     id: "libro",
-    sentence: "¿Vosotros tenéis ___ libro de español?",
+    owner: { label: "Vosotros", icon: HandPointing },
+    sentence: "___ libro de español está en la mesa.",
     steps: [
-      { label: "¿Quién?", value: "Vosotros", color: "var(--color-pf-flower-soft)" },
-      { label: "¿Singular o plural?", value: "libro = singular", color: "var(--color-pf-star-soft)" },
-      { label: "¿Femenino o masculino?", value: "libro = masculino", color: "var(--color-pf-moon-soft)" },
+      { label: "¿De quién es?", value: "De vosotros", color: "var(--color-pf-flower-soft)" },
+      { label: "¿Singular o plural?", value: "Libro = singular", color: "var(--color-pf-star-soft)" },
+      { label: "¿Femenino o masculino?", value: "Libro = masculino", color: "var(--color-pf-moon-soft)" },
     ],
     choices: [
-      { text: "vuestra", color: "var(--color-pf-flower)" },
-      { text: "vuestro", color: "var(--color-pf-moon)" },
+      { text: "Vuestra", color: "var(--color-pf-flower)" },
+      { text: "Vuestro", color: "var(--color-pf-moon)" },
     ],
     correct: 1,
-    answer: "vuestro",
+    answer: "Vuestro",
     answerColor: "var(--color-pf-moon)",
     wrongHint: "No. Fíjate: masculino.",
   },
@@ -55,14 +60,14 @@ const EXAMPLES: Example[] = [
 
 const BUBBLES = [
   "Ahora con nosotros y vosotros. Hay un paso más.",    // 0 — intro
-  "¿De quién son las mochilas?",                          // 1 — frase aparece
-  "De nosotros.",                                          // 2 — ¿Quién?
+  "¿De quién son las mochilas? Mirad la etiqueta.",       // 1 — frase + dueño aparecen
+  "De nosotros.",                                          // 2 — ¿De quién es?
   "«Mochilas»: plural.",                                   // 3 — ¿Singular o plural?
   "Y femenino.",                                           // 4 — ¿Femenino o masculino?
   "Nosotros + plural + femenino = ¿cuál?",                 // 5 — elección
   "¡Nuestras mochilas!",                                   // 6 — resultado
   "Otra. ¿De quién es el libro?",                          // 7 — frase 2 aparece
-  "De vosotros.",                                          // 8 — ¿Quién?
+  "De vosotros.",                                          // 8 — ¿De quién es?
   "«Libro»: singular.",                                    // 9 — ¿Singular o plural?
   "Y masculino.",                                          // 10 — ¿Femenino o masculino?
   "Vosotros + singular + masculino = ¿cuál?",              // 11 — elección
@@ -146,6 +151,18 @@ export function SlideVito2() {
               animate={{ opacity: 1, y: 0 }}
               className="bg-white rounded-2xl px-6 py-4 shadow-[0_14px_40px_-16px_rgba(0,0,0,0.14)]"
             >
+              {/* Dueño: etiqueta con icono → la cosa */}
+              <div className="flex items-center gap-2 mb-2">
+                <span
+                  className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full font-[family-name:var(--font-pf-display)] uppercase text-[clamp(20px,min(2.2vw,2.8vh),28px)] text-[var(--color-pf-ink)]"
+                  style={{ background: "var(--color-pf-flower-soft)" }}
+                >
+                  <ex.owner.icon weight="bold" className="w-[1.2em] h-[1.2em] flex-shrink-0" aria-hidden />
+                  {ex.owner.label}
+                </span>
+                <ArrowRight weight="bold" className="w-[clamp(24px,min(2.6vw,3.2vh),32px)] h-[clamp(24px,min(2.6vw,3.2vh),32px)] text-[var(--color-pf-ink)] opacity-60" aria-hidden />
+              </div>
+
               <p className="font-[family-name:var(--font-pf-display)] text-[clamp(22px,min(2.6vw,3.2vh),32px)] text-[var(--color-pf-ink)] mb-2">
                 {(() => {
                   const [before, after] = ex.sentence.split("___");
