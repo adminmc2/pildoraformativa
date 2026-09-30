@@ -17,22 +17,22 @@ type Gap = {
   answerColor: string;
 };
 
-// Texto coherente — Los deberes. 5 posesivos plurales: mis, nuestras, sus, vuestros, tus
-const TEXT_PARTS = [
-  "",
-  " compañeros de clase son geniales. ",
-  " profesoras son muy divertidas. Javier siempre hace ",
-  " deberes en la biblioteca. Y vosotros, ¿hacéis ",
-  " deberes en casa? ",
-  " notas seguro que son muy buenas.",
+// Correo electrónico de Javier a Lucía. 5 posesivos plurales: mis, nuestros, sus, tus, vuestras
+// Un solo narrador (Javier) fija de quién es cada cosa; «vuestras» = Lucía y su hermano Pablo.
+// Cada línea es un párrafo; cada segmento es texto o el índice de un hueco.
+const LINES: (string | number)[][] = [
+  ["Hola, Lucía:"],
+  ["¿Qué tal? Yo vivo en Madrid con ", 0, " padres y mi hermana Alejandra. Alejandra y yo estudiamos en el mismo instituto. ", 1, " profesores son muy simpáticos. Mis abuelos viven en Sevilla con ", 2, " dos perros."],
+  ["¿Y tú? ¿Vives con ", 3, " padres? ¿Y tu hermano Pablo y tú? ¿Cómo son ", 4, " profesoras?"],
+  ["Un beso,", "\n", "Javier"],
 ];
 
 const GAPS: Gap[] = [
-  { id: 0, options: ["Mi", "Mis", "Sus"], correct: 1, answerColor: "var(--color-pf-moon)" },
-  { id: 1, options: ["Nuestros", "Nuestras", "Vuestras"], correct: 1, answerColor: "var(--color-pf-flower)" },
+  { id: 0, options: ["mi", "mis", "tus"], correct: 1, answerColor: "var(--color-pf-moon)" },
+  { id: 1, options: ["Nuestros", "Vuestros", "Nuestras"], correct: 0, answerColor: "var(--color-pf-moon)" },
   { id: 2, options: ["su", "sus", "mis"], correct: 1, answerColor: "var(--color-pf-moon)" },
-  { id: 3, options: ["nuestros", "vuestros", "sus"], correct: 1, answerColor: "var(--color-pf-moon)" },
-  { id: 4, options: ["Mis", "Tus", "Sus"], correct: 1, answerColor: "var(--color-pf-flower)" },
+  { id: 3, options: ["tu", "tus", "mis"], correct: 1, answerColor: "var(--color-pf-moon)" },
+  { id: 4, options: ["nuestras", "vuestras", "vuestra"], correct: 1, answerColor: "var(--color-pf-flower)" },
 ];
 
 const NEON_COLORS = [
@@ -82,56 +82,52 @@ export function SlideLuna3() {
   const bubble: React.ReactNode = allFilled
     ? "¡Texto completo! Todo comprobado."
     : activeGap !== null && wrongPick !== null
-    ? "Casi... ¡pero no! Otra oportunidad."
+    ? "Mmm. ¿Quién escribe? ¿De quién es?"
     : activeGap !== null
     ? "¿Cuál falta aquí?"
     : filledCount === 0
     ? "Última prueba. ¿Completas el texto?"
     : `¡${filledCount} de ${GAPS.length}! Quedan ${GAPS.length - filledCount}.`;
 
-  // Build the rendered text with gaps
-  const renderText = () => {
-    const elements: React.ReactNode[] = [];
-    for (let i = 0; i < TEXT_PARTS.length; i++) {
-      elements.push(
-        <span key={`t-${i}`}>{TEXT_PARTS[i]}</span>
+  const renderGap = (i: number) => {
+    const gap = GAPS[i];
+    if (answers[i] !== null) {
+      return (
+        <motion.span
+          key={`g-${i}`}
+          initial={{ scale: 0.8 }}
+          animate={{ scale: 1 }}
+          className="inline-block px-3 py-0.5 rounded-lg text-white font-bold font-[family-name:var(--font-pf-display)] mx-1"
+          style={{ background: gap.answerColor }}
+        >
+          {gap.options[answers[i]!]}
+        </motion.span>
       );
-      if (i < GAPS.length) {
-        const gap = GAPS[i];
-        const answered = answers[i] !== null;
-        const isActive = activeGap === i;
-
-        if (answered) {
-          elements.push(
-            <motion.span
-              key={`g-${i}`}
-              initial={{ scale: 0.8 }}
-              animate={{ scale: 1 }}
-              className="inline-block px-3 py-0.5 rounded-lg text-white font-bold font-[family-name:var(--font-pf-display)] mx-1"
-              style={{ background: gap.answerColor }}
-            >
-              {gap.options[answers[i]!]}
-            </motion.span>
-          );
-        } else {
-          elements.push(
-            <button
-              key={`g-${i}`}
-              onClick={() => selectGap(i)}
-              className={`inline-block px-4 py-0.5 rounded-lg mx-1 font-[family-name:var(--font-pf-display)] transition ${
-                isActive
-                  ? "bg-[var(--color-pf-moon)] text-white ring-2 ring-[var(--color-pf-ink)]"
-                  : "bg-black/10 text-[var(--color-pf-ink)] hover:bg-black/20 cursor-pointer"
-              }`}
-            >
-              ___
-            </button>
-          );
-        }
-      }
     }
-    return elements;
+    return (
+      <button
+        key={`g-${i}`}
+        onClick={() => selectGap(i)}
+        className={`inline-block min-h-[44px] px-4 py-0.5 rounded-lg mx-1 font-[family-name:var(--font-pf-display)] transition ${
+          activeGap === i
+            ? "bg-[var(--color-pf-moon)] text-white ring-2 ring-[var(--color-pf-ink)]"
+            : "bg-black/10 text-[var(--color-pf-ink)] hover:bg-black/20 cursor-pointer"
+        }`}
+      >
+        ___
+      </button>
+    );
   };
+
+  // Correo: un párrafo por línea, con huecos
+  const renderText = () =>
+    LINES.map((line, li) => (
+      <span key={`l-${li}`} className="block mb-2 last:mb-0">
+        {line.map((seg, si) =>
+          typeof seg === "number" ? renderGap(seg) : seg === "\n" ? <br key={`br-${li}-${si}`} /> : <span key={`t-${li}-${si}`}>{seg}</span>
+        )}
+      </span>
+    ));
 
   return (
     <div className="w-full h-full flex items-center justify-center overflow-hidden">

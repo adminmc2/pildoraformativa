@@ -1,5 +1,36 @@
 # Changelog
 
+## v0.79 — 2026-09-30
+
+### 3.1 Luna 1, Luna 3 y Desafío — Contexto que fija de quién es (propuesta 3)
+
+**Problema lógico**: varias frases admitían dos posesivos correctos porque nada fijaba quién era el dueño.
+
+**Luna 1** — 6 minidiálogos pregunta-respuesta (campo `question`):
+- *Tengo un profesor de música… — ¿Cómo se llama **tu** profesor?* · *¿Dónde tienen Ana y Luis el ordenador? — **Su** ordenador…* · *¿Con quién vive Graciela? — Vive con **sus** tíos.* · *¿Tienes tus libros…? — Sí, **mis** libros…* · *¿Es de Javier esta bicicleta? — Sí, es **su** bicicleta.* · *¿Cómo es vuestro profesor…? — **Nuestro** profesor…*
+- Distractores imposibles en contexto (se quitan los que también eran válidos)
+- Feedback de error adaptativo: L1 «Mmm. Leed la pregunta. ¿De quién es?» · L2 «¿Quién habla? ¿Singular o plural?»
+
+**Luna 3** — Texto de huecos → correo electrónico de Javier a Lucía (un solo narrador):
+- Posesivos: mis, Nuestros, sus, tus, vuestras (*¿Y tu hermano Pablo y tú? ¿Cómo son vuestras profesoras?*)
+- Corregido error previo: *Tus notas* dirigido a *vosotros*
+- Mayúscula solo en el posesivo que abre frase (*Nuestros*); el resto en minúscula
+- Huecos con `min-h-[44px]`; feedback de error «Mmm. ¿Quién escribe? ¿De quién es?»
+
+**Desafío** — Rondas 1, 2, 5 y 6 en formato pregunta-respuesta:
+- R1 *Mi padre se llama Luis. ¿Y cómo se llama **tu** padre?* (tu / tus / mi)
+- R2 *¿Cómo se llama la madre de Javier? — **Su** madre…*
+- R5 *Profe, ¿abrimos los libros? — Sí, abrid **vuestros** libros…* (distractor *sus* → *vuestro*)
+- R6 *¿Cómo son las mochilas de David y Javier? — **Sus** mochilas…*
+
+### 3.1 Luna 2 — Ruleta: etiquetas dentro del sector
+
+- Etiquetas orientadas a lo largo del radio (mitad izquierda girada 180°), antes `vertical-lr` → se salían del sector
+- Ancho máximo 36 % del disco con corte tras la barra (*Vosotros/* + *as*)
+- Fuente Archivo Black 20–28px → Inter bold 18–20px (mínimo texto secundario)
+
+**Versiones**: 3.1 v0.50 → v0.51 (3.2 sin cambios).
+
 ## v0.78 — 2026-09-30
 
 ### 3.1 Vito 1 + Vito 2 — Método «¿De quién es?» con dueño explícito

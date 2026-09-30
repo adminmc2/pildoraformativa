@@ -9,9 +9,14 @@ import { CharacterStage } from "@/components/pildoras-formativas/shared/characte
 const P = ({ children }: { children: React.ReactNode }) => (
   <span className="italic" style={{ color: "var(--color-pf-spark)" }}>{children}</span>
 );
+const V = ({ children }: { children: React.ReactNode }) => (
+  <span className="font-semibold" style={{ color: "var(--color-pf-spark)" }}>{children}</span>
+);
 
 type Item = {
   id: number;
+  // Minidiálogo: la pregunta fija de quién es → solo una opción válida
+  question: string;
   before: string;
   after: string;
   options: string[];
@@ -19,20 +24,21 @@ type Item = {
   answerColor: string;
 };
 
-// Frases de Act 5 p.37 del JSON — no vistas antes en la píldora
+// Frases de Act 5 p.37 del JSON, en formato pregunta-respuesta
 const ITEMS: Item[] = [
-  { id: 0, before: "¿Estudias música en ", after: " instituto?", options: ["mi", "tu", "su"], correct: 1, answerColor: "var(--color-pf-moon)" },
-  { id: 1, before: "Ellos tienen ", after: " ordenador en la habitación.", options: ["sus", "su", "mi"], correct: 1, answerColor: "var(--color-pf-moon)" },
-  { id: 2, before: "Graciela vive con ", after: " tíos.", options: ["su", "sus", "mis"], correct: 1, answerColor: "var(--color-pf-moon)" },
-  { id: 3, before: "Yo tengo ", after: " libros en la cartera.", options: ["mi", "mis", "sus"], correct: 1, answerColor: "var(--color-pf-moon)" },
-  { id: 4, before: "Javier tiene ", after: " bicicleta en la calle.", options: ["sus", "su", "tu"], correct: 1, answerColor: "var(--color-pf-flower)" },
-  { id: 5, before: "", after: " profesor de matemáticas es muy simpático.", options: ["Nuestra", "Nuestro", "Su"], correct: 1, answerColor: "var(--color-pf-moon)" },
+  { id: 0, question: "Tengo un profesor de música muy simpático.", before: "¿Sí? ¿Cómo se llama ", after: " profesor?", options: ["tus", "tu", "vuestro"], correct: 1, answerColor: "var(--color-pf-moon)" },
+  { id: 1, question: "¿Dónde tienen Ana y Luis el ordenador?", before: "", after: " ordenador está en la habitación.", options: ["Sus", "Su", "Mi"], correct: 1, answerColor: "var(--color-pf-moon)" },
+  { id: 2, question: "¿Con quién vive Graciela?", before: "Vive con ", after: " tíos.", options: ["su", "sus", "mis"], correct: 1, answerColor: "var(--color-pf-moon)" },
+  { id: 3, question: "¿Tienes tus libros en la cartera?", before: "Sí, ", after: " libros están en la cartera.", options: ["mi", "mis", "tus"], correct: 1, answerColor: "var(--color-pf-moon)" },
+  { id: 4, question: "¿Es de Javier esta bicicleta?", before: "Sí, es ", after: " bicicleta.", options: ["sus", "su", "tu"], correct: 1, answerColor: "var(--color-pf-flower)" },
+  { id: 5, question: "¿Cómo es vuestro profesor de matemáticas?", before: "", after: " profesor es muy simpático.", options: ["Nuestra", "Nuestro", "Vuestro"], correct: 1, answerColor: "var(--color-pf-moon)" },
 ];
 
 export function SlideLuna1() {
   const [current, setCurrent] = useState(0);
   const [answered, setAnswered] = useState(false);
   const [wrongPick, setWrongPick] = useState<number | null>(null);
+  const [wrongCount, setWrongCount] = useState(0);
   const [score, setScore] = useState(0);
   const [showComic, setShowComic] = useState(false);
 
@@ -49,6 +55,7 @@ export function SlideLuna1() {
       setTimeout(() => setShowComic(false), 1500);
     } else {
       setWrongPick(i);
+      setWrongCount((w) => w + 1);
     }
   };
 
@@ -56,6 +63,7 @@ export function SlideLuna1() {
     setCurrent((c) => c + 1);
     setAnswered(false);
     setWrongPick(null);
+    setWrongCount(0);
     setShowComic(false);
   };
 
@@ -63,6 +71,7 @@ export function SlideLuna1() {
     setCurrent(0);
     setAnswered(false);
     setWrongPick(null);
+    setWrongCount(0);
     setScore(0);
     setShowComic(false);
   };
@@ -72,7 +81,9 @@ export function SlideLuna1() {
     : answered
     ? <>¡Eso es, <P>{item.options[item.correct]}</P>!</>
     : wrongPick !== null
-    ? "Esa no, pero casi. ¿Y si pruebas otra?"
+    ? wrongCount === 1
+      ? <>Mmm. Leed la pregunta. ¿<V>De quién</V> es?</>
+      : <>¿<V>Quién</V> habla? ¿Singular o plural?</>
     : "A ver... ¿cuál es?";
 
   return (
@@ -112,8 +123,11 @@ export function SlideLuna1() {
                   <span className="text-base font-semibold opacity-50 float-right">
                     {current + 1}/{ITEMS.length}
                   </span>
+                  <p className="text-[clamp(22px,min(2.6vw,3.2vh),32px)] leading-tight text-[var(--color-pf-ink)] opacity-75 mb-2">
+                    — {item.question}
+                  </p>
                   <p className="font-[family-name:var(--font-pf-display)] text-[clamp(24px,min(2.8vw,3.4vh),36px)] leading-tight text-[var(--color-pf-ink)]">
-                    {item.before}
+                    — {item.before}
                     {answered ? (
                       <span
                         className="inline-block px-3 py-0.5 rounded-lg text-white font-bold mx-1"

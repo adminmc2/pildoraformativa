@@ -12,12 +12,12 @@ type Round = { before: string; after: string; options: [string, string, string];
 type Phase = "setup" | "question" | "marking" | "result";
 
 const ROUNDS: Round[] = [
-  { before: "Hoy hablamos de la familia. ¿Cómo se llama ", after: " padre?", options: ["tu", "su", "mi"], correct: 0, answerColor: "#7C5CFF" },
-  { before: "Mira la familia de Javier. ", after: " madre se llama Catalina.", options: ["Mis", "Su", "Tus"], correct: 1, answerColor: "#E91FCE" },
+  { before: "Mi padre se llama Luis. ¿Y cómo se llama ", after: " padre?", options: ["tu", "tus", "mi"], correct: 0, answerColor: "#7C5CFF" },
+  { before: "¿Cómo se llama la madre de Javier? — ", after: " madre se llama Catalina.", options: ["Mis", "Su", "Tus"], correct: 1, answerColor: "#E91FCE" },
   { before: "¿Tienes hermanos? — Sí, ", after: " hermanos se llaman Ana y Carlos.", options: ["mi", "mis", "sus"], correct: 1, answerColor: "#7C5CFF" },
   { before: "¿Os gustan las clases? — ¡Sí! ", after: " profesoras son muy simpáticas.", options: ["Nuestros", "Nuestras", "Vuestras"], correct: 1, answerColor: "#E91FCE" },
-  { before: "Chicos, abrid ", after: " libros por la página 36.", options: ["nuestros", "sus", "vuestros"], correct: 2, answerColor: "#7C5CFF" },
-  { before: "David y Javier van al colegio. ", after: " mochilas son nuevas.", options: ["Nuestras", "Sus", "Vuestras"], correct: 1, answerColor: "#E91FCE" },
+  { before: "Profe, ¿abrimos los libros? — Sí, abrid ", after: " libros por la página 36.", options: ["nuestros", "vuestro", "vuestros"], correct: 2, answerColor: "#7C5CFF" },
+  { before: "¿Cómo son las mochilas de David y Javier? — ", after: " mochilas son nuevas.", options: ["Nuestras", "Sus", "Vuestras"], correct: 1, answerColor: "#E91FCE" },
   { before: "¿En qué clase estáis? — ", after: " clase es la 2B.", options: ["Nuestra", "Vuestra", "Su"], correct: 0, answerColor: "#E91FCE" },
 ];
 

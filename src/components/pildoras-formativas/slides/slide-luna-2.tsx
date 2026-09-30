@@ -145,22 +145,25 @@ export function SlideLuna2() {
                   {PERSONS.map((person, i) => {
                     const segAngle = i * 60 + 30; // centro del segmento
                     const rad = (segAngle * Math.PI) / 180;
-                    const r = 33;
+                    const r = 30;
                     const x = 50 + r * Math.sin(rad);
                     const y = 50 - r * Math.cos(rad);
+                    // Texto a lo largo del radio (cabe en el sector); mitad izquierda girada 180° para no quedar boca abajo
+                    const rot = segAngle < 180 ? segAngle - 90 : segAngle + 90;
                     return (
                       <div
                         key={person}
-                        className="absolute font-[family-name:var(--font-pf-display)] text-[clamp(20px,min(2.2vw,2.8vh),28px)] text-[var(--color-pf-ink)] font-bold text-center leading-[1.1]"
+                        className="absolute font-[family-name:var(--font-pf-ui)] text-[clamp(18px,1.4vw,20px)] text-[var(--color-pf-ink)] font-bold text-center leading-[1.05]"
                         style={{
                           left: `${x}%`,
                           top: `${y}%`,
-                          transform: `translate(-50%, -50%)`,
-                          writingMode: "vertical-lr",
-                          textOrientation: "mixed",
+                          width: "36%",
+                          transform: `translate(-50%, -50%) rotate(${rot}deg)`,
+                          overflowWrap: "normal",
+                          wordBreak: "normal",
                         }}
                       >
-                        {person}
+                        {person.replace("/", "/​")}
                       </div>
                     );
                   })}
